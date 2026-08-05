@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="view_purchase_request_form" model="ir.ui.view">
+            <field name="name">view.purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='po_numbers']" position="after">
+                	<field name="project_names" invisible="1"/>
+                </xpath>
+
+                <!-- filter analytic_account_id -->
+                <xpath expr="//field[@name='line_ids']//form//field[@name='analytic_account_id']" position="attributes">
+                    <attribute name="domain">[('company_id', '=', parent.company_id)]</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_3tv_purchase_request_line_form" model="ir.ui.view">
+            <field name="name">inherit.3tv.purchase.request.line.form</field>
+            <field name="model">purchase.request.line</field>
+            <field name="inherit_id" ref="purchase_request.purchase_request_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='outstanding_purchase_qty']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

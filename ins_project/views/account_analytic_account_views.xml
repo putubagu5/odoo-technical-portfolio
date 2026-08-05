@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="3tv_view_account_analytic_account_form" model="ir.ui.view">
+            <field name="name">3tv.view.account.analytic.account.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <!-- add departement code after partner_id -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="departement_code"/>
+                    <field name="analytic_seq_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

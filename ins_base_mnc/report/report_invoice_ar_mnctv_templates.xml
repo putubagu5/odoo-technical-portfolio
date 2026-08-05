@@ -1,0 +1,108 @@
+<odoo>
+    <template id="report_invoice_ar_mnctv_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_invoice_ar_mnctv_document"/>
+            </t>
+        </t>
+    </template>
+    
+    <template id="report_invoice_ar_mnctv_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <!-- title -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3><u><strong>TANDA TERIMA</strong></u></h3>
+                    </div>
+                </div>
+
+                <!-- date, put on right -->
+                <div class="row">
+                    <div class="col-4 offset-8">
+                        Jakarta, 30 SEP 2021
+                    </div>
+                </div>
+                
+                <div class="row" style="margin-top: 10px !important;">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>NO. INVOICE</strong>
+                                </td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>AMOUNT</strong>
+                                </td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>PRODUCT</strong>
+                                </td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>NO. FAKTUR PAJAK</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    1015081
+                                </td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    27,500,000
+                                </td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    Sewa Ruang Jakarta Concert Hall tanggal 31 Oktober 2021
+                                </td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    010.004.21.17226783
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                
+                <!-- partner name and address -->
+                <div class="row" style="margin-top: 10px !important;">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-3">Ditujukan Kepada</div>
+                            <div class="col-9">: YAYASAN COVENANT CITY/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Alamat</div>
+                            <div class="col-9">: DBS Bank Tower Lt. 39 Ciputra World 1 Jakarta Jl. Prof. DR. Satrio Kav 3-5 Karet Kuning</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Note</div>
+                            <div class="col-9">: To: Accounting</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- signature columns -->
+                <div class="row" style="margin-top: 10px !important;">
+                    <div class="col-4">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                Yang Menerima
+                                <br/>
+                                <br/>
+                                (<span style="color: transparent;">____________________</span>)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 offset-4">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                Yang Mengirim
+                                <br/>
+                                <br/>
+                                (<span style="color: transparent;">____________________</span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

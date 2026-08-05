@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_account_payment_form" model="ir.ui.view">
+            <field name="name">view.account.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="ins_base_mnc.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <!-- add iban after notes -->
+                <xpath expr="//field[@name='notes']" position="after">
+                    <field name="iban"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

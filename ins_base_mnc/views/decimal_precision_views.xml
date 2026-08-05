@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <record id="gr_matching_decimal_precision" model="decimal.precision">
+            <field name="name">gr.matching.decimal.precision</field>
+            <field name="digits">15</field>
+        </record>
+    </data>
+</odoo>

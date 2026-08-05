@@ -1,0 +1,7 @@
+<templates>
+    <t t-inherit="account.ShowPaymentInfo" t-inherit-mode="extension">
+        <xpath expr="//t[@t-esc='line.journal_name']" position="after">
+            <t t-esc="line.payment_references"/>
+        </xpath>
+    </t>
+</templates>

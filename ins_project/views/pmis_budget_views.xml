@@ -1,0 +1,212 @@
+<odoo>
+    <data>
+        <record id="view_pmis_budget_form" model="ir.ui.view">
+            <field name="name">view.pmis.budget.form</field>
+            <field name="model">pmis.budget</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_copy" type="object" class="oe_highlight" string="Copy Lines"/>
+                        <button name="button_submit" type="object" string="Submit" attrs="{'invisible': [('task_status', 'not in', ('draft'))]}"/>
+                        <button name="button_verify" type="object" string="Verify" attrs="{'invisible': ['|',('task_status', 'not in', ('submit')),('button_visible','=',False)]}"/>
+                        <button name="button_approve" type="object" string="Approve" attrs="{'invisible': [('task_status', 'not in', ('verify'))]}"/>
+                        <button name="button_reject" type="object" string="Reject" attrs="{'invisible': [('task_status', 'not in', ('verify'))]}"/>
+                        <button name="button_cancel" type="object" string="Cancel" attrs="{'invisible': [('task_status', 'not in', ('verify'))]}"/>
+                        <button name="button_draft" type="object" string="Set to Draft"/>
+                        <button name="button_search_budget" type="object" string="Search Budget"/>
+                        <field name="button_visible" invisible="1"/>
+                        <field name="task_status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <!-- <div class="oe_title">
+                            <label for="name" string="Description"/>
+                            <h1>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div> -->
+                        <group>
+                            <group id="left_group">
+                                <field name="name" invisible="1"/>
+                                <field name="expenditure_ids" invisible="1"/>
+                                <field name="main_project_id" required="1" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <field name="program_id" required="1" domain="[('main_project_id', '=', main_project_id)]" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <field name="task_id" required="1" domain="[('program_id', '=', program_id)]" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <field name="manager_task_id" invisible="1"/>
+                                <field name="user_manager_task_id" invisible="1"/>
+                                <field name="unit_pm_id" required="1"/>
+                            </group>
+                            <group id="middle_group">
+                                <field name="group_id" readonly="1"/>
+                                <field name="analytic_account_id" required="1" string="Department" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <field name="department_type_id" required="1" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <label for="date_shoot_start"/>
+                                <div>
+                                    <field name="date_shoot_start" class="oe_inline" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                    <b>&#160;&#160;&#160;&#160;Until&#160;&#160;</b>
+                                    <field name="date_shoot_end" class="oe_inline" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                </div>
+                                <label for="date_start"/>
+                                <div>
+                                    <field name="date_start" class="oe_inline" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                    <b>&#160;&#160;&#160;&#160;End Date&#160;&#160;</b>
+                                    <field name="date_end" class="oe_inline" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                </div>
+                            </group>
+                            <group id="right_group">
+                                <label for="range_start"/>
+                                <div>
+                                    <field name="range_start" class="oe_inline" readonly="1"/>
+                                    To
+                                    <field name="range_end" class="oe_inline" readonly="1"/>
+                                </div>
+                                <field name="episode_number" required="1" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <field name="day_number" required="1" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <field name="duration" required="1" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <field name="company_id" invisible="1" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                                <field name="group_id" invisible="1" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="input_budget" string="Input Budget">
+                                <field name="budget_ids" nolabel="1" attrs="{'readonly': [('task_status', 'not in', ('draft'))]}">
+                                    <tree editable="bottom">
+                                        <field name="no"/>
+                                        <field name="expenditure_type_id" required="1" domain="['|',('date_end','=', False),('date_end', '&lt;=', parent.date_end),('group_id', '=', parent.group_id),('analytic_account_id', '=', parent.analytic_account_id)]"/>
+                                        <field name="subcategory_id" invisible="1"/>
+                                        <field name="category_id" invisible="1"/>
+                                        <field name="item_code"/>
+                                        <field name="item_name"/>
+                                        <field name="description" required="1"/>
+                                        <field name="pax" required="1"/>
+                                        <field name="eps" required="1"/>
+                                        <field name="day" required="1"/>
+                                        <field name="rate" required="1"/>
+                                        <button name="action_distribute" type="object" string="Rate Distribution" options='{"warn": true}'/>
+                                        <field name="average_by_eps"/>
+                                        <field name="budget"/>
+                                        <field name="amount_budget_in" readonly="1"/>
+                                        <field name="amount_budget_out" readonly="1"/>
+                                        <field name="amount_budget_line"/>
+                                        <field name="remarks"/>
+                                        <field name="company_id" invisible="1"/>
+                                        <field name="do_copy"/>
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <div class="oe_subtotal_footer_separator oe_inline">
+                                        <label for="total_budget"/>
+                                    </div>
+                                    <field
+                                        name="total_budget"
+                                        nolabel="1"
+                                        class="oe_subtotal_footer_separator"
+                                    />
+                                    <field
+                                        name="total_remaining"
+                                        invisible="1"
+                                    />
+                                </group>
+                            </page>
+                            <page name="budget_info" string="Budget Info">
+                                <field name="budget_info_ids" nolabel="1">
+                                    <tree editable="bottom" decoration-danger="remaining_amount &lt; 0">
+                                        <field name="amount_budget_line" string="Planned Budget"/>
+                                        <field name="pr_reserve_amount"/>
+                                        <field name="po_reserve_amount"/>
+                                        <field name="actual_budget"/>
+                                        <field name="remaining_amount" decoration-danger="remaining_amount &lt; 0"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <!-- <page name="budget_summary" string="Budget Summary">
+                                <button name="button_search_budget" type="object" string="Search Budget"/>
+                                <field name="budget_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="no"/>
+                                        <field name="expenditure_type_id" required="1" domain="['|',('date_end','=', False),('date_end', '&lt;=', parent.date_end),('group_id', '=', parent.group_id),('analytic_account_id', '=', parent.analytic_account_id)]"/>
+                                        <field name="item_code"/>
+                                        <field name="item_name"/>
+                                        <field name="description"/>
+                                        <field name="pax"/>
+                                        <field name="eps"/>
+                                        <field name="day"/>
+                                        <field name="rate"/>
+                                        <button name="action_distribute" type="object" string="Rate Distribution" options='{"warn": true}'/>
+                                        <field name="average_by_eps"/>
+                                        <field name="budget"/>
+                                        <field name="remarks"/>
+                                        <field name="company_id" invisible="1"/>
+                                        <field name="do_copy"/>
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <div class="oe_subtotal_footer_separator oe_inline">
+                                        <label for="total_budget"/>
+                                    </div>
+                                    <field
+                                        name="total_budget"
+                                        nolabel="1"
+                                        class="oe_subtotal_footer_separator"
+                                    />
+                                </group>
+                            </page> -->
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <field name="activity_ids" widget="mail_activity" />
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pmis_budget_tree" model="ir.ui.view">
+            <field name="name">view.pmis.budget.tree</field>
+            <field name="model">pmis.budget</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" invisible="1"/>
+                    <field name="main_project_id"/>
+                    <field name="program_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pmis_budget_search" model="ir.ui.view">
+            <field name="name">view.pmis.budget.search</field>
+            <field name="model">pmis.budget</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="program_id" string="Program Name"/>
+                    <field name="main_project_id" string="Main Project"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_pmis_budget" model="ir.actions.act_window">
+            <field name="name">Budget Project</field>
+            <field name="res_model">pmis.budget</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis"
+            name="PMIS"
+            groups="project.group_project_manager"
+            sequence="33"/>
+
+        <menuitem id="menu_pmis_budget"
+            name="Budget"
+            parent="menu_pmis"
+            sequence="1"/>
+
+        <menuitem
+            id="menu_pmis_budget_sub"
+            name="Budget Project"
+            action="action_view_pmis_budget"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_budget"
+            sequence="0"/>
+    </data>
+</odoo>

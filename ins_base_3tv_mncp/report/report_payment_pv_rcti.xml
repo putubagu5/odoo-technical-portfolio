@@ -1,0 +1,225 @@
+<odoo>
+    <template id="ins_base_3tv_mncp.report_payment_pv_rcti_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_3tv_mncp.report_payment_pv_rcti_container_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_3tv_mncp.report_payment_pv_rcti_container_document">
+        <t t-call="web.basic_layout">
+            <div class="page">
+              <table border="1" cellspacing="0" cellpadding="5" width="100%">
+                <tr>
+                    <td rowspan="3" width="35%">
+                    <t t-if="o.company_id.logo">
+                        <img t-att-src="image_data_uri(o.company_id.logo)" class="float-left" style="max-height: 250px;max-width: 200px;  display: block;margin-left: auto;margin-right: auto;" alt="Logo"/>
+                    </t>
+                    </td>
+                    <td colspan="2" rowspan="4" width="45%">
+                        <center>
+                        <H4>PEMBAYARAN</H4>
+                        </center>
+                    </td>
+                    <!-- <td></td> -->
+                    <td rowspan="3" width="20%">RC.412.012</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <!-- <td></td> -->
+                    <!-- <td></td> -->
+                    <!-- <td></td> -->
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <!-- <td></td> -->
+                    <!-- <td></td> -->
+                    <!-- <td></td> -->
+                </tr>
+                <tr>
+                    <td style="font-size:6pt;">PT RAJAWALI CITRA TELEVISI INDONESIA</td>
+                    <!-- <td></td> -->
+                    <!-- <td></td> -->
+                    <td>no.:PV140092007</td>
+                </tr>
+
+            <!-- baris 2 -->
+                <tr>
+                    <td colspan="4" rowspan="4" style="font-size:8pt;"><br/><br/>
+                        Tanggal  : 05-APR-22 <br/><br/>
+                        pR No    : 126122 <br/><br/>
+                        PO No    : 149784 <br/><br/>
+                        Dibayarkan Kepada : TALENT PENDUKUNG <br/><br/><br/><br/>
+                        Dana Sejumblah : 25.000.000,00 <br/><br/>
+                        Terbilang : Dua Puluh LIma Juta Rupiah <br/><br/><br/>
+                        Untuk Pembayaran :</td>
+                    <!-- <td></td>
+                    <td></td>
+                    <td></td> -->
+                </tr>
+                <tr>
+                    <!-- <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> -->
+                </tr>
+                <tr>
+                    <!-- <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> -->
+                </tr>
+                <tr>
+                    <!-- <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> -->
+                </tr>
+
+                <!-- baris ke 3 -->
+                <tr>
+                    <td colspan="2">PENERIMA PEMBAYARAN</td>
+                    <!-- <td></td> -->
+                    <td colspan="2"> BENTUK PEMBAYARAN</td>
+                    <!-- <td></td> -->
+                </tr>
+                <tr>
+                    <td colspan="2" rowspan="2"><br/><br/></td>
+                    <!-- <td></td> -->
+                    <td colspan="2" rowspan="3">Bank : ICB IDR 100-01 <br/><br/>
+                        TT/BG/Cek : TRF150699 <br/>
+                        Tanggal : 05-APR-22 <br/>
+                    Status Check : NEGOTIABLE</td>
+                    <!-- <td></td> -->
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <!-- <td></td> -->
+                    <!-- <td colspan="2"></td> -->
+                    <!-- <td></td> -->
+                </tr>
+                <tr>
+                    <td>NAMA:</td>
+                    <td>TANGGAL:</td>
+                    <!-- <td colspan="2"></td> -->
+                    <!-- <td></td> -->
+                </tr>
+
+                <!-- baris ke 4 -->
+                <tr>
+                    <td >DISIAPKAN</td>
+                    <td colspan="2">DIPERIKSA</td>
+                    <!-- <td></td> -->
+                    <td >DISETUJUI</td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><br/><br/><br/>
+                    (MANFALUHI,  EDI BUDIMAN) <br/>
+                    Staff Finance</td>
+                    <td colspan="2" rowspan="3">(Patrick Mamora) <br/>
+                        Kasie Pyment Admin</td>
+                    <!-- <td></td> -->
+                    <td rowspan="3">(Shinta ) <br/>
+                    Kadep Finance</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <!-- <td></td>
+                    <td></td> -->
+                    <!-- <td></td> -->
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <!-- <td></td>
+                    <td></td> -->
+                    <!-- <td></td> -->
+                </tr>
+
+                <!-- baris 5 -->
+                <tr>
+                    <td colspan="4">No. JV:</td>
+                    <!-- <td></td>
+                    <td></td>
+                    <td></td> -->
+                </tr>
+
+                <!-- BARIS 6 -->
+                <tr>
+                    <td colspan="4"> <center><b>JURNAL DAN NOMOR PERKIRAAN</b></center></td>
+                    <!-- <td></td>
+                    <td></td>
+                    <td></td> -->
+                </tr>
+
+                <!-- baris 7 -->
+                <tr>
+                    <td><center> KETERANGAN</center></td>
+                    <td> <center>NO PERKIRAAN</center></td>
+                    <td><center> DEBIT </center></td>
+                    <td> <center> KREDIT</center></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><center><b>JUMLAH</b></center></td>
+                    <!-- <td></td> -->
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <!-- baris terakhir -->
+                <tr>
+                    <td >DISIAPKAN</td>
+                    <td colspan="2">DIPERIKSA</td>
+                    <!-- <td></td> -->
+                    <td >DISETUJUI</td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><br/><br/><br/>
+                    <center>staf Accounting</center></td>
+                    <td colspan="2" rowspan="3">(Patrick Mamora) <br/>
+                        Kasie Pyment Admin</td>
+                    <!-- <td></td> -->
+                    <td rowspan="3">(Shinta ) <br/>
+                    Kadep Finance</td>
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <!-- <td></td>
+                    <td></td> -->
+                    <!-- <td></td> -->
+                </tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <!-- <td></td>
+                    <td></td> -->
+                    <!-- <td></td> -->
+                </tr>
+            </table>
+        </div>         
+        </t>
+    </template>
+</odoo>

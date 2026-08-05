@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.rule" id="cashflow_activity_comp_rule">
+            <field name="name">CF Activity multi-company</field>
+            <field name="model_id" ref="model_cashflow_activity"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record model="ir.rule" id="cashflow_activity_category_comp_rule">
+            <field name="name">Cf Category multi-company</field>
+            <field name="model_id" ref="model_cashflow_activity_category"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

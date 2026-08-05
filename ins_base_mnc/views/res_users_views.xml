@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record id="operating_unit_view_users_form" model="ir.ui.view">
+            <field name="name">view.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="operating_unit.view_users_form"/>
+            <field name="arch" type="xml">
+                <!-- put select_all_units before default_operating_unit_id -->
+                <xpath expr="//field[@name='default_operating_unit_id']" position="before">
+                    <field name="select_all_units"/>
+                </xpath>
+
+                <!-- put buyer_ids and location_ids after partner_id -->
+                <xpath expr="//group//field[@name='partner_id']" position="after">
+                    <field name="buyer_ids" widget="many2many_tags"/>
+                    <field name="location_ids" widget="many2many_tags"/>
+                    <!-- <field name="id_users"/> -->
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_users_form" model="ir.ui.view">
+            <field name="name">view.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <!-- add new group inside page access_rights before field groups_id -->
+                <xpath expr="//page[@name='access_rights']//group" position="after">
+                    <group string="Multi Cost Center">
+                        <field name="select_all_analytics"/>
+                        <field name="default_account_analytic_id"/>
+                        <field name="account_analytic_ids" widget="many2many_tags"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

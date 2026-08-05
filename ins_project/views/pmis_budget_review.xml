@@ -1,0 +1,137 @@
+<odoo>
+    <data>
+        <record id="view_pmis_budget_review_form" model="ir.ui.view">
+            <field name="name">view.pmis.budget.review.form</field>
+            <field name="model">pmis.budget.review</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group id="left_group">
+                                <field name="name" invisible="1"/>
+                                <field name="budget_id" required="1"/>
+                                <field name="main_project_id" required="1"/>
+                                <field name="program_id" required="1" domain="[('main_project_id', '=', main_project_id)]"/>
+                                <field name="task_id" required="1" domain="[('program_id', '=', program_id)]"/>
+                                <field name="unit_pm_id" required="1"/>
+                            </group>
+                            <group id="middle_group">
+                                <field name="analytic_account_id" required="1" string="Department"/>
+                                <field name="department_type_id" string="Department Type"/>
+                                <label for="date_shoot_start"/>
+                                <div>
+                                    <field name="date_shoot_start" class="oe_inline"/>
+                                    <b>&#160;&#160;&#160;&#160;Until&#160;&#160;</b>
+                                    <field name="date_shoot_end" class="oe_inline"/>
+                                </div>
+                                <label for="date_start"/>
+                                <div>
+                                    <field name="date_start" class="oe_inline"/>
+                                    <b>&#160;&#160;&#160;&#160;End Date&#160;&#160;</b>
+                                    <field name="date_end" class="oe_inline"/>
+                                </div>
+                            </group>
+                            <group id="right_group">
+                                <label for="range_start"/>
+                                <div>
+                                    <field name="range_start" class="oe_inline" readonly="1"/>
+                                    To
+                                    <field name="range_end" class="oe_inline" readonly="1"/>
+                                </div>
+                                <field name="episode_number" required="1"/>
+                                <field name="day_number" required="1"/>
+                                <field name="duration" required="1"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="group_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="input_budget" string="Input Budget">
+                                <field name="budget_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <!-- <field name="line_id"/> -->
+                                        <field name="no"/>
+                                        <field name="expenditure_type_id" required="1" domain="['|',('date_end','=', False),('date_end', '&lt;=', parent.date_end),('group_id', '=', parent.group_id),('analytic_account_id', '=', parent.analytic_account_id)]"/>
+                                        <field name="subcategory_id" invisible="1"/>
+                                        <field name="category_id" invisible="1"/>
+                                        <field name="item_code"/>
+                                        <field name="item_name"/>
+                                        <field name="description"/>
+                                        <field name="pax"/>
+                                        <field name="eps"/>
+                                        <field name="day"/>
+                                        <field name="rate"/>
+                                        <button name="action_distribute" type="object" string="Rate Distribution" options='{"warn": true}'/>
+                                        <field name="average_by_eps"/>
+                                        <field name="budget"/>
+                                        <field name="remarks"/>
+                                        <field name="company_id" invisible="1"/>
+                                        <field name="do_copy"/>
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <div class="oe_subtotal_footer_separator oe_inline">
+                                        <label for="total_budget"/>
+                                    </div>
+                                    <field
+                                        name="total_budget"
+                                        nolabel="1"
+                                        class="oe_subtotal_footer_separator"
+                                    />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pmis_budget_review_tree" model="ir.ui.view">
+            <field name="name">view.pmis.budget.review.tree</field>
+            <field name="model">pmis.budget.review</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" invisible="1"/>
+                    <field name="budget_id"/>
+                    <field name="program_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pmis_budget_review_search" model="ir.ui.view">
+            <field name="name">view.pmis.budget.review.search</field>
+            <field name="model">pmis.budget.review</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="program_id" string="Program"/>
+                    <field name="main_project_id" string="Main Project"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_pmis_budget_review" model="ir.actions.act_window">
+            <field name="name">Budget Review</field>
+            <field name="res_model">pmis.budget.review</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis"
+            name="PMIS"
+            groups="project.group_project_manager"
+            sequence="33"/>
+
+        <menuitem id="menu_pmis_budget"
+            name="Budget"
+            parent="menu_pmis"
+            sequence="1"/>
+
+        <menuitem
+            id="menu_pmis_budget_sub_review"
+            name="Budget Review"
+            action="action_view_pmis_budget_review"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_budget"
+            sequence="4"/>
+    </data>
+</odoo>

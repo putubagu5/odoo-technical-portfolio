@@ -1,0 +1,3495 @@
+[
+    {
+        "analytic_id": 130,
+        "account_id": 450,
+        "debit": 20014997.0,
+        "credit": 0.0,
+        "balance": 20014997.0
+    },
+    {
+        "analytic_id": 130,
+        "account_id": 487,
+        "debit": 12500000.0,
+        "credit": 0.0,
+        "balance": 12500000.0
+    },
+    {
+        "analytic_id": 130,
+        "account_id": 623,
+        "debit": 0.0,
+        "credit": 127517500.0,
+        "balance": -127517500.0
+    },
+    {
+        "analytic_id": 130,
+        "account_id": 651,
+        "debit": 121341169.0,
+        "credit": 0.0,
+        "balance": 121341169.0
+    },
+    {
+        "analytic_id": 130,
+        "account_id": 912,
+        "debit": 15138588.0,
+        "credit": 0.0,
+        "balance": 15138588.0
+    },
+    {
+        "analytic_id": 130,
+        "account_id": 965,
+        "debit": 21158000.0,
+        "credit": 0.0,
+        "balance": 21158000.0
+    },
+    {
+        "analytic_id": 130,
+        "account_id": 966,
+        "debit": 89033880.0,
+        "credit": 0.0,
+        "balance": 89033880.0
+    },
+    {
+        "analytic_id": 130,
+        "account_id": 969,
+        "debit": 239984824.0,
+        "credit": 0.0,
+        "balance": 239984824.0
+    },
+    {
+        "analytic_id": 131,
+        "account_id": 651,
+        "debit": 0.0,
+        "credit": 3216968.0,
+        "balance": -3216968.0
+    },
+    {
+        "analytic_id": 131,
+        "account_id": 669,
+        "debit": 295200.0,
+        "credit": 0.0,
+        "balance": 295200.0
+    },
+    {
+        "analytic_id": 132,
+        "account_id": 487,
+        "debit": 2845000.0,
+        "credit": 0.0,
+        "balance": 2845000.0
+    },
+    {
+        "analytic_id": 132,
+        "account_id": 651,
+        "debit": 0.0,
+        "credit": 37159375.0,
+        "balance": -37159375.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 476,
+        "debit": 242313010.0,
+        "credit": 0.0,
+        "balance": 242313010.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 487,
+        "debit": 10000000.0,
+        "credit": 0.0,
+        "balance": 10000000.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 542,
+        "debit": 782926262856.0,
+        "credit": 0.0,
+        "balance": 782926262856.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 555,
+        "debit": 0.0,
+        "credit": 596750000.0,
+        "balance": -596750000.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 567,
+        "debit": 0.0,
+        "credit": 97795887632.0,
+        "balance": -97795887632.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 576,
+        "debit": 0.0,
+        "credit": 1304877105.0,
+        "balance": -1304877105.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 623,
+        "debit": 2339234550.0,
+        "credit": 3599337296.0,
+        "balance": -1260102746.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 624,
+        "debit": 6762153360.0,
+        "credit": 0.0,
+        "balance": 6762153360.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 643,
+        "debit": 0.0,
+        "credit": 447376420.0,
+        "balance": -447376420.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 651,
+        "debit": 65348624051.0,
+        "credit": 3797375908.0,
+        "balance": 61551248143.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 669,
+        "debit": 5000000.0,
+        "credit": 26029024510.0,
+        "balance": -26024024510.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 670,
+        "debit": 389625428.0,
+        "credit": 1399739140.0,
+        "balance": -1010113712.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 754,
+        "debit": 50396979.0,
+        "credit": 8234103578.0,
+        "balance": -8183706599.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 983,
+        "debit": 1709900.0,
+        "credit": 0.0,
+        "balance": 1709900.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 988,
+        "debit": 1381303040.0,
+        "credit": 0.0,
+        "balance": 1381303040.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 991,
+        "debit": 1220470183.0,
+        "credit": 0.0,
+        "balance": 1220470183.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 993,
+        "debit": 1258475234.0,
+        "credit": 0.0,
+        "balance": 1258475234.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 997,
+        "debit": 1042674.0,
+        "credit": 0.0,
+        "balance": 1042674.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1002,
+        "debit": 742810900.0,
+        "credit": 0.0,
+        "balance": 742810900.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1003,
+        "debit": 144491960.0,
+        "credit": 0.0,
+        "balance": 144491960.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1019,
+        "debit": 633450000.0,
+        "credit": 0.0,
+        "balance": 633450000.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1025,
+        "debit": 9859395485.0,
+        "credit": 7463892300.0,
+        "balance": 2395503185.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1027,
+        "debit": 82106775.0,
+        "credit": 12530350.0,
+        "balance": 69576425.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1028,
+        "debit": 48522248.0,
+        "credit": 38400444.0,
+        "balance": 10121804.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1029,
+        "debit": 2175829151.0,
+        "credit": 0.0,
+        "balance": 2175829151.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1063,
+        "debit": 5219508420.0,
+        "credit": 0.0,
+        "balance": 5219508420.0
+    },
+    {
+        "analytic_id": 133,
+        "account_id": 1138,
+        "debit": 0.0,
+        "credit": 691050.0,
+        "balance": -691050.0
+    },
+    {
+        "analytic_id": 134,
+        "account_id": 623,
+        "debit": 236191300.0,
+        "credit": 0.0,
+        "balance": 236191300.0
+    },
+    {
+        "analytic_id": 134,
+        "account_id": 651,
+        "debit": 136015680.0,
+        "credit": 114345889.0,
+        "balance": 21669791.0
+    },
+    {
+        "analytic_id": 134,
+        "account_id": 754,
+        "debit": 0.0,
+        "credit": 34269142.0,
+        "balance": -34269142.0
+    },
+    {
+        "analytic_id": 134,
+        "account_id": 1025,
+        "debit": 33771628.0,
+        "credit": 0.0,
+        "balance": 33771628.0
+    },
+    {
+        "analytic_id": 135,
+        "account_id": 669,
+        "debit": 25000000.0,
+        "credit": 780846119.0,
+        "balance": -755846119.0
+    },
+    {
+        "analytic_id": 135,
+        "account_id": 754,
+        "debit": 0.0,
+        "credit": 461250000.0,
+        "balance": -461250000.0
+    },
+    {
+        "analytic_id": 136,
+        "account_id": 669,
+        "debit": 101194496.0,
+        "credit": 754422164.0,
+        "balance": -653227668.0
+    },
+    {
+        "analytic_id": 136,
+        "account_id": 754,
+        "debit": 15000000.0,
+        "credit": 117713678.0,
+        "balance": -102713678.0
+    },
+    {
+        "analytic_id": 137,
+        "account_id": 669,
+        "debit": 15000000.0,
+        "credit": 0.0,
+        "balance": 15000000.0
+    },
+    {
+        "analytic_id": 138,
+        "account_id": 450,
+        "debit": 164560.0,
+        "credit": 0.0,
+        "balance": 164560.0
+    },
+    {
+        "analytic_id": 138,
+        "account_id": 623,
+        "debit": 0.0,
+        "credit": 2181981000.0,
+        "balance": -2181981000.0
+    },
+    {
+        "analytic_id": 138,
+        "account_id": 966,
+        "debit": 1100000.0,
+        "credit": 0.0,
+        "balance": 1100000.0
+    },
+    {
+        "analytic_id": 138,
+        "account_id": 980,
+        "debit": 225000.0,
+        "credit": 0.0,
+        "balance": 225000.0
+    },
+    {
+        "analytic_id": 138,
+        "account_id": 988,
+        "debit": 260429.0,
+        "credit": 0.0,
+        "balance": 260429.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 57,
+        "debit": 5000000.0,
+        "credit": 5000000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 108,
+        "debit": 1000000.0,
+        "credit": 0.0,
+        "balance": 1000000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 431,
+        "debit": 72045000.0,
+        "credit": 0.0,
+        "balance": 72045000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 436,
+        "debit": 26553074264.0,
+        "credit": 28713385742.0,
+        "balance": -2160311478.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 438,
+        "debit": 12010590234.0,
+        "credit": 0.0,
+        "balance": 12010590234.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 450,
+        "debit": 4461220985.0,
+        "credit": 0.0,
+        "balance": 4461220985.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 452,
+        "debit": 260000000.0,
+        "credit": 0.0,
+        "balance": 260000000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 457,
+        "debit": 211407000000.0,
+        "credit": 211415345000.0,
+        "balance": -8345000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 458,
+        "debit": 8345000.0,
+        "credit": 0.0,
+        "balance": 8345000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 459,
+        "debit": 5869747.0,
+        "credit": 0.0,
+        "balance": 5869747.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 460,
+        "debit": 1258828189.0,
+        "credit": 1282733936.0,
+        "balance": -23905747.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 463,
+        "debit": 12184200.0,
+        "credit": 0.0,
+        "balance": 12184200.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 464,
+        "debit": 3242168000.0,
+        "credit": 0.0,
+        "balance": 3242168000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 465,
+        "debit": 3723000.0,
+        "credit": 0.0,
+        "balance": 3723000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 475,
+        "debit": 1058650362.0,
+        "credit": 103605000.0,
+        "balance": 955045362.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 480,
+        "debit": 2509439963.0,
+        "credit": 0.0,
+        "balance": 2509439963.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 482,
+        "debit": 8.0,
+        "credit": 0.0,
+        "balance": 8.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 486,
+        "debit": 214651.0,
+        "credit": 0.0,
+        "balance": 214651.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 487,
+        "debit": 112136665393.0,
+        "credit": 14029935000.0,
+        "balance": 98106730393.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 491,
+        "debit": 1781687250.0,
+        "credit": 0.0,
+        "balance": 1781687250.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 495,
+        "debit": 81237400.0,
+        "credit": 0.0,
+        "balance": 81237400.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 536,
+        "debit": 156119384937.0,
+        "credit": 0.0,
+        "balance": 156119384937.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 539,
+        "debit": 41616208679.0,
+        "credit": 0.0,
+        "balance": 41616208679.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 623,
+        "debit": 1406646796.0,
+        "credit": 8808129604.0,
+        "balance": -7401482808.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 624,
+        "debit": 1753765716.0,
+        "credit": 0.0,
+        "balance": 1753765716.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 643,
+        "debit": 4230977.0,
+        "credit": 5097582.0,
+        "balance": -866605.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 650,
+        "debit": 69000000.0,
+        "credit": 18191250000.0,
+        "balance": -18122250000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 651,
+        "debit": 934098782.0,
+        "credit": 5952775064.0,
+        "balance": -5018676282.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 653,
+        "debit": 41340000.0,
+        "credit": 0.0,
+        "balance": 41340000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 654,
+        "debit": 696640500.0,
+        "credit": 0.0,
+        "balance": 696640500.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 661,
+        "debit": 17861401.0,
+        "credit": 34778478929.0,
+        "balance": -34760617528.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 668,
+        "debit": 2334748000.0,
+        "credit": 4028955100.0,
+        "balance": -1694207100.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 669,
+        "debit": 28617586462.0,
+        "credit": 320061342.0,
+        "balance": 28297525120.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 684,
+        "debit": 0.0,
+        "credit": 52114670990.0,
+        "balance": -52114670990.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 688,
+        "debit": 0.0,
+        "credit": 256159398.0,
+        "balance": -256159398.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 691,
+        "debit": 42728804714.0,
+        "credit": 0.0,
+        "balance": 42728804714.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 708,
+        "debit": 91912938.0,
+        "credit": 49676058.0,
+        "balance": 42236880.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 714,
+        "debit": 2928597601792.0,
+        "credit": 0.0,
+        "balance": 2928597601792.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 757,
+        "debit": 1075000000.0,
+        "credit": 24026375000.0,
+        "balance": -22951375000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 787,
+        "debit": 8710000000.0,
+        "credit": 0.0,
+        "balance": 8710000000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 900,
+        "debit": 1179500.0,
+        "credit": 0.0,
+        "balance": 1179500.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 965,
+        "debit": 1691046.0,
+        "credit": 0.0,
+        "balance": 1691046.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 969,
+        "debit": 109500.0,
+        "credit": 0.0,
+        "balance": 109500.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 980,
+        "debit": 4397701.0,
+        "credit": 0.0,
+        "balance": 4397701.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 988,
+        "debit": 56012.0,
+        "credit": 0.0,
+        "balance": 56012.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 1016,
+        "debit": 238500000.0,
+        "credit": 0.0,
+        "balance": 238500000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 1018,
+        "debit": 18018018.0,
+        "credit": 0.0,
+        "balance": 18018018.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 1019,
+        "debit": 16500000.0,
+        "credit": 0.0,
+        "balance": 16500000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 1024,
+        "debit": 37500000.0,
+        "credit": 0.0,
+        "balance": 37500000.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 1046,
+        "debit": 258795.0,
+        "credit": 0.0,
+        "balance": 258795.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 1091,
+        "debit": 261775585.0,
+        "credit": 0.0,
+        "balance": 261775585.0
+    },
+    {
+        "analytic_id": 139,
+        "account_id": 1492,
+        "debit": 8860256.0,
+        "credit": 0.0,
+        "balance": 8860256.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 356,
+        "debit": 36705655.0,
+        "credit": 0.0,
+        "balance": 36705655.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 489,
+        "debit": 10000000.0,
+        "credit": 0.0,
+        "balance": 10000000.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 651,
+        "debit": 0.0,
+        "credit": 287801.0,
+        "balance": -287801.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 672,
+        "debit": 6925737071.0,
+        "credit": 0.0,
+        "balance": 6925737071.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 673,
+        "debit": 40811497972.0,
+        "credit": 0.0,
+        "balance": 40811497972.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 674,
+        "debit": 6612958712.0,
+        "credit": 0.0,
+        "balance": 6612958712.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 676,
+        "debit": 98305179800.0,
+        "credit": 0.0,
+        "balance": 98305179800.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 678,
+        "debit": 14457119412.0,
+        "credit": 0.0,
+        "balance": 14457119412.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 679,
+        "debit": 19654142639.0,
+        "credit": 24661843.0,
+        "balance": 19629480796.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 680,
+        "debit": 14054920.0,
+        "credit": 0.0,
+        "balance": 14054920.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 965,
+        "debit": 891200.0,
+        "credit": 0.0,
+        "balance": 891200.0
+    },
+    {
+        "analytic_id": 140,
+        "account_id": 1029,
+        "debit": 22307773741.0,
+        "credit": 0.0,
+        "balance": 22307773741.0
+    },
+    {
+        "analytic_id": 141,
+        "account_id": 651,
+        "debit": 6000.0,
+        "credit": 0.0,
+        "balance": 6000.0
+    },
+    {
+        "analytic_id": 142,
+        "account_id": 651,
+        "debit": 0.0,
+        "credit": 13412750.0,
+        "balance": -13412750.0
+    },
+    {
+        "analytic_id": 142,
+        "account_id": 958,
+        "debit": 1600000.0,
+        "credit": 0.0,
+        "balance": 1600000.0
+    },
+    {
+        "analytic_id": 142,
+        "account_id": 1090,
+        "debit": 222000.0,
+        "credit": 0.0,
+        "balance": 222000.0
+    },
+    {
+        "analytic_id": 142,
+        "account_id": 1091,
+        "debit": 8184958334.0,
+        "credit": 519166667.0,
+        "balance": 7665791667.0
+    },
+    {
+        "analytic_id": 142,
+        "account_id": 1094,
+        "debit": 564213332.0,
+        "credit": 29666666.0,
+        "balance": 534546666.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 109,
+        "debit": 0.0,
+        "credit": 2368202.0,
+        "balance": -2368202.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 450,
+        "debit": 83683321.0,
+        "credit": 0.0,
+        "balance": 83683321.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 475,
+        "debit": 507792888.0,
+        "credit": 0.0,
+        "balance": 507792888.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 476,
+        "debit": 68199915.0,
+        "credit": 0.0,
+        "balance": 68199915.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 486,
+        "debit": 840000.0,
+        "credit": 1000000.0,
+        "balance": -160000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 487,
+        "debit": 43900000.0,
+        "credit": 0.0,
+        "balance": 43900000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 497,
+        "debit": 199500.0,
+        "credit": 0.0,
+        "balance": 199500.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 623,
+        "debit": 4622460550.0,
+        "credit": 4566822377.0,
+        "balance": 55638173.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 649,
+        "debit": 0.0,
+        "credit": 345854.0,
+        "balance": -345854.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 651,
+        "debit": 21460091186.0,
+        "credit": 714686578.0,
+        "balance": 20745404608.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 669,
+        "debit": 50644000.0,
+        "credit": 0.0,
+        "balance": 50644000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 688,
+        "debit": 0.0,
+        "credit": 289459.0,
+        "balance": -289459.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 708,
+        "debit": 0.0,
+        "credit": 175749802.0,
+        "balance": -175749802.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 893,
+        "debit": 2111075005.0,
+        "credit": 0.0,
+        "balance": 2111075005.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 957,
+        "debit": 225997000.0,
+        "credit": 0.0,
+        "balance": 225997000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 958,
+        "debit": 41825530.0,
+        "credit": 0.0,
+        "balance": 41825530.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 959,
+        "debit": 8700000.0,
+        "credit": 0.0,
+        "balance": 8700000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 962,
+        "debit": 4420182.0,
+        "credit": 0.0,
+        "balance": 4420182.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 977,
+        "debit": 28504045.0,
+        "credit": 2221520.0,
+        "balance": 26282525.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 978,
+        "debit": 5300000.0,
+        "credit": 0.0,
+        "balance": 5300000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 979,
+        "debit": 39449195.0,
+        "credit": 7349428.0,
+        "balance": 32099767.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 982,
+        "debit": 4846000.0,
+        "credit": 0.0,
+        "balance": 4846000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 983,
+        "debit": 390000.0,
+        "credit": 0.0,
+        "balance": 390000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 984,
+        "debit": 43195612.0,
+        "credit": 0.0,
+        "balance": 43195612.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 991,
+        "debit": 100902932.0,
+        "credit": 0.0,
+        "balance": 100902932.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 992,
+        "debit": 49807207.0,
+        "credit": 0.0,
+        "balance": 49807207.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 993,
+        "debit": 296331804.0,
+        "credit": 0.0,
+        "balance": 296331804.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 994,
+        "debit": 184503798.0,
+        "credit": 0.0,
+        "balance": 184503798.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 995,
+        "debit": 33274692.0,
+        "credit": 0.0,
+        "balance": 33274692.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 1005,
+        "debit": 21823066.0,
+        "credit": 0.0,
+        "balance": 21823066.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 1012,
+        "debit": 36000.0,
+        "credit": 0.0,
+        "balance": 36000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 1013,
+        "debit": 3900000.0,
+        "credit": 0.0,
+        "balance": 3900000.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 1025,
+        "debit": 68127982.0,
+        "credit": 0.0,
+        "balance": 68127982.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 1030,
+        "debit": 266691675.0,
+        "credit": 0.0,
+        "balance": 266691675.0
+    },
+    {
+        "analytic_id": 144,
+        "account_id": 1091,
+        "debit": 115355430.0,
+        "credit": 115355430.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 145,
+        "account_id": 651,
+        "debit": 0.0,
+        "credit": 8.0,
+        "balance": -8.0
+    },
+    {
+        "analytic_id": 146,
+        "account_id": 450,
+        "debit": 250000.0,
+        "credit": 0.0,
+        "balance": 250000.0
+    },
+    {
+        "analytic_id": 146,
+        "account_id": 651,
+        "debit": 0.0,
+        "credit": 239000.0,
+        "balance": -239000.0
+    },
+    {
+        "analytic_id": 146,
+        "account_id": 661,
+        "debit": 0.0,
+        "credit": 244338.0,
+        "balance": -244338.0
+    },
+    {
+        "analytic_id": 146,
+        "account_id": 988,
+        "debit": 1320932.0,
+        "credit": 0.0,
+        "balance": 1320932.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 82,
+        "debit": 53672803.0,
+        "credit": 53672803.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 379,
+        "debit": 63552693837.0,
+        "credit": 132704516.0,
+        "balance": 63419989321.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 450,
+        "debit": 1785898.0,
+        "credit": 0.0,
+        "balance": 1785898.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 480,
+        "debit": 600000.0,
+        "credit": 0.0,
+        "balance": 600000.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 487,
+        "debit": 1776000.0,
+        "credit": 1776000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 623,
+        "debit": 0.0,
+        "credit": 319553555.0,
+        "balance": -319553555.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 651,
+        "debit": 2631429080.0,
+        "credit": 177559725.0,
+        "balance": 2453869355.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 661,
+        "debit": 0.0,
+        "credit": 1494365523.0,
+        "balance": -1494365523.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 669,
+        "debit": 5331500.0,
+        "credit": 0.0,
+        "balance": 5331500.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 672,
+        "debit": 2451913364.0,
+        "credit": 0.0,
+        "balance": 2451913364.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 673,
+        "debit": 17123153848.0,
+        "credit": 622291374.0,
+        "balance": 16500862474.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 674,
+        "debit": 1415214864.0,
+        "credit": 0.0,
+        "balance": 1415214864.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 676,
+        "debit": 11351607756.0,
+        "credit": 0.0,
+        "balance": 11351607756.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 680,
+        "debit": 19123875.0,
+        "credit": 0.0,
+        "balance": 19123875.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 688,
+        "debit": 0.0,
+        "credit": 519802930.0,
+        "balance": -519802930.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 903,
+        "debit": 12189511731.0,
+        "credit": 2003790.0,
+        "balance": 12187507941.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 909,
+        "debit": 3331230377.0,
+        "credit": 0.0,
+        "balance": 3331230377.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 913,
+        "debit": 227919261.0,
+        "credit": 0.0,
+        "balance": 227919261.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 915,
+        "debit": 192805801.0,
+        "credit": 0.0,
+        "balance": 192805801.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 922,
+        "debit": 819744757.0,
+        "credit": 0.0,
+        "balance": 819744757.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 923,
+        "debit": 479125037.0,
+        "credit": 0.0,
+        "balance": 479125037.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 928,
+        "debit": 210691084.0,
+        "credit": 0.0,
+        "balance": 210691084.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 931,
+        "debit": 334124565.0,
+        "credit": 0.0,
+        "balance": 334124565.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 932,
+        "debit": 16100000.0,
+        "credit": 0.0,
+        "balance": 16100000.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 965,
+        "debit": 2168928054.0,
+        "credit": 0.0,
+        "balance": 2168928054.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 966,
+        "debit": 1600000.0,
+        "credit": 0.0,
+        "balance": 1600000.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 978,
+        "debit": 290091.0,
+        "credit": 0.0,
+        "balance": 290091.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 1040,
+        "debit": 800000.0,
+        "credit": 0.0,
+        "balance": 800000.0
+    },
+    {
+        "analytic_id": 147,
+        "account_id": 1090,
+        "debit": 1965900.0,
+        "credit": 0.0,
+        "balance": 1965900.0
+    },
+    {
+        "analytic_id": 148,
+        "account_id": 450,
+        "debit": 16038000.0,
+        "credit": 0.0,
+        "balance": 16038000.0
+    },
+    {
+        "analytic_id": 148,
+        "account_id": 487,
+        "debit": 13327742.0,
+        "credit": 1503000.0,
+        "balance": 11824742.0
+    },
+    {
+        "analytic_id": 148,
+        "account_id": 651,
+        "debit": 5300000.0,
+        "credit": 20786143.0,
+        "balance": -15486143.0
+    },
+    {
+        "analytic_id": 148,
+        "account_id": 669,
+        "debit": 443717680.0,
+        "credit": 0.0,
+        "balance": 443717680.0
+    },
+    {
+        "analytic_id": 148,
+        "account_id": 673,
+        "debit": 617267.0,
+        "credit": 0.0,
+        "balance": 617267.0
+    },
+    {
+        "analytic_id": 148,
+        "account_id": 955,
+        "debit": 5612840.0,
+        "credit": 0.0,
+        "balance": 5612840.0
+    },
+    {
+        "analytic_id": 149,
+        "account_id": 450,
+        "debit": 500000.0,
+        "credit": 0.0,
+        "balance": 500000.0
+    },
+    {
+        "analytic_id": 149,
+        "account_id": 497,
+        "debit": 48000.0,
+        "credit": 0.0,
+        "balance": 48000.0
+    },
+    {
+        "analytic_id": 149,
+        "account_id": 903,
+        "debit": 3272239.0,
+        "credit": 0.0,
+        "balance": 3272239.0
+    },
+    {
+        "analytic_id": 150,
+        "account_id": 450,
+        "debit": 10447884.0,
+        "credit": 0.0,
+        "balance": 10447884.0
+    },
+    {
+        "analytic_id": 150,
+        "account_id": 487,
+        "debit": 39577200.0,
+        "credit": 0.0,
+        "balance": 39577200.0
+    },
+    {
+        "analytic_id": 150,
+        "account_id": 623,
+        "debit": 0.0,
+        "credit": 39799000.0,
+        "balance": -39799000.0
+    },
+    {
+        "analytic_id": 150,
+        "account_id": 651,
+        "debit": 0.0,
+        "credit": 230000.0,
+        "balance": -230000.0
+    },
+    {
+        "analytic_id": 150,
+        "account_id": 669,
+        "debit": 9500000.0,
+        "credit": 0.0,
+        "balance": 9500000.0
+    },
+    {
+        "analytic_id": 151,
+        "account_id": 651,
+        "debit": 48738128.0,
+        "credit": 11728504.0,
+        "balance": 37009624.0
+    },
+    {
+        "analytic_id": 151,
+        "account_id": 1015,
+        "debit": 938128.0,
+        "credit": 0.0,
+        "balance": 938128.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 450,
+        "debit": 13650067.0,
+        "credit": 0.0,
+        "balance": 13650067.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 487,
+        "debit": 47750000.0,
+        "credit": 0.0,
+        "balance": 47750000.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 651,
+        "debit": 819939249.0,
+        "credit": 44082607.0,
+        "balance": 775856642.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 661,
+        "debit": 3000000.0,
+        "credit": 0.0,
+        "balance": 3000000.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 669,
+        "debit": 785685937.0,
+        "credit": 0.0,
+        "balance": 785685937.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 672,
+        "debit": 0.0,
+        "credit": 23704000.0,
+        "balance": -23704000.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 673,
+        "debit": 1491000.0,
+        "credit": 0.0,
+        "balance": 1491000.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 674,
+        "debit": 2352960.0,
+        "credit": 0.0,
+        "balance": 2352960.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 955,
+        "debit": 900000.0,
+        "credit": 0.0,
+        "balance": 900000.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 966,
+        "debit": 4600000.0,
+        "credit": 0.0,
+        "balance": 4600000.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 967,
+        "debit": 19167500.0,
+        "credit": 0.0,
+        "balance": 19167500.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 978,
+        "debit": 14845900.0,
+        "credit": 0.0,
+        "balance": 14845900.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 1021,
+        "debit": 260000000.0,
+        "credit": 0.0,
+        "balance": 260000000.0
+    },
+    {
+        "analytic_id": 152,
+        "account_id": 1032,
+        "debit": 2000000.0,
+        "credit": 0.0,
+        "balance": 2000000.0
+    },
+    {
+        "analytic_id": 153,
+        "account_id": 651,
+        "debit": 0.0,
+        "credit": 47936017.0,
+        "balance": -47936017.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 379,
+        "debit": 2405691023.0,
+        "credit": 12000.0,
+        "balance": 2405679023.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 436,
+        "debit": 127836500.0,
+        "credit": 0.0,
+        "balance": 127836500.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 438,
+        "debit": 0.0,
+        "credit": 43701500.0,
+        "balance": -43701500.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 623,
+        "debit": 0.0,
+        "credit": 88800000.0,
+        "balance": -88800000.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 651,
+        "debit": 348027305.0,
+        "credit": 12241054.0,
+        "balance": 335786251.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 661,
+        "debit": 0.0,
+        "credit": 35371152.0,
+        "balance": -35371152.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 688,
+        "debit": 0.0,
+        "credit": 22478493.0,
+        "balance": -22478493.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 708,
+        "debit": 0.0,
+        "credit": 3952463.0,
+        "balance": -3952463.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 903,
+        "debit": 601403732.0,
+        "credit": 0.0,
+        "balance": 601403732.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 909,
+        "debit": 149150389.0,
+        "credit": 0.0,
+        "balance": 149150389.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 915,
+        "debit": 2366500.0,
+        "credit": 0.0,
+        "balance": 2366500.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 922,
+        "debit": 102100171.0,
+        "credit": 0.0,
+        "balance": 102100171.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 923,
+        "debit": 33375488.0,
+        "credit": 0.0,
+        "balance": 33375488.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 928,
+        "debit": 2608456.0,
+        "credit": 0.0,
+        "balance": 2608456.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 931,
+        "debit": 27962150.0,
+        "credit": 0.0,
+        "balance": 27962150.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 932,
+        "debit": 4800000.0,
+        "credit": 0.0,
+        "balance": 4800000.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 947,
+        "debit": 5100000.0,
+        "credit": 0.0,
+        "balance": 5100000.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 965,
+        "debit": 188541760.0,
+        "credit": 0.0,
+        "balance": 188541760.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 978,
+        "debit": 45046.0,
+        "credit": 0.0,
+        "balance": 45046.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 993,
+        "debit": 37345910.0,
+        "credit": 0.0,
+        "balance": 37345910.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 1090,
+        "debit": 100000.0,
+        "credit": 0.0,
+        "balance": 100000.0
+    },
+    {
+        "analytic_id": 154,
+        "account_id": 1091,
+        "debit": 0.0,
+        "credit": 5718536.0,
+        "balance": -5718536.0
+    },
+    {
+        "analytic_id": 155,
+        "account_id": 487,
+        "debit": 2149791938.0,
+        "credit": 0.0,
+        "balance": 2149791938.0
+    },
+    {
+        "analytic_id": 155,
+        "account_id": 651,
+        "debit": 2078047888.0,
+        "credit": 0.0,
+        "balance": 2078047888.0
+    },
+    {
+        "analytic_id": 156,
+        "account_id": 450,
+        "debit": 0.0,
+        "credit": 26226198.0,
+        "balance": -26226198.0
+    },
+    {
+        "analytic_id": 156,
+        "account_id": 480,
+        "debit": 436061869.0,
+        "credit": 0.0,
+        "balance": 436061869.0
+    },
+    {
+        "analytic_id": 156,
+        "account_id": 623,
+        "debit": 433372050.0,
+        "credit": 1032751217.0,
+        "balance": -599379167.0
+    },
+    {
+        "analytic_id": 156,
+        "account_id": 651,
+        "debit": 1398464802.0,
+        "credit": 478778438.0,
+        "balance": 919686364.0
+    },
+    {
+        "analytic_id": 156,
+        "account_id": 982,
+        "debit": 22647683.0,
+        "credit": 0.0,
+        "balance": 22647683.0
+    },
+    {
+        "analytic_id": 156,
+        "account_id": 1010,
+        "debit": 141850000.0,
+        "credit": 0.0,
+        "balance": 141850000.0
+    },
+    {
+        "analytic_id": 157,
+        "account_id": 623,
+        "debit": 81983099.0,
+        "credit": 0.0,
+        "balance": 81983099.0
+    },
+    {
+        "analytic_id": 157,
+        "account_id": 651,
+        "debit": 278032805.0,
+        "credit": 0.0,
+        "balance": 278032805.0
+    },
+    {
+        "analytic_id": 158,
+        "account_id": 450,
+        "debit": 5049048.0,
+        "credit": 0.0,
+        "balance": 5049048.0
+    },
+    {
+        "analytic_id": 158,
+        "account_id": 623,
+        "debit": 270000.0,
+        "credit": 804209161.0,
+        "balance": -803939161.0
+    },
+    {
+        "analytic_id": 158,
+        "account_id": 651,
+        "debit": 3487682951.0,
+        "credit": 75000.0,
+        "balance": 3487607951.0
+    },
+    {
+        "analytic_id": 158,
+        "account_id": 763,
+        "debit": 4236774.0,
+        "credit": 1994502755.0,
+        "balance": -1990265981.0
+    },
+    {
+        "analytic_id": 158,
+        "account_id": 962,
+        "debit": 9275000.0,
+        "credit": 0.0,
+        "balance": 9275000.0
+    },
+    {
+        "analytic_id": 158,
+        "account_id": 1008,
+        "debit": 155000000.0,
+        "credit": 0.0,
+        "balance": 155000000.0
+    },
+    {
+        "analytic_id": 158,
+        "account_id": 1043,
+        "debit": 309428000.0,
+        "credit": 0.0,
+        "balance": 309428000.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 379,
+        "debit": 9466947131.0,
+        "credit": 0.0,
+        "balance": 9466947131.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 450,
+        "debit": 7210500617.0,
+        "credit": 0.0,
+        "balance": 7210500617.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 623,
+        "debit": 440000000.0,
+        "credit": 185665000.0,
+        "balance": 254335000.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 651,
+        "debit": 1066568709.0,
+        "credit": 5335528.0,
+        "balance": 1061233181.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 661,
+        "debit": 0.0,
+        "credit": 152492209.0,
+        "balance": -152492209.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 688,
+        "debit": 0.0,
+        "credit": 156721030.0,
+        "balance": -156721030.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 708,
+        "debit": 0.0,
+        "credit": 13201269.0,
+        "balance": -13201269.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 903,
+        "debit": 1563755144.0,
+        "credit": 5076571173.0,
+        "balance": -3512816029.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 908,
+        "debit": 2085286123.0,
+        "credit": 2085286123.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 909,
+        "debit": 478909381.0,
+        "credit": 0.0,
+        "balance": 478909381.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 914,
+        "debit": 500000.0,
+        "credit": 0.0,
+        "balance": 500000.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 915,
+        "debit": 20238200.0,
+        "credit": 0.0,
+        "balance": 20238200.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 922,
+        "debit": 475968695.0,
+        "credit": 0.0,
+        "balance": 475968695.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 923,
+        "debit": 99610704.0,
+        "credit": 0.0,
+        "balance": 99610704.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 928,
+        "debit": 18866353.0,
+        "credit": 0.0,
+        "balance": 18866353.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 931,
+        "debit": 106835475.0,
+        "credit": 0.0,
+        "balance": 106835475.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 965,
+        "debit": 517257086.0,
+        "credit": 0.0,
+        "balance": 517257086.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 978,
+        "debit": 2221800.0,
+        "credit": 0.0,
+        "balance": 2221800.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 982,
+        "debit": 4372117.0,
+        "credit": 0.0,
+        "balance": 4372117.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 993,
+        "debit": 17263851.0,
+        "credit": 0.0,
+        "balance": 17263851.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 1013,
+        "debit": 150000.0,
+        "credit": 0.0,
+        "balance": 150000.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 1090,
+        "debit": 451400.0,
+        "credit": 0.0,
+        "balance": 451400.0
+    },
+    {
+        "analytic_id": 159,
+        "account_id": 1091,
+        "debit": 11299063.0,
+        "credit": 5580527.0,
+        "balance": 5718536.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 379,
+        "debit": 3740852938.0,
+        "credit": 0.0,
+        "balance": 3740852938.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 450,
+        "debit": 2962190430.0,
+        "credit": 0.0,
+        "balance": 2962190430.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 623,
+        "debit": 185362162.0,
+        "credit": 41670000.0,
+        "balance": 143692162.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 651,
+        "debit": 391368683.0,
+        "credit": 0.0,
+        "balance": 391368683.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 661,
+        "debit": 0.0,
+        "credit": 73015076.0,
+        "balance": -73015076.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 688,
+        "debit": 0.0,
+        "credit": 118379701.0,
+        "balance": -118379701.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 708,
+        "debit": 0.0,
+        "credit": 13880273.0,
+        "balance": -13880273.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 903,
+        "debit": 653007648.0,
+        "credit": 820278.0,
+        "balance": 652187370.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 909,
+        "debit": 201778916.0,
+        "credit": 0.0,
+        "balance": 201778916.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 915,
+        "debit": 6559000.0,
+        "credit": 0.0,
+        "balance": 6559000.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 922,
+        "debit": 1774259928.0,
+        "credit": 0.0,
+        "balance": 1774259928.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 923,
+        "debit": 39455186.0,
+        "credit": 0.0,
+        "balance": 39455186.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 928,
+        "debit": 11188356.0,
+        "credit": 0.0,
+        "balance": 11188356.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 931,
+        "debit": 36095260.0,
+        "credit": 0.0,
+        "balance": 36095260.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 965,
+        "debit": 206449006.0,
+        "credit": 0.0,
+        "balance": 206449006.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 978,
+        "debit": 1268200.0,
+        "credit": 0.0,
+        "balance": 1268200.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 982,
+        "debit": 178378.0,
+        "credit": 0.0,
+        "balance": 178378.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 1013,
+        "debit": 10000.0,
+        "credit": 0.0,
+        "balance": 10000.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 1015,
+        "debit": 3600000.0,
+        "credit": 0.0,
+        "balance": 3600000.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 1090,
+        "debit": 167000.0,
+        "credit": 0.0,
+        "balance": 167000.0
+    },
+    {
+        "analytic_id": 160,
+        "account_id": 1091,
+        "debit": 9000168.0,
+        "credit": 9000168.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 44,
+        "debit": 5000000000.0,
+        "credit": 5000000000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 45,
+        "debit": 50000000.0,
+        "credit": 0.0,
+        "balance": 50000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 46,
+        "debit": 50000000.0,
+        "credit": 0.0,
+        "balance": 50000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 49,
+        "debit": 10000000.0,
+        "credit": 10000000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 53,
+        "debit": 6154219.0,
+        "credit": 6154219.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 54,
+        "debit": 10000000.0,
+        "credit": 10000000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 55,
+        "debit": 2346000.0,
+        "credit": 2346000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 56,
+        "debit": 1000000.0,
+        "credit": 1000000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 57,
+        "debit": 5000000.0,
+        "credit": 5000000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 59,
+        "debit": 88612201.0,
+        "credit": 0.0,
+        "balance": 88612201.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 61,
+        "debit": 0.0,
+        "credit": 1089.0,
+        "balance": -1089.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 63,
+        "debit": 4871422.0,
+        "credit": 30001.0,
+        "balance": 4841421.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 64,
+        "debit": 2219120.0,
+        "credit": 80001.0,
+        "balance": 2139119.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 67,
+        "debit": 0.0,
+        "credit": 25000.0,
+        "balance": -25000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 71,
+        "debit": 19597995.0,
+        "credit": 3084415.0,
+        "balance": 16513580.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 75,
+        "debit": 7259232.0,
+        "credit": 800000.0,
+        "balance": 6459232.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 82,
+        "debit": 4927048137849.0,
+        "credit": 5010260051279.0,
+        "balance": -83211913430.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 83,
+        "debit": 5106722.0,
+        "credit": 225000.0,
+        "balance": 4881722.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 84,
+        "debit": 3673246.0,
+        "credit": 0.0,
+        "balance": 3673246.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 85,
+        "debit": 63499893723.0,
+        "credit": 175000.0,
+        "balance": 63499718723.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 86,
+        "debit": 1643551.0,
+        "credit": 50000.0,
+        "balance": 1593551.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 87,
+        "debit": 88741477722.0,
+        "credit": 71965739277.0,
+        "balance": 16775738445.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 88,
+        "debit": 41203314.0,
+        "credit": 20677715.0,
+        "balance": 20525599.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 89,
+        "debit": 61147053518244.0,
+        "credit": 65750472895377.0,
+        "balance": -4603419377133.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 91,
+        "debit": 264517608.0,
+        "credit": 261141517.0,
+        "balance": 3376091.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 108,
+        "debit": 0.0,
+        "credit": 1000000.0,
+        "balance": -1000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 109,
+        "debit": 92213462260.0,
+        "credit": 91701113879.0,
+        "balance": 512348381.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 206,
+        "debit": 126772822845.0,
+        "credit": 135327823355.0,
+        "balance": -8555000510.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 356,
+        "debit": 0.0,
+        "credit": 36705655.0,
+        "balance": -36705655.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 373,
+        "debit": 361224313.0,
+        "credit": 45149186.0,
+        "balance": 316075127.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 374,
+        "debit": 0.0,
+        "credit": 241063164.0,
+        "balance": -241063164.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 378,
+        "debit": 145595704.0,
+        "credit": 145595704.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 379,
+        "debit": 60885344770182.0,
+        "credit": 60813275252687.0,
+        "balance": 72069517495.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 388,
+        "debit": 1073599093449.0,
+        "credit": 915657034342.0,
+        "balance": 157942059107.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 426,
+        "debit": 11600276634.0,
+        "credit": 0.0,
+        "balance": 11600276634.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 427,
+        "debit": 198813646750.0,
+        "credit": 0.0,
+        "balance": 198813646750.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 431,
+        "debit": 1724865305305.0,
+        "credit": 0.0,
+        "balance": 1724865305305.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 435,
+        "debit": 1592499.0,
+        "credit": 0.0,
+        "balance": 1592499.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 436,
+        "debit": 562938139418.0,
+        "credit": 546154244869.0,
+        "balance": 16783894549.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 437,
+        "debit": 8359792142.0,
+        "credit": 0.0,
+        "balance": 8359792142.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 438,
+        "debit": 20251148200.0,
+        "credit": 5571595306.0,
+        "balance": 14679552894.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 442,
+        "debit": 8475.0,
+        "credit": 0.0,
+        "balance": 8475.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 445,
+        "debit": 0.0,
+        "credit": 2140710429.0,
+        "balance": -2140710429.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 447,
+        "debit": 321956032975.0,
+        "credit": 357702241360.0,
+        "balance": -35746208385.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 448,
+        "debit": 29390965952102.0,
+        "credit": 29388032861877.0,
+        "balance": 2933090225.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 449,
+        "debit": 0.0,
+        "credit": 9728123923.0,
+        "balance": -9728123923.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 450,
+        "debit": 1663219741858.0,
+        "credit": 2732024945935.0,
+        "balance": -1068805204077.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 451,
+        "debit": 153505710619.0,
+        "credit": 621680819.0,
+        "balance": 152884029800.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 452,
+        "debit": 0.0,
+        "credit": 6271168.0,
+        "balance": -6271168.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 454,
+        "debit": 0.0,
+        "credit": 1105661221.0,
+        "balance": -1105661221.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 457,
+        "debit": 408000000.0,
+        "credit": 0.0,
+        "balance": 408000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 460,
+        "debit": 18036000.0,
+        "credit": 0.0,
+        "balance": 18036000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 463,
+        "debit": 900541827.0,
+        "credit": 0.0,
+        "balance": 900541827.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 464,
+        "debit": 0.0,
+        "credit": 2514160000.0,
+        "balance": -2514160000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 465,
+        "debit": 20000000000.0,
+        "credit": 20000000000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 470,
+        "debit": 6173887.0,
+        "credit": 0.0,
+        "balance": 6173887.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 471,
+        "debit": 0.0,
+        "credit": 2068741787.0,
+        "balance": -2068741787.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 474,
+        "debit": 4542901622.0,
+        "credit": 0.0,
+        "balance": 4542901622.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 475,
+        "debit": 105377890.0,
+        "credit": 1310622482.0,
+        "balance": -1205244592.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 476,
+        "debit": 2001372959.0,
+        "credit": 1450798386.0,
+        "balance": 550574573.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 478,
+        "debit": 758672530.0,
+        "credit": 254330834.0,
+        "balance": 504341696.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 480,
+        "debit": 4985554964.0,
+        "credit": 938008054.0,
+        "balance": 4047546910.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 481,
+        "debit": 2.0,
+        "credit": 0.0,
+        "balance": 2.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 486,
+        "debit": 0.0,
+        "credit": 2380682441.0,
+        "balance": -2380682441.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 487,
+        "debit": 5378838549.0,
+        "credit": 1937906880.0,
+        "balance": 3440931669.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 488,
+        "debit": 105782.0,
+        "credit": 363406.0,
+        "balance": -257624.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 489,
+        "debit": 18216953096.0,
+        "credit": 0.0,
+        "balance": 18216953096.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 491,
+        "debit": 65507574964.0,
+        "credit": 1904397065.0,
+        "balance": 63603177899.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 497,
+        "debit": 16500.0,
+        "credit": 0.0,
+        "balance": 16500.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 503,
+        "debit": 3171176843677.0,
+        "credit": 0.0,
+        "balance": 3171176843677.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 504,
+        "debit": 1553448793654.0,
+        "credit": 0.0,
+        "balance": 1553448793654.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 505,
+        "debit": 4093521658721.0,
+        "credit": 0.0,
+        "balance": 4093521658721.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 506,
+        "debit": 151482479071.0,
+        "credit": 0.0,
+        "balance": 151482479071.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 508,
+        "debit": 271601639822.0,
+        "credit": 0.0,
+        "balance": 271601639822.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 510,
+        "debit": 0.0,
+        "credit": 6132516295.0,
+        "balance": -6132516295.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 511,
+        "debit": 0.0,
+        "credit": 8428124950.0,
+        "balance": -8428124950.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 513,
+        "debit": 3463430258584.0,
+        "credit": 0.0,
+        "balance": 3463430258584.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 514,
+        "debit": 4000000.0,
+        "credit": 0.0,
+        "balance": 4000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 515,
+        "debit": 1000000.0,
+        "credit": 0.0,
+        "balance": 1000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 517,
+        "debit": 1698745767485.0,
+        "credit": 0.0,
+        "balance": 1698745767485.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 518,
+        "debit": 164629347329.0,
+        "credit": 0.0,
+        "balance": 164629347329.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 525,
+        "debit": 533425484499.0,
+        "credit": 0.0,
+        "balance": 533425484499.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 526,
+        "debit": 1114805612902.0,
+        "credit": 0.0,
+        "balance": 1114805612902.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 535,
+        "debit": 32912400000.0,
+        "credit": 0.0,
+        "balance": 32912400000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 536,
+        "debit": 664203760683.0,
+        "credit": 0.0,
+        "balance": 664203760683.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 539,
+        "debit": 867907566967.0,
+        "credit": 755827355825.0,
+        "balance": 112080211142.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 542,
+        "debit": 15243516113.0,
+        "credit": 176010000.0,
+        "balance": 15067506113.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 543,
+        "debit": 6221661208.0,
+        "credit": 545267400.0,
+        "balance": 5676393808.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 544,
+        "debit": 85263739796.0,
+        "credit": 179044689.0,
+        "balance": 85084695107.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 545,
+        "debit": 2893659470.0,
+        "credit": 927300000.0,
+        "balance": 1966359470.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 546,
+        "debit": 0.0,
+        "credit": 6501207279.0,
+        "balance": -6501207279.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 547,
+        "debit": 0.0,
+        "credit": 5540410921.0,
+        "balance": -5540410921.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 548,
+        "debit": 2333850104.0,
+        "credit": 126257000.0,
+        "balance": 2207593104.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 550,
+        "debit": 1331464071.0,
+        "credit": 0.0,
+        "balance": 1331464071.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 551,
+        "debit": 7257705658.0,
+        "credit": 0.0,
+        "balance": 7257705658.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 552,
+        "debit": 70260225.0,
+        "credit": 0.0,
+        "balance": 70260225.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 553,
+        "debit": 173337840.0,
+        "credit": 13220294679.0,
+        "balance": -13046956839.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 555,
+        "debit": 83458932227.0,
+        "credit": 0.0,
+        "balance": 83458932227.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 556,
+        "debit": 29863371511.0,
+        "credit": 0.0,
+        "balance": 29863371511.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 559,
+        "debit": 0.0,
+        "credit": 710109972.0,
+        "balance": -710109972.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 567,
+        "debit": 1289494940.0,
+        "credit": 5375968578.0,
+        "balance": -4086473638.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 568,
+        "debit": 70950068.0,
+        "credit": 3368552672.0,
+        "balance": -3297602604.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 569,
+        "debit": 50715883.0,
+        "credit": 20311635101.0,
+        "balance": -20260919218.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 570,
+        "debit": 14766666.0,
+        "credit": 11611394883.0,
+        "balance": -11596628217.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 571,
+        "debit": 1764624980.0,
+        "credit": 137590422.0,
+        "balance": 1627034558.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 572,
+        "debit": 6656121765.0,
+        "credit": 4843024.0,
+        "balance": 6651278741.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 573,
+        "debit": 0.0,
+        "credit": 1504978824.0,
+        "balance": -1504978824.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 574,
+        "debit": 282398602.0,
+        "credit": 0.0,
+        "balance": 282398602.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 575,
+        "debit": 0.0,
+        "credit": 1617214856.0,
+        "balance": -1617214856.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 576,
+        "debit": 1301293771.0,
+        "credit": 5909704206.0,
+        "balance": -4608410435.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 577,
+        "debit": 0.0,
+        "credit": 67919300.0,
+        "balance": -67919300.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 578,
+        "debit": 61731945.0,
+        "credit": 65669262308.0,
+        "balance": -65607530363.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 586,
+        "debit": 7699000.0,
+        "credit": 7699000.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 617,
+        "debit": 71283515501.0,
+        "credit": 0.0,
+        "balance": 71283515501.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 618,
+        "debit": 26684611364.0,
+        "credit": 0.0,
+        "balance": 26684611364.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 619,
+        "debit": 10015923600.0,
+        "credit": 0.0,
+        "balance": 10015923600.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 620,
+        "debit": 0.0,
+        "credit": 67616713167.0,
+        "balance": -67616713167.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 621,
+        "debit": 0.0,
+        "credit": 9764252741.0,
+        "balance": -9764252741.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 622,
+        "debit": 0.0,
+        "credit": 16573889656.0,
+        "balance": -16573889656.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 623,
+        "debit": 19612848358.0,
+        "credit": 24329417888.0,
+        "balance": -4716569530.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 624,
+        "debit": 840861892.0,
+        "credit": 4353096890.0,
+        "balance": -3512234998.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 626,
+        "debit": 188106333059.0,
+        "credit": 0.0,
+        "balance": 188106333059.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 629,
+        "debit": 80115748888.0,
+        "credit": 0.0,
+        "balance": 80115748888.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 630,
+        "debit": 216869392399.0,
+        "credit": 0.0,
+        "balance": 216869392399.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 631,
+        "debit": 0.0,
+        "credit": 3555039157.0,
+        "balance": -3555039157.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 637,
+        "debit": 11768317283.0,
+        "credit": 0.0,
+        "balance": 11768317283.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 641,
+        "debit": 0.0,
+        "credit": 24959680543.0,
+        "balance": -24959680543.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 643,
+        "debit": 90000000.0,
+        "credit": 0.0,
+        "balance": 90000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 648,
+        "debit": 0.0,
+        "credit": 232814644.0,
+        "balance": -232814644.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 649,
+        "debit": 774461256069.0,
+        "credit": 761552404169.0,
+        "balance": 12908851900.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 650,
+        "debit": 2622540807502.0,
+        "credit": 2670861929785.0,
+        "balance": -48321122283.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 651,
+        "debit": 5057801293.0,
+        "credit": 119513341251.0,
+        "balance": -114455539958.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 657,
+        "debit": 1296417207.0,
+        "credit": 1296417207.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 661,
+        "debit": 9403226371159.0,
+        "credit": 8066191632797.0,
+        "balance": 1337034738362.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 663,
+        "debit": 6672028632947.0,
+        "credit": 7339707058280.0,
+        "balance": -667678425333.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 666,
+        "debit": 0.0,
+        "credit": 78221999974.0,
+        "balance": -78221999974.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 667,
+        "debit": 175332111360.0,
+        "credit": 381340386437.0,
+        "balance": -206008275077.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 668,
+        "debit": 220280075.0,
+        "credit": 0.0,
+        "balance": 220280075.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 669,
+        "debit": 95197644727.0,
+        "credit": 50710609794.0,
+        "balance": 44487034933.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 670,
+        "debit": 69662124.0,
+        "credit": 7078164678.0,
+        "balance": -7008502554.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 671,
+        "debit": 0.0,
+        "credit": 61000000.0,
+        "balance": -61000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 672,
+        "debit": 1.0,
+        "credit": 9280127538.0,
+        "balance": -9280127537.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 673,
+        "debit": 686671728.0,
+        "credit": 61863650619.0,
+        "balance": -61176978891.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 674,
+        "debit": 83933057.0,
+        "credit": 8231006070.0,
+        "balance": -8147073013.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 676,
+        "debit": 398183101.0,
+        "credit": 104940843082.0,
+        "balance": -104542659981.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 678,
+        "debit": 1861893264.0,
+        "credit": 85200877886.0,
+        "balance": -83338984622.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 679,
+        "debit": 133686000.0,
+        "credit": 0.0,
+        "balance": 133686000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 680,
+        "debit": 0.0,
+        "credit": 33276451.0,
+        "balance": -33276451.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 686,
+        "debit": 0.0,
+        "credit": 5600000.0,
+        "balance": -5600000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 688,
+        "debit": 148115403975.0,
+        "credit": 155564794783.0,
+        "balance": -7449390808.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 689,
+        "debit": 0.0,
+        "credit": 388112636.0,
+        "balance": -388112636.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 691,
+        "debit": 26834839391.0,
+        "credit": 0.0,
+        "balance": 26834839391.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 708,
+        "debit": 10990176032.0,
+        "credit": 10757120286.0,
+        "balance": 233055746.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 714,
+        "debit": 53150000000.0,
+        "credit": 3023615560916.0,
+        "balance": -2970465560916.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 726,
+        "debit": 0.0,
+        "credit": 51130960746.0,
+        "balance": -51130960746.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 727,
+        "debit": 0.0,
+        "credit": 390009750.0,
+        "balance": -390009750.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 729,
+        "debit": 0.0,
+        "credit": 1444978771000.0,
+        "balance": -1444978771000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 734,
+        "debit": 0.0,
+        "credit": 3246201368058.0,
+        "balance": -3246201368058.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 736,
+        "debit": 0.0,
+        "credit": 22795886132.0,
+        "balance": -22795886132.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 737,
+        "debit": 744604799084.0,
+        "credit": 0.0,
+        "balance": 744604799084.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 739,
+        "debit": 0.0,
+        "credit": 109893156122.0,
+        "balance": -109893156122.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 741,
+        "debit": 37203067493.0,
+        "credit": 0.0,
+        "balance": 37203067493.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 743,
+        "debit": 0.0,
+        "credit": 12032933407063.0,
+        "balance": -12032933407063.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 745,
+        "debit": 0.0,
+        "credit": 51410586625.0,
+        "balance": -51410586625.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 757,
+        "debit": 0.0,
+        "credit": 2176875000.0,
+        "balance": -2176875000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 764,
+        "debit": 0.0,
+        "credit": 0.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 947,
+        "debit": 0.0,
+        "credit": 2550000.0,
+        "balance": -2550000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 955,
+        "debit": 2683520.0,
+        "credit": 0.0,
+        "balance": 2683520.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 959,
+        "debit": 0.0,
+        "credit": 3275000.0,
+        "balance": -3275000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 962,
+        "debit": 6942033.0,
+        "credit": 2378102.0,
+        "balance": 4563931.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 966,
+        "debit": 15042900.0,
+        "credit": 0.0,
+        "balance": 15042900.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 979,
+        "debit": 0.0,
+        "credit": 10755113.0,
+        "balance": -10755113.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 983,
+        "debit": 30000.0,
+        "credit": 0.0,
+        "balance": 30000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 989,
+        "debit": 188886248.0,
+        "credit": 0.0,
+        "balance": 188886248.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1021,
+        "debit": 0.0,
+        "credit": 250000000.0,
+        "balance": -250000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1029,
+        "debit": 80000.0,
+        "credit": 0.0,
+        "balance": 80000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1046,
+        "debit": 517590.0,
+        "credit": 0.0,
+        "balance": 517590.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1076,
+        "debit": 0.0,
+        "credit": 575444933.0,
+        "balance": -575444933.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1082,
+        "debit": 232229875.0,
+        "credit": 241180943.0,
+        "balance": -8951068.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1090,
+        "debit": 3623080.0,
+        "credit": 0.0,
+        "balance": 3623080.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1091,
+        "debit": 15810151975.0,
+        "credit": 0.0,
+        "balance": 15810151975.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1094,
+        "debit": 147962499.0,
+        "credit": 0.0,
+        "balance": 147962499.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1099,
+        "debit": 167523585.0,
+        "credit": 2747500.0,
+        "balance": 164776085.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1100,
+        "debit": 443248460.0,
+        "credit": 18558948.0,
+        "balance": 424689512.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1114,
+        "debit": 10831695959.0,
+        "credit": 12536401607.0,
+        "balance": -1704705648.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1137,
+        "debit": 0.0,
+        "credit": 4082972834.0,
+        "balance": -4082972834.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1158,
+        "debit": 29680497047.0,
+        "credit": 30304391219.0,
+        "balance": -623894172.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1283,
+        "debit": 32096286083761.0,
+        "credit": 32090903128781.0,
+        "balance": 5382954980.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1492,
+        "debit": 3705261739947.0,
+        "credit": 3417999598444.0,
+        "balance": 287262141503.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1493,
+        "debit": 1323170412000.0,
+        "credit": 1300025412000.0,
+        "balance": 23145000000.0
+    },
+    {
+        "analytic_id": 161,
+        "account_id": 1494,
+        "debit": 1089.0,
+        "credit": 1089.0,
+        "balance": 0.0
+    },
+    {
+        "analytic_id": 164,
+        "account_id": 487,
+        "debit": 248741380.0,
+        "credit": 0.0,
+        "balance": 248741380.0
+    },
+    {
+        "analytic_id": 164,
+        "account_id": 651,
+        "debit": 150881310.0,
+        "credit": 0.0,
+        "balance": 150881310.0
+    }
+]

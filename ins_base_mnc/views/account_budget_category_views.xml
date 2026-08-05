@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record id="view_account_budget_category_form" model="ir.ui.view">
+            <field name="name">view.account.budget.category.form</field>
+            <field name="model">account.budget.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="active" invisible="1"/>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group col="4">
+                            <field name="code" required="1"/>
+                            <field name="name" required="1"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_account_budget_category_tree" model="ir.ui.view">
+            <field name="name">view.account.budget.category.tree</field>
+            <field name="model">account.budget.category</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_account_budget_category" model="ir.actions.act_window">
+            <field name="name">Budget Category</field>
+            <field name="res_model">account.budget.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_account_budget_category"
+            name="Budget Category"
+            action="action_account_budget_category"
+            parent="ins_base_mnc.menu_budget_configuration"
+            sequence="63"/>
+    </data>
+</odoo>

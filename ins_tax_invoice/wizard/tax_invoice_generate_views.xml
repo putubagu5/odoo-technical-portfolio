@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="action_wizard_tax_invoice_generate" model="ir.actions.act_window">
+            <field name="name">Generate eFaktur</field>
+            <field name="res_model">wizard.tax.invoice.generate</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="view_wizard_tax_invoice_generate_form" model="ir.ui.view">
+            <field name="name">view.wizard.tax.invoice.generate.form</field>
+            <field name="model">wizard.tax.invoice.generate</field>
+            <field name="arch" type="xml">
+                <form string="eFaktur">
+                    <group colspan="4">
+                        <field name="company_id" required="1"/>
+                        <field name="year" placeholder="xxxx"/>
+                        <field name="start" placeholder="xxx.xxx-xx.xxxxxxxx"/>
+                        <field name="end" placeholder="xxx.xxx-xx.xxxxxxxx"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" name="button_confirm" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_tax_invoice_generate"
+            name="Generate Nomor Seri Faktur Pajak"
+            action="action_wizard_tax_invoice_generate"
+            parent="ins_tax_invoice.menu_tax_invoice"
+            sequence="30"/>
+    </data>
+</odoo>

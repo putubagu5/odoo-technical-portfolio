@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+
+        <record id="mnc_token_management_tree" model="ir.ui.view">
+            <field name="name">mnc.token.management.tree</field>
+            <field name="model">mnc.token.management</field>
+            <field name="arch" type="xml">
+                <tree create="1" edit="1">
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="model_name"/>
+                    <field name="token"/>
+                    <field name="prev_token"/>
+                    <field name="state"/>
+                    <field name="ora_atis_user"/>
+                    <field name="ora_atis_pass" password="True"/>
+                    <field name="ora_atis_dsn"/>
+                    <button name="btn_gen_token" string="GenToken" type="object" class="oe_highlight" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="mnc_token_management_action" model="ir.actions.act_window">
+            <field name="name">MNC Token Management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mnc.token.management</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Empty Data, Get Data Logger!
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="mnc_token_management_menu"
+                name="Token Management"
+                parent="mnc_sync_logger_root"
+                action="mnc_token_management_action"
+                sequence="1"/>
+
+    </data>
+</odoo>

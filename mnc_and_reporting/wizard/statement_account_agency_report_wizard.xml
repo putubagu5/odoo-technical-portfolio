@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="statement_account_agency_report_wizard_form_view" model="ir.ui.view">
+            <field name="name">statement.account.agency.report.wizard.form.view</field>
+            <field name="model">statement.account.agency.report.wizard</field>
+            <field name="inherit_id" ref="mnc_and_reporting.and_report_wizard_form_view"/>
+            <field name="mode">primary</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet[1]" position="inside">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="customer_type" required="1"/>
+                        <field name="customer_ids" widget="many2many_tags" attrs="{'required': [('customer_type', '=', 'specific')], 'invisible': [('customer_type', '!=', 'specific')]}" domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]" options="{'no_create': True, 'no_create_edit': True, 'no_edit': True}"/>
+                    </group>
+                    <group>
+                        <field name="currency_type" required="1"/>
+                        <field name="currency_ids" widget="many2many_tags" attrs="{'required': [('currency_type', '=', 'specific')], 'invisible': [('currency_type', '!=', 'specific')]}" options="{'no_create': True, 'no_create_edit': True, 'no_edit': True}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

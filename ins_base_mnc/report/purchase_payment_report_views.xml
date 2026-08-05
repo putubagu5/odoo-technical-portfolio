@@ -1,0 +1,131 @@
+<odoo>
+    <data>
+        <record id="view_purchase_payment_report_tree" model="ir.ui.view">
+            <field name="name">view.purchase.payment.report.tree</field>
+            <field name="model">purchase.payment.report</field>
+            <field name="arch" type="xml">
+                <tree create="0" import="0">
+                    <field name="purchase_request_no" optional="show"/>
+                    <field name="purchase_request_description" optional="hide"/>
+                    <field name="date_purchase_request_create" optional="show"/>
+                    <field name="product_id" optional="show"/>
+                    <field name="product_ref" optional="show"/>
+                    <field name="purchase_request_currency_id" optional="hide"/>
+                    <field name="qty_purchase_request" optional="hide"/>
+                    <field name="price" optional="hide"/>
+                    <field name="rate" optional="hide"/>
+                    <field name="user_id" optional="show"/>
+                    <field name="purchase_request_state" optional="hide"/>
+                    <field name="analytic_account" optional="show"/>
+                    <field name="department" optional="show"/>
+                    <field name="date_pr_line_needed" optional="show"/>
+                    <field name="manual_rate" optional="hide"/>
+                    <field name="pr_company_id" optional="show"/>
+                    <field name="purchase_order_no" optional="show"/>
+                    <field name="date_purchase_create" optional="show"/>
+                    <field name="purchase_description" optional="show"/>
+                    <field name="purchase_state" optional="hide"/>
+                    <field name="purchase_currency_id" optional="hide"/>
+                    <field name="purchase_uom_id" optional="hide"/>
+                    <field name="price_purchase" optional="hide"/>
+                    <field name="qty_purchase" optional="show"/>
+                    <field name="amount_purchase" optional="hide"/>
+                    <field name="purchase_representative" optional="hide"/>
+                    <field name="buyer_id" optional="show"/>
+                    <field name="purchase_partner_id" optional="show"/>
+                    <field name="picking_no" optional="show"/>
+                    <field name="date_picking" optional="show"/>
+                    <field name="qty_picking" optional="hide"/>
+                    <field name="qty_delivered" optional="hide"/>
+                    <field name="location_delivered" optional="hide"/>
+                    <field name="picking_user_id" optional="hide"/>
+                    <field name="invoice_no" optional="show"/>
+                    <field name="date_invoice" optional="hide"/>
+                    <field name="qty_invoice" optional="hide"/>
+                    <field name="payment_no" optional="show"/>
+                    <field name="date_payment" optional="hide"/>
+                    <field name="payment_state" optional="hide"/>
+                    <field name="is_matched" optional="show"/>
+                    <field name="journal_id" optional="show"/>
+                    <field name="check_id" optional="show"/>
+                    <field name="inv_ref" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_purchase_payment_report_pivot" model="ir.ui.view">
+             <field name="name">view.purchase.payment.report.pivot</field>
+             <field name="model">purchase.payment.report</field>
+             <field name="arch" type="xml">
+                 <pivot string="Purchase to Payment" disable_linking="True" sample="1">
+                     <field name="purchase_request_no" type="col"/>
+                     <field name="date_purchase_request_create" interval="month" type="row"/>
+                 </pivot>
+             </field>
+        </record>
+
+        <record id="view_purchase_payment_report_search" model="ir.ui.view">
+            <field name="name">view.purchase.payment.report.search</field>
+            <field name="model">purchase.payment.report</field>
+            <field name="arch" type="xml">
+                <search string="Purchase to Payment">
+                    <field name="purchase_request_no"/>
+                    <field name="purchase_request_description"/>
+                    <field name="date_purchase_request_create"/>
+                    <field name="product_id"/>
+                    <field name="product_ref"/>
+                    <field name="purchase_request_currency_id"/>
+                    <field name="qty_purchase_request"/>
+                    <field name="price"/>
+                    <field name="rate"/>
+                    <field name="user_id"/>
+                    <field name="purchase_request_state"/>
+                    <field name="analytic_account"/>
+                    <field name="department"/>
+                    <field name="date_pr_line_needed"/>
+                    <field name="manual_rate"/>
+                    <field name="pr_company_id"/>
+                    <field name="purchase_order_no"/>
+                    <field name="date_purchase_create"/>
+                    <field name="purchase_description"/>
+                    <field name="purchase_state"/>
+                    <field name="purchase_currency_id"/>
+                    <field name="purchase_uom_id"/>
+                    <field name="price_purchase"/>
+                    <field name="qty_purchase"/>
+                    <field name="amount_purchase"/>
+                    <field name="purchase_representative"/>
+                    <field name="buyer_id"/>
+                    <field name="purchase_partner_id"/>
+                    <field name="picking_no"/>
+                    <field name="date_picking"/>
+                    <field name="qty_picking"/>
+                    <field name="qty_delivered"/>
+                    <field name="location_delivered"/>
+                    <field name="picking_user_id"/>
+                    <field name="invoice_no"/>
+                    <field name="date_invoice"/>
+                    <field name="qty_invoice"/>
+                    <field name="payment_no"/>
+                    <field name="date_payment"/>
+                    <field name="payment_state"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_purchase_payment_report" model="ir.actions.act_window">
+            <field name="name">Purchase to Payment</field>
+            <field name="res_model">purchase.payment.report</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_purchase_payment_report_search"/>
+        </record>
+
+        <menuitem
+            id="menu_purchase_payment_report"
+            name="Purchase to Payment Report"
+            action="action_purchase_payment_report"
+            parent="purchase.purchase_report"
+            sequence="20"/>
+    </data>
+</odoo>

@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+        <record id="view_wizard_mass_asset_generate" model="ir.ui.view">
+            <field name="name">view.wizard.mass.asset.generate</field>
+            <field name="model">wizard.mass.asset.generate</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="model_id" domain="[('state', '=', 'model')]" invisible="1"/>
+                            <field name="company_id"/>
+                            <field name="journal_id" required="1"/>
+                            <field name="type" required="1"/>
+                            <field name="add_type" attrs="{'invisible': [('type', '!=', 'add')], 'required': [('type', '=', 'add')]}"/>
+                            <field name="is_selected_all" widget="boolean_toggle"/>
+                            <field name="purchase_ids" widget="many2many_tags"/>
+                            <field name="purchase_domain_ids" widget="many2many_tags" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="asset_name" attrs="{'invisible': [('type', '!=', 'merge')], 'required': [('type', '=', 'merge')]}"/>
+                            <field name="date_acquisition" attrs="{'required': [('type', '!=', 'add')], 'invisible': [('type', '=', 'add')]}"/>
+                            <field name="amount_total" attrs="{'invisible': [('type', '!=', 'merge')], 'required': [('type', '=', 'merge')]}"/>
+                            <field name="selected_asset_id" attrs="{'invisible': [('type', '!=', 'add')], 'required': [('type', '=', 'add')]}"/>
+                            <field name="amount_add" attrs="{'invisible': [('type', '!=', 'add')], 'required': [('type', '=', 'add')]}"/>
+                            <label for="age_add" string="Umur Aset" attrs="{'invisible': [('type', '!=', 'add')], 'required': [('type', '=', 'add')]}"/>
+                            <div class="o_row">
+                                <field name="age_add" attrs="{'invisible': [('type', '!=', 'add')], 'required': [('type', '=', 'add')]}"/>
+                                <field name="age_type" nolabel="1" attrs="{'invisible': [('type', '!=', 'add')], 'required': [('type', '=', 'add')]}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="line_ids" nolabel="1">
+                            <tree editable="bottom" create="0" delete="1">
+                                <field name="selected" widget="boolean_toggle"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="amount" required="1" optional="show"/>
+                                <field name="price_unit" required="1" optional="hide"/>
+                                <field name="purchase_id" domain="[('invoice_ids', '!=', False)]" optional="show"/>
+                                <field name="purchase_line_number" optional="show"/>
+                                <field name="partner_id" optional="hide"/>
+                                <field name="picking_id" domain="[('purchase_id', '=', purchase_id)]" optional="show"/>
+                                <field name="invoice_id" required="1" optional="show"/>
+                                <field name="line_number" optional="show"/>
+                                <field name="invoice_line_id" required="1" optional="show"/>
+                                <field name="analytic_account_id" required="1" optional="show"/>
+                                <field name="product_id" optional="show"/>
+                                <field name="product_code" optional="hide"/>
+                                <field name="qty" required="1" optional="show"/>
+                                <field name="date_acquisition" required="1" optional="show"/>
+                                <field name="model_id" domain="[('state', '=', 'model')]" required="1" optional="hide"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="button_generate" string="Generate" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_mass_asset_generate" model="ir.actions.act_window">
+            <field name="name">Generate Asset</field>
+            <field name="res_model">wizard.mass.asset.generate</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            id="menu_mass_asset_generate"
+            name="Mass Fixed Asset Generate"
+            action="action_wizard_mass_asset_generate"
+            parent="ins_asset.menu_asset"
+            sequence="2"/>
+    </data>
+</odoo>

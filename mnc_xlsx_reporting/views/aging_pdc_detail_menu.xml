@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_menu_aging_pdc_detail_wizard" model="ir.actions.act_window">
+            <field name="name">Aging PDC Detail</field>
+            <field name="res_model">aging.pdc.detail.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_report_type': 'aging_pdc_detail'}
+            </field>
+        </record>
+
+        <record id="menu_aging_pdc_detail_wizard" model="ir.ui.menu">
+            <field name="name">Aging PDC Detail</field>
+            <field name="action" ref='action_menu_aging_pdc_detail_wizard'/>
+            <field name="parent_id" ref='mnc_menu_report.print_out_menu'/>
+        </record>
+    </data>
+</odoo>

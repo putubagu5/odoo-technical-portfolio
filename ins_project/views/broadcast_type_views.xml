@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+        <record id="view_broadcast_type_form" model="ir.ui.view">
+            <field name="name">view.broadcast.type.form</field>
+            <field name="model">broadcast.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="date_start" required="1"/>
+                                <field name="date_end"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_broadcast_type_tree" model="ir.ui.view">
+            <field name="name">view.broadcast.type.tree</field>
+            <field name="model">broadcast.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_broadcast_type_search" model="ir.ui.view">
+            <field name="name">view.broadcast.type.search</field>
+            <field name="model">broadcast.type</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_broadcast_type" model="ir.actions.act_window">
+            <field name="name">Broadcast Type</field>
+            <field name="res_model">broadcast.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis"
+            name="PMIS"
+            groups="project.group_project_manager"
+            sequence="33"/>
+
+        <menuitem id="menu_pmis_config"
+            name="Configurations"
+            parent="menu_pmis"
+            sequence="2"/>
+
+        <menuitem
+            id="menu_broadcast_type"
+            name="Broadcast Type"
+            action="action_view_broadcast_type"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_config"
+            sequence="5"/>
+    </data>
+</odoo>

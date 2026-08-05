@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_request_inherit_form_view" model="ir.ui.view">
+            <field name="name">purchase.request.inherit.form.view</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+                <!-- add button inside header -->
+                <xpath expr="//header" position="inside">
+                    <button
+                        name="%(budget_control.action_purchase_request_line_make_purchase_agreement)d"
+                        string="Create Purchase Agreement"
+                        type="action"
+                        attrs="{'invisible': ['|', ('state', '!=', 'approved'), ('rfq_is_created', '=', True)]}"/>
+                </xpath>
+
+                <!-- add po_numbers after description -->
+                <xpath expr="//field[@name='description']" position="after">
+                    <field name="po_numbers"/>
+                    <!-- <field name="po_numbers_store"/> -->
+                </xpath>
+
+                <!-- add currency_id after picking_type_id -->
+                <xpath expr="//field[@name='picking_type_id']" position="after">
+                    <field name="currency_id"/>
+                    <field name="rfq_is_created" invisible="1"/>
+                </xpath>
+
+                <!-- add currency_id as default in context for line_ids -->
+                <xpath expr="//field[@name='line_ids']" position="attributes">
+                    <attribute name="context">{'default_select_currency_id': currency_id}</attribute>
+                </xpath>
+
+                <!-- add group uom to product_uom_id -->
+                <xpath expr="//field[@name='line_ids']//form//sheet//group[@name='main']//field[@name='product_uom_id']" position="attributes">
+                    <attribute name="groups">uom.group_uom</attribute>
+                </xpath>
+
+                <!-- add crossovered_budget_line_id and remaining_budget_amount -->
+                <xpath expr="//field[@name='line_ids']//form//sheet//group[@name='main']//field[@name='estimated_cost']" position="before">
+                    <field name="crossovered_budget_line_id" invisible="1"/>
+                    <field name="remaining_budget_amount" widget="monetary" attrs="{'invisible': [('crossovered_budget_line_id','=', False)]}"/>
+                </xpath>
+
+                <!-- add account_id after name in form and tree -->
+                <!-- also is_storable_service to make account_id readonly if true -->
+                <xpath expr="//field[@name='line_ids']//form//sheet//group[@name='main']//field[@name='name']" position="after">
+                    <field name="is_storable_service"/>
+                    <field name="account_id" attrs="{'readonly': ['|', ('is_storable_service', '=', True), ('is_editable', '=', False)]}" force_save="1"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']//tree//field[@name='analytic_account_id']" position="before">
+                    <field name="account_id" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_request_inherit_tree_view" model="ir.ui.view">
+            <field name="name">purchase.request.inherit.tree.view</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_tree"/>
+            <field name="arch" type="xml">
+
+                <field name="origin" position="after">
+                    <field name="po_numbers"/>
+                    <!-- <field name="po_numbers_store"/> -->
+                </field>
+
+            </field>
+        </record>
+    </data>
+</odoo>

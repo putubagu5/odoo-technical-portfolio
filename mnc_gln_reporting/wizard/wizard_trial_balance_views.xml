@@ -1,0 +1,37 @@
+<odoo>
+
+    <record id="wizard_trial_balance_view_form" model="ir.ui.view">
+        <field name="name">wizard.trial.balance.view.form</field>
+        <field name="model">wizard.trial.balance</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="company_id"/>
+                        <field name="get_all_account"/>
+                        <field name="account_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Generate XLSX Report" name="generate" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_trial_balance_action" model="ir.actions.act_window">
+        <field name="name">Trial Balance Report XLSX</field>
+        <field name="res_model">wizard.trial.balance</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="wizard_trial_balance_menu"
+            name="Trial Balance"
+            action="wizard_trial_balance_action"
+            parent="mnc_menu_report.report_gl"/>
+
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="sale_subscription_view_form" model="ir.ui.view">
+            <field name="name">sale.subscription.view.form</field>
+            <field name="model">sale.subscription</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+            <field name="arch" type="xml">
+                <!-- put deposit_invoice_id after close_reason_id -->
+                <!-- deposit_invoice_id is taken with same partner, is_customer_deposit True and not having any subscription -->
+                <xpath expr="//field[@name='close_reason_id']" position="after">
+                    <field name="deposit_invoice_id" domain="[('is_customer_deposit', '=', True), ('partner_id', '=', partner_id), ('subscription_id', '=', False)]"/>
+                    <field name="amount_actual_deposit"/>
+                    <field name="amount_deposit"/>
+                    <field name="deposit_tax_ids" widget="many2many_tags" invisible="1"/>
+                    <field name="amount_total"/>
+                </xpath>
+
+                <!-- hide logs -->
+                <xpath expr="//page[@id='logs']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

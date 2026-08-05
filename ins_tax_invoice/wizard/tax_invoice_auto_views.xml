@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="action_wizard_tax_invoice_auto" model="ir.actions.act_window">
+            <field name="name">Auto Number eFaktur</field>
+            <field name="res_model">wizard.tax.invoice.auto</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="view_wizard_tax_invoice_auto_form" model="ir.ui.view">
+            <field name="name">view.wizard.tax.invoice.auto.form</field>
+            <field name="model">wizard.tax.invoice.auto</field>
+            <field name="arch" type="xml">
+                <form string="eFaktur">
+                    <group colspan="4">
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="qty_found" attrs="{'invisible': [('qty_found', '=', 0)]}" readonly="1" force_save="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Invoices">
+                            <field name="invoice_ids"/>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button string="Find Invoices" name="button_find" type="object" class="btn-primary"/>
+                        <button string="Fill Nomor Seri Faktur Pajak" name="button_confirm" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_tax_invoice_auto"
+            name="Auto Numbering"
+            action="action_wizard_tax_invoice_auto"
+            parent="ins_tax_invoice.menu_tax_invoice"
+            sequence="70"/>
+    </data>
+</odoo>

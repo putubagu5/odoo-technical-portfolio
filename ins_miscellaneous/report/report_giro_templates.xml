@@ -1,0 +1,48 @@
+<odoo>
+    <template id="report_giro_misc_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_miscellaneous.report_giro_misc_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_giro_misc_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <!-- cheque contents -->
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-12 text-right">
+                        Jakarta,.
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-6 text-right">
+                        <!-- <t t-esc="'{:,.0f}'.format(o.amount)"/> -->
+                    </div>
+                    <div class="col-6 text-left">
+                        <!-- <span t-field="o.amount_in_words_2"/> -->
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-7 text-right">
+                        <!-- <span t-field="o.partner_bank_id.acc_number"/> -->
+                    </div>
+                    <div class="col-5 text-left">
+                        <!-- <span t-field="o.partner_bank_id.acc_holder_name"/> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <!-- <span t-field="o.partner_bank_id.bank_id.name"/> -->
+                    </div>
+                </div>
+
+            </div>
+        </t>    
+    </template>
+</odoo>

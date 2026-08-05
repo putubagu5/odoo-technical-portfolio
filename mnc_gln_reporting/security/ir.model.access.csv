@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wizard_trial_balance,Trial Balance Wizard Access All,model_wizard_trial_balance,,1,1,1,1
+access_purchase_requisition,Purchase Requisition Wizard Access All,model_wizard_purchase_requisition,,1,1,1,1

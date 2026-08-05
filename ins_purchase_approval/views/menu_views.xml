@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <menuitem
+            id="menu_root_approval"
+            name="Approval Settings"
+            parent="purchase.menu_purchase_config"
+            sequence="50"/>
+    </data>
+</odoo>

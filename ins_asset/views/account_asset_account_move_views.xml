@@ -1,0 +1,76 @@
+<odoo>
+	<data>
+		<record id="view_account_asset_account_move_form"
+			model="ir.ui.view">
+			<field name="name">view.account.asset.account.move.form</field>
+			<field name="model">account.asset.account.move</field>
+			<field name="arch" type="xml">
+				<form create="0">
+					<header>
+						<button name="cancel" type="object" string="Cancel" states="draft,post" />
+						<button name="post" type="object" string="Post"
+							class="oe_highlight" states="draft" />
+						<field name="state" widget="statusbar" statusbar_visible="draft,post"/>
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="name" required="1"
+									attrs="{'readonly': [('state', '=', 'done')]}" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="date_invoice" required="1" readonly="1" />
+								<field name="asset_category_id" required="1"
+									attrs="{'readonly': [('state', '=', 'done')]}" />
+								<field name="journal_id" required="1"
+									attrs="{'readonly': [('state', '=', 'done')]}" />
+								<field name="move_id" readonly="1"/>
+							</group>
+							<group>
+								<field name="company_id" required="1" readonly="1" />
+								<field name="currency_id" required="1"
+									attrs="{'readonly': [('state', '=', 'done')]}" />
+								<field name="amount" required="1"
+									attrs="{'readonly': [('state', '=', 'done')]}" />
+								<field name="depreciation_ids" required="1"
+									attrs="{'readonly': [('state', '=', 'done')]}"
+									widget="many2many_tags" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_account_asset_account_move_tree"
+			model="ir.ui.view">
+			<field name="name">view.account.asset.account.move.tree</field>
+			<field name="model">account.asset.account.move</field>
+			<field name="arch" type="xml">
+				<tree create="0">
+					<field name="name" />
+					<field name="date_invoice" />
+					<field name="asset_category_id" />
+					<field name="journal_id" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="action_account_asset_account_move"
+			model="ir.actions.act_window">
+			<field name="name">Asset Depreciation Journal Entries</field>
+			<field name="res_model">account.asset.account.move</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="menu_account_asset_account_move"
+			name="Asset Depreciation Journal Entries"
+			action="action_account_asset_account_move"
+			parent="ins_asset.menu_asset" sequence="4" />
+
+	</data>
+</odoo>
+                    

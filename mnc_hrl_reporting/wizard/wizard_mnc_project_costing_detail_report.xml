@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="wizard_mnc_project_costing_detail_report_form" model="ir.ui.view">
+        <field name="name">wizard.mnc.project.costing.detail.report.form</field>
+        <field name="model">wizard.mnc.project.costing.detail.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="company_id" options="{'no_create': True, 'no_open': True}" required="1"/>
+                        <field name="project_id" domain="[('company_id','=', company_id)]"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="task_id"
+                               domain="[('company_id','=', company_id),('main_project_id','=', project_id)]"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="program_id"
+                               domain="[('company_id','=', company_id),('main_project_id','=', project_id)]"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="expenditure_type_id" domain="[('company_id','=', company_id)]"
+                               options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                    <group>
+                    </group>
+                </group>
+                <footer>
+                    <button name="button_print_excel" string="Download Excel" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_wizard_mnc_project_costing_detail_report">
+        <field name="name">Project Costing Detail</field>
+        <field name="res_model">wizard.mnc.project.costing.detail.report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_mnc_project_costing_detail_report_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

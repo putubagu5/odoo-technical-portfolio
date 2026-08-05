@@ -1,0 +1,69 @@
+<odoo>
+    <data noupdate="1">
+        <record id="report_A4_landscape_3tv_paperformat" model="report.paperformat">
+            <field name="name">report.A4.landscape.3tv.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">25</field>
+            <field name="margin_top">30</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="margin_bottom">20</field>
+            <field name="dpi">100</field>
+        </record>
+
+        <!-- <record id="report_budget" model="ir.actions.report">
+            <field name="name">Budget Report</field>
+            <field name="model">pmis.budget</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_project.report_budget_container</field>
+            <field name="report_file">ins_project.report_budget_container</field>
+            <field name="binding_model_id" ref="ins_project.model_pmis_budget"/>
+            <field name="paperformat_id" ref="ins_project.report_A4_landscape_3tv_paperformat"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_budget_summary" model="ir.actions.report">
+            <field name="name">Budget Summary Report</field>
+            <field name="model">report.ins_project.report_budget_summary_container</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_project.report_budget_summary_container</field>
+            <field name="paperformat_id" ref="ins_project.report_A4_landscape_3tv_paperformat"/>
+        </record> -->
+
+        <record id="report_budget_program" model="ir.actions.report">
+            <field name="name">Budget Summary Report</field>
+            <field name="model">pmis.budget</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_project.report_budget_program_container</field>
+            <field name="report_file">ins_project.report_budget_program_container</field>
+            <field name="binding_model_id" ref="ins_project.model_pmis_budget"/>
+            <field name="paperformat_id" ref="ins_project.report_A4_landscape_3tv_paperformat"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_budget_revision_program" model="ir.actions.report">
+            <field name="name">Budget Summary Revision Report</field>
+            <field name="model">pmis.budget</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_project.report_budget_revision_program_container</field>
+            <field name="report_file">ins_project.report_budget_revision_program_container</field>
+            <field name="binding_model_id" ref="ins_project.model_pmis_budget"/>
+            <field name="paperformat_id" ref="ins_project.report_A4_landscape_3tv_paperformat"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_budget_summary_review" model="ir.actions.report">
+            <field name="name">Budget Summary Report</field>
+            <field name="model">pmis.budget.review</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_project.report_budget_summary_review_container</field>
+            <field name="report_file">ins_project.report_budget_summary_review_container</field>
+            <field name="binding_model_id" ref="ins_project.model_pmis_budget_review"/>
+            <field name="paperformat_id" ref="ins_project.report_A4_landscape_3tv_paperformat"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

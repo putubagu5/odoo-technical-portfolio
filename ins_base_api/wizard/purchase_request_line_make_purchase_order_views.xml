@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_purchase_request_line_make_purchase_order" model="ir.ui.view">
+            <field name="name">view.purchase.request.line.make.purchase.order</field>
+            <field name="model">purchase.request.line.make.purchase.order</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_line_make_purchase_order"/>
+            <field name="arch" type="xml">
+                <!-- add episode no -->
+                <xpath expr="//field[@name='item_ids']//tree//field[@name='name']" position="after">
+                    <field name="episode_no" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

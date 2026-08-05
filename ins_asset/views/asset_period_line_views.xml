@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <record id="view_asset_period_line_form" model="ir.ui.view">
+            <field name="name">view.asset.period.line.form</field>
+            <field name="model">asset.period.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_close" type="object" string="Close Period" class="oe_highlight" states="open"/>
+                        <button name="action_reopen" type="object" string="Re-Open Period" class="oe_highlight" states="close"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                            </group>
+                            <group>
+                                <field name="date_start" required="1"/>
+                                <field name="date_end" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Assets">
+                                <field name="asset_ids" nolabel="1">
+                                    <tree create="0" edit="0" delete="0">
+                                        <field name="name"/>
+                                        <field name="acquisition_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_asset_period_line_tree" model="ir.ui.view">
+            <field name="name">view.asset.period.line.tree</field>
+            <field name="model">asset.period.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_asset_period_line" model="ir.actions.act_window">
+            <field name="name">Asset Periods</field>
+            <field name="res_model">asset.period.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_asset_period_line"
+            name="Asset Periods"
+            action="action_asset_period_line"
+            parent="ins_asset.menu_root_asset_period"
+            sequence="2"/>
+    </data>
+</odoo>

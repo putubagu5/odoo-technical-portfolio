@@ -1,0 +1,145 @@
+<odoo>
+    <template id="ins_base_mnc_report_inventory_issue_slip_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_report_inventory_issue_slip_document"/>
+            </t>
+        </t>
+    </template>
+    
+    <template id="ins_base_mnc_report_inventory_issue_slip_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-family:Arial; font-size:14px;">
+                <!-- logo -->
+                <div class="header">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="25%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+                                        <img t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+                                    </td>
+                                    <td width="50%" align="center" style="border: 1px solid black; padding: 7px; vertical-align: middle; font-family:Arial; font-size:18pt; font-weight: bold; ">
+                                        INVENTORY ISSUE SLIP
+                                    </td>
+                                    <td width="25%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+                                        &#160;
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- header, no and recipient -->
+                <div class="row">
+                    <div class="col-6">
+                        <table width="100%">
+                            <tr style="border: 1px solid black;">
+                                <td style="background-color: #dee2e6;">
+                                   	Transaction Source
+                                </td>
+                                <td>
+                                    <span t-field="o.name"/>
+                                </td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="background-color: #dee2e6;">
+                                    Transaction Type
+                                </td>
+                                <td>
+                                    Inventory Issue
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-6">
+                        <table width="100%">
+                            <tr style="border: 1px solid black;">
+                                <td style="background-color: #dee2e6;">
+                                    Department
+                                </td>
+                                <t t-foreach="o.move_ids_without_package[0]" t-as="line">
+                                    <td>
+                                        <span t-field="line.analytic_account_id.name"/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="background-color: #dee2e6;"> 
+                                    Transaction Date
+                                </td>
+                                <td>
+                                    <t t-esc="o.date_done.strftime('%d-%b-%y') if o.date_done else ''"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- table -->
+                 <br/>
+                 <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr style="background-color: #dee2e6; padding-left:5px; padding-bottom:1px; padding-top:1px;">
+                                <td width="5%" class="text-center" style="border: 1px solid black;">No</td>
+                                <td width="10%" class="text-center" style="border: 1px solid black;">Item Code</td>
+                                <td width="30%" class="text-center" style="border: 1px solid black;">Item Description</td>
+                                <td width="5%" class="text-center" style="border: 1px solid black;">Qty</td>
+                                <td width="5%" class="text-center" style="border: 1px solid black;">UOM</td>
+                                <td width="10%" class="text-center" style="border: 1px solid black;">Subinventory</td>
+                                <td width="10%" class="text-center" style="border: 1px solid black;">To Subinventory</td>
+                                <td width="10%" class="text-center" style="border: 1px solid black;">Account</td>
+                                <td width="10%" class="text-center" style="border: 1px solid black;">Analytic Account</td>
+                                <td width="5%" class="text-center" style="border: 1px solid black;">Wilayah</td>
+                            </tr>
+                            <tr t-foreach="o.move_ids_without_package" t-as="line" style="padding-left:5px; padding-bottom:1px; padding-top:1px;">
+                            	<td class="text-center" style="border: 1px solid black;"><t t-raw="line_index + 1"/></td>
+                                <td class="text-center" style="border: 1px solid black;"><t t-esc="line.product_id.default_code"/></td>
+                                <td class="text-left" style="border: 1px solid black;">
+                                    <t t-esc="line.description_picking"/>
+                                </td>
+                                <td class="text-center" style="border: 1px solid black;"><t t-esc="line.quantity_done"/></td>
+                                <td class="text-center" style="border: 1px solid black;"><t t-esc="line.product_uom.name"/></td>
+                                <td class="text-center" style="border: 1px solid black;"></td>
+                                <td class="text-center" style="border: 1px solid black;"></td>
+                                <td class="text-left" style="border: 1px solid black;"><t t-esc="line.product_id.property_account_expense_id.code"/></td>
+                                <td class="text-center" style="border: 1px solid black;"><t t-esc="line.analytic_account_id.code"/></td>
+                                <td class="text-center" style="border: 1px solid black;"><t t-esc="line.wilayah_id.code"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                  </div>
+                  
+                  <br/>
+	              <div class="row">
+	                <div class="col-12">
+	                    <table width="100%" style="border: 1px solid black" align="right">
+	                        <tr>
+	                        	<td style="width:25%;text-align:center; background-color: #dee2e6; border: 1px solid black;">Received By,</td>
+	                            <td style="width:25%;text-align:center; background-color: #dee2e6; border: 1px solid black;">Created By,</td>
+	                            <td style="width:25%;text-align:center; background-color: #dee2e6; border: 1px solid black;">Checked By,</td>
+	                            <td style="width:25%;text-align:center; background-color: #dee2e6; border: 1px solid black;">Approved By,</td>
+	                        </tr>
+	                        <tr>
+	                            <td style="height:50px; border: 1px solid black;"></td>
+	                            <td style="height:50px; border: 1px solid black;"></td>
+	                            <td style="height:50px; border: 1px solid black;"></td>
+	                            <td style="height:50px; border: 1px solid black;"></td>
+	                        </tr>
+	                        <tr>
+	                            <td style="height:20px; border: 1px solid black;"></td>
+	                            <td style="height:20px; border: 1px solid black; text-align:center;"><span t-esc="user.name"/></td>
+	                            <td style="height:20px; border: 1px solid black;"></td>
+	                            <td style="height:20px; border: 1px solid black;"></td>
+	                        </tr>
+	                    </table>
+	                </div>
+	               </div>
+	            <br/>
+              </div>
+           </t>
+       </template>
+    
+</odoo>

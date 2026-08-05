@@ -1,0 +1,109 @@
+<odoo>
+    <template id="report_payment_slip_kliring_mandiri_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_3tv_mncp.report_payment_slip_kliring_mandiri_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_payment_slip_kliring_mandiri_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 10px; font-family: Arial;">
+                <table width="100%">
+                    <!-- LEFT INFORMATIONS -->
+                    <td width="50%">
+                        <table width="100%">
+                            <tr>
+                                <td width="35%"></td>
+                                <td width="65%" height="350px" style="vertical-align: bottom">
+                                    <span t-field="o.partner_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="35%"></td>
+                                <td width="65%">
+                                    <span>1710005938645</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="35%"></td>
+                                <td width="65%">
+                                    <span>Mandiri</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="35%"></td>
+                                <td width="65%">
+                                    <span t-field="o.sites_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="35%"></td>
+                                <td width="65%">
+                                    <span>Jenis dan Nomor identitas</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%" height="150px" style="vertical-align: bottom">
+                            <tr>
+                                <td width="25%"></td>
+                                <td width="75%">
+                                    <span t-field="o.move_id"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <!-- RIGHT INFORMATION -->
+                    <td width="50%">
+                        <table width="100%">
+                            <tr>
+                                <td width="30%" height="100px"></td>
+                                <td width="70%" style="vertical-align: bottom">
+                                    <span t-field="o.partner_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%"></td>
+                                <td width="70%">
+                                    <span t-field="o.sites_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" height="70px"></td>
+                                <td width="70%" style="vertical-align: bottom; letter-spacing: 5px">
+                                    <span>1650003038008</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="15%" height="40px"></td>
+                                <td width="75%" style="text-align: right; vertical-align: bottom">
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <span t-field="o.amount" t-options='{"widget": "float", "precision": 2}'/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.amount" t-options='{"widget": "float", "precision": 0}'/>
+                                    </t>
+                                </td>
+                                <td width="10%"></td>
+                            </tr>
+                            <tr>
+                                <td width="15%" height="70px"></td>
+                                <td width="75%" style="vertical-align: bottom">
+                                    <span t-field="o.amount_in_words_2"/>
+                                    <br/>
+                                    <span t-field="o.assignee1_id_slip.name"/>
+                                    <span t-field="o.assignee2_id_slip.name"/>
+                                </td>
+                                <td width="10%"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

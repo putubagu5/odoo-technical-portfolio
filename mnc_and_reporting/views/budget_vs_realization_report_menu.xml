@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_menu_budget_vs_realization_report_wizard" model="ir.actions.act_window">
+            <field name="name">Budget VS Realization Report</field>
+            <field name="res_model">budget.vs.realization.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_report_type': 'budget_vs_realization_report'}
+            </field>
+        </record>
+
+        <record id="menu_budget_vs_realization_report_wizard" model="ir.ui.menu">
+            <field name="name">Budget VS Realization Report</field>
+            <field name="action" ref='action_menu_budget_vs_realization_report_wizard'/>
+            <field name="parent_id" ref='mnc_menu_report.report_pc'/>
+        </record>
+    </data>
+</odoo>

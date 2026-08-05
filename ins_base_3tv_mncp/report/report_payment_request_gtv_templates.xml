@@ -1,0 +1,295 @@
+<odoo>
+    <template id="report_payment_request_gtv_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_3tv_mncp.report_payment_request_gtv_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_payment_request_gtv_document">
+        <t t-call="web.basic_layout">
+            <!-- header -->
+            <div class="header" style="font-size: 12px !important;">
+                <table width="100%">
+                    <tr>
+                        <td width="30%" style="border: 1px solid black;">
+                            <img t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+                            <br/>
+                            <t t-esc="o.company_id.name"/>
+                        </td>
+                        <td width="70%" align="right" style="border: 1px solid black;">
+                            <h5><strong>FORM PEMINDAHAN DANA ANTAR BANK</strong></h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page" style="font-size: 12px !important;">
+                <!-- section 1 -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td width="20%" style="border-right: 1px solid black; padding: 5px;">Transfer Reference</td>
+                                <td width="30%" style="padding: 5px;"><span t-field="o.name"/></td>
+                                <td width="20%" style="border-right: 1px solid black; padding: 5px;">Transfer Date</td>
+                                <td width="30%" style="padding: 5px;"><span t-field="o.date"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1px solid black; padding: 5px;">Document Reference</td>
+                                <td style="padding: 5px;"><span t-field="o.doc_ref"/></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Clearing Account</td>
+                                <td style="padding: 5px;"><span t-field="o.clearing_account_id.code"/> <span t-field="o.clearing_account_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1px solid black; padding: 5px;">Bank From</td>
+                                <td style="padding: 5px;"><span t-field="o.bank_from.name"/></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Recipient Bank Account</td>
+                                <td style="padding: 5px;"><span t-field="o.partner_bank_from.acc_number"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1px solid black; padding: 5px;">Bank To</td>
+                                <td style="padding: 5px;"><span t-field="o.bank_to.name"/></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Recipient Bank Account</td>
+                                <td style="padding: 5px;"><span t-field="o.partner_bank_to.acc_number"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1px solid black; padding: 5px;">CF Activity Sent</td>
+                                <td style="padding: 5px;"><span t-field="o.cf_activity_id_sent.name"/></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Currency</td>
+                                <td style="padding: 5px;"><span t-field="o.currency_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1px solid black; padding: 5px;">CF Activity Receive</td>
+                                <td style="padding: 5px;"><span t-field="o.cf_activity_id_receive.name"/></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Operating Unit</td>
+                                <td style="padding: 5px;">[<span t-field="o.operating_unit_id.code"/>] <span t-field="o.operating_unit_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1px solid black; padding: 5px;">Customer/Vendor</td>
+                                <td style="padding: 5px;"><span t-field="o.partner_id.name"/></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Company</td>
+                                <td style="padding: 5px;"><span t-field="o.company_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1px solid black; padding: 5px;">Amount</td>
+                                <td style="padding: 5px;"><span t-field="o.currency_id.symbol"/> <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Payment Method</td>
+                                <td style="padding: 5px;"><span t-field="o.payment_method_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1px solid black; padding: 5px;">Amount IDR</td>
+                                <td style="padding: 5px;"><span t-field="o.currency_id.symbol"/> <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Series</td>
+                                <t t-if="o.payment_method_id.name == 'Manual'">
+                                    <td style="padding: 5px;"><span t-field="o.payment_doc_master_id.name"/></td>
+                                </t>
+                                <t t-if="o.payment_method_id.name == 'Checks'">
+                                    <td style="padding: 5px;"><span t-field="o.check_master_id.name"/></td>
+                                </t>
+                                <t t-if="o.payment_method_id.name == 'Giro'">
+                                    <td style="padding: 5px;"><span t-field="o.giro_master_id.name"/></td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px;"></td>
+                                <td style="padding: 5px;"></td>
+                                <td style="border-right: 1px solid black; padding: 5px;">Document No</td>
+                                <t t-if="o.payment_method_id.name == 'Manual'">
+                                    <td style="padding: 5px;"><span t-field="o.payment_doc_id.name"/></td>
+                                </t>
+                                <t t-if="o.payment_method_id.name == 'Checks'">
+                                    <td style="padding: 5px;"><span t-field="o.check_id.name"/></td>
+                                </t>
+                                <t t-if="o.payment_method_id.name == 'Giro'">
+                                    <td style="padding: 5px;"><span t-field="o.giro_id.name"/></td>
+                                </t>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <!-- section 2 -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black; border-radius: 8px;">
+                            <tr>
+                                <td width="20%" style="border: 1px solid black; padding: 5px;">No</td>
+                                <td width="80%" style="border: 1px solid black; padding: 5px;"><span t-field="o.doc_ref"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; padding: 5px;">Tanggal</td>
+                                <td style="border: 1px solid black; padding: 5px;"><span t-field="o.date"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; padding: 5px;">Kurs</td>
+                                <td style="border: 1px solid black; padding: 5px;"><span t-field="o.currency_id.name"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <!-- section 2 -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black; border-radius: 8px;">
+                            <tr style="font-size: 15px; background-color: #d6dc6e;">
+                                <td colspan="2" align="center" style="border: 1px solid black; padding: 5px;">BANK KELUAR</td>
+                                <td colspan="2" align="center" style="border: 1px solid black; padding: 5px;">BANK PENERIMA</td>
+                            </tr>
+                            <tr>
+                                <td width="25%" style="border: 1px solid black; padding: 5px;">Account Number</td>
+                                <td width="25%" style="border: 1px solid black; padding: 5px;"><span t-field="o.partner_bank_from.acc_number"/></td>
+                                <td width="25%" style="border: 1px solid black; padding: 5px;">Account Number</td>
+                                <td width="25%" style="border: 1px solid black; padding: 5px;"><span t-field="o.partner_bank_to.acc_number"/></td>
+                            </tr>
+                             <tr>
+                                <td width="25%" style="border: 1px solid black; padding: 5px;">Bank</td>
+                                <td width="25%" style="border: 1px solid black; padding: 5px;"><span t-field="o.bank_from.name"/></td>
+                                <td width="25%" style="border: 1px solid black; padding: 5px;">Bank</td>
+                                <td width="25%" style="border: 1px solid black; padding: 5px;"><span t-field="o.bank_to.name"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <!-- section 3 -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black; border-radius: 8px;">
+                            <tr style="font-size: 15px; background-color: #d6dc6e;">
+                                <td colspan="3" align="center" style="border-left: 1px solid black; border-top: 1px solid black; border-bottom: 1px solid black; padding: 5px;">KETERANGAN</td>
+                                <td align="center" style="border-right: 1px solid black; border-top: 1px solid black; border-bottom: 1px solid black; padding: 5px;">JUMLAH</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="border-left: 1px solid black; border-right: 1px solid black; padding: 5px;">
+                                    <span t-field="o.note"/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    Terbilang : <span t-field="o.amount_in_words"/>
+                                    <br/>
+                                </td>
+                                <td align="center" style="border-right: 1px solid black; padding: 5px;">
+                                    <span t-field="o.currency_id.symbol"/> <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 15px; background-color: #d6dc6e;">
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">Cara Pembayaran</td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">Tanggal Warkat</td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">Warkat Bank</td>
+                                <td width="25%" align="center" style="border: 1px solid black; padding: 5px;">No. Giro/Cek</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; padding: 5px;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                </td>
+                                <td style="border: 1px solid black; padding: 5px;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                </td>
+                                <td style="border: 1px solid black; padding: 5px;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <t t-if="o.payment_method_id.name == 'Manual'">
+                                        <span t-field="o.payment_doc_id.name"/>
+                                    </t>
+                                    <t t-if="o.payment_method_id.name == 'Checks'">
+                                        <span t-field="o.check_id.name"/>
+                                    </t>
+                                    <t t-if="o.payment_method_id.name == 'Giro'">
+                                        <span t-field="o.giro_id.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <!-- signature tables -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black; border-radius: 8px;">
+                            <tr>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    Dibuat Oleh,
+                                    <br/><br/><br/><br/><br/><br/>
+                                    <u><span t-field="o.create_uid.name"/></u>
+                                </td>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    Diperiksa Oleh,
+                                    <br/><br/><br/><br/><br/><br/>
+                                    Finance Manager
+                                </td>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    Disetujui Oleh,
+                                    <br/><br/><br/><br/><br/><br/>
+                                    GM. Finance
+                                </td>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    Disetujui Oleh,
+                                    <br/><br/><br/><br/><br/><br/>
+                                    Finance Director
+                                </td>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    Disetujui Oleh,
+                                    <br/><br/><br/><br/><br/><br/>
+                                    President Director
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <!-- notes -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    Catatan :<br/>
+                                    &#160;&#160;&#160;1.&#160;&#160;&#160;Pembayaran sampai dengan Rp. 5.000.000,- persetujuan sampai ke Finance Manager<br/>
+                                    &#160;&#160;&#160;2.&#160;&#160;&#160;Pembayaran Rp. 5.000.000,- sampai dengan Rp. 25.000.000,- harus dengan persetujuan Finance Director<br/>
+                                    &#160;&#160;&#160;3.&#160;&#160;&#160;Pembayaran diatas Rp. 25.000.000,- &amp; Kurs Valuta Asing harus dengan persetujuan President Director<br/>
+                                    &#160;&#160;&#160;Asli (putih)&#160;&#160;&#160;: Finance Departement<br/>
+                                    &#160;&#160;&#160;Copy 1 (biru) : Accounting Departement
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

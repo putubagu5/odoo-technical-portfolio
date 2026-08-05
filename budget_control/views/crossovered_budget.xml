@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="crossoverred_budget_inherit_form_view" model="ir.ui.view">
+            <field name="name">crossoverred.budget.inherit.form.view</field>
+            <field name="model">crossovered.budget</field>
+            <field name="inherit_id" ref="account_budget.crossovered_budget_view_form"/>
+            <field name="arch" type="xml">
+
+                <button name="action_budget_done"  position="replace">
+                    <button string="Done" name="action_budget_done" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('show_done_btn', '=', False)]}"/>
+                </button>
+
+                <div class="oe_title" position="before">
+                    <div class="alert alert-warning" attrs="{'invisible': [('state', '!=', 'cancel')]}">
+                        <h3>Note:</h3>
+                        <group>
+                            <group>
+                                <field name="reject_user_id" readonly="1"/>
+                                <field name="reject_date_reject" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="reject_reason" readonly="1"/>
+                            </group>
+                        </group>
+                    </div>
+                </div>
+
+                <xpath expr="//form/sheet/group" position="replace">
+                    <group>
+                        <group>
+                            <field name="user_id" attrs="{'readonly':[('state','!=','draft')]}" domain="[('share', '=', False)]"/>
+                        </group>
+                        <group>
+                            <field name="period_id" required="1" attrs="{'readonly':[('state','=','validate')]}"/>
+                            <label for="date_from" string="Period Date"/>
+                            <div>
+                                <field name="date_from" class="oe_inline" readonly="1" force_save="1"/>
+                                -
+                                <field name="date_to" class="oe_inline" readonly="1" force_save="1" nolabel="1"/>
+                            </div>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" attrs="{'readonly':[('state','=','validate')]}"/>
+                            <field name="year" invisible="1"/>
+                            <field name="show_done_btn" invisible="1"/>
+                        </group>
+                    </group>
+
+                </xpath>
+
+                <!-- add done state to button draft -->
+                <xpath expr="//button[@name='action_budget_draft']" position="attributes">
+                    <attribute name="states">cancel,done</attribute>
+                </xpath>
+
+                <!-- hide cancel budget -->
+                <xpath expr="//button[@name='action_budget_cancel']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <notebook position="replace">
+                    <notebook>
+                        <page string="Budget Summary">
+                            <button name="search_crossovered_budget_lines" type="object" string="Search Budget"/>
+                            <field name="crossovered_budget_line" colspan="4" nolabel="1" readonly="1" force_save="1">
+                                <tree string="Budget Lines"
+                                      decoration-success="is_above_budget and planned_amount &gt; 0"
+                                      decoration-danger="is_above_budget and planned_amount &lt; 0" edit="0" create="0"
+                                      delete="0">
+                                    <field name="general_budget_id"/>
+                                    <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                    <field name="paid_date" groups="base.group_no_one"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="planned_amount" sum="Budget"/>
+                                    <field name="pr_reserve_amount"/>
+                                    <button type="object" name="action_open_pr_res_entries" string="PR Entries"
+                                            icon="fa-arrow-circle-o-right"/>
+                                    <field name="po_reserve_amount"/>
+                                    <button type="object" name="action_open_po_res_entries" string="PO Entries"
+                                            icon="fa-arrow-circle-o-right"/>
+                                    <field name="practical_amount" sum="Actual"/>
+                                    <field name="remaining_amount"/>
+                                    <button type="object" name="action_open_budget_entries" string="Entries..."
+                                            icon="fa-arrow-circle-o-right"/>
+                                    <field name="is_above_budget" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Budget Lines">
+                            <field name="crossovered_budget_line_add"
+                                   context="{'default_date_from': date_from,'default_date_to': date_to}" colspan="4"
+                                   nolabel="1" attrs="{'readonly':[('state','!=','draft')]}">
+                                <tree string="Budget Lines">
+                                    <field name="general_budget_id"/>
+                                    <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                                    <field name="month1"/>
+                                    <field name="month2"/>
+                                    <field name="month3"/>
+                                    <field name="month4"/>
+                                    <field name="month5"/>
+                                    <field name="month6"/>
+                                    <field name="month7"/>
+                                    <field name="month8"/>
+                                    <field name="month9"/>
+                                    <field name="month10"/>
+                                    <field name="month11"/>
+                                    <field name="month12"/>
+                                    <field name="amount_total_budget"/>
+                                </tree>
+                                <form string="Budget Lines">
+                                    <group>
+                                        <group>
+                                            <field name="currency_id" invisible="1"/>
+                                            <field name="general_budget_id"/>
+                                            <field name="analytic_account_id"
+                                                   groups="analytic.group_analytic_accounting"/>
+                                            <field name="amount_total_budget"/>
+                                            <field name="operating_unit_id"/>
+                                            <field name="planned_amount" invisible="1"/>
+                                        </group>
+                                        <group>
+                                            <label for="date_from" string="Period"/>
+                                            <div>
+                                                <field name="date_from" class="oe_inline" readonly="1" force_save="1"/>
+                                                -
+                                                <field name="date_to" class="oe_inline" readonly="1" force_save="1"/>
+                                            </div>
+                                            <field name="paid_date" groups="base.group_no_one" invisible="1"/>
+                                            <field name="company_id" options="{'no_create': True}"
+                                                   groups="base.group_multi_company" invisible="1"/>
+                                        </group>
+                                    </group>
+                                    <group string="Months">
+                                        <group>
+                                            <field name="month1"/>
+                                            <field name="month2"/>
+                                            <field name="month3"/>
+                                            <field name="month4"/>
+                                            <field name="month5"/>
+                                            <field name="month6"/>
+                                        </group>
+                                        <group>
+                                            <field name="month7"/>
+                                            <field name="month8"/>
+                                            <field name="month9"/>
+                                            <field name="month10"/>
+                                            <field name="month11"/>
+                                            <field name="month12"/>
+                                        </group>
+                                    </group>
+                                    <group string="Actual Months">
+                                        <group>
+                                            <field name="actual_month1"/>
+                                            <field name="actual_month2"/>
+                                            <field name="actual_month3"/>
+                                            <field name="actual_month4"/>
+                                            <field name="actual_month5"/>
+                                            <field name="actual_month6"/>
+                                        </group>
+                                        <group>
+                                            <field name="actual_month7"/>
+                                            <field name="actual_month8"/>
+                                            <field name="actual_month9"/>
+                                            <field name="actual_month10"/>
+                                            <field name="actual_month11"/>
+                                            <field name="actual_month12"/>
+                                        </group>
+                                    </group>
+                                    <group string="Emcumbren Months">
+                                        <group>
+                                            <field name="emcumbren_month1"/>
+                                            <field name="emcumbren_month2"/>
+                                            <field name="emcumbren_month3"/>
+                                            <field name="emcumbren_month4"/>
+                                            <field name="emcumbren_month5"/>
+                                            <field name="emcumbren_month6"/>
+                                        </group>
+                                        <group>
+                                            <field name="emcumbren_month7"/>
+                                            <field name="emcumbren_month8"/>
+                                            <field name="emcumbren_month9"/>
+                                            <field name="emcumbren_month10"/>
+                                            <field name="emcumbren_month11"/>
+                                            <field name="emcumbren_month12"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </notebook>
+
+            </field>
+        </record>
+
+        <record id="budget_summary_tree_view" model="ir.ui.view">
+            <field name="name">budget.summary.tree.view</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0" delete="0">
+                    <field name="currency_id" invisible="1"/>
+                    <field name="general_budget_id"/>
+                    <field name="budget_type"/>
+                    <field name="planned_amount"
+                           widget="monetary" options="{'currency_field': 'currency_id'}"
+                           sum="Total Planned Amount"/>
+                    <field name="pr_reserve_amount"
+                           widget="monetary" options="{'currency_field': 'currency_id'}"
+                           sum="Total PR Reserve"/>
+                    <field name="po_reserve_amount"
+                           widget="monetary" options="{'currency_field': 'currency_id'}"
+                           sum="Total PO Reserve"/>
+                    <field name="practical_amount"
+                           widget="monetary" options="{'currency_field': 'currency_id'}"
+                           sum="Total Practical Amount"/>
+                    <field name="remaining_amount"
+                           widget="monetary" options="{'currency_field': 'currency_id'}"
+                           sum="Total Remaining Amount"/>
+                    <field name="month1"/>
+                    <field name="month2"/>
+                    <field name="month3"/>
+                    <field name="month4"/>
+                    <field name="month5"/>
+                    <field name="month6"/>
+                    <field name="month7"/>
+                    <field name="month8"/>
+                    <field name="month9"/>
+                    <field name="month10"/>
+                    <field name="month11"/>
+                    <field name="month12"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

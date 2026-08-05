@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="view_wizard_pmis_budget_line" model="ir.ui.view">
+            <field name="name">view.wizard.pmis.budget.line</field>
+            <field name="model">wizard.pmis.budget.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="detail_ids" nolabel="1">
+                        <!-- TODO here -->
+                            <tree editable="bottom" create="false" delete="false">
+                                <field name="code" required="1"/>
+                                <field name="name" required="1"/>
+                                <field name="no" required="1"/>
+                                <field name="amount" required="1"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                    <footer>
+                        <button name="button_save" type="object" string="Save" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

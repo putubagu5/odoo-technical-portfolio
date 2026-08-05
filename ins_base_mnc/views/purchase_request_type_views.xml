@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="view_purchase_request_type_tree" model="ir.ui.view">
+            <field name="name">view.purchase.request.type.tree</field>
+            <field name="model">purchase.request.type</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" required="1"/>
+                    <field name="description" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_purchase_request_type" model="ir.actions.act_window">
+            <field name="name">Purchase Request Type 1</field>
+            <field name="res_model">purchase.request.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_purchase_request_type"
+            name="Master Data Purchase Request Type 1"
+            action="action_purchase_request_type"
+            parent="purchase_request.menu_purchase_request"/>
+    </data>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="misc_misc_account_bank_statement_generate_form" model="ir.ui.view">
+            <field name="name">misc.account.bank.statement.generate.form</field>
+            <field name="model">account.bank.statement.generate</field>
+            <field name="inherit_id" ref="ins_miscellaneous.misc_misc_account_bank_statement_generate_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[3]" position="replace">
+                    <group string="Miscellaneous Payment">
+						<!-- <field name="misc_payment_ids" nolabel="1" domain="[('journal_id','=', journal_id),('is_matched','=', False), ('state','=', 'posted'), ('reverse_date','=',False)]" /> -->
+                        <field name="misc_payment_ids" nolabel="1" domain="[('journal_id','=', journal_id),('state','=', 'posted')]">
+                            <tree>
+                                <field name="name"/>
+                                <field name="doc_reference"/>
+                                <field name="misc_name"/>
+                                <field name="misc_type"/>
+                                <field name="receipt_type_id"/>
+                                <field name="receipt_type_category"/>
+                                <field name="receivable_activities_id"/>
+                                <field name="misc_partner_id"/>
+                                <field name="partner_id"/>
+                                <field name="destination_account_id"/>
+                                <field name="amount"/>
+                                <field name="remaining_amount"/>
+                                <field name="applied_amount"/>
+<!--                                <field name="transaction_date"-->
+<!--                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>-->
+                                <field name="description"/>
+                            </tree>
+                        </field>
+					</group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_view_account_payment_tree" model="ir.ui.view">
+		<field name="name">inherit.account.payment.tree.statement.generate</field>
+		<field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_tree"/>
+		<field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+  				<field name="multi_payment_reference"/>
+            </xpath>
+		</field>
+	</record>
+
+    </data>
+</odoo>

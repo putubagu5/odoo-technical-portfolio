@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <record id="view_pmis_main_project_form" model="ir.ui.view">
+            <field name="name">view.pmis.main.project.form</field>
+            <field name="model">pmis.main.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1" force_save="1"/>
+                                <field name="gen21_name"/>
+                                <field name="main_project_name" required="1"/>
+                                <field name="company_id" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pmis_main_project_tree" model="ir.ui.view">
+            <field name="name">view.pmis.main.project.tree</field>
+            <field name="model">pmis.main.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="gen21_name"/>
+                    <field name="main_project_name"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pmis_main_project_search" model="ir.ui.view">
+            <field name="name">view.pmis.main.project.search</field>
+            <field name="model">pmis.main.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Main Project ID"/>
+                    <field name="main_project_name" string="Main Project"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_pmis_main_project" model="ir.actions.act_window">
+            <field name="name">Main Project</field>
+            <field name="res_model">pmis.main.project</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis"
+            name="PMIS"
+            groups="project.group_project_manager"
+            sequence="33"/>
+
+        <menuitem id="menu_pmis_project"
+            name="Project"
+            parent="menu_pmis"
+            sequence="0"/>
+
+        <menuitem
+            id="menu_pmis_main_project"
+            name="Main Project"
+            action="action_view_pmis_main_project"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_project"
+            sequence="1"/>
+    </data>
+</odoo>

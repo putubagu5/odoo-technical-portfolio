@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record id="view_res_building_form" model="ir.ui.view">
+            <field name="name">view.res.building.form</field>
+            <field name="model">res.building</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="active" invisible="1"/>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group col="4">
+                            <field name="code" required="1"/>
+                            <field name="name" required="1"/>
+                            <field name="city_id" required="1"/>
+                            <field name="area_id" domain="[('city_id', '=', city_id)]" required="1"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_res_building_tree" model="ir.ui.view">
+            <field name="name">view.res.building.tree</field>
+            <field name="model">res.building</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="note"/>
+                    <field name="city_id"/>
+                    <field name="area_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_building" model="ir.actions.act_window">
+            <field name="name">Building</field>
+            <field name="res_model">res.building</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_res_building"
+            name="Building"
+            action="action_res_building"
+            parent="ins_asset.menu_asset_master_data"
+            sequence="3"/>
+    </data>
+</odoo>

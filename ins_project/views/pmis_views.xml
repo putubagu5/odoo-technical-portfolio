@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+        <menuitem
+            id="menu_pmis"
+            name="PMIS"
+            groups="project.group_project_manager"
+            sequence="33"/>
+
+        <menuitem id="menu_pmis_project"
+            name="Project"
+            parent="menu_pmis"
+            sequence="0"/>
+
+        <menuitem id="menu_pmis_budget"
+            name="Budget"
+            parent="menu_pmis"
+            sequence="1"/>
+
+        <menuitem id="menu_pmis_config"
+            name="Configurations"
+            parent="menu_pmis"
+            sequence="2"/>
+
+        <menuitem id="menu_pmis_project"
+            name="Project"
+            parent="menu_pmis"
+            sequence="0"/>
+
+        <!-- <menuitem
+            id="menu_pmis_project_classification"
+            name="Project Classification"
+            action="action_view_project_classification"
+            groups="project.group_project_manager"
+            parent="menu_pmis_project"
+            sequence="0"/> -->
+
+        <!-- <menuitem
+            id="menu_pmis_main_project"
+            name="Main Project"
+            action="action_view_pmis_main_project"
+            groups="project.group_project_manager"
+            parent="menu_pmis_project"
+            sequence="1"/> -->
+
+        <!-- <menuitem
+            id="menu_pmis_project_sub"
+            name="Project (submenu)"
+            action="action_view_pmis_project"
+            groups="project.group_project_manager"
+            parent="menu_pmis_project"
+            sequence="2"/> -->
+
+        <!-- <menuitem
+            id="menu_pmis_project_task"
+            name="Task"
+            action="action_view_pmis_project_task"
+            groups="project.group_project_manager"
+            parent="menu_pmis_project"
+            sequence="3"/> -->
+    </data>
+</odoo>

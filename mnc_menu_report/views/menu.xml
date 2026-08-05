@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <menuitem
+                id="report_xlsx"
+                name="Report MNC"
+                parent="account.menu_finance_reports"/>
+
+        <menuitem
+                id="report_ar"
+                name="Report AR"
+                sequence="1"
+                parent="report_xlsx"/>
+
+        <menuitem
+                id="report_ap"
+                name="Report AP"
+                sequence="2"
+                parent="report_xlsx"/>
+
+        <menuitem
+                id="report_gl"
+                name="Report GL"
+                sequence="3"
+                parent="report_xlsx"/>
+
+        <menuitem
+                id="report_fa"
+                name="Report FA"
+                sequence="4"
+                parent="report_xlsx"/>
+
+        <menuitem
+                id="report_pr_po"
+                name="Report PR PO"
+                sequence="5"
+                parent="report_xlsx"/>
+
+        <menuitem
+                id="report_pc"
+                name="Report PC"
+                sequence="6"
+                parent="report_xlsx"/>
+
+        <menuitem
+                id="print_out_menu"
+                name="Print Out MNC"
+                sequence="7"
+                parent="report_xlsx"/>
+
+        <menuitem
+                id="purchase_report_menu"
+                name="Report MNC"
+                parent="purchase_request.parent_menu_purchase_request"/>
+
+    </data>
+
+
+</odoo>

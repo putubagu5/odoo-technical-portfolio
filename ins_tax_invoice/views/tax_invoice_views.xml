@@ -1,0 +1,96 @@
+<odoo>
+    <data>
+        <record id="view_tax_invoice_form" model="ir.ui.view">
+            <field name="name">view.tax.invoice.form</field>
+            <field name="model">tax.invoice</field>
+            <field name="arch" type="xml">
+                <form string="E-Faktur">
+                    <header>
+                        <button name="button_cancel" type="object" string="Cancel"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group id="E-Faktur" colspan="4">
+                            <group>
+                                <field name="year" required="1"/>
+                                <field name="name" required="1"/>
+                            </group>
+                            <group>
+                                <field name="is_used"/>
+                                <field name="company_id" required="1"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page id="Invoices" name="Invoices" string="Invoices">
+                                <field name="invoice_ids" mode="tree,kanban">
+                                    <tree string="Invoices">
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="invoice_date"/>
+                                        <field name="amount_untaxed"/>
+                                        <field name="amount_tax"/>
+                                        <field name="amount_total"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tax_invoice_tree" model="ir.ui.view">
+            <field name="name">view.tax.invoice.tree</field>
+            <field name="model">tax.invoice</field>
+            <field name="arch" type="xml">
+                <tree string="E-Faktur">
+                    <field name="year"/>
+                    <field name="name"/>
+                    <field name="is_used"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_tax_invoice_search" model="ir.ui.view">
+            <field name="name">view.tax.invoice.search</field>
+            <field name="model">tax.invoice</field>
+            <field name="arch" type="xml">
+                <search string="E-Faktur">
+                    <field name="name" select="True"/>
+                    <field name="year" select="True"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Year" icon="terp-camera_test" name="year" context="{'group_by': 'year'}"/>
+                        <filter string="Is Used" icon="terp-camera_test" name="is_used" context="{'group_by': 'is_used'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_tax_invoice" model="ir.actions.act_window">
+            <field name="name">Nomor E-Faktur</field>
+            <field name="res_model">tax.invoice</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_tax_invoice"
+            name="E-Faktur"
+            parent="account_accountant.menu_accounting"
+            sequence="10"/>
+
+        <menuitem
+            id="menu_tax_invoice_number"
+            name="Nomor Seri Faktur Pajak"
+            action="action_view_tax_invoice"
+            parent="menu_tax_invoice"
+            sequence="20"/>
+
+        <menuitem
+            id="menu_tax_invoice_export"
+            name="Export Faktur Pajak"
+            parent="ins_tax_invoice.menu_tax_invoice"
+            sequence="30"/>
+    </data>
+</odoo>

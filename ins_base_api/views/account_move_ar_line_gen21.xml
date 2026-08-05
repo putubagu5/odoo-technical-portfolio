@@ -1,0 +1,115 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_move_ar_line_gen21_form_view">
+            <field name="name">account.move.ar.line.gen21.form.view</field>
+            <field name="model">account.move.ar.line.gen21</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false">
+                     <header>
+                        <button string="Cancel" states="wait" class="oe_highlight"
+                                name="button_cancel" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,wait,posted"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="invoice_no" string="Nomor Invoice" style="font-weight:bold;"/>
+                            <h1><field name="invoice_no"/></h1>
+                            <label for="invoice_date" string="Tanggal Invoice" style="font-weight:bold;"/>
+                            <h4><field name="invoice_date"/></h4>
+                            <label for="generation_date" string="Tanggal Generate Invoice" style="font-weight:bold;"/>
+                            <h4><field name="generation_date"/></h4>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="inv_yy"/> 
+                                <field name="po_no"/>
+                                <field name="mo_no"/>
+                                <field name="po_type"/>
+                                <field name="ae_name"/>
+                                <field name="org_id"/>
+                                <field name="cust_type"/>
+                                <field name="adv_source"/>
+                                <field name="channel_name"/>
+                                <field name="channel"/>
+                            </group>
+                            <group>
+                                <field name="region"/>
+                                <field name="region_name"/>
+                                <field name="agen_code"/>
+                                <field name="agen_name"/>
+                                <field name="client_code"/>
+                                <field name="client_name"/>      
+                                <field name="update_user"/>
+                                <field name="update_date"/>
+                                <field name="attribute1"/>
+                                <field name="cust_ref"/>
+                                <field name="site"/>
+                                <field name="send_flag"/>
+                                <field name="senddate"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="ccid"/>
+                                <field name="gl_date"/>
+                                <field name="region_line_code"/>
+                                <field name="region_line_name"/>
+                                <field name="period"/>
+                                <field name="company_code"/>
+                                <field name="wilayah"/>                        
+                            </group> 
+                            <group>
+                                <field name="prod_name"/>
+                                <field name="pab_pbb"/>
+                                <field name="rowid_inv"/>
+                                <field name="total_spots"/>
+                                <field name="total_gross"/>
+                                <field name="agency_disc"/>
+                                <field name="agency_comm"/>
+                            </group>
+                            <group>
+                                <field name="perc_tax"/>
+                                <field name="total_tax"/>
+                                <field name="total_net"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_move_ar_line_gen21_tree_view">
+            <field name="name">account.move.ar.line.gen21.tree.view</field>
+            <field name="model">account.move.ar.line.gen21</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false" delete="false">
+                    <field name="invoice_no"/>
+                    <field name="invoice_date"/>
+                    <field name="generation_date"/>
+                    <field name="org_id"/>
+                    <field name="agen_code"/>
+                    <field name="agen_name"/>
+                    <field name="client_code"/>
+                    <field name="client_name"/>
+                    <field name="company_id"/>
+                    <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'wait'" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="account_move_ar_line_gen21_action">
+            <field name="name">Invoice AR LIne</field>
+            <field name="res_model">account.move.ar.line.gen21</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        
+        <menuitem
+            id="menu_account_move_ar_line_gen21_act"
+            sequence="2"
+            parent="menu_account_move_ar_gen21"
+            action="account_move_ar_line_gen21_action"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="view_stock_move_line_detailed_operation_tree" model="ir.ui.view">
+            <field name="name">view.stock.move.line.detailed.operation.tree</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+            <field name="arch" type="xml">
+                <!-- change domain of location_dest_id -->
+                <!-- the original used ('id', 'child_of', parent.location_dest_id), but change to filter by user -->
+                <xpath expr="//field[@name='location_dest_id']" position="attributes">
+                    <attribute name="domain">[('id', 'in', parent.valid_location_ids), '|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+                </xpath>
+                <xpath expr="//field[@name='product_uom_id']" position="after">
+                    <field name="amount_total"/>
+                    <field name="amount_move" invisible="1"/>
+                    <field name="qty_move" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_stock_move_line_operation_tree" model="ir.ui.view">
+            <field name="name">view.stock.move.line.operation.tree</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree"/>
+            <field name="arch" type="xml">
+                <!-- change domain of location_dest_id -->
+                <!-- the original used ('id', 'child_of', parent.location_dest_id), but change to filter by user -->
+                <xpath expr="//field[@name='location_dest_id']" position="attributes">
+                    <attribute name="domain">[('id', 'in', parent.valid_location_ids), '|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+                </xpath>
+                <xpath expr="//field[@name='product_uom_id']" position="after">
+                    <field name="amount_total"/>
+                    <field name="amount_move" invisible="1"/>
+                    <field name="qty_move" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

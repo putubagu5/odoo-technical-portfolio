@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="purchase_request_approval_web">
+        <t t-call="web.frontend_layout">
+            <div id="wrap">
+                <div class="container">
+                    <h1 class="mt-5">Purchase Request Approval.</h1>
+                    <p><span t-esc="message"/></p>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

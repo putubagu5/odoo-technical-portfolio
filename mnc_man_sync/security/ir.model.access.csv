@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mnc_sync_logger,mnc.sync.logger,model_mnc_sync_logger,base.group_no_one,1,1,1,1
+access_r12_po_receives,r12.po.receives,model_r12_po_receives,base.group_no_one,1,1,1,1
+access_x_item,x.item,model_x_item,base.group_no_one,1,1,1,1
+access_x_location,x.location,model_x_location,base.group_no_one,1,1,1,1
+access_x_people,x.people,model_x_people,base.group_no_one,1,1,1,1
+access_x_pr,x.pr,model_x_pr,base.group_no_one,1,1,1,1
+access_x_po,x.po,model_x_po,base.group_no_one,1,1,1,1
+access_x_po_receipt,x.po.receipt,model_x_po_receipt,base.group_no_one,1,1,1,1
+access_mnc_token_mgmt,mnc.token.management,model_mnc_token_management,base.group_no_one,1,1,1,1
+access_mnc_wizard_reconcile_data,mnc.atis.reconcile.data,model_wizard_mnc_reconcile_data,base.group_no_one,1,1,1,1
+access_x_asset,x.asset,model_x_asset,base.group_no_one,1,1,1,1
+access_wizard_atis_asset,wizard.atis.fix.asset,model_wizard_atis_fix_asset_report,,1,1,1,1

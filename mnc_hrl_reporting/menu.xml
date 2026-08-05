@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <menuitem id="menu_mnc_ar_report" parent="mnc_menu_report.report_ar" name="AR Customer By Aging Summary"
+              action="action_wizard_mnc_ar_report" sequence="15"/>
+    <menuitem id="menu_mnc_ap_report" parent="mnc_menu_report.report_ap" name="AP Invoice Detail by Voucher Number"
+              action="action_wizard_mnc_ap_report" sequence="16"/>
+    <menuitem id="menu_mnc_ar_customer_report" parent="mnc_menu_report.report_ar" name="AR Customer Address"
+              action="action_wizard_mnc_ar_customer_report" sequence="17"/>
+    <menuitem id="menu_mnc_ap_standard_report" parent="mnc_menu_report.report_ap"
+              name="AP Invoice Standard Paid For Supplier"
+              action="action_wizard_mnc_ap_standard_report" sequence="18"/>
+    <menuitem id="menu_mnc_ar_receipt_invoice_report" parent="mnc_menu_report.report_ar"
+              name="AR Receipt to Invoice Report"
+              action="action_wizard_mnc_ar_receipt_invoice_report" sequence="19"/>
+    <menuitem id="menu_mnc_ar_statement_report" parent="mnc_menu_report.print_out_menu" name="AR Statement of Account"
+              action="action_wizard_mnc_ar_statement_report" sequence="20"/>
+    <menuitem id="menu_mnc_ar_aging_report" parent="mnc_menu_report.report_ar" name="AR Aging Report Detail"
+              action="action_wizard_mnc_ar_aging_report" sequence="21"/>
+    <menuitem id="menu_mnc_ar_pph23_report" parent="mnc_menu_report.report_ar" name="AR Bukti Potong PPh 23"
+              action="action_wizard_mnc_ar_pph23_report" sequence="22"/>
+    <menuitem id="menu_mnc_ar_collection_old_report" parent="mnc_menu_report.report_ar"
+              name="AR Collection Detail (Old)" action="action_wizard_mnc_ar_collection_old_report" sequence="23"/>
+    <menuitem id="menu_mnc_ar_collection_new_report" parent="mnc_menu_report.report_ar"
+              name="AR Collection Detail (New)" action="action_wizard_mnc_ar_collection_new_report" sequence="24"/>
+    <menuitem id="menu_mnc_trial_balance_report" parent="mnc_menu_report.report_gl" name="GL Trial Balance Report"
+              action="action_wizard_mnc_trial_balance_report" sequence="25"/>
+    <menuitem id="menu_mnc_fix_asset_report" parent="mnc_menu_report.report_fa" name="FA Outstanding Asset Clearing"
+              action="action_wizard_mnc_fix_asset_report" sequence="26"/>
+    <menuitem id="menu_mnc_project_costing_report" parent="mnc_menu_report.report_pc" name="Project Costing Summary"
+              action="action_wizard_mnc_project_costing_report" sequence="27"/>
+
+    <menuitem id="menu_mnc_project_costing_detail_report" parent="mnc_menu_report.report_pc"
+              name="Project Costing Detail" action="action_wizard_mnc_project_costing_detail_report" sequence="28"/>
+    <menuitem id="menu_mnc_ar_statement_account_report" parent="mnc_menu_report.report_ar"
+              name="AR Statement of Account (Collector)" action="action_wizard_mnc_statement_account_report"
+              sequence="29"/>
+    <menuitem id="menu_mnc_asset_addition_report" parent="mnc_menu_report.report_fa" name="FA Asset Addition Report"
+              action="action_wizard_mnc_asset_addition_report" sequence="30"/>
+
+</odoo>

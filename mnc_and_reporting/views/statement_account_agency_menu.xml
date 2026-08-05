@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_menu_statement_account_agency_report_wizard" model="ir.actions.act_window">
+            <field name="name">Statement of Account by Agency Report</field>
+            <field name="res_model">statement.account.agency.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_report_type': 'statement_account_agency'}
+            </field>
+        </record>
+
+        <record id="menu_statement_account_agency_report_wizard" model="ir.ui.menu">
+            <field name="name">AR Statement of Account (Agency)</field>
+            <field name="action" ref='action_menu_statement_account_agency_report_wizard'/>
+            <field name="parent_id" ref='mnc_menu_report.report_ar'/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,117 @@
+<odoo>
+    <data>
+        <record id="view_account_payment_form" model="ir.ui.view">
+            <field name="name">view.account.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <!-- make field ref to force_save -->
+                <xpath expr="//field[@name='ref']" position="attributes">
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+
+                <!-- replace the attrs for the action_post, show if state is confirm -->
+<!--                <xpath expr="//button[@name='action_post']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible': [('state', '!=', 'confirm')]}</attribute>-->
+<!--                </xpath>-->
+
+                <!-- add button_to_confirm, invisible if state != 'draft' and action_payment_voucher -->
+<!--                <xpath expr="//button[@name='action_post']" position="before">-->
+<!--                    <button name="button_to_confirm" string="To Confirm" type="object" class="oe_highlight"-->
+<!--                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>-->
+<!--                    <button name="%(action_payment_invoice)d" string="Invoice" type="action" class="oe_highlight"-->
+<!--                            attrs="{'invisible': [('state', 'in', ('posted', 'cancel'))]}"/>-->
+<!--                </xpath>-->
+
+                <!-- add state to statusbar -->
+                <xpath expr="//field[@name='state']" position="attributes">
+                    <attribute name="statusbar_visible">draft,confirm,posted</attribute>
+                </xpath>
+
+<!--                <xpath expr="//button[@name='action_draft']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible': [('state', '!=', 'posted')]}</attribute>-->
+<!--                </xpath>-->
+
+                <!-- add amount in words after amount -->
+                <!-- <xpath expr="//field[@name='amount']" position="after">
+                    <field name="amount_in_words"/>
+                </xpath> -->
+
+                <!-- add notebook after first group is found -->
+                <xpath expr="//group" position="after">
+                    <notebook>
+                        <page name="payment_invoice" string="Invoices">
+                            <field name="payment_invoice_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                <tree editable="bottom">
+                                    <field name="move_id" string="Invoice No."
+                                           domain="[('move_type', '=', 'in_invoice'), ('partner_id', '=', parent.partner_id),('state', '=', 'posted'), ('payment_state', 'in', ['not_paid', 'partial'])]"/>
+                                    <field name="name" string="Bill No."/>
+                                    <field name="payment_reference" invisible="1"/>
+                                    <field name="date_invoice"/>
+                                    <field name="date_accounting"/>
+                                    <field name="account_id"/>
+                                    <field name="description"/>
+                                    <field name="po_number"/>
+                                    <field name="currency_id"/>
+                                    <field name="amount"/>
+                                    <field name="invoice_state"/>
+                                    <field name="invoice_payment_state"/>
+                                </tree>
+                            </field>
+                            <group col="6" class="mt-2 mt-md-0">
+                                <group class="oe_subtotal_footer oe_right" colspan="6">
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_payment_invoice" />
+                                    </div>
+                                    <field name="amount_payment_invoice" nolabel="1" class="oe_subtotal_footer_separator"
+                                           widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                </group>
+                                <div class="oe_clear"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+
+                <!-- add document_no after move_id -->
+                <xpath expr="//field[@name='move_id']" position="after">
+                    <!-- <label for="giro_no" string="Giro No" attrs="{'invisible': [('payment_method_code', '!=', 'giro')]}"/> -->
+                    <!-- <div name="giro_no" class="o_row" attrs="{'invisible': [('payment_method_code', '!=', 'giro')]}"> -->
+                    <!--     <field name="giro_no"/> -->
+                    <!--     <button name="button_get_giro_no" type="object" string="Get Number" attrs="{'invisible': [('payment_method_code', '!=', 'giro')]}"/> -->
+                    <!-- </div> -->
+                    <field name="giro_master_id" attrs="{'invisible': [('payment_method_code', '!=', 'giro')], 'required': [('payment_method_code', '=', 'giro')]}"/>
+                    <field name="giro_id" attrs="{'invisible': [('payment_method_code', '!=', 'giro')], 'required': [('payment_method_code', '=', 'giro')]}"/>
+                    <field name="payment_doc_master_id" attrs="{'invisible': [('payment_method_code', '!=', 'manual')], 'required': [('payment_method_code', '=', 'manual')], 'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="payment_doc_id" attrs="{'invisible': [('payment_method_code', '!=', 'manual')], 'required': [('payment_method_code', '=', 'manual'), ('partner_type','=','vendor')], 'readonly': [('state', '!=', 'draft')]}"/>
+                    <!-- <label for="document_no" string="Document No"/> -->
+                    <!-- <div name="document_no" class="o_row"> -->
+                        <!-- <field name="document_no"/> -->
+                        <!-- <button name="button_get_document_no" type="object" string="Get Number" attrs="{'invisible': [('payment_method_code', '!=', 'manual')]}"/> -->
+                    <!-- </div> -->
+                    <field name="amount_in_words"/>
+                    <field name="inv_ref"/>
+                    <field name="amount_in_words_2" invisible="1"/>
+                    <field name="amount_to_slip" invisible="1"/>
+                    <field name="amount_text_idr" invisible="1"/>
+                </xpath>
+                <!-- <xpath expr="//field[@name='ref']" position="replace">
+                    <field name="inv_ref"/>
+                </xpath> -->
+            </field>
+        </record>
+
+        <!-- add server action to mark check payment as sent -->
+        <record id="action_account_confirm_payments" model="ir.actions.server">
+            <field name="name">Mark as Sent</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="model_id" ref="account.model_account_payment"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_view_types">list</field>
+            <field name="code">
+                records.mark_check_as_sent()
+            </field>
+        </record>
+    </data>
+</odoo>

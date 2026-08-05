@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+        <record id="pmis_program_form" model="ir.ui.view">
+            <field name="name">pmis.program.form</field>
+            <field name="model">pmis.program</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="code" string="Project Code"/>
+                            <h1>
+                                <field name="code" readonly="1"/>
+                            </h1>
+
+                            <label for="name" string="Program Name"/>
+                            <h2>
+                                <field name="name" required="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date_start" required="1"/>
+                                <field name="date_end"/>
+                                <field name="create_date" readonly="1"/>
+                                <field name="company_id" required="1" readonly="1"/>
+                                <field name="main_project_id" required="1"
+                                    domain="[('company_id', '=', company_id)]"/>
+                                <field name="analytic_account_id" required="1"
+                                    domain="[('departement_code', '!=', False)]"
+                                    attrs="{'readonly': [('code', '!=', '/')]}"/>
+                                <field name="category_id" required="1"
+                                    domain="[('company_id', '=', company_id)]"/>
+                                <field name="genre_id" required="1"
+                                    domain="[('category_id', '=', category_id)]"/>
+                                <field name="budget_type" required="1"/>
+                                <field name="reference"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pmis_program_tree" model="ir.ui.view">
+            <field name="name">pmis.program.tree</field>
+            <field name="model">pmis.program</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="main_project_id"/>
+                    <field name="analytic_account_id"/>
+                    <field name="budget_type"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pmis_program_search" model="ir.ui.view">
+            <field name="name">view.pmis.program.search</field>
+            <field name="model">pmis.program</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Program Name"/>
+                    <field name="code" string="Code"/>
+                    <field name="budget_type" string="Budget Type"/>
+                    <field name="company_id" string="Company"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_pmis_program" model="ir.actions.act_window">
+            <field name="name">Program</field>
+            <field name="res_model">pmis.program</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis_program"
+            name="Program"
+            action="action_pmis_program"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_project"
+            sequence="3"/>
+    </data>
+</odoo>

@@ -1,0 +1,49 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ins_base_mnc_purchase_master_episode_manager,ins_base_mnc.purchase_master_episode_all manager,ins_base_mnc.model_purchase_master_episode,purchase.group_purchase_manager,1,1,1,1
+access_ins_base_mnc_purchase_master_episode_all,ins_base_mnc.purchase_master_episode_all,ins_base_mnc.model_purchase_master_episode,purchase.group_purchase_user,1,1,1,1
+access_vendor_site_all,vendor_site all,ins_base_mnc.model_vendor_site,,1,1,1,1
+access_gr_matching_wizard,gr_matching_wizard all,ins_base_mnc.model_gr_matching_wizard,base.group_user,1,1,1,1
+access_gr_matching_wizard_stock_move,gr_matching_wizard_stock_move all,ins_base_mnc.model_gr_matching_wizard_stock_move,base.group_user,1,1,1,1
+access_gr_expense_receive,gr_expense_receive all,ins_base_mnc.model_gr_expense_receive,base.group_user,1,1,1,1
+access_gr_expense_receive_line,gr_expense_receive_line all,ins_base_mnc.model_gr_expense_receive_line,base.group_user,1,1,1,1
+access_gr_consumable_receive,gr_consumable_receive all,ins_base_mnc.model_gr_consumable_receive,base.group_user,1,1,1,1
+access_gr_consumable_receive_line,gr_consumable_receive_line all,ins_base_mnc.model_gr_consumable_receive_line,base.group_user,1,1,1,1
+access_res_partner_type_all,res_partner_type all,ins_base_mnc.model_res_partner_type,,1,1,1,1
+access_res_partner_remit_all,res_partner_remit all,ins_base_mnc.model_res_partner_remit,,1,1,1,1
+access_res_sites_all,res_sites all,ins_base_mnc.model_res_sites,,1,1,1,1
+access_vendor_blacklist_all,vendor_blacklist all,ins_base_mnc.model_vendor_blacklist,,1,1,1,1
+access_cf_activity,ins_base_mnc.cf_activity all,ins_base_mnc.model_cashflow_activity,base.group_user,1,1,1,1
+access_cf_activity_category,ins_base_mnc.cf_activity_category all,ins_base_mnc.model_cashflow_activity_category,base.group_user,1,1,1,1
+access_res_buyer_all,res_buyer all,ins_base_mnc.model_res_buyer,,1,1,1,1
+access_purchase_payment_report_all,purchase_payment_report all,ins_base_mnc.model_purchase_payment_report,,1,1,1,1
+access_cash_flow_report_all,cash_flow_report all,ins_base_mnc.model_cash_flow_report,,1,1,1,1
+access_wizard_invoice_receipt_all,wizard_invoice_receipt all,ins_base_mnc.model_wizard_invoice_receipt,,1,1,1,1
+access_wizard_invoice_recap_report_all,wizard_invoice_recap_report all,ins_base_mnc.model_wizard_invoice_recap_report,,1,1,1,1
+access_wizard_payment_recap_report_all,wizard_payment_recap_report all,ins_base_mnc.model_wizard_payment_recap_report,,1,1,1,1
+access_wizard_asset_detail_report_all,wizard_asset_detail_report all,ins_base_mnc.model_wizard_asset_detail_report,,1,1,1,1
+access_wizard_standard_ap_detail_report_all,wizard_standard_ap_detail_report all,ins_base_mnc.model_wizard_standard_ap_detail_report,,1,1,1,1
+access_wizard_all_ap_invoices_report_all,wizard_all_ap_invoices_report all,ins_base_mnc.model_wizard_all_ap_invoices_report,,1,1,1,1
+access_settlement_ca_report_all,settlement_ca_report all,ins_base_mnc.model_settlement_ca_report,,1,1,1,1
+access_res_assignee_all,res_assignee all,ins_base_mnc.model_res_assignee,,1,1,1,1
+access_res_assignee_po_all,res_assignee_po all,ins_base_mnc.model_res_assignee_po,,1,1,1,1
+access_res_assignee_pr_all,res_assignee_pr all,ins_base_mnc.model_res_assignee_pr,,1,1,1,1
+access_res_assignee_invoice_all,res_assignee_invoice all,ins_base_mnc.model_res_assignee_invoice,,1,1,1,1
+access_res_assignee_payment_all,res_assignee_payment all,ins_base_mnc.model_res_assignee_payment,,1,1,1,1
+access_res_assignee_bill_all,res_assignee_bill all,ins_base_mnc.model_res_assignee_bill,,1,1,1,1
+access_res_project_main_all,res_project_main all,ins_base_mnc.model_res_project_main,,1,1,1,1
+access_res_purchase_request_type_all,purchase_request_type all,ins_base_mnc.model_purchase_request_type,,1,1,1,1
+access_purchase_request_type_second_all,purchase_request_type_second all,ins_base_mnc.model_purchase_request_type_second,,1,1,1,1
+access_multiple_remitted_all,multiple_remitted all,ins_base_mnc.model_multiple_remitted,,1,1,1,1
+access_account_budget_category_all,account_budget_category all,ins_base_mnc.model_account_budget_category,,1,1,1,1
+access_payment_purchase_order_all,payment_purchase_order all,ins_base_mnc.model_payment_purchase_order,,1,1,1,1
+access_receipt_period_all,receipt_period all,ins_base_mnc.model_receipt_period,,1,1,1,1
+access_receipt_period_line_all,receipt_period_line all,ins_base_mnc.model_receipt_period_line,,1,1,1,1
+access_payment_period_all,payment_period all,ins_base_mnc.model_payment_period,,1,1,1,1
+access_payment_period_line_all,payment_period_line all,ins_base_mnc.model_payment_period_line,,1,1,1,1
+access_wizard_cover_note_all,wizard_cover_note all,ins_base_mnc.model_wizard_cover_note,,1,1,1,1
+access_applied_prepayment_to_bill_all,applied_prepayment_to_bill all,ins_base_mnc.model_applied_prepayment_to_bill,,1,1,1,1
+
+access_report_config_all,report_config all,ins_base_mnc.model_report_config,,1,1,1,1
+access_wizard_trial_balance_all,wizard_trial_balance all,ins_base_mnc.model_wizard_trial_balance,,1,1,1,1
+
+access_res_company_logo_all,res_company_logo all,ins_base_mnc.model_res_company_logo,,1,1,1,1

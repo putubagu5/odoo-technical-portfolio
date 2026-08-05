@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="ins_credit_limit_view_partner_property_form_inherit" model="ir.ui.view">
+            <field name="name">ins.credit.limit.view.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <!-- show credit_limit inside group sale -->
+                <xpath expr="//group[@name='sale']" position="inside">
+                    <field name="credit_limit"/>
+                    <field name="allow_overlimit"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

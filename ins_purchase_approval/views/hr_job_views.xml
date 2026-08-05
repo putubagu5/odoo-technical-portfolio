@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="view_hr_job_form" model="ir.ui.view">
+            <field name="name">view.hr.job.form</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+                <!-- add position_id after department_id -->
+                <xpath expr="//field[@name='department_id']" position="after">
+                    <field name="position_id" required="1"/>
+                </xpath>
+
+                <!-- make department_id to required -->
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

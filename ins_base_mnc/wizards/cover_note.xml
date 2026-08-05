@@ -1,0 +1,36 @@
+<odoo>
+
+    <record id="wizard_cover_note_form" model="ir.ui.view">
+        <field name="name">wizard.cover.note.view.form</field>
+        <field name="model">wizard.cover.note</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <footer>
+                    <button string="Generate XLSX Report" name="generate" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <record id="report_cover_note_action" model="ir.actions.report">
+	    <field name="name">Cover Note (XLSX)</field>
+	    <field name="model">wizard.cover.note</field>
+	    <field name="report_type">xlsx</field>
+	    <field name="type">ir.actions.report</field>
+	    <field name="report_name">ins_base_mnc.cover_note_report_xlsx</field>
+	    <field name="report_file">ins_base_mnc.cover_note_report_xlsx</field>
+	    <field name="print_report_name">'Vendor Note'</field>
+	    <!-- <field name="binding_model_id" ref="account.model_account_move"/>
+	    <field name="binding_view_types">form</field> -->
+	</record>
+    
+    <record id="action_wizard_cover_note" model="ir.actions.act_window">
+            <field name="name">Print Cover Note</field>
+            <field name="res_model">wizard.cover.note</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_view_types">list</field>
+        </record>
+
+</odoo>

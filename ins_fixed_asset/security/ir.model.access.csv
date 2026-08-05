@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_phase_project_cip,access_phase_project_cip all,ins_fixed_asset.model_phase_project_cip,,1,1,1,1
+access_wizard_mass_cip_generate_all,wizard_mass_cip_generate all,ins_fixed_asset.model_wizard_mass_cip_generate,,1,1,1,1
+access_wizard_mass_cip_detail_all,wizard_mass_cip_detail all,ins_fixed_asset.model_wizard_mass_cip_detail,,1,1,1,1
+access_cip_configuration,access_cip_configuration all,ins_fixed_asset.model_cip_configuration,,1,1,1,1

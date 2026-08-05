@@ -1,0 +1,75 @@
+<odoo>
+	<data>
+		<record id="view_bank_statement_search" model="ir.ui.view">
+			<field name="name">view.bank.statement.search</field>
+			<field name="model">account.bank.statement</field>
+			<field name="inherit_id" ref="account.view_bank_statement_search"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='date']" position="after">
+					<field name="partner_line_names"/>
+					<field name="label_names"/>
+				</xpath>
+			</field>
+		</record>
+
+        <record id="view_bank_statement_form" model="ir.ui.view">
+            <field name="name">view.bank.statement.form</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="account.view_bank_statement_form"/>
+            <field name="arch" type="xml">
+                <!-- add multi_payment_reference after company_id -->
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="multi_payment_reference"/>
+                </xpath>
+                <!-- add multi_payment_reference after payment_ref in line_ids -->
+                <xpath expr="//field[@name='line_ids']//tree//field[@name='payment_ref']" position="after">
+                    <field name="multi_payment_reference"/>
+                </xpath>
+                <xpath expr="//button[@name='button_post']" position="replace">
+                    <button name="button_post" type="object" class="oe_highlight" invisible="1"/>
+                </xpath>
+                <!-- make field readonly if more than 0 -->
+                <xpath expr="//field[@name='balance_start']" position="replace">
+                    <!-- <field name="balance_start" attrs="{'readonly': [('balance_start', '&gt;', 0)]}"/> -->
+                    <field name="balance_start" attrs="{'readonly': 0}"/>
+                </xpath>
+                <xpath expr="//field[@name='balance_end_real']" position="replace">
+                    <!-- <field name="balance_end_real" attrs="{'readonly': [('balance_end_real', '&gt;', 0)]}"/> -->
+                    <field name="balance_end_real" attrs="{'readonly': 1}"/>
+                </xpath>
+                <xpath expr="//field[@name='journal_id']" position="replace">
+                    <field name="journal_id" domain="[('type', '=', journal_type)]" attrs="{'readonly': [('move_line_count','!=', 0)]}" options="{'no_create': True, 'no_create_edit':True}" />
+                </xpath>
+
+                <xpath expr="//sheet//group//group[2]//div[2]" position="after">
+                    <field name="total_debit_real"/>
+                    <field name="total_credit_real"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_view_bank_statement_form" model="ir.ui.view">
+		<field name="name">inherit.bank.statement.form.reconciliation</field>
+		<field name="model">account.bank.statement</field>
+		<field name="inherit_id" ref="oi_bank_reconciliation.view_bank_statement_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//button[@name='action_reconcile']" position="replace">
+				<button name="button_post_reconcile" type="object" class="oe_highlight"  attrs="{'invisible': ['|',('all_lines_reconciled', '=', True), ('line_ids', '=', [])]}" string="Post Reconcile" />
+<!--                <button name="button_post_reconcile" type="object" class="oe_highlight"  attrs="{'invisible': ['|',('state', '=', 'posted'),('line_ids', '=', [])]}" string="Post Reconcile" />-->
+            </xpath>
+        </field>
+        </record>
+
+        <record id="inherit2_view_bank_statement_form" model="ir.ui.view">
+		<field name="name">inherit2.bank.statement.form.reconciliation</field>
+		<field name="model">account.bank.statement</field>
+		<field name="inherit_id" ref="account_accountant.view_bank_statement_form" />
+		<field name="arch" type="xml">
+            <xpath expr="//button[@name='action_bank_reconcile_bank_statements']" position="replace">
+				<button string="Reconcile" class="oe_highlight" name="action_bank_reconcile_bank_statements" type="object" invisible="1"/>
+            </xpath>
+        </field>
+        </record>
+
+	</data>
+</odoo>

@@ -1,0 +1,168 @@
+import base64
+import time
+from datetime import date
+from io import BytesIO
+from odoo import api, fields, models
+from odoo.exceptions import ValidationError
+from odoo.modules import get_module_path
+from odoo.tools import pycompat
+
+
+class TaxInvoiceOut(models.TransientModel):
+    _name = 'wizard.tax.invoice.out'
+    _description = 'Tax Invoice Faktur Keluaran Export'
+
+    efaktur_file = fields.Binary('Download E-Faktur')
+    file_name = fields.Char('E-Faktur in CSV', size=64)
+    date_from = fields.Date('Date From')
+    date_to = fields.Date('Date To')
+    company_id = fields.Many2one(
+        'res.company', string="Company",
+        required=True,
+        default=lambda self: self.env.company)
+
+    @api.constrains('date_from', 'date_to')
+    def _check_date(self):
+        """ constrains function to check date validity """
+        self.ensure_one()
+        if self.date_to < self.date_from:
+            raise ValidationError('Date From could not be later than Date To')
+
+    def _generate_headers(self):
+        """ helper function to generate list of headers """
+        headers = ['FK', 'KD_JENIS_TRANSAKSI', 'FG_PENGGANTI', 'NOMOR_FAKTUR',
+                   'MASA_PAJAK', 'TAHUN_PAJAK', 'TANGGAL_FAKTUR', 'NPWP',
+                   'NAMA', 'ALAMAT_LENGKAP', 'JUMLAH_DPP', 'JUMLAH_PPN',
+                   'JUMLAH_PPNBM', 'ID_KETERANGAN_TAMBAHAN', 'FG_UANG_MUKA',
+                   'UANG_MUKA_DPP', 'UANG_MUKA_PPN', 'UANG_MUKA_PPNBM',
+                   'REFERENSI', 'KODE_DOKUMEN_PENDUKUNG']
+        return headers
+
+    def _generate_titles(self):
+        """ helper function to generate list of titles """
+        titles = [
+            ['LT', 'NPWP', 'NAMA', 'JALAN', 'BLOK', 'NOMOR', 'RT', 'RW',
+             'KECAMATAN', 'KELURAHAN', 'KABUPATEN', 'PROPINSI', 'KODE_POS'
+             'NOMOR_TELEPON'],
+            ['OF', 'KODE_OBJEK', 'NAMA', 'HARGA_SATUAN', 'JUMLAH_BARANG',
+             'HARGA_TOTAL', 'DISKON', 'DPP', 'PPN', 'TARIF_PPNBM', 'PPNBM'],
+        ]
+        return titles
+
+    def _prepare_report_data(self):
+        """ function to generate report data """
+        report_data = []
+
+        # get invoices (account.move)
+        domain = [
+            ('invoice_date', '>=', self.date_from),
+            ('invoice_date', '<=', self.date_to),
+            ('company_id', '<=', self.company_id.id),
+            ('is_efaktur_exported', '=', False),
+            ('state', '=', 'posted'),
+            ('tax_invoice_id', '!=', False),
+            ('move_type', '=', 'out_invoice'),
+        ]
+        moves = self.env['account.move'].search(domain)
+
+        company = self.env.user.company_id  # use user active company
+        for move in moves:
+            partner = move.partner_id
+            faktur = move.tax_invoice_id
+            d = move.invoice_date.strftime('%Y-%m-%d').split("-")
+            date_invoice = "%s/%s/%s" % (d[2], d[1], d[0])
+            faktur_name = str(faktur.name)
+            faktur_nodash = faktur_name.replace('-', '')
+            faktur_final = faktur_nodash.replace('.', '')
+            npwp_name = str(partner.npwp)
+            npwp_nodash = npwp_name.replace('-', '')
+            npwp_final = npwp_nodash.replace('.', '')
+            # append account move information
+            move_data = [
+                'FK',
+                faktur_final[0:2],
+                faktur_final[2:3],
+                faktur_final[3:],
+                str(move.masa_pajak),
+                str(move.tahun_pajak),
+                date_invoice,
+                npwp_final,
+                partner.name,
+                (partner.full_address).replace('\n', ' '),
+                int(round(move.amount_untaxed, 0)),
+                int(round(move.amount_tax, 0)),
+                0,
+                '',
+                0,
+                0,
+                0,
+                0,
+                move.name,
+                1,
+            ]
+            report_data.append(move_data)
+
+            # partner_data = [
+            #     'FAPR',
+            #     company.partner_id.name,
+            #     (company.partner_id.full_address).replace('\n', ' '),
+            # ]
+            # report_data.append(partner_data)
+
+            # loop move lines and append
+            for line in move.invoice_line_ids:
+                # need to calculate tax
+                # tax = sum(line.price_subtotal * x.amount for x in line.tax_ids if x.amount)
+                tax = line.price_total - line.price_subtotal
+
+                unit_price = line.price_unit
+                qty = line.quantity
+                subtotal = line.price_subtotal
+
+                line_data = [
+                    'OF',
+                    '1',
+                    (line.name).replace('\"', '`') if line.name else '1',
+                    int(round(unit_price, 0)),
+                    int(round(qty, 0)),
+                    int(round(qty * unit_price, 0)),
+                    int(round(unit_price * qty - subtotal, 0)),
+                    int(round(subtotal, 0)),
+                    round(tax, 0),
+                    0,
+                    0
+                ]
+                report_data.append(line_data)
+
+            # update move record TODO
+
+        return report_data
+
+    def button_print(self):
+        """ function to print report """
+        self.ensure_one()
+        report_date = date.today()
+        name = 'efaktur_%s' % (report_date.strftime('%Y_%m_%d'))
+        return {
+            'type': 'ir.actions.act_url',
+            'url': '/efaktur/%s/%s/%s' % (self._name, self.id, name),
+            'target': 'new',
+        }
+
+    def get_csv(self):
+        """ function to generate csv report in bytes """
+        fp = BytesIO()
+        writer = pycompat.csv_writer(fp, quoting=1, delimiter=';')
+
+        # write headers and titles
+        writer.writerow(self._generate_headers())
+
+        for title in self._generate_titles():
+            writer.writerow(title)
+
+        # generate data and write every row
+        data = self._prepare_report_data()
+        for line in data:
+            writer.writerow(line)
+
+        return fp.getvalue()

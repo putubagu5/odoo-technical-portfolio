@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="view_wizard_tax_invoice_out_multi_form" model="ir.ui.view">
+            <field name="name">view.wizard.tax.invoice.out.multi.form</field>
+            <field name="model">wizard.tax.invoice.out.multi</field>
+            <field name="arch" type="xml">
+                <form>
+                    <footer>
+                        <button string="Export" name="button_print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_tax_invoice_out_multi" model="ir.actions.act_window">
+            <field name="name">Export Faktur Pajak Keluaran</field>
+            <field name="res_model">wizard.tax.invoice.out.multi</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_view_types">list</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="inherit_bank_cash_transfer_form" model="ir.ui.view">
+            <field name="name">inherit.bank.cash.transfer.form</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="inherit_id" ref="ins_accounting.view_bank_cash_transfer_form"/>
+            <field name="arch" type="xml">
+                <!-- add cash_flow_activity_id after bank_to -->
+                <xpath expr="//field[@name='bank_to']" position="after">
+                    <field name="cf_activity_id_sent"
+                           attrs="{'readonly': [('transfer_state', 'in', ('in_progress','posted','cancel'))]}"/>
+                    <field name="cf_activity_id_receive"
+                           attrs="{'readonly': [('transfer_state', 'in', ('in_progress','posted','cancel'))]}"/>
+                </xpath>
+
+                <!-- add payment method -->
+                <xpath expr="//field[@name='payment_doc_id']" position="after">
+                    <field name="check_master_id" attrs="{'invisible': [('payment_method_code', '!=', 'check')], 'required': [('payment_method_code', '=', 'check')]}"/>
+                    <field name="check_id" attrs="{'invisible': [('payment_method_code', '!=', 'check')], 'required': [('payment_method_code', '=', 'check')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='transfer_ids']//tree//field[@name='name']" position="after">
+                    <field name="multi_payment_reference" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='transfer_ids']//tree//field[@name='state']" position="after">
+                    <field name="date_bank_statement" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

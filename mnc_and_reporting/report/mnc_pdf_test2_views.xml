@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="mnc_pdf_test2">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <t t-foreach="range(1000)" t-as="o">
+                            <div class="page">
+                                <h1>TEST PRINT</h1>
+                                sequence of foreach looping
+                                <span t-esc="o_index"/>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!--        <template id="mnc_pdf_test2">-->
+        <!--            <t t-call="web.html_container">-->
+        <!--                <t t-foreach="docs" t-as="o">-->
+        <!--                    <t t-call="mnc_and_reporting.mnc_pdf_test2_document"/>-->
+        <!--                </t>-->
+        <!--            </t>-->
+        <!--        </template>-->
+
+        <!--        <template id="mnc_pdf_test2_document">-->
+        <!--            <t t-call="web.basic_layout">-->
+        <!--                <t t-foreach="range(1000)" t-as="o">-->
+        <!--                    <div class="page">-->
+        <!--                        <h1>TEST PRINT PDF 1000</h1>-->
+        <!--                    </div>-->
+        <!--                </t>-->
+        <!--            </t>-->
+        <!--        </template>-->
+    </data>
+</odoo>

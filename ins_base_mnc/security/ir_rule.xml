@@ -1,0 +1,117 @@
+<odoo>
+    <data>
+        <!-- SECTION 01: -->
+        <!-- BUYER RULES -->
+        <!-- own rule, only show if buyer is the same with the user -->
+        <record id="buyer_own_rule" model="ir.rule">
+            <field name="name">Buyer Own Rule</field>
+            <field name="model_id" ref="ins_base_mnc.model_res_buyer"/>
+            <field name="domain_force">[('id', 'in', user.buyer_ids.ids)]</field>
+            <field name="groups" eval="[(6, 0, [ref('ins_base_mnc.group_buyer_own')])]"/>
+        </record>
+
+        <!-- super rule, show all buyer records -->
+        <record id="buyer_all_rule" model="ir.rule">
+            <field name="name">Buyer All Rule</field>
+            <field name="model_id" ref="ins_base_mnc.model_res_buyer"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(6, 0, [ref('ins_base_mnc.group_buyer_super')])]"/>
+        </record>
+
+        <!-- SECTION 02: -->
+        <!-- PURCHASE ORDER RULES -->
+        <!-- own rule, show only PO with same buyer -->
+        <record id="purchase_order_buyer_own_rule" model="ir.rule">
+            <field name="name">Purchase Order Buyer Own Rule</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="domain_force">[('buyer_id', 'in', user.buyer_ids.ids)]</field>
+            <field name="groups" eval="[(6, 0, [ref('purchase.group_purchase_user', ref('ins_base_mnc.group_buyer_own'))])]"/>
+        </record>
+
+        <!-- super rule, show all buyers -->
+        <record id="purchase_order_buyer_all_rule" model="ir.rule">
+            <field name="name">Purchase Order Buyer All Rule</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(6, 0, [ref('ins_base_mnc.group_buyer_super')])]"/>
+        </record>
+
+        <!-- SECTION 03: -->
+        <!-- PURCHASE REQUEST RULES -->
+        <record id="purchase_request.purchase_request_rule" model="ir.rule">
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <!-- PURCHASE REQUEST LINE RULES -->
+        <!-- follower rule, show only requested_by and user buyer -->
+        <record id="purchase_request.purchase_request_line_followers_rule" model="ir.rule">
+            <field name="domain_force">[('buyer_id', 'in', user.buyer_ids.ids)]</field>
+        </record>
+
+        <record id="purchase_request.purchase_request_line_rule" model="ir.rule">
+            <field name="domain_force">[('buyer_id', 'in', user.buyer_ids.ids)]</field>
+        </record>
+
+        <!-- manager rule, show only same buyer -->
+        <record id="purchase_request.purchase_request_line_manager_rule" model="ir.rule">
+            <field name="domain_force">[('buyer_id', 'in', user.buyer_ids.ids)]</field>
+        </record>
+
+        <!-- super rule, show all -->
+        <record id="purchase_request_line_super_rule" model="ir.rule">
+            <field name="name">Purchase Request Line Super</field>
+            <field name="model_id" ref="purchase_request.model_purchase_request_line" />
+            <field name="groups" eval="[(6, 0, [ref('ins_base_mnc.group_buyer_super')])]" />
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <!-- SECTION 04: -->
+        <!-- ANALYTIC ACCOUNT RULES -->
+        <record id="analytic_user_rule" model="ir.rule">
+            <field name="name">Analytic User Rule</field>
+            <field name="model_id" ref="analytic.model_account_analytic_account"/>
+            <field name="domain_force">[('id', 'in', user.account_analytic_ids.ids)]</field>
+            <field name="groups" eval="[(6, 0, [ref('analytic.group_analytic_accounting')])]"/>
+        </record>
+
+        <record id="analytic_super_rule" model="ir.rule">
+            <field name="name">Analytic Super Rule</field>
+            <field name="model_id" ref="analytic.model_account_analytic_account"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+        </record>
+
+        <!-- SECTION 05: -->
+        <!-- ASSIGNEE PO RULES -->
+        <record id="assignee_po_company_rule" model="ir.rule">
+            <field name="name">Assignee PO Company Rule</field>
+            <field name="model_id" ref="ins_base_mnc.model_res_assignee_po"/>
+            <field name="domain_force">['|', ('company_ids', '=', False), ('company_ids', 'in', company_ids)]</field>
+        </record>
+
+        <!-- ASSIGNEE PR RULES -->
+        <record id="assignee_pr_company_rule" model="ir.rule">
+            <field name="name">Assignee PR Company Rule</field>
+            <field name="model_id" ref="ins_base_mnc.model_res_assignee_pr"/>
+            <field name="domain_force">['|', ('company_ids', '=', False), ('company_ids', 'in', company_ids)]</field>
+        </record>
+
+        <!-- ASSIGNEE BILL RULES -->
+        <record id="assignee_bill_company_rule" model="ir.rule">
+            <field name="name">Assignee Bill Company Rule</field>
+            <field name="model_id" ref="ins_base_mnc.model_res_assignee_bill"/>
+            <field name="domain_force">['|', ('company_ids', '=', False), ('company_ids', 'in', company_ids)]</field>
+        </record>
+
+        <!-- ASSIGNEE INVOICE RULES -->
+        <record id="assignee_invoice_company_rule" model="ir.rule">
+            <field name="name">Assignee Invoice Company Rule</field>
+            <field name="model_id" ref="ins_base_mnc.model_res_assignee_invoice"/>
+            <field name="domain_force">['|', ('company_ids', '=', False), ('company_ids', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

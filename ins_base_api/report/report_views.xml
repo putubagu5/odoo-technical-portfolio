@@ -1,0 +1,127 @@
+<odoo>
+    <data noupdate="1">
+        <record id="paperformat_invoice_ar_3tv" model="report.paperformat">
+            <field name="name">Payment Invoice AR 3TV A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">32</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_invoice_ar_afidafit_3tv" model="report.paperformat">
+            <field name="name">Payment Invoice AR 3TV A4 PDF</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_invoice_ar_afidafit_3tv_nologo" model="report.paperformat">
+            <field name="name">Payment Invoice AR 3TV PDF No Logo</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">280</field>
+            <field name="page_width">217</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">35</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <record id="report_invoice_ar_3tv_template" model="ir.actions.report">
+            <field name="name">Invoice AR 3TV</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_api.report_invoice_ar_3tv_container</field>
+            <field name="report_file">ins_base_api.report_invoice_ar_3tv_container</field>
+            <field name="paperformat_id" ref="ins_base_api.paperformat_invoice_ar_3tv"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_invoice_ar_3tv_bms_template" model="ir.actions.report">
+            <field name="name">Invoice AR 3TV BMS</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_api.report_invoice_ar_3tv_bms_container</field>
+            <field name="report_file">ins_base_api.report_invoice_ar_3tv_bms_container</field>
+            <field name="paperformat_id" ref="ins_base_api.paperformat_invoice_ar_3tv"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_invoice_ar_3tv_bms_new_template" model="ir.actions.report">
+            <field name="name">Invoice AR 3TV BMS NEW</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_api.report_invoice_ar_3tv_bms_new_container</field>
+            <field name="report_file">ins_base_api.report_invoice_ar_3tv_bms_new_container</field>
+            <field name="paperformat_id" ref="ins_base_api.paperformat_invoice_ar_3tv"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_ar_3tv_templates" model="ir.actions.report">
+            <field name="name">Invoice AR 3TV Txt</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-text</field>
+            <field name="report_name">ins_base_api.report_ar_3tv_template_view</field>
+            <field name="report_file">ins_base_api.report_ar_3tv_template_view</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_ar_3tv_new_templates" model="ir.actions.report">
+            <field name="name">Invoice AR 3TV Txt New</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-text</field>
+            <field name="report_name">ins_base_api.report_ar_3tv_txt_new_template_view</field>
+            <field name="report_file">ins_base_api.report_ar_3tv_txt_new_template_view</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_ar_3tv_afidafit_templates" model="ir.actions.report">
+            <field name="name">Invoice Afidafit Pdf</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_api.report_ar_3tv_afidafit_container</field>
+            <field name="report_file">ins_base_api.report_ar_3tv_afidafit_container</field>
+            <field name="paperformat_id" ref="ins_base_api.paperformat_invoice_ar_afidafit_3tv"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_ar_3tv_afidafit_nologo_templates" model="ir.actions.report">
+            <field name="name">Invoice Afidafit Pdf (No Logo)</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_api.report_ar_3tv_afidafit_nologo_container</field>
+            <field name="report_file">ins_base_api.report_ar_3tv_afidafit_nologo_container</field>
+            <field name="paperformat_id" ref="ins_base_api.paperformat_invoice_ar_afidafit_3tv_nologo"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

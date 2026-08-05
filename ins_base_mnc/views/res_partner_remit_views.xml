@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="view_res_partner_remit_form" model="ir.ui.view">
+            <field name="name">view.res.partner.remit.form</field>
+            <field name="model">res.partner.remit</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+
+                        <group string="Banks">
+                            <group>
+                                <field name="bank_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+
+                        <group string="Partners">
+                            <group>
+                                <field name="partner_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_res_partner_remit_tree" model="ir.ui.view">
+            <field name="name">view.res.partner.remit.tree</field>
+            <field name="model">res.partner.remit</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_partner_remit" model="ir.actions.act_window">
+            <field name="name">Partner Remit</field>
+            <field name="res_model">res.partner.remit</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+         
+        <menuitem
+            id="menu_res_partner_remit"
+            name="Partner Remit"
+            action="action_res_partner_remit"
+            parent="account.menu_finance_configuration"/>
+
+    </data>
+</odoo>

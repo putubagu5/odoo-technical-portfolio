@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record id="view_pmis_budget_detail_form" model="ir.ui.view">
+            <field name="name">view.pmis.budget.detail.form</field>
+            <field name="model">pmis.budget.detail</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false">
+                    <sheet>
+                        <group>
+                            <field name="line_id" string="Related Budget Line"/>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="no"/>
+                            <field name="amount"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pmis_budget_detail_tree" model="ir.ui.view">
+            <field name="name">view.pmis.budget.detail.tree</field>
+            <field name="model">pmis.budget.detail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="line_id" string="Related Budget Line"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="no"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pmis_budget_detail" model="ir.actions.act_window">
+            <field name="name">Budget Rate Distribution</field>
+            <field name="res_model">pmis.budget.detail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis_budget_detail"
+            name="Budget Rate Distribution"
+            action="action_pmis_budget_detail"
+            parent="ins_project.menu_pmis_budget"
+            sequence="50"/>
+    </data>
+</odoo>

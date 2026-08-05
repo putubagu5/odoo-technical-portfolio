@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record id="view_payment_recap_report_form" model="ir.ui.view">
+            <field name="name">view.payment.recap.report.form</field>
+            <field name="model">wizard.payment.recap.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="reconcile_state"/>
+                            <field name="all_companies"/>
+                            <field name="all_accounts"/>
+                        </group>
+                        <group>
+                            <field name="company_ids" widget="many2many_tags"
+                                attrs="{'invisible': [('all_companies', '=', True)], 'required': [('all_companies', '=', False)]}"/>
+                            <field name="account_ids" widget="many2many_tags"
+                                domain="[('company_id', 'in', company_ids)]"
+                                attrs="{'invisible': [('all_accounts', '=', True)], 'required': [('all_accounts', '=', False)]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_payment_recap_report" model="ir.actions.act_window">
+            <field name="name">Payment Recap Report</field>
+            <field name="res_model">wizard.payment.recap.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            id="menu_wizard_payment_recap_report"
+            name="Payment Recap Report"
+            action="action_wizard_payment_recap_report"
+            parent="account.menu_finance_payables"
+            sequence="200"/>
+    </data>
+</odoo>

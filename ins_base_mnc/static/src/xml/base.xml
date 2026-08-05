@@ -1,0 +1,6 @@
+<templates>
+    <!-- <t t-inherit="web.SwitchCompanyMenu" t-inherit-mode="extension">
+        <xpath expr="//div[@role='menuitemcheckbox']//span" position="replace">
+        </xpath>
+    </t> -->
+</templates>

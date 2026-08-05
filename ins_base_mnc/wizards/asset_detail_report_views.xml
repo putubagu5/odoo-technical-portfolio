@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <record id="view_asset_detail_report_form" model="ir.ui.view">
+            <field name="name">view.asset.detail.report.form</field>
+            <field name="model">wizard.asset.detail.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="month" required="1"/>
+                            <field name="year" required="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_asset_detail_report" model="ir.actions.act_window">
+            <field name="name">Asset Detail Report</field>
+            <field name="res_model">wizard.asset.detail.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            id="menu_wizard_asset_detail_report"
+            name="Asset Detail Report"
+            action="action_wizard_asset_detail_report"
+            parent="account.account_reports_management_menu"
+            sequence="10"/>
+    </data>
+</odoo>

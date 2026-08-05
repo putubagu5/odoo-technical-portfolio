@@ -1,0 +1,7 @@
+<odoo>
+    <template id="base_mnc_assets" name="ins_base_mnc assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/ins_base_mnc/static/src/css/custom_report.css"/>
+        </xpath>
+    </template>
+</odoo>

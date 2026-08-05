@@ -1,0 +1,93 @@
+<odoo>
+    <template id="report_payment_check_konversi_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_accounting.report_payment_check_konversi_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_payment_check_konversi_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 13px !important;">
+                <!-- cheque contents -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr style="text-left">
+                                <td width="60%"></td>
+                                <td width="40%" height="42" style="vertical-align: bottom">
+                                    <span>Jakarta,</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="22%"></td>
+                                <td width="78%" height="28px" style="vertical-align: middle">
+                                    <span t-field="o.acc_name"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="15%"></td>
+                                <td width="85%">
+                                    <span t-field="o.words3"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="70%" style="vertical-align: middle">
+                                    <span t-field="o.words4"/>
+                                </td>
+                                <td width="30%" height="25px"
+                                    style="font-size: 12px !important; vertical-align: middle">
+                                    <span t-field="o.amount_total_signed" t-options='{"widget": "float", "precision": 0}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--            <div class="page" style="font-size: 14px !important;">-->
+            <!--                &lt;!&ndash; cheque contents &ndash;&gt;-->
+            <!--                <div class="row">-->
+            <!--                    <div class="col-6 text-right">-->
+            <!--                        &#160;-->
+            <!--                    </div>-->
+            <!--                    <div class="col-6 text-left">-->
+            <!--                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Jakarta,-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="row">-->
+            <!--                    <div class="col-8">-->
+            <!--                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-->
+            <!--                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-->
+            <!--                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-->
+            <!--                        <span t-field="o.acc_name"/>-->
+            <!--                    </div>-->
+            <!--                    <div class="col-4">-->
+            <!--                        &#160;-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="row">-->
+            <!--                    <div class="col-8">-->
+            <!--                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-->
+            <!--                        &#160;&#160;&#160;&#160;&#160;&#160;-->
+            <!--                        <span t-field="o.amount_in_words_2"/>-->
+            <!--                    </div>-->
+            <!--                    <div class="col-4">-->
+            <!--                        <t t-if="o.currency_id.name != 'IDR'">-->
+            <!--                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>&#160;&#160;&#160;&#160;<span t-field="o.amount" t-options='{"widget": "float", "precision": 2}'/>-->
+            <!--                        </t>-->
+            <!--                        <t t-else="">-->
+            <!--                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br/>&#160;&#160;&#160;&#160;<span t-field="o.amount" t-options='{"widget": "float", "precision": 0}'/>-->
+            <!--                        </t>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </t>
+    </template>
+</odoo>

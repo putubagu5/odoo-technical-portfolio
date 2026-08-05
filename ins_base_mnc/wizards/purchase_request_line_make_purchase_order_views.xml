@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="purchase_request.action_purchase_request_line_make_purchase_order" model="ir.actions.act_window">
+            <field name="name">Draft PO</field>
+        </record>
+
+        <record id="view_purchase_request_line_make_purchase_order" model="ir.ui.view">
+            <field name="name">view.purchase.request.line.make.purchase.order</field>
+            <field name="model">purchase.request.line.make.purchase.order</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_line_make_purchase_order"/>
+            <field name="arch" type="xml">
+                <!-- rename form string to Draft PO -->
+                <xpath expr="//form" position="attributes">
+                    <attribute name="string">Draft PO</attribute>
+                </xpath>
+
+                <!-- rename button to Draft PO -->
+                <xpath expr="//button[@name='make_purchase_order']" position="attributes">
+                    <attribute name="string">Draft PO</attribute>
+                </xpath>
+
+                <!-- add pr numbers field to be passed into origin -->
+                <xpath expr="//field[@name='supplier_id']" position="after">
+                    <field name="pr_numbers" invisible="1"/>
+                </xpath>
+
+                <!-- add amount total field for conversion -->
+                <xpath expr="//field[@name='item_ids']//tree//field[@name='keep_description']" position="after">
+                    <field name="amount_total"/>
+                    <field name="qty_remaining" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='sync_data_planned']" position="after">
+                    <field name="exclude_attachment"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

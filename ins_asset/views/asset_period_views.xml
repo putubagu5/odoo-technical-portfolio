@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="view_asset_period_form" model="ir.ui.view">
+            <field name="name">view.asset.period.form</field>
+            <field name="model">asset.period</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_generate_period" type="object" string="Generate Periods" class="oe_highlight" attrs="{'invisible': ['|', ('line_ids', '=', True), ('state', '=', 'close')]}"/>
+                        <button name="button_close" type="object" string="Close All" class="oe_highlight" states="open"/>
+                        <button name="button_reopen" type="object" string="Re-Open All" class="oe_highlight" states="close"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="company_id" required="1"/>
+                            </group>
+                            <group>
+                                <field name="date_start" required="1"/>
+                                <field name="date_end" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Periods">
+                                <field name="line_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="name" required="1"/>
+                                        <field name="date_start" required="1"/>
+                                        <field name="date_end" required="1"/>
+                                        <field name="state" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_asset_period_tree" model="ir.ui.view">
+            <field name="name">view.asset.period.tree</field>
+            <field name="model">asset.period</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_asset_period" model="ir.actions.act_window">
+            <field name="name">Period</field>
+            <field name="res_model">asset.period</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_asset_period"
+            name="Period"
+            action="action_asset_period"
+            parent="ins_asset.menu_root_asset_period"
+            sequence="1"/>
+    </data>
+</odoo>

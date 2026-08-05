@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="receipt_period_line_form_view" model="ir.ui.view">
+            <field name="name">receipt.period.line.form.view</field>
+            <field name="model">receipt.period.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="close_period" type="object" string="Close Period" class="oe_highlight" states="open"
+                                groups="account.group_account_manager"/>
+                        <button name="reopen_period" type="object" string="Re-open Period" class="oe_highlight" states="close"
+                                groups="account.group_account_manager"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                                <field name="receipt_period_id" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                            </group>
+                            <group>
+                                <field name="date_start" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                                <field name="date_end" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="receipt_period_line_tree_view" model="ir.ui.view">
+            <field name="name">receipt.period.line.tree.view</field>
+            <field name="model">receipt.period.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                    <field name="receipt_period_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="receipt_period_line_action" model="ir.actions.act_window">
+            <field name="name">Periods</field>
+            <field name="res_model">receipt.period.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem
+            id="receipt_period_line_menu"
+            name="Periods"
+            sequence="1"
+            action="receipt_period_line_action"
+            parent="ins_base_mnc.rr_period"
+            groups="account.group_account_manager"
+        />
+
+    </data>
+</odoo>

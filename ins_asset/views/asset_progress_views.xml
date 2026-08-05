@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+        <record id="view_asset_progress_form" model="ir.ui.view">
+            <field name="name">view.asset.progress.form</field>
+            <field name="model">asset.progress</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_done" type="object" string="Done" class="oe_highlight" states="draft"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="company_id" required="1" readonly="1"/>
+                                <field name="date" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="asset_cost_progress_id" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="qty" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            </group>
+                            <group>
+                                <field name="model_id" domain="[('state', '=', 'model')]" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="date_acquisition" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="journal_id" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="account_id" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="account_src_id" invisible="1" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="details" string="Sources">
+                                <field name="line_ids" nolabel="1" attrs="{'readonly': [('state', '=', 'done')]}">
+                                    <tree editable="bottom">
+                                        <field name="selected" widget="boolean_toggle"/>
+                                        <field name="move_id" required="1" optional="show"/>
+                                        <field name="move_line_id" required="1" optional="show"/>
+                                        <field name="asset_cost_progress_id" required="1" optional="show"/>
+                                        <field name="analytic_account_id" optional="show"/>
+                                        <field name="picking_id" required="1" optional="show"/>
+                                        <field name="product_id" required="1" optional="show"/>
+                                        <field name="qty" required="1" optional="show"/>
+                                        <field name="price_unit" required="1" optional="show"/>
+                                        <field name="price_subtotal" required="1" optional="show"/>
+                                    </tree>
+                                </field>
+                                <group name="total_group" col="6" class="mt-2 mt-md-0">
+                                    <group class="oe_subtotal_footer oe_right" colspan="2" name="total">
+                                        <field name="amount_total"/>
+                                    </group>
+                                    <div class="oe_clear"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_asset_progress_tree" model="ir.ui.view">
+            <field name="name">view.asset.progress.tree</field>
+            <field name="model">asset.progress</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="asset_cost_progress_id"/>
+                    <field name="qty"/>
+                    <field name="model_id"/>
+                    <field name="date_acquisition"/>
+                    <field name="journal_id"/>
+                    <field name="account_id"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_asset_progress" model="ir.actions.act_window">
+            <field name="name">CIP Capitalization</field>
+            <field name="res_model">asset.progress</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_asset_progress"
+            name="CIP Capitalization"
+            action="action_asset_progress"
+            parent="ins_asset.menu_asset"
+            sequence="2"/>
+    </data>
+</odoo>

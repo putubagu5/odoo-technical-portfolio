@@ -1,0 +1,386 @@
+<odoo>
+    <template id="report_payment_agreement_purchase_order_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_payment_purchase_order_container_document"/>
+                <t t-if="o.purchase_id._get_custom_report_attachment()">
+                    <t t-call="o.purchase_id._get_custom_report_attachment()"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc.report_payment_purchase_order_container_document">
+        <t t-call="web.basic_layout">
+        <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 2px;
+            font-family: Times New Roman;
+        }
+        </style>
+            <div class="page">
+                <table border="1" class="border-all" cellspacing="0" cellpadding="5" width="100%">
+                    <tr>
+                        <td rowspan="3" width="30%" align="center">
+                            <t t-if="o.company_id.logo">
+                                <img t-att-src="image_data_uri(o.company_id.logo)" style="max-height: 200px;max-width: 150px;  display: block;margin-left: auto;margin-right: auto;" alt="Logo"/>
+                            </t>
+                        </td>
+                        <td colspan="2" rowspan="4" width="40%">
+                            <center>
+                            <h5>PERSETUJUAN PEMBAYARAN PEMBELIAN DENGAN PURCHASE ORDER
+                            <t t-if="o.purchase_id.buyer_id.name">
+                              <t t-if="'Programming' in o.purchase_id.buyer_id.name">
+                              PROGRAMMING
+                              </t>
+                              <t t-else="">FINANCE</t>
+                            </t>
+                            <t t-else="">FINANCE</t>
+                            </h5>
+                            </center>
+                        </td>
+                        <!-- <td></td> -->
+                        <td rowspan="3" width="30%"/>
+                    </tr>
+                    <tr>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                    </tr>
+                    <tr>
+                        <td style="font-size:8pt;"><t t-esc="o.company_id.name"/></td>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <td>No.: <strong><t t-esc="o.name"/></strong></td>
+                    </tr>
+                </table>
+                <table border="0" class="border-all" cellspacing="0" cellpadding="5" width="100%">
+                    <!-- baris 2 -->
+                    <tr style="font-size:8pt;">
+                        <td colspan="4">
+                            <table width="100%" style="margin-top:5px;border: none !important;">
+                                <tr style="border: none !important;">
+                                    <td style="border: none !important;" width="35%">Tanggal</td>
+                                    <td style="border: none !important;" width="65%">: <t t-esc="o.request_date.strftime('%d-%b-%y') if o.request_date else ''"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Dibayarkan kepada</td>
+                                    <td style="border: none !important;">: <t t-esc="o.purchase_id.partner_id.name"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Dibayarkan Atas Nama</td>
+                                    <td style="border: none !important;">: <t t-esc="o.purchase_id.partner_id.alias_name"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Keterangan Pembayaran</td>
+                                    <td style="border: none !important;">: <t t-esc="o.description_payment"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Nomor PR</td>
+                                    <td style="border: none !important;">: <t t-esc="o.pr_numbers"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Nomor PO</td>
+                                    <td style="border: none !important;">: <t t-esc="o.purchase_id.name"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Nomor RR</td>
+                                    <td style="border: none !important;">: <t t-esc="o.rr_numbers"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Nomor Berita Acara</td>
+                                    <td style="border: none !important;">: <t t-esc="o.berita_acara_number"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Nomor UAT</td>
+                                    <td style="border: none !important;">: <t t-esc="o.uat"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Nomor Kwitansi/Invoice</td>
+                                    <td style="border: none !important;">: <t t-esc="o.invoice_number"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Nomor Kontrak</td>
+                                    <td style="border: none !important;">:</td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Nomor Faktur Pajak</td>
+                                    <td style="border: none !important;">: <t t-esc="o.faktur_number"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Mata Uang</td>
+                                    <td style="border: none !important;">: <t t-esc="o.currency_id.name"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">Dasar Pengenaan Pajak</td>
+                                    <td style="border: none !important;">: <t t-esc="'{:,.2f}'.format(o.dpp_amount)"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">PPN</td>
+                                    <td style="border: none !important;">: <t t-esc="'{:,.2f}'.format(o.vat_amount)"/></td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">PPh</td>
+                                    <td style="border: none !important;">:</td>
+                                </tr>
+                                <tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                                    <td style="border: none !important;">TOTAL</td>
+                                    <td style="border: none !important;">:</td>
+                                </tr>
+                                <tr style="border: none !important;">
+                                    <td style="border: none !important;">Tanggal Jatuh Tempo Pembayaran</td>
+                                    <td style="border: none !important;">: <t t-esc="o.due_date.strftime('%d-%b-%y') if o.due_date else ''"/></td>
+                                </tr>
+                            </table>
+                       </td>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <!-- BARIS KE 3 -->
+                  </table>
+                  <t t-if="o.purchase_id.buyer_id.name">
+                    <!--FOR FINANCE-->
+                    <t t-if="not 'Programming' in o.purchase_id.buyer_id.name">
+                      <table border="0" class="border-all" cellspacing="0" cellpadding="5" width="100%">
+                        <tr style="font-size:10pt;">
+                            <td width="50%" colspan="2"><center><b>YANG MEMINTA</b></center></td>
+                            <td width="25%"><center><b>DIPERIKSA</b></center></td>
+                            <!--<td width="25%"><center><b>DIPERIKSA</b></center></td>-->
+                            <td width="25%"><center><b>DISETUJUI</b></center></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3" width="25%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="25%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="25%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="25%"><br/><br/><br/><br/></td>
+                        </tr>
+                        <tr>
+                            <!-- <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> -->
+                        </tr>
+                        <tr>
+                            <!-- <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> -->
+                        </tr>
+
+                        <!-- baris ke 3 -->
+                        <tr style="font-size:10pt;">
+                            <td width="25%"><center>Officer Finance</center></td>
+                            <td width="25%"><center>Dept. Head Finance</center></td>
+                            <td width="25%"><center>VP Finance &amp; Purchasing 3 FTA</center></td>
+                            <td width="25%"><center>CFO</center></td>
+                        </tr>
+                        <tr style="font-size:10pt;">
+                            <td style="border-right-style: hidden;">No. JV :</td>
+                            <td colspan="2" style="border-left-style: hidden;border-right-style: hidden;"><center>No Invoice :</center></td>
+                            <td style="border-left-style: hidden;text-align:right">Metode Pembayaran: Cek/Wire</td>
+                        </tr>
+                      </table>
+                    </t>
+                    <!--END FOR FINANCE-->
+                    <!--FOR PROGRAM-->
+                    <t t-if="'Programming' in o.purchase_id.buyer_id.name">
+                      <table border="0" class="border-all" cellspacing="0" cellpadding="5" width="100%">
+                        <tr style="font-size:10pt;">
+                            <td width="40%" colspan="2"><center><b>YANG MEMINTA</b></center></td>
+                            <td width="40%" colspan="2"><center><b>DIPERIKSA</b></center></td>
+                            <!--<td width="25%"><center><b>DIPERIKSA</b></center></td>-->
+                            <td width="20%"><center><b>DISETUJUI</b></center></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3" width="20%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="20%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="20%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="20%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="20%"><br/><br/><br/><br/></td>
+                        </tr>
+                        <tr>
+                            <!-- <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> -->
+                        </tr>
+                        <tr>
+                            <!-- <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> -->
+                        </tr>
+                        <tr style="font-size:10pt;">
+                            <td width="20%"><center>Dept.Head Int.Acq 3TV/ Acq Loc Unit Bisnis</center></td>
+                            <td width="20%"><center>Programming Director</center></td>
+                            <td width="20%"><center>Finance Department Head</center></td>
+                            <td width="20%"><center>VP Finance &amp; Purchasing 3 FTA</center></td>
+                            <td width="20%"><center>CFO</center></td>
+                        </tr>
+                        <tr style="font-size:10pt;">
+                            <td style="border-right-style: hidden;">No. JV :</td>
+                            <td colspan="2" style="border-left-style: hidden;border-right-style: hidden;"><center>No Invoice :</center></td>
+                            <td colspan="2" style="border-left-style: hidden;text-align:right">Metode Pembayaran: Cek/Wire</td>
+                        </tr>
+                      </table>
+                    </t>
+                    <!--END FOR PROGRAM-->
+                  </t>
+                  <t t-else="">
+                    <table border="0" class="border-all" cellspacing="0" cellpadding="5" width="100%">
+                        <tr style="font-size:10pt;">
+                            <td width="50%" colspan="2"><center><b>YANG MEMINTA</b></center></td>
+                            <td width="25%"><center><b>DIPERIKSA</b></center></td>
+                            <!--<td width="25%"><center><b>DIPERIKSA</b></center></td>-->
+                            <td width="25%"><center><b>DISETUJUI</b></center></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3" width="25%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="25%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="25%"><br/><br/><br/><br/></td>
+                            <td rowspan="3" width="25%"><br/><br/><br/><br/></td>
+                        </tr>
+                        <tr>
+                            <!-- <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> -->
+                        </tr>
+                        <tr>
+                            <!-- <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> -->
+                        </tr>
+
+                        <!-- baris ke 3 -->
+                        <tr style="font-size:10pt;">
+                            <td width="25%"><center>Officer Finance</center></td>
+                            <td width="25%"><center>Dept. Head Finance</center></td>
+                            <td width="25%"><center>VP Finance &amp; Purchasing 3 FTA</center></td>
+                            <td width="25%"><center>CFO</center></td>
+                        </tr>
+                        <tr style="font-size:10pt;">
+                            <td style="border-right-style: hidden;">No. JV :</td>
+                            <td colspan="2" style="border-left-style: hidden;border-right-style: hidden;"><center>No Invoice :</center></td>
+                            <td style="border-left-style: hidden;text-align:right">Metode Pembayaran: Cek/Wire</td>
+                        </tr>
+                      </table>
+                  </t>
+                  <table border="0" class="border-all" cellspacing="0" cellpadding="5" width="100%">
+                    <!-- baris ke 4 -->
+                    <!-- <table cellspacing="0" cellpadding="5" width="100%"> -->
+                    <!-- </table> -->
+                    <tr>
+                        <td colspan="4"><br/></td>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                    </tr>
+                    <tr style="font-size:10pt;">
+                        <td colspan="4"><center><b>JURNAL DAN NOMOR PERKIRAAN</b></center></td>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                    </tr>
+                    <!-- baris ke 5 -->
+                    <tr style="font-size:10pt;">
+                        <td width="25%"> <center><b>KETERANGAN</b></center></td>
+                        <td width="25%"> <center><b>NO PERKIRAAN</b></center></td>
+                        <td width="25%"> <center><b>DEBIT</b></center></td>
+                        <td width="25%"> <center><b>KREDIT</b></center></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr style="font-size:10pt;">
+                        <td colspan="2"><center><b>JUMLAH</b></center></td>
+                        <!-- <td></td> -->
+                        <td/>
+                        <td/>
+                    </tr>
+                    <!-- Baris terakhir -->
+                    <tr style="font-size:10pt;">
+                        <td><center><b>DISIAPKAN</b></center></td>
+                        <td><center><b>DIPERIKSA</b></center></td>
+                        <td colspan="2"><center><b>DISETUJUI</b></center></td>
+                        <!-- <td></td> -->
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/></td>
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr style="font-size:10pt;">
+                        <td><center>Staff Accounting</center></td>
+                        <td><center>Section Head Accounting</center></td>
+                        <td><center>Dept. Head Accounting</center></td>
+                        <td><center>VP Accounting, Billing &amp; Tax 3 FTA</center></td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

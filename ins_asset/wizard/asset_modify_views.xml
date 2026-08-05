@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record id="asset_modify_form" model="ir.ui.view">
+            <field name="name">asset.modify.form</field>
+            <field name="model">asset.modify</field>
+            <field name="inherit_id" ref="account_asset.asset_modify_form"/>
+            <field name="arch" type="xml">
+                <!-- add journal_id, amount_residual after date -->
+                <xpath expr="//field[@name='date']" position="after">
+                    <field name="journal_id" required="1"/>
+                    <field name="amount_residual"/>
+                    <field name="amount_total"/>
+                </xpath>
+
+                <!-- add button_add before name -->
+                <xpath expr="//field[@name='name']" position="before">
+                    <button name="button_add" type="object" string="Add to Asset" class="oe_highlight oe_inline"/>
+                </xpath>
+
+                <!-- add notebook section after the first-found group -->
+                <xpath expr="//group" position="after">
+                    <notebook>
+                        <page name="detail" string="Invoices">
+                            <field name="is_added" invisible="1"/>
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="selected" widget="boolean_toggle"/>
+                                    <field name="invoice_id" required="1" optional="show"/>
+                                    <field name="invoice_line_id" required="1" optional="show"/>
+                                    <field name="picking_id" required="1" optional="show"/>
+                                    <field name="date_invoice" optional="show"/>
+                                    <field name="product_id" optional="show"/>
+                                    <field name="amount" required="1" optional="show"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

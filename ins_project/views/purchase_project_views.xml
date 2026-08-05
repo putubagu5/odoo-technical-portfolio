@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="inherit_purchase_order_pmis_form" model="ir.ui.view">
+            <field name="name">inherit.purchase.order.pmis.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']//notebook" position="inside">
+                    <page name="project_details" string="Project Details">
+                        <field name="project_ids" readonly="1">
+                            <tree editable="bottom">
+                                <field name="program_id"/>
+                                <field name="task_id"/>
+                                <field name="subtask_id"/>
+                                <field name="expenditure_type_id"/>
+                                <field name="percentage"/>
+                                <field name="qty"/>
+                                <field name="amount"/>
+                                <field name="po_line_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

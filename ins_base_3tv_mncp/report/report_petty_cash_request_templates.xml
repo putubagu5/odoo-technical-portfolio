@@ -1,0 +1,221 @@
+<odoo>
+    <template id="ins_base_3tv_mncp_report_petty_cash_request_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_3tv_mncp.ins_base_3tv_mncp_report_petty_cash_request_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_3tv_mncp_report_petty_cash_request_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <!-- only print if state is done, else leave blank -->
+                <t t-if="o.state == 'approved'">
+                    <!-- logo -->
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-12">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="33%" align="center" style="border: 1px solid black; vertical-align: middle;">
+                                            <img t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+                                        </td>
+                                        <td width="34%" align="center" style="border: 1px solid black; vertical-align: middle;">
+                                            <strong>PERMINTAAN KAS KECIL<br/>
+                                                    (PETTY CASH)</strong>
+                                        </td>
+                                        <td width="33%" align="center" style="border: 1px solid black; vertical-align: middle;">
+                                            <small>
+                                                <span>Page</span>
+                                                <span class="page" />
+                                                of
+                                                <span class="topage" />
+                                            </small>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- header, no and recipient -->
+                    <div class="row">
+                        <div class="col-6">
+                            <table width="100%">
+                                <tr>
+                                    <td width="20%">
+                                        Description
+                                    </td>
+                                    <td width="5%">
+                                        :
+                                    </td>
+                                    <td width="75%">
+                                        <span t-field="o.description"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Project Name
+                                    </td>
+                                    <td>
+                                        :
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Date Required
+                                    </td>
+                                    <td>
+                                        :
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.date_start.strftime('%d-%b-%y') if o.date_start else ''"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-6">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Req. No
+                                    </td>
+                                    <td>
+                                        :
+                                    </td>
+                                    <td>
+                                        <span t-field="o.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td>
+                                        :
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.date_start.strftime('%d-%b-%y') if o.date_start else ''"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Prepared By
+                                    </td>
+                                    <td>
+                                        :
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.requested_by.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Departement
+                                    </td>
+                                    <td>
+                                        :
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <!-- table -->
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%" style="border: 1px solid black;">
+                                <tr>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">No</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">ItemCode</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Description</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Analytic Acc</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Account</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Wilayah</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Line PR</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Qty</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Curr</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Original Price</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Rate</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Unit Price</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;">Total Price</td>
+                                </tr>
+                                <tr t-foreach="o.line_ids" t-as="line">
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-raw="line_index + 1"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="line.product_id.default_code"/></td>
+                                    <td class="text-left" style="border: 1px solid black; padding: 5px;"><t t-esc="line.name"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="line.analytic_account_id.code"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="line.account_id.code"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="o.operating_unit_id.code"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-raw="line_index + 1"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="'{:,.0f}'.format(line.product_qty)"/> each</td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="o.currency_id.name"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="'{:,.0f}'.format(int(line.original_price))"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="'{:,.0f}'.format(line.actual_rate)"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="'{:,.0f}'.format(int(line.original_price))"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="'{:,.0f}'.format(int(line.estimated_cost))"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <!-- ending text -->
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Says: <t t-esc="o.amount_in_words_2"/></strong>
+                        </div>
+                        <div class="col-6 text-right">
+                            <strong>TOTAL IDR <t t-esc="'{:,.0f}'.format(int(o.estimated_cost))"/></strong>
+                        </div>
+                    </div>
+
+                    <!-- table with signature -->
+                    <div class="row">
+                        <div class="col-12">
+                            <t t-set="total" t-value="1"/>
+                            <table width="100%" style="border: 1px solid black;">
+                                <tr>
+                                    <td width="20%" class="text-center" style="border: 1px solid black; padding: 5px;"><strong>Approved By System</strong></td>
+                                    <td width="20%" class="text-center" style="border: 1px solid black; padding: 5px;"><strong>Datetime</strong></td>
+                                    <td width="20%" class="text-center" style="border: 1px solid black; padding: 5px;"><strong>State</strong></td>
+                                    <td width="40%" class="text-center" style="border: 1px solid black; padding: 5px;"><strong>Group CEO</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <table width="100%">
+                                            <tr t-foreach="o.approval_message_ids" t-as="line">
+                                                <td width="33%" class="text-left" style="border: 1px solid black; padding: 5px;"><t t-esc="line.employee_id.name"/></td>
+                                                <td width="34%" class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="line.date.strftime('%d-%b-%y %H:%M:%S') if line.date else ''"/></td>
+                                                <t t-if="line.state == 'approve'">
+                                                    <t t-if="'Submit' in line.note">
+                                                        <td width="33%" class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="line.note"/></td>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <td width="33%" class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="dict(line.fields_get(allfields=['state'])['state']['selection'])[line.state]"/></td>
+                                                    </t>
+                                                </t>
+                                                <t t-else="">
+                                                    <td width="33%" class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="dict(line.fields_get(allfields=['state'])['state']['selection'])[line.state]"/></td>
+                                                </t>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px; vertical-align: bottom;"><span t-field="o.assignee_id.name"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

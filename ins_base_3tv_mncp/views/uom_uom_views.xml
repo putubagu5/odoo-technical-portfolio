@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="product_uom_form_view" model="ir.ui.view">
+            <field name="name">product.uom.form.view</field>
+            <field name="model">uom.uom</field>
+            <field name="inherit_id" ref="uom.product_uom_form_view"/>
+            <field name="arch" type="xml">
+                <!-- add note -->
+                <xpath expr="//field[@name='rounding']" position="after">
+                    <field name="note"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

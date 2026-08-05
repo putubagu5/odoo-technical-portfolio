@@ -1,0 +1,267 @@
+<odoo>
+    <data>
+        <record id="view_purchase_request_form" model="ir.ui.view">
+            <field name="name">view.purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='assigned_to']" position="after">
+                    <field name="amount_in_words" readonly="1"/>
+                    <field name="amount_in_words_2" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='po_numbers']" position="after">
+                	<field name="operating_unit_id"/>
+                    <field name="assignee_id"/>
+                    <field name="assignee2_id"/>
+                    <field name="rr_numbers"/>
+                    <field name="attachment_form_ids" widget="many2many_binary" force_save="1"/>
+                    <field name="department_id" invisible="1"/>
+                    <field name="analytic_acc_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='requested_by']" position="before">
+                    <field name="pr_type_id"/>
+                    <field name="pr_type_second_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='requested_by']" position="after">
+                    <field name="partner_id"/>
+                </xpath>
+
+                <!-- add attrs domain for field name -->
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+
+                <!-- hide assigned_to -->
+                <xpath expr="//field[@name='assigned_to']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- add select_currency_id before currency_id in lines tree -->
+                <xpath expr="//field[@name='line_ids']//tree//field[@name='currency_id']" position="before">
+                    <field name="select_currency_id" string="Original Currency" optional="show"/>
+                </xpath>
+
+                <!-- add attachment_line_id before company_id in lines tree -->
+                <xpath expr="//field[@name='line_ids']//tree//field[@name='company_id']" position="after">
+                    <field name="attachment_line_ids" widget="many2many_binary" optional="show"/>
+                </xpath>
+
+                <!-- make these field invisible for digits display to work -->
+                <xpath expr="//field[@name='line_ids']//tree//field[@name='product_qty']" position="replace">
+                    <field name="product_qty" id="product_qty_default" invisible="1"/>
+                    <field name="product_qty" id="product_qty_cust" digits="[12, 2]" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']//tree//field[@name='purchased_qty']" position="replace">
+                    <field name="purchased_qty" id="purchased_qty_default" invisible="1"/>
+                    <field name="purchased_qty" id="purchased_qty_cust" digits="[12, 2]" optional="show"/>
+                </xpath>
+
+                <!-- bypass and change the readonly of date_start to true -->
+                <xpath expr="//field[@name='date_start']" position="attributes">
+                    <attribute name="attrs"></attribute>
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+
+                <!-- hide group_id -->
+                <xpath expr="//field[@name='group_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- add asset_cost_progress_id and buyer_id in tree and form inside the line_ids -->
+                <xpath expr="//field[@name='line_ids']//tree" position="inside">
+                    <button name="copy" string="Duplicate" type="object"/>
+                    <button name="company_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']//tree//field[@name='product_uom_id']" position="after">
+                    <field name="asset_cost_progress_id" optional="show"/>
+                    <field name="buyer_id" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']//tree//field[@name='analytic_account_id']" position="after">
+                    <field name="wilayah_id" force_save="1" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']//form//field[@name='product_id']" position="after">
+                    <field name="is_cost_progress" invisible="1"/>
+                    <field name="asset_cost_progress_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="buyer_id" required="1" attrs="{'readonly': [('is_editable', '=', False)]}"/>
+                    <field name="attachment_line_ids" invisible="1" widget="many2many_binary"/>
+                </xpath>
+
+                <xpath expr="//field[@name='line_ids']//form//field[@name='buyer_id']" position="after">
+                    <field name="employee_id" attrs="{'readonly': [('is_editable', '=', False)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='line_ids']//form//field[@name='analytic_account_id']" position="after">
+                    <field name="wilayah_id" force_save="1" optional="show"/>
+                </xpath>
+
+                <!-- add date_needed and picking_type_id after date_required -->
+                <xpath expr="//field[@name='line_ids']//form//field[@name='date_required']" position="after">
+                    <field name="date_needed" attrs="{'readonly': [('is_editable', '=', False)]}"/>
+                    <!-- <field name="picking_type_id"/> -->
+                </xpath>
+
+                <!-- force estimated_cost to readonly -->
+                <xpath expr="//field[@name='line_ids']//form//field[@name='estimated_cost']" position="attributes">
+                    <attribute name="attrs">{'readonly': 1}</attribute>
+                </xpath>
+
+                <!-- force picking_type_id to readonly -->
+                <xpath expr="//field[@name='picking_type_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': 1}</attribute>
+                </xpath>
+
+                <!-- force company_id to readonly -->
+                <xpath expr="//field[@name='company_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': 1}</attribute>
+                </xpath>
+
+                <xpath expr="//tree//field[@name='product_id']" position="before">
+                    <field name="line_number" readonly="1" force_save="1"/>
+                </xpath>
+
+                <!-- add date_rate and actual_rate after estimated_cost -->
+                <xpath expr="//tree//field[@name='estimated_cost']" position="after">
+                    <field name="date_rate" optional="show"/>
+                    <field name="actual_rate" optional="show"/>
+                </xpath>
+
+                <xpath expr="//form//sheet//group[@name='main']//field[@name='estimated_cost']" position="after">
+                    <field name="date_rate" optional="show"/>
+                    <field name="actual_rate" optional="show"/>
+                </xpath>
+
+                <!-- remove attrs for original_price -->
+                <xpath expr="//form//sheet//group[@name='main']//field[@name='original_price']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('is_editable', '=', False)]}</attribute>
+                </xpath>
+
+                <!-- replace the draft button to remove groups and change attrs to certain states and if all request_state in line are done -->
+                <xpath expr="//field[@name='po_numbers']" position="after">
+                    <field name="is_all_done" invisible="1"/>
+                </xpath>
+                <xpath expr="//button[@name='button_draft']" position="replace">
+                    <button name="button_draft" attrs="{'invisible': ['|', ('state', 'in', ('cancel', 'closed')), ('is_all_done', '=', True)]}"
+                        string="Change PR" type="object"/>
+                </xpath>
+
+                <!-- make line_ids readonly -->
+                <xpath expr="//field[@name='line_ids']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+
+                <!-- change button string to Draft PO -->
+                <xpath expr="//button[@name='%(purchase_request.action_purchase_request_line_make_purchase_order)d']" position="attributes">
+                    <attribute name="string">Draft PO</attribute>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- make description required -->
+                <xpath expr="//field[@name='description']" position="attributes">
+                    <attribute name="attrs">{'required': 1, 'readonly': [('is_editable','=', False)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_request_inherit_tree_view_2" model="ir.ui.view">
+            <field name="name">purchase.request.inherit.tree.view.2</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_tree"/>
+            <field name="arch" type="xml">
+
+                <field name="po_numbers" position="after">
+                    <field name="rr_numbers"/>
+                </field>
+
+            </field>
+        </record>
+
+        <!-- for purchase request form, if user is not manager, add domain to requested_by -->
+        <record id="view_purchase_request_form_user" model="ir.ui.view">
+            <field name="name">view.purchase.request.form.user</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="groups_id" eval="[(4, ref('purchase_request.group_purchase_request_user'))]"/>
+            <field name="arch" type="xml">
+                <!-- add domain to requested_by -->
+                <xpath expr="//field[@name='requested_by']" position="attributes">
+                    <attribute name="domain">[('id', '=', uid)]</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_purchase_request_form_manager" model="ir.ui.view">
+            <field name="name">view.purchase.request.form.manager</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="groups_id" eval="[(4, ref('purchase_request.group_purchase_request_manager'))]"/>
+            <field name="arch" type="xml">
+                <!-- add domain to requested_by -->
+                <xpath expr="//field[@name='requested_by']" position="attributes">
+                    <attribute name="domain">[(1, '=', 1)]</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- inherit from ins_purchase_request_approval -->
+        <record id="purchase_request_approval_view_purchase_request_form" model="ir.ui.view">
+            <field name="name">purchase.request.approval.view.purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="ins_purchase_request_approval.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+                <!-- make hierarchy_id to required -->
+                <xpath expr="//field[@name='hierarchy_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- inherit from ins_purchase_request_approval, but assign groups to group_super_admin -->
+        <record id="purchase_request_approval_view_purchase_request_form_super_admin" model="ir.ui.view">
+            <field name="name">purchase.request.approval.view.purchase.request.form.super.admin</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="ins_purchase_request_approval.view_purchase_request_form"/>
+            <field name="groups_id" eval="[(4, ref('ins_base_mnc.group_super_admin'))]"/>
+            <field name="arch" type="xml">
+                <!-- replace attrs of selected_approver_id -->
+                <xpath expr="//field[@name='selected_approver_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', '!=', 'draft'), ('approval_history_ids', '=', False)], 'readonly': ['|', ('state', '!=', 'draft'), ('approval_history_ids', '=', False)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- inherit from budget_control -->
+        <record id="budget_control_view_purchase_request_form" model="ir.ui.view">
+            <field name="name">budget.control.view.purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="budget_control.purchase_request_inherit_form_view"/>
+            <field name="arch" type="xml">
+                <!-- force currency_id to readonly -->
+                <xpath expr="//field[@name='currency_id']" position="attributes">
+                    <!-- <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute> -->
+                    <attribute name="attrs">{'readonly': 1}</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='%(budget_control.action_purchase_request_line_make_purchase_agreement)d']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_request.action_report_purchase_requests" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+        <menuitem
+            id="menu_picking_from_pr"
+            name="Inventory (RR)"
+            action="stock.action_picking_tree_all"
+            parent="purchase_request.menu_purchase_request"
+            sequence="55"/>
+    </data>
+</odoo>

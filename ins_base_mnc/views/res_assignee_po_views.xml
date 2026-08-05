@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record id="view_res_assignee_po_tree" model="ir.ui.view">
+            <field name="name">view.res.assignee.po.tree</field>
+            <field name="model">res.assignee.po</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="doc_position" required="1"/>
+                    <field name="name" required="1"/>
+                    <field name="job_position" required="1"/>
+                    <field name="company_ids" required="1" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_res_assignee_po_form" model="ir.ui.view">
+            <field name="name">view.res.assignee.po.form</field>
+            <field name="model">res.assignee.po</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="doc_position" required="1"/>
+                                <field name="name" required="1"/>
+                                <field name="job_position" required="1"/>
+                                <field name="company_ids" required="1" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_res_assignee_po" model="ir.actions.act_window">
+            <field name="name">Assignee (PO)</field>
+            <field name="res_model">res.assignee.po</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_assignee_po"
+            name="Master Data Assignee (PO)"
+            action="action_res_assignee_po"
+            parent="purchase.menu_purchase_config"/>
+    </data>
+</odoo>

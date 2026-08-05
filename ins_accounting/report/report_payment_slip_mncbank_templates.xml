@@ -1,0 +1,174 @@
+<odoo>
+    <template id="report_payment_slip_mnc_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_accounting.report_payment_slip_mncbank_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_accounting.report_payment_slip_mncbank_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 11px; font-family: Arial;">
+                <table width="100%">
+                    <!-- LEFT INFORMATIONS -->
+                    <td width="50%">
+                        <table width="100%">
+                            <tr>
+                                <td width="33%" height="155px"/>
+                                <td width="67%" style="vertical-align: bottom">
+                                    <span t-field="o.company_id"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="70%"/>
+                                <td width="30%">
+                                    <span t-field="o.company_id.street"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="33%" height="40px"/>
+                                <td width="67%" style="vertical-align: bottom">
+                                    <span>Indonesia</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="10%" height="60px"/>
+                                <td width="90%" style="vertical-align: bottom; letter-spacing: 5px">
+                                    <span t-field="o.partner_bank_to"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="33%"/>
+                                <td width="67%">
+                                    <span t-field="o.bank_to"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%" height="80px"/>
+                                <td width="70%" style="vertical-align: bottom">
+                                    <span t-field="o.partner_id"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="70%" height="85px"/>
+                                <td width="30%" style="vertical-align: bottom">
+                                    <span t-field="o.partner_id.street"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <!-- RIGHT INFORMATION -->
+                    <td width="50%">
+                        <table width="100%">
+                            <tr>
+                                <td width="100%" height="60px" style="vertical-align: bottom">
+                                    <t t-if="o.payment_method_id.name == 'Manual'">
+                                        No :
+                                        <span t-field="o.payment_doc_id.name"/>
+                                    </t>
+<!--                                    <t t-if="o.payment_method_id.name == 'Checks'">-->
+<!--                                        No :-->
+<!--                                        <span t-field="o.check_id.name"/>-->
+<!--                                    </t>-->
+<!--                                    <t t-if="o.payment_method_id.name == 'Giro'">-->
+<!--                                        No :-->
+<!--                                        <span t-field="o.giro_id.name"/>-->
+<!--                                    </t>-->
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%" height="100px"/>
+                                <td width="70%" style="vertical-align: bottom">
+                                    x
+                                </td>
+                            </tr>
+                        </table>
+<!--                        <table width="100%">-->
+<!--                            <tr>-->
+<!--                                <td width="70%" height="100px"/>-->
+<!--                                <td width="30%" style="vertical-align: bottom">-->
+<!--                                    <t t-if="o.manual_currency_rate_active != True">-->
+<!--                                        <span t-esc="o.currency_id.name"/>-->
+<!--                                        <span t-esc="o.amount" t-options='{"widget": "float", "precision": 0}'/>-->
+<!--                                    </t>-->
+<!--                                    <t t-else="">-->
+<!--                                        <span t-esc="o.currency_id.name"/>-->
+<!--                                        <span t-esc="o.amount * o.manual_currency_rate"-->
+<!--                                              t-options='{"widget": "float", "precision": 0}'/>-->
+<!--                                    </t>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </table>-->
+                        <table width="100%">
+                            <tr>
+                                <td width="70%" height="200px"/>
+                                <td width="30%" style="vertical-align: bottom">
+                                    <t t-if="o.manual_currency_rate_active != True">
+                                        <span t-esc="o.currency_id.name"/>
+                                        <span t-esc="o.amount" t-options='{"widget": "float", "precision": 0}'/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-esc="o.currency_id.name"/>
+                                        <span t-esc="o.amount * o.manual_currency_rate"
+                                              t-options='{"widget": "float", "precision": 0}'/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%" height="40px"/>
+                                <td width="70%" style="vertical-align: bottom">
+                                    <span t-field="o.amount_to_slip"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="5%" height="200px"/>
+                                <td width="95%" style="vertical-align: bottom; letter-spacing:10px">
+                                    <span t-esc="str(o.journal_id.bank_account_id.acc_number).replace('-', '')"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%"/>
+                                <td width="70%">
+                                    <span t-field="o.partner_id"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%" height="200px"/>
+                                <td width="70%" style="vertical-align: bottom">
+                                    <span t-field="o.partner_id"/>
+<!--                                    <br/>-->
+<!--                                    <span t-field="o.assignee1_id_slip.name"/>-->
+<!--                                    <span t-field="o.assignee2_id_slip.name"/>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

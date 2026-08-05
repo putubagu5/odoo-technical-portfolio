@@ -1,0 +1,143 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_move_ar_gen21_form_view">
+            <field name="name">account.move.ar.gen21.form.view</field>
+            <field name="model">account.move.ar.gen21</field>
+            <field name="arch" type="xml">
+                <form create="false" delete="false">
+                     <header>
+                        <button string="Post" states="wait" class="oe_highlight"
+                                name="button_post" type="object"/>
+                        <button string="Cancel" states="wait" class="oe_highlight"
+                                name="button_cancel" type="object"/>
+                        <button name="button_select_all_lines" type="object" string="Select All Lines" class="oe_highlight" attrs="{'invisible': ['|', ('is_selected_all', '=', True), ('state', '!=', 'wait')]}"/>
+                        <button name="button_unselect_all_lines" type="object" string="Unselect All Lines" class="oe_highlight" attrs="{'invisible': ['|', ('is_selected_all', '=', False), ('state', '!=', 'wait')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,wait,posted"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name" style="font-weight:bold;"/>
+                            <h1><field name="name" readonly="1"/></h1>
+                            <label for="total_amount_net" string="Total Net" style="font-weight:bold;"/>
+                            <h4><field name="total_amount_net" readonly="1"/></h4>
+                            <label for="company_id" string="Company" style="font-weight:bold;"/>
+                            <h4><field name="company_id" readonly="1"/></h4>
+                            <field name="is_selected_all" invisible="1"/>
+                        </div>
+                        <notebook>
+                            <page string="Invoice Line AR">
+                                <field name="line_ids">
+                                    <tree string="Invoice Lines AR" create="false">
+                                            <field name="move_id_ar_gen21" invisible="1"/>
+                                            <field name="selected" widget="boolean_toggle" optional="show" attrs="{'readonly': [('move_id_ar_gen21', 'in', ['posted', 'cancel'])]}" force_save="1"/>
+                                            <field name="line_number" optional="hide"/>
+                                            <field name="invoice_no" optional="show"/>
+                                            <field name="invoice_date" optional="show"/>
+                                            <field name="generation_date" optional="show"/>
+                                            <field name="org_id" optional="show"/>
+                                            <field name="agen_code" optional="hide"/>
+                                            <field name="agen_name" optional="hide"/>
+                                            <field name="client_code" optional="hide"/>
+                                            <field name="client_name" optional="hide"/>
+                                            <field name="total_net" optional="show"/>  
+                                            <field name="state" optional="hide" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'draft'"/>                                          
+                                    </tree>
+                                    <form string="Invoice Lines AR">
+                                        <div class="oe_title">
+                                            <label for="invoice_no" string="Nomor Invoice" style="font-weight:bold;"/>
+                                            <h1><field name="invoice_no"/></h1>
+                                            <label for="invoice_date" string="Tanggal Invoice" style="font-weight:bold;"/>
+                                            <h4><field name="invoice_date"/></h4>
+                                            <label for="generation_date" string="Tanggal Generate Invoice" style="font-weight:bold;"/>
+                                            <h4><field name="generation_date"/></h4>
+                                            </div>
+                                            <group>
+                                                <group>
+                                                    <field name="inv_yy"/> 
+                                                    <field name="po_no"/>
+                                                    <field name="mo_no"/>
+                                                    <field name="po_type"/>
+                                                    <field name="ae_name"/>
+                                                    <field name="org_id"/>
+                                                    <field name="cust_type"/>
+                                                    <field name="adv_source"/>
+                                                    <field name="channel_name"/>
+                                                    <field name="channel"/>
+                                                </group>
+                                                <group>
+                                                    <field name="region"/>
+                                                    <field name="region_name"/>
+                                                    <field name="agen_code"/>
+                                                    <field name="agen_name"/>
+                                                    <field name="client_code"/>
+                                                    <field name="client_name"/>      
+                                                    <field name="update_user"/>
+                                                    <field name="update_date"/>
+                                                    <field name="attribute1"/>
+                                                    <field name="cust_ref"/>
+                                                    <field name="site"/>
+                                                    <field name="send_flag"/>
+                                                    <field name="senddate"/>
+                                                </group>
+                                            </group>
+                                            <group>
+                                                <group>
+                                                    <field name="ccid"/>
+                                                    <field name="gl_date"/>
+                                                    <field name="region_line_code"/>
+                                                    <field name="region_line_name"/>
+                                                    <field name="period"/>
+                                                    <field name="company_code"/>
+                                                    <field name="wilayah"/>                        
+                                                </group> 
+                                                <group>
+                                                    <field name="prod_name"/>
+                                                    <field name="pab_pbb"/>
+                                                    <field name="rowid_inv"/>
+                                                    <field name="total_spots"/>
+                                                    <field name="total_gross"/>
+                                                    <field name="agency_disc"/>
+                                                    <field name="agency_comm"/>
+                                                </group>
+                                                <group>
+                                                    <field name="perc_tax"/>
+                                                    <field name="total_tax"/>
+                                                    <field name="total_net"/>
+                                                </group>
+                                            </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_move_ar_gen21_tree_view">
+            <field name="name">account.move.ar.gen21.tree.view</field>
+            <field name="model">account.move.ar.gen21</field>
+            <field name="arch" type="xml">
+                <tree create="false" delete="false">
+                    <field name="name"/>
+                    <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'wait'" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="account_move_ar_gen21_action">
+            <field name="name">Invoice AR</field>
+            <field name="res_model">account.move.ar.gen21</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        
+        <menuitem
+            id="menu_account_move_ar_gen21_act"
+            sequence="1"
+            parent="menu_account_move_ar_gen21"
+            action="account_move_ar_gen21_action"
+        />
+    </data>
+</odoo>

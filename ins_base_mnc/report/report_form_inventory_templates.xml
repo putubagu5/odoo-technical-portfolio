@@ -1,0 +1,310 @@
+<odoo>
+    <template id="report_form_inventory_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_form_inventory_document"/>
+            </t>
+        </t>
+    </template>
+    
+    <template id="report_form_inventory_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td width="33%" align="center" style="border: 1px solid black; vertical-align: middle;">
+                                    &#160;
+                                </td>
+                                <td width="34%" rowspan="2" align="center" style="border: 1px solid black; vertical-align: middle;">
+                                    <strong>PERMINTAAN STATIONARY - PANTRY</strong>
+                                </td>
+                                <td width="33%"  rowspan="2" align="center" style="border: 1px solid black; vertical-align: middle;">
+                                    RC 521 006
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="33%" align="center" style="border: 1px solid black; vertical-align: middle;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td width="30%">
+                                    Tanggal Diajukan
+                                </td>
+                                <td width="5%">
+                                    :
+                                </td>
+                                <td width="65%">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%">
+                                    Departemen Pengaju
+                                </td>
+                                <td width="5%">
+                                    :
+                                </td>
+                                <td width="65%">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr>
+                                <td rowspan="2" width="5%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>No</strong>
+                                </td>
+                                <td rowspan="2" width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Kode Barang (*)</strong>
+                                </td>
+                                <td width="20%" colspan="2" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Permintaan</strong>
+                                </td>
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Realisasi</strong>
+                                </td>
+                                <td rowspan="2" width="45%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Keterangan</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Nama Barang</strong>
+                                </td>
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Jumlah</strong>
+                                </td>
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Jumlah</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                                <td align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <i>(*) Diisi oleh petugas gudang GA</i>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                        <t t-set="num" t-value="1"/>
+                            <tr>
+                                <td rowspan="2" colspan="2" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Diajukan</strong>
+                                </td>
+                                <td rowspan="2" colspan="2" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Diperiksa dan disetujui</strong>
+                                </td>
+                                <td align="center" colspan="3" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Serah Terima</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Diserahkan</strong>
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Diambil</strong>
+                                </td>
+                                <td align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Diterima</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="14%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <br/><br/><br/><br/>
+                                    (....................)<br/>
+                                    Nama Jelas Pengaju
+                                </td>
+                                <td width="14%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <br/><br/><br/><br/>
+                                    (....................)<br/>
+                                    Kepala Departemen/<br/>
+                                    Kepala Divisi
+                                </td>
+                                <td width="14%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <br/><br/><br/><br/>
+                                    (....................)<br/>
+                                    Kepala Seksi PJA
+                                </td>
+                                <td width="14%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <br/><br/><br/><br/>
+                                    (....................)<br/>
+                                    Koordinator<br/>
+                                    Gudang GA
+                                </td>
+                                <td width="14%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <br/><br/><br/><br/>
+                                    (....................)<br/>
+                                    Petugas<br/>
+                                    Gudang GA
+                                </td>
+                                <td width="14%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <br/><br/><br/><br/>
+                                    (....................)<br/>
+                                    Yang ditugaskan<br/>
+                                    mengambil
+                                </td>
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <br/><br/><br/><br/>
+                                    (....................)<br/>
+                                    Pengaju
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row" style="font-size:11px">
+                    <div class="col-12">
+                        <i>Keterangan :<br/>
+                        1. Barang akan diserahkan jika petugas Gudang sudah membawa hardcopy form permintaan yang ditandatangani KaDept Pengaju<br/>
+                        2. Formulir harus diserahkan kembali ke Gudang GA jika barang sudah diterima dan formulir ditandatangani oleh PIC departement ybs.<br/>
+                        3. Khusus untuk permintaan barang pantry (gula, kopi, dll) utk kebutuhan produksi __ harus diverifikasi oleh PJA<br/>
+                        </i>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

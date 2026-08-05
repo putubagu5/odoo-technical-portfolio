@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="stock_card_sequence" model="ir.sequence">
+            <field name="name">Stock Card Sequence</field>
+            <field name="code">stock.card</field>
+            <field name="prefix">SC/%(year)s/%(month)s/</field>
+            <field name="padding">3</field>
+        </record>
+    </data>
+</odoo>

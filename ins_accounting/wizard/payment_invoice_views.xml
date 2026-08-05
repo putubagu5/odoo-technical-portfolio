@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <record id="view_payment_invoice_form" model="ir.ui.view">
+            <field name="name">view.payment.invoice.form</field>
+            <field name="model">wizard.payment.invoice</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="partner_id" required="1"/>
+                        <field name="move_ids" required="1" widget="many2many_tags"
+                               domain="[('state', 'in', ['posted']), ('payment_state', 'in', ['not_paid', 'partial'])]"
+                               context="{'show_view_search_invoice_payment_ref':True}"/>
+                    </group>
+                    <group>
+                        <field name="line_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name" string="Bill No." required="1"/>
+                                <field name="payment_reference" string="Invoice No." required="1"/>
+                                <field name="date_invoice" required="1"/>
+                                <field name="date_accounting" required="1"/>
+                                <field name="account_id" required="1"/>
+                                <field name="description" readonly="1" force_save="1"/>
+                                <field name="po_number" readonly="1" force_save="1"/>
+                                <field name="currency_id" required="1"/>
+                                <field name="amount" required="1"/>
+                                <field name="move_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button string="Confirm" name="button_confirm" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_payment_invoice" model="ir.actions.act_window">
+            <field name="name">Payment Invoice</field>
+            <field name="res_model">wizard.payment.invoice</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

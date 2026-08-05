@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record id="view_res_assignee_bill_tree" model="ir.ui.view">
+            <field name="name">view.res.assignee.bill.tree</field>
+            <field name="model">res.assignee.bill</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="doc_position" required="1"/>
+                    <field name="name" required="1"/>
+                    <field name="job_position" required="1"/>
+                    <field name="company_ids" required="1" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_res_assignee_bill_form" model="ir.ui.view">
+            <field name="name">view.res.assignee.bill.form</field>
+            <field name="model">res.assignee.bill</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="doc_position" required="1"/>
+                                <field name="name" required="1"/>
+                                <field name="job_position" required="1"/>
+                                <field name="company_ids" required="1" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_res_assignee_bill" model="ir.actions.act_window">
+            <field name="name">Assignee (bill)</field>
+            <field name="res_model">res.assignee.bill</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_assignee_bill"
+            name="Master Data Assignee (bill)"
+            action="action_res_assignee_bill"
+            parent="account.menu_finance_configuration"/>
+    </data>
+</odoo>

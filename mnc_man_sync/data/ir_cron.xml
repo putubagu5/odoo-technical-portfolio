@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--r12_po_receives-->
+        <record id="ir_cron_po_receives" model="ir.cron">
+            <field name="name">atis - r12-po-receives</field>
+            <field name="model_id" ref="model_r12_po_receives"/>
+            <field name="state">code</field>
+            <field name="code">model.send_all_to_atis()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>months</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+            <field name="doall" eval="False"/>
+            <field name="nextcall"
+                   eval="(DateTime.now() + relativedelta(day=1, months=1)).strftime('%Y-%m-%d 23:59:59')"/>
+            <!--            <field name="nextcall" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 23:59:59')"/>-->
+        </record>
+
+        <!--x-item-->
+        <record id="ir_cron_xitem" model="ir.cron">
+            <field name="name">atis - xitem</field>
+            <field name="model_id" ref="model_x_item"/>
+            <field name="state">code</field>
+            <field name="code">model.send_all_to_atis()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>months</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+            <field name="doall" eval="False"/>
+            <field name="nextcall"
+                   eval="(DateTime.now() + relativedelta(day=1, months=1)).strftime('%Y-%m-%d 23:59:59')"/>
+            <!--            <field name="nextcall" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 23:59:59')"/>-->
+        </record>
+
+        <!--x-location-->
+        <record id="ir_cron_xlocation" model="ir.cron">
+            <field name="name">atis - xlocation</field>
+            <field name="model_id" ref="model_x_location"/>
+            <field name="state">code</field>
+            <field name="code">model.send_all_to_atis()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>months</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+            <field name="doall" eval="False"/>
+            <field name="nextcall"
+                   eval="(DateTime.now() + relativedelta(day=1, months=1)).strftime('%Y-%m-%d 23:59:59')"/>
+            <!--            <field name="nextcall" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 23:59:59')"/>-->
+        </record>
+
+        <!--x-people-->
+        <record id="ir_cron_xpeople" model="ir.cron">
+            <field name="name">atis - xpoeple</field>
+            <field name="model_id" ref="model_x_people"/>
+            <field name="state">code</field>
+            <field name="code">model.send_all_to_atis()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>months</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+            <field name="doall" eval="False"/>
+            <field name="nextcall"
+                   eval="(DateTime.now() + relativedelta(day=1, months=1)).strftime('%Y-%m-%d 23:59:59')"/>
+            <!--            <field name="nextcall" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 23:59:59')"/>-->
+        </record>
+
+        <!--x-po-->
+        <record id="ir_cron_xpo" model="ir.cron">
+            <field name="name">atis - xpo</field>
+            <field name="model_id" ref="model_x_po"/>
+            <field name="state">code</field>
+            <field name="code">model.run_in_atis</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>months</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+            <field name="doall" eval="False"/>
+            <field name="nextcall"
+                   eval="(DateTime.now() + relativedelta(day=1, months=1)).strftime('%Y-%m-%d 23:59:59')"/>
+            <!--            <field name="nextcall" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 23:59:59')"/>-->
+        </record>
+
+        <!--x-po-receipt-->
+        <record id="ir_cron_xpo_receipt" model="ir.cron">
+            <field name="name">atis - xpo-receipt</field>
+            <field name="model_id" ref="model_x_po_receipt"/>
+            <field name="state">code</field>
+            <field name="code">model.run_in_atis</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>months</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+            <field name="doall" eval="False"/>
+            <field name="nextcall"
+                   eval="(DateTime.now() + relativedelta(day=1, months=1)).strftime('%Y-%m-%d 23:59:59')"/>
+            <!--            <field name="nextcall" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 23:59:59')"/>-->
+        </record>
+
+        <!--x-pr-->
+        <record id="ir_cron_xpr" model="ir.cron">
+            <field name="name">atis - xpr</field>
+            <field name="model_id" ref="model_x_pr"/>
+            <field name="state">code</field>
+            <field name="code">model.run_in_atis</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>months</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+            <field name="doall" eval="False"/>
+            <field name="nextcall"
+                   eval="(DateTime.now() + relativedelta(day=1, months=1)).strftime('%Y-%m-%d 23:59:59')"/>
+            <!--            <field name="nextcall" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 23:59:59')"/>-->
+        </record>
+
+        <!--        get data v barcode atis-->
+        <record id="ir_cron_xasset" model="ir.cron">
+            <field name="name">Asset from Atis</field>
+            <field name="model_id" ref="model_wizard_mnc_reconcile_data"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="state">code</field>
+            <field name="code">model.get_data_schedule_month()</field>
+        </record>
+
+    </data>
+</odoo>

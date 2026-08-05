@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="receivable_activities_form_view" model="ir.ui.view">
+            <field name="name">receivable.activities.form</field>
+            <field name="model">receivable.activities</field>
+            <field name="arch" type="xml">
+                <form string="Receivable Activity">
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="description_name"/>
+                            <field name="account_id" required="1"/>
+                            <field name="receivable_activity_category"/>
+                        </group>
+                        <group>
+                            <field name="type" required="1"/>
+                            <field name="company_id" required="1"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+         <record id="receivable_activities_tree_view" model="ir.ui.view">
+            <field name="name">receivable.activities.tree</field>
+            <field name="model">receivable.activities</field>
+            <field name="arch" type="xml">
+                <tree string="Receivable Activity">
+                    <field name="name"/>
+                    <field name="description_name"/>
+                    <field name="account_id"/>
+                    <field name="type"/>
+                    <field name="company_id"/>
+                    <field name="receivable_activity_category"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="receivable_activity_act_window" model="ir.actions.act_window">
+            <field name="name">Receivable Activity</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">receivable.activities</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type', '=', 'receive')]</field>
+            <field name="context">{'default_type': 'receive'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Receivable Activity.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="action_receivable_activities_tree" model="ir.actions.act_window.view">
+            <field eval="3" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="receivable_activities_tree_view" />
+            <field name="act_window_id" ref="receivable_activity_act_window" />
+        </record>
+
+        <record id="action_receivable_activities_form" model="ir.actions.act_window.view">
+            <field eval="4" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="receivable_activities_form_view" />
+            <field name="act_window_id" ref="receivable_activity_act_window" />
+        </record>
+
+        <menuitem  name="Receivable Activity"
+                   id="receivable_activity_menu"
+                   action="receivable_activity_act_window"
+                   parent="ins_miscellaneous.menu_misc_receivable"
+                   sequence="18"/>
+    </data>
+</odoo>

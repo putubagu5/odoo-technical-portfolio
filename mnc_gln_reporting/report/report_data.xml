@@ -1,0 +1,23 @@
+<odoo>
+
+    <record id="action_trial_balance_report_xlsx" model="ir.actions.report">
+        <field name="name">Trial Balance Report XLSX</field>
+        <field name="model">wizard.trial.balance</field>
+        <field name="type">ir.actions.report</field>
+        <field name="report_name">mnc_gln_reporting.trial_balance_report_xlsx</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_file">mnc_gln_reporting.trial_balance_report_xlsx</field>
+        <field name="print_report_name">('Trial Balance Report: %s - %s' % (object.date_start, object.date_end))</field>
+    </record>
+    
+    <record id="action_purchase_requisition_list_report_xlsx" model="ir.actions.report">
+        <field name="name">Purchase Requisition List Report XLSX</field>
+        <field name="model">wizard.purchase.requisition</field>
+        <field name="type">ir.actions.report</field>
+        <field name="report_name">mnc_gln_reporting.purchase_requisition_list_report_xlsx</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_file">mnc_gln_reporting.purchase_requisition_list_report_xlsx</field>
+        <field name="print_report_name">('PR List Report: %s - %s' % (object.date_start, object.date_end))</field>
+    </record>
+
+</odoo>

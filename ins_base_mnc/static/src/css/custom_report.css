@@ -1,0 +1,20 @@
+.mnc-table > table > thead > tr {
+    border: solid 3px !important;
+}
+
+.mnc-table > table > thead > tr > th {
+    border: solid 3px !important;
+}
+
+.mnc-table > table > tbody > tr {
+    border: none !important;
+}
+
+.mnc-table > table > tbody > tr > td {
+    border-right: solid 3px !important;
+    border-left: solid 3px !important;
+}
+
+.mnc-table > table > tbody > tr:last-child {
+    border-bottom: solid 3px !important;
+}

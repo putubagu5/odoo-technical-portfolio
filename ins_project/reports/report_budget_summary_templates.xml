@@ -1,0 +1,531 @@
+<odoo>
+    <template id="report_budget_summary_container">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <!-- logo -->
+                <div class="header">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="33%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+                                        <img src='/web/binary/company_logo' alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+                                    </td>
+                                    <td width="34%" align="center" style="border: 1px solid black; padding: 7px; vertical-align: middle;">
+                                        <h5>
+                                            <strong>
+                                                PT. Rajawali Citra Televisi Indonesia<br/>
+                                                BUDGET PROGRAM - PRODUCTION (LOCAL)<br/>
+                                                NEW DAHSYAT PAKET 62 - EPS 1936 - 1960
+                                            </strong>
+                                        </h5>
+                                    </td>
+                                    <td width="33%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+                                        <h3><strong>PRODUCTION</strong></h3>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <pre><b>Program Code : <t t-esc="date_print"/> : <t t-esc="note"/> - EPS 1936 -- C05.057.62.1960 : NEW DAHSYAT PAKET 62 - EPS 1960</b></pre>
+                    </div>
+                </div>
+                <div class="page">
+                    <table width="100%" style="border: 1px solid black;">
+                        <thead>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Item Code</th>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Description</th>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Budget</th>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Barter</th>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Total Barter</th>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Barter / EPS</th>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Allocation<br/>(%)</th>
+                        </thead>
+                        <tbody>
+                            <t t-set="no" t-value="1"/>
+                            <t t-foreach="budgets" t-as="line">
+                                <tr>
+                                    <td style="text-align: right; border: 1px solid black;"><t t-esc="line['item_code']"/></td>
+                                    <td style="text-align: right; border: 1px solid black;"><t t-esc="line['description']"/></td>
+                                    <td style="text-align: right; border: 1px solid black;"><t t-esc="line['budget']"/></td>
+                                    <td style="text-align: right; border: 1px solid black;"><t t-esc="line['barter']"/></td>
+                                    <td style="text-align: right; border: 1px solid black;"><t t-esc="line['total_barter']"/></td>
+                                    <td style="text-align: right; border: 1px solid black;"><t t-esc="line['barter_eps']"/></td>
+                                    <td style="text-align: right; border: 1px solid black;"><t t-esc="line['allocation']"/></td>
+                                </tr>
+                                <t t-set="no" t-value="no + 1"/>
+                            </t>
+                        </tbody>
+                        <tr>
+                            <th colspan="2" style="text-align: right; border: 1px solid black;">Total Project Cost</th>
+                            <th style="text-align: right; border: 1px solid black;">2,337,358,800.00</th>
+                            <th style="text-align: right; border: 1px solid black;">0.00</th>
+                            <th style="text-align: right; border: 1px solid black;">2,337,358,800.00</th>
+                            <th style="text-align: right; border: 1px solid black;">93,358,800.00</th>
+                            <th style="text-align: right; border: 1px solid black;">100%</th>
+                        </tr>
+                    </table>
+                    <br/><br/><br/>
+                    <table width="100%" style="border: 1px solid black;">
+                    <tr>
+                        <th colspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Item</th>
+                        <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Qty</th>
+                        <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Eps</th>
+                        <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Day</th>
+                        <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Rate</th>
+                        <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Barter</th>
+                        <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Budget / Eps</th>
+                        <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Total Budget</th>
+                        <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Remark(s)</th>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Code</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Description</th>
+                    </tr>
+                    <tr style="border-bottom: hidden; border-left: 1px solid black; border-right: 1px solid black;">
+                        <td>&#160;&#160;IH113-04.004</td>
+                        <td>DINNER (ENG/LIPUTAN):Dinner-Liputan</td>
+                        <td style="text-align:right; border-left: 1px solid black; border-right: 1px solid black;">5</td>
+                        <td style="text-align:right; border-left: 1px solid black; border-right: 1px solid black;">10</td>
+                        <td style="text-align:right; border-left: 1px solid black; border-right: 1px solid black;">1</td>
+                        <td style="text-align:right; border-left: 1px solid black; border-right: 1px solid black;">15,500.00</td>
+                        <td style="text-align:right; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;&#160;&#160;</td>
+                        <td style="text-align:right; border-left: 1px solid black; border-right: 1px solid black;">775,000.00</td>
+                        <td style="text-align:right; border-left: 1px solid black; border-right: 1px solid black;">775,000.00</td>
+                        <td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;SUBTOTAL ENG/LIPUTAN</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>1,550,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>1,550,000.00</b>></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>TOTAL MEALS &amp; REFRESHMENT</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>83,100,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>83,100,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>IH114</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>PERMIT</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;IH114-01</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;KEAMANAN</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;IH114-01.001</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;PERIJINAN : Perijinan &amp; Keamanan Setempat</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">2</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">250,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">500,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">500,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;SUBTOTAL KEAMANAN</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>500,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>500,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>TOTAL PERMIT</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>500,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>500,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>IH114</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>PRIZE</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;IH114-01</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;UANG SPONSOR</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;IH114-01.001</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;UANG SPONSOR : Hadiah Kuis( Arisan )</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">2</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">25</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1,000,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">50,000,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">50,000,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;IH114-01.001</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;UANG SPONSOR : Hadiah Kuis( Gajian Penonton)</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">2</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">25</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1,00l0,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">25,000,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">25,000,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;SUBTOTAL UANG SPONSOR</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>75,000,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>75,000,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;IH120-02</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;MERCHANDISE</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;IH120-02.001</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;MERCHANDISE BARANG : Souvernir Komunitas</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">2</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1,000,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">2,000,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">2,000,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;SUBTOTAL MERCHANDISE</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>2,000,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>2,000,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>TOTAL PRIZE</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>77,000,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>77,000,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>IH999</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>LOGISTIC SHOOTING</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;IH999-01</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;LOGISTIC SHOOTING</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;IH999-01.001</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;LOGISTIC UMUM: Gula, Kopi, Dll</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">25</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">50,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1,250,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1,250,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;SUBTOTAL LOGISTIC SHOOTING</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>1,250,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>1,250,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;IH999-02</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;OPERASIONAL</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;IH999-02.004</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;OPERASIONAL CARPOOL: Tiket Parkir Artis</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">600,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">600,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">600,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;SUBTOTAL OPERASIONAL</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>600,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>600,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;IH999-06</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;BIAYA PENGIRIMAN MATERI</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;IH999-06.001</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;KURIR : Kurir</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">1</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">75,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">75,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;">75,000.00</td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;SUBTOTAL BIAYA PENGIRIMAN MATERI</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>75,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>75,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>TOTAL LOGISTIC SHOOTING</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>1,925,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b>1,925,000.00</b></td>
+                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="text-align: right; border: 1px solid black;" colspan="5"><b>Total Project Cost</b></td>
+                        <td style="text-align: right; border: 1px solid black;"><b>0.00</b></td>
+                        <td style="text-align: right; border: 1px solid black;"><b>2,337,358,800.00</b></td>
+                        <td style="text-align: right; border: 1px solid black;"><b>2,337,358,800.00</b></td>
+                        <td style="border: 1px solid black;"></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;">&#160;</td>
+                        <td colspan="5" style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="border: 1px solid black;"></td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom:hidden; border-left: 1px solid black; border-right: 1px solid black; border-top: 1px solid black;" colspan="10">Jakarta, 14 Oktober 2021<br/><br/></td>
+                    </tr>
+                </table>
+                <table border="1" cellspacing="0" cellpadding="5" width="100%">
+                    <tr>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Proposed by,</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;" colspan="2">Verified by,</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Controlled by,</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;" colspan="5">Approved by,</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>Muhammad Shodiq</td>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>John fair Kaune</td>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>Fabian Dharmawan</td>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>Saut Naptupulu</td>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>Noersing</td>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>Dini Aryanti Putri</td>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>Tantan Sumartana</td>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>Jarod Suwahjo</td>
+                        <td style="border: 1px solid black; text-align: center;"><br/><br/><br/><br/><br/>Noersing</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align: center;"><br/>UPM<br/><br/></td>
+                        <td style="border: 1px solid black; text-align: center;"><br/>Prod. Opr. Dept. Head<br/><br/></td>
+                        <td style="border: 1px solid black; text-align: center;"><br/>Production Division Head<br/><br/></td>
+                        <td style="border: 1px solid black; text-align: center;">Head Of Budget &amp; Management<br/>Report 3TV(Pjs)<br/><br/></td>
+                        <td style="border: 1px solid black; text-align: center;"><br/>Prod.Director 3TV &amp; Digital<br/><br/></td>
+                        <td style="border: 1px solid black; text-align: center;">Programming &amp; Acquisition<br/>Director<br/><br/></td>
+                        <td style="border: 1px solid black; text-align: center;">Vice MD Sales Marketing of FTA Group<br/>MNC MEdia<br/><br/></td>
+                        <td style="border: 1px solid black; text-align: center;"><br/>Chief Financial Officer<br/><br/></td>
+                        <td style="border: 1px solid black; text-align: center;">President Production Director 3TV<br/> &amp; Digital<br/><br/></td>
+                    </tr>
+                    <tr>
+                        <td>Date :<br/><br/></td>
+                        <td>Date :<br/><br/></td>
+                        <td>Date :<br/><br/></td>
+                        <td>Date :<br/><br/></td>
+                        <td>Date :<br/><br/></td>
+                        <td>Date :<br/><br/></td>
+                        <td>Date :<br/><br/></td>
+                        <td>Date :<br/><br/></td>
+                        <td>Date :<br/><br/></td>
+                    </tr>
+                </table>
+                    <table border="0" cellspacing="0" cellpadding="5" width="100%">
+                        <tr>
+                            <td>PMIS/REPORTS/RPT_PROPOSEBGTPRG_ALL_V2</td>
+                            <td>Printed Date : Thu, 14/Oct/2021 @ 14:20:30, by : Administrator</td>
+                            <td>page 1 from 4</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

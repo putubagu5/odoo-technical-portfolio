@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <record id="view_asset_cost_progress_form" model="ir.ui.view">
+            <field name="name">view.asset.cost.progress.form</field>
+            <field name="model">asset.cost.progress</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_close" type="object" string="Close" states="open"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="model_id" required="1"/>
+                                <field name="company_id" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_asset_cost_progress_tree" model="ir.ui.view">
+            <field name="name">view.asset.cost.progress.tree</field>
+            <field name="model">asset.cost.progress</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_asset_cost_progress" model="ir.actions.act_window">
+            <field name="name">CIP</field>
+            <field name="res_model">asset.cost.progress</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- <menuitem
+            id="menu_asset_cost_progress"
+            name="CIP"
+            action="action_asset_cost_progress"
+            parent="account.account_management_menu"
+            sequence="2"/> -->
+    </data>
+</odoo>

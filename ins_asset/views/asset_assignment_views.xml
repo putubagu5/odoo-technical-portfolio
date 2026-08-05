@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+        <record id="view_asset_assignment_form" model="ir.ui.view">
+            <field name="name">view.asset.assignment.form</field>
+            <field name="model">asset.assignment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_done" type="object" string="Done"
+                            class="oe_highlight" states="draft"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" required="1"
+                                    attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="company_id" required="1" readonly="1"/>
+                                <field name="asset_id" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="date" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="last" string="Last">
+                                <field name="last_assignee_id" readonly="1" force_save="1"/>
+                                <field name="last_analytic_account_id" readonly="1" force_save="1"/>
+                            </group>
+                            <group name="new" string="New">
+                                <field name="new_assignee_id" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="new_analytic_account_id" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_asset_assignment_tree" model="ir.ui.view">
+            <field name="name">view.asset.assignment.tree</field>
+            <field name="model">asset.assignment</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="asset_id"/>
+                    <field name="date"/>
+                    <field name="last_assignee_id"/>
+                    <field name="last_analytic_account_id"/>
+                    <field name="new_assignee_id"/>
+                    <field name="new_analytic_account_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_asset_assignment" model="ir.actions.act_window">
+            <field name="name">Asset Assignment</field>
+            <field name="res_model">asset.assignment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_asset_assignment"
+            name="Asset Assignment"
+            action="action_asset_assignment"
+            parent="ins_asset.menu_asset"
+            sequence="4"/>
+    </data>
+</odoo>

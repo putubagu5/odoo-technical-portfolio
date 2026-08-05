@@ -1,0 +1,86 @@
+<odoo>
+    <template id="report_budget_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_project.report_budget_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_budget_document">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <!-- logo, company, title and production text -->
+                <div class="row">
+                    <!-- logo -->
+                    <div class="col-2">
+
+                    </div>
+                    <!-- company, title -->
+                    <div class="col-8 text-center">
+
+                    </div>
+                    <!-- text -->
+                    <div class="col-2 text-center">
+                        PRODUCTION
+                    </div>
+                </div>
+
+                <!-- program code -->
+                <div class="row mt-2">
+                    <div class="col-12"></div>
+                </div>
+
+                <!-- table -->
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Item Code</th>
+                                    <th>Description</th>
+                                    <th>Budget</th>
+                                    <th>Barter</th>
+                                    <th>Total Budget</th>
+                                    <th>Budget / Eps</th>
+                                    <th>Allocation (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="total_budget" t-value="0"/>
+                                <t t-set="total_barter" t-value="0"/>
+                                <t t-set="total_budget_all" t-value="0"/>
+                                <t t-set="total_per_eps" t-value="0"/>
+                                <t t-set="total_allocation" t-value="0"/>
+                                <tr t-foreach="o.budget_ids" t-as="line">
+                                    <td class="text-center"><t t-esc="line.item_code"/></td>
+                                    <td><t t-esc="line.description"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.2f}'.format(line.budget)"/></td>
+                                    <td class="text-right"><t t-esc="0.00"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.2f}'.format(line.budget)"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.2f}'.format(line.average_by_eps)"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.2f}'.format(0)"/></td>
+
+                                    <t t-set="total_budget" t-value="total_budget + line.budget"/>
+                                    <t t-set="total_barter" t-value="0"/>
+                                    <t t-set="total_budget_all" t-value="total_budget_all + line.budget"/>
+                                    <t t-set="total_per_eps" t-value="total_per_eps + line.average_by_eps"/>
+                                    <t t-set="total_allocation" t-value="0"/>
+                                </tr>
+
+                                <!-- total row -->
+                                <tr>
+                                    <td colspan="2" class="text-right"><t t-esc="'{:,.2f}'.format(total_budget)"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.2f}'.format(total_barter)"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.2f}'.format(total_budget_all)"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.2f}'.format(total_per_eps)"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.2f}'.format(total_allocation)"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

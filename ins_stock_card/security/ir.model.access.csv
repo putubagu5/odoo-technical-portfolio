@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ins_stock_card_stock_card_manager,ins_stock_card stock_card manager,ins_stock_card.model_stock_card,stock.group_stock_manager,1,1,1,1
+access_ins_stock_card_stock_card_line_manager,ins_stock_card stock_card_line manager,ins_stock_card.model_stock_card_line,stock.group_stock_manager,1,1,1,1
+access_ins_stock_card_stock_card_summary_manager,ins_stock_card stock_card_summary manager,ins_stock_card.model_stock_card_summary,stock.group_stock_manager,1,1,1,1
+access_ins_stock_card_stock_card_summary_line_manager,ins_stock_card stock_card_summary_line manager,ins_stock_card.model_stock_card_summary_line,stock.group_stock_manager,1,1,1,1

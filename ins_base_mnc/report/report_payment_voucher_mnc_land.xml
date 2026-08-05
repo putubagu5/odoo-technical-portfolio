@@ -1,0 +1,227 @@
+<odoo>
+    <template id="report_payment_voucher_mnc_land_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_payment_voucher_mnc_land_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_payment_voucher_mnc_land_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+               <div class="row">
+                    <div class="col-3">
+                        <img src='/web/binary/company_logo' alt="Logo" style="max-height: 100px; max-width: 120px; display: block;margin: 40px 0px 0px 20px;"/>
+                    </div>
+                    <div class="col-6" style="text-align:center;">
+                        <h5 style="margin-bottom:10px;"><strong>PT. MNC LAND TBK</strong></h5>
+                        <br/>
+                        MNC Tower Lantai 16
+                        <br/>
+                        Jl. Kebon Sirih Kav. 17-19 Menteng, Jakarta Pusat 10340 - Indonesia
+                        <br/>
+                        Phone : 021-3929828 |0856-9377-7430 , Fax :
+                    </div>
+               </div>
+
+               <div class="row" style="margin-top:20px;">
+                    <div class="col-12" style="text-align:center;">
+                        <h5><strong>PAYMENT VOUCHER</strong></h5>
+                        <br/>
+                        No PV : MNC-8689/OUT/001073
+                    </div>
+               </div>
+
+               <div class="row" style="margin-top:20px;">
+                    <div class="col-2">Bank Account</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">MNC Bank International</div>
+                    <div class="col-2">Payee</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">DATASCRIP PT</div>
+               </div>
+
+               <div class="row">
+                    <div class="col-2">Acc No</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">100010000098689</div>
+                    <div class="col-2">Bank Vendor</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">MNC BANK</div>
+               </div>
+
+               <div class="row">
+                    <div class="col-2">Giro/Cheque</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3"></div>
+                    <div class="col-2">Acc. No </div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">100010000104149</div>
+               </div>
+
+               <div class="row">
+                    <div class="col-2">Doc. Date</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">21 Jun 2019</div>
+                    <div class="col-2">Nama Rekening</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">PT. DATASCRIP</div>
+               </div>
+
+               <div class="row">
+                    <div class="col-2">Operating Unit</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">OOO</div>
+                    <div class="col-2">Department</div>
+                    <div class="col-1">:</div>
+                    <div class="col-3">-</div>
+               </div>
+
+               <table width="100%">
+                    <tr>
+                        <th style="color:white;background-color:blue;text-align:center;width:5%;border:1px groove;">
+                            No.
+                        </th>
+                        <th style="color:white;background-color:blue;text-align:center;width:20%;border:1px groove;">
+                            Invoice No
+                        </th>
+                        <th style="color:white;background-color:blue;text-align:center;width:40%;border:1px groove;">
+                            Description
+                        </th>
+                        <th style="color:white;background-color:blue;text-align:center;width:10%;border:1px groove;">
+                            Currency
+                        </th>
+                        <th style="color:white;background-color:blue;text-align:center;width:25%;border:1px groove;">
+                            Amount
+                        </th>
+                    </tr>
+
+                <tr>
+                    <td style="text-align:right;border:1px groove;">
+                        1
+                    </td>
+                    <td style="text-align:left;border:1px groove;">
+                        PSINV/19-051028
+                    </td>
+                    <td style="text-align:left;border:1px groove;">
+                        BY PEMBELIAN ATK MNCL FEB 2019 
+                    </td>
+                    <td style="text-align:center;border:1px groove;">
+                        IDR
+                    </td>
+                    <td style="text-align:center;border:1px groove;">
+                        Rp 6,043,500.00
+                    </td>
+               </tr>
+
+
+               <tr>
+                    <td style="text-align:right;border:1px groove;">
+                        2
+                    </td>
+                    <td style="text-align:left;border:1px groove;">
+                        PSINV/19-051028/T
+                    </td>
+                    <td style="text-align:left;border:1px groove;">
+                        INVOICE VAT  
+                    </td>
+                    <td style="text-align:center;border:1px groove;">
+                        IDR
+                    </td>
+                    <td style="text-align:center;border:1px groove;">
+                        Rp 604,350.00
+                    </td>
+               </tr>
+                <tr style="border-style:none;">
+                    <td style="text-align:right;border-style:none;">
+                        &#160;
+                    <td style="text-align:left;border-style:none;">
+                    </td>
+                        &#160;
+                    </td>
+                    <td style="text-align:left;border-style:none;">
+                        &#160;      
+                    </td>
+                    <td style="text-align:center;border: 1px groove;">
+                        Total
+                    </td>
+                    <td style="text-align:center;border: 1px groove;">
+                        Rp 6,647,850.00
+                    </td>
+               </tr>
+            </table>
+            <br/>
+            <div class="row">
+                <div class="col-12">
+                    <i>Terbilang :</i>
+                    <br/>
+                    <i>Enam Juta Enam Ratus Empat Puluh Tujuh Ribu Delapan Ratus Lima Puluh Rupiah .</i>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-12">
+                    <table  border="1">
+                        <tr>
+                            <td style="width:32%;text-align:center;">Approve By,</td>
+                            <td style="width:32%;text-align:center;">Final Approve By,</td>
+                            <td style="width:32%;text-align:center;">Prepared By,</td>
+                        </tr>
+                        <tr>
+                            <td style="height:50px;"></td>
+                            <td style="height:50px;"></td>
+                            <td style="height:50px;"></td>
+                        </tr>
+                        <tr>
+                            <td style="height:20px;">Nama : Ardhiarini Sulistiyowati</td>
+                            <td style="height:20px;">Nama : Rita Trian</td>
+                            <td style="height:20px;">Nama : Chaerul</td>
+                        </tr>
+                        <tr>
+                            <td>Date : 07-Sep-2019 </td>
+                            <td>Date : 12-Sep-2019 </td>
+                            <td>Date : 13-Sep-201</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-6">
+                    <table  border="1" width="100%">
+                        <tr>
+                            <td style="height:50px;"></td>
+                            <td style="height:50px;"></td>
+                       </tr>
+                        <tr>
+                            <td style="height:20px;">Nama : Erwin R. Andersen</td>
+                            <td style="height:20px;">Nama : Budi Rustanto</td>
+                        </tr>
+                        <tr>
+                            <td>Date</td>
+                            <td>Date</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-2">
+                </div>
+                <div class="col-4">
+                    <table  border="1" width="100%">
+                        <tr>
+                            <td style="height:50px;">Received Payment</td>
+                       </tr>
+                        <tr>
+                            <td style="height:20px;"></td>
+                        </tr>
+                        <tr>
+                            <td style="height:20px;"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </t>
+    </template>
+</odoo>
+    

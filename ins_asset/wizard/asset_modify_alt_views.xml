@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="asset_modify_form" model="ir.ui.view">
+            <field name="name">asset.modify.form</field>
+            <field name="model">asset.modify</field>
+            <field name="inherit_id" ref="account_asset.asset_modify_form"/>
+            <field name="arch" type="xml">
+                <!-- add asset_category_id after salvage_value -->
+                <xpath expr="//field[@name='salvage_value']" position="after">
+                    <field name="asset_category_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_menu_inv_prepayment_paid_supplier_wizard" model="ir.actions.act_window">
+            <field name="name">Invoice Prepayment Paid Supplier</field>
+            <field name="res_model">invoice.prepayment.paid.supplier.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_report_type': 'inv_prepayment_paid_supplier'}
+            </field>
+        </record>
+
+        <record id="menu_inv_prepayment_paid_supplier_wizard" model="ir.ui.menu">
+            <field name="name">AP Invoice Prepayment Paid Supplier</field>
+            <field name="action" ref='action_menu_inv_prepayment_paid_supplier_wizard'/>
+            <field name="parent_id" ref='mnc_menu_report.report_ap'/>
+        </record>
+    </data>
+</odoo>

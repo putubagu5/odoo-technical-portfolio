@@ -1,0 +1,13 @@
+<odoo>
+    
+    <record id="action_purchase_requisition_list_report_xlsx" model="ir.actions.report">
+        <field name="name">Purchase Requisition List Report XLSX</field>
+        <field name="model">wizard.purchase.requisition</field>
+        <field name="type">ir.actions.report</field>
+        <field name="report_name">mnc_reporting.purchase_requisition_list_report_xlsx</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_file">mnc_reporting.purchase_requisition_list_report_xlsx</field>
+        <field name="print_report_name">('PR List Report: %s - %s' % (object.date_start, object.date_end))</field>
+    </record>
+
+</odoo>

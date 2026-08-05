@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="action_ar_receipt_report_xlsx" model="ir.actions.report">
+            <field name="name">AR Receipt Report XLSX</field>
+            <field name="model">ar.receipt.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_and_reporting.ar_receipt_report_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_and_reporting.ar_receipt_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s AR Receipt Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_ar_unapplied_receipt_report_xlsx" model="ir.actions.report">
+            <field name="name">AR Unapplied Receipt Report XLSX</field>
+            <field name="model">ar.unapplied.receipt.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_and_reporting.ar_unapplied_receipt_report_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_and_reporting.ar_unapplied_receipt_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s AR Unapplied Receipt Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_unapplied_receipt_register_report_xlsx" model="ir.actions.report">
+            <field name="name">Unapplied Receipt Register Details Report XLSX</field>
+            <field name="model">unapplied.receipt.register.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_and_reporting.unapplied_receipt_register_report_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_and_reporting.unapplied_receipt_register_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Unapplied Receipt Register Details Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_inv_prepayment_paid_supplier_xlsx" model="ir.actions.report">
+            <field name="name">Invoice Prepayment Paid Supplier XLSX</field>
+            <field name="model">invoice.prepayment.paid.supplier.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_and_reporting.inv_prepayment_paid_supplier_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_and_reporting.inv_prepayment_paid_supplier_xlsx</field>
+            <field name="print_report_name">
+                ('%s Invoice Prepayment Paid Supplier Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_report_voucher_pdf" model="ir.actions.report">
+            <field name="name">Receipt Voucher</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mnc_and_reporting.report_voucher_pdf</field>
+            <field name="report_file">mnc_and_reporting.report_voucher_pdf</field>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">
+                ('Receipt Voucher')
+            </field>
+        </record>
+
+        <record id="action_report_pdf_test" model="ir.actions.report">
+            <field name="name">TEST PDF</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mnc_and_reporting.mnc_pdf_test</field>
+            <field name="report_file">mnc_and_reporting.mnc_pdf_test</field>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">
+                ('TEST PDF')
+            </field>
+        </record>
+        <record id="action_report_pdf2_test" model="ir.actions.report">
+            <field name="name">TEST PDF2</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mnc_and_reporting.mnc_pdf_test2</field>
+            <field name="report_file">mnc_and_reporting.mnc_pdf_test2</field>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">
+                ('TEST PDF2')
+            </field>
+        </record>
+
+        <record id="action_aging_pdc_detail_pdf" model="ir.actions.report">
+            <field name="name">Aging PDC Detail</field>
+            <field name="model">aging.pdc.detail.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mnc_and_reporting.aging_pdc_detail_report_pdf</field>
+            <field name="report_file">mnc_and_reporting.aging_pdc_detail_report_pdf</field>
+            <field name="paperformat_id" ref="mnc_and_reporting.and_paperformat_custom"/>
+            <field name="print_report_name">
+                ('%s Aging PDC Detail Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_aging_report_summary_xlsx" model="ir.actions.report">
+            <field name="name">Aging Report Summary</field>
+            <field name="model">aging.report.summary.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.aging_report_summary_xlsx</field>
+            <field name="report_file">mnc_and_reporting.aging_report_summary_xlsx</field>
+            <field name="print_report_name">
+                ('%s Aging Report Summary -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_aging_report_detail_xlsx" model="ir.actions.report">
+            <field name="name">Aging Detail</field>
+            <field name="model">aging.report.detail.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.aging_report_detail_xlsx</field>
+            <field name="report_file">mnc_and_reporting.aging_report_detail_xlsx</field>
+            <field name="print_report_name">
+                ('%s Aging Detail -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_collection_summary_report_xlsx" model="ir.actions.report">
+            <field name="name">Collection Summary Report</field>
+            <field name="model">collection.summary.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.collection_summary_report_xlsx</field>
+            <field name="report_file">mnc_and_reporting.collection_summary_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Collection Summary Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_sales_incentive_report_xlsx" model="ir.actions.report">
+            <field name="name">Sales Incentive Report</field>
+            <field name="model">sales.incentive.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.sales_incentive_report_xlsx</field>
+            <field name="report_file">mnc_and_reporting.sales_incentive_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Sales Incentive Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_subledger_details_report_xlsx" model="ir.actions.report">
+            <field name="name">Subledger Details Report</field>
+            <field name="model">subledger.details.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.subledger_details_report_xlsx</field>
+            <field name="report_file">mnc_and_reporting.subledger_details_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Subledger Details Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_purchase_order_list_report_xlsx" model="ir.actions.report">
+            <field name="name">Purchase Order List Report</field>
+            <field name="model">purchase.order.list.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.purchase_order_list_report_xlsx</field>
+            <field name="report_file">mnc_and_reporting.purchase_order_list_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Purchase Order List Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_purchase_requisition_list_xlsx" model="ir.actions.report">
+            <field name="name">Purchase Requisition List Report</field>
+            <field name="model">purchase.requisition.list.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.purchase_requisition_list_xlsx</field>
+            <field name="report_file">mnc_and_reporting.purchase_requisition_list_xlsx</field>
+            <field name="print_report_name">
+                ('%s POR - Purchase Requisition List -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_budget_project_status_report_xlsx" model="ir.actions.report">
+            <field name="name">Budget Project Status Report</field>
+            <field name="model">budget.project.status.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.budget_project_status_report_xlsx</field>
+            <field name="report_file">mnc_and_reporting.budget_project_status_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Budget Project Status Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_budget_vs_realization_report_xlsx" model="ir.actions.report">
+            <field name="name">Budget VS Realization Report</field>
+            <field name="model">budget.vs.realization.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.budget_vs_realization_report_xlsx</field>
+            <field name="report_file">mnc_and_reporting.budget_vs_realization_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Budget VS Realization Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_statement_account_agency_report_xlsx" model="ir.actions.report">
+            <field name="name">Statement of Account by Agency Report</field>
+            <field name="model">statement.account.agency.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.statement_account_agency_report_xlsx</field>
+            <field name="report_file">mnc_and_reporting.statement_account_agency_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Statement of Account by Agency Report -' % (object.company_id.name))
+            </field>
+        </record>
+
+        <record id="action_statement_account_description_report_xlsx" model="ir.actions.report">
+            <field name="name">Statement of Account by Description Report</field>
+            <field name="model">statement.account.description.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_and_reporting.statement_account_desc_report_xlsx</field>
+            <field name="report_file">mnc_and_reporting.statement_account_desc_report_xlsx</field>
+            <field name="print_report_name">
+                ('%s Statement of Account by Description Report -' % (object.company_id.name))
+            </field>
+        </record>
+    </data>
+</odoo>

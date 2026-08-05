@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="misc_misc_account_bank_statement_generate_form" model="ir.ui.view">
+            <field name="name">misc.misc.account.bank.statement.generate.form</field>
+            <field name="model">account.bank.statement.generate</field>
+            <field name="inherit_id" ref="oi_bank_reconciliation.view_account_bank_statement_generate_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form//sheet//group[3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//group[2]" position="after">
+                    <group string="Miscellaneous Payments">
+						<field name="misc_payment_ids" nolabel="1" domain="[('journal_id','=', journal_id),('state','=', 'posted')]" />
+					</group>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

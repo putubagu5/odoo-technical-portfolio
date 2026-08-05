@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        <template id="report_ar_3tv_template_view">
+            <t t-set="number_page" value="1"/>
+            <t t-foreach="data_dot_matrix" t-as="data">
+                <t t-translation="off">
+
+
+
+
+
+<t t-esc="data['line1']"/>
+<t t-esc="data['line2']"/>
+<t t-esc="data['line3']"/>
+<t t-esc="data['line4']"/>
+<t t-esc="data['line5']"/>
+<t t-esc="data['line6']"/>
+<t t-esc="data['line7']"/>
+
+<t t-esc="data['line8']"/>
+
+
+
+
+
+<t t-esc="data['line9']"/>
+<t t-esc="data['line10']"/>
+<t t-esc="data['line11']"/>
+
+
+
+
+
+
+
+
+
+<t t-esc="data['line12']"/>
+<t t-esc="data['line13']"/>
+                                                        -----------------
+<t t-esc="data['line14']"/>
+<t t-esc="data['line15']"/>
+                                                        -----------------
+<t t-esc="data['line16']"/>
+
+<t t-esc="data['line17']"/>
+<t t-esc="data['line18']"/>
+
+
+<t t-esc="data['line19']"/>
+<t t-esc="data['line20']"/>
+
+
+
+
+                                                                             <t t-esc="number_page"/><t t-set="number_page" value="number_page + 1"/>
+<t t-esc="chr(12)"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

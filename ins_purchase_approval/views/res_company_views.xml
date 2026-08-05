@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="view_company_form" model="ir.ui.view">
+            <field name="name">view.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <!-- add new page inside notebook -->
+                <xpath expr="//notebook" position="inside">
+                    <page name="purchase_dynamic_approval" string="Dynamic Approvals">
+                        <group>
+                            <group>       
+                                <field name="purchase_dynamic_approval"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

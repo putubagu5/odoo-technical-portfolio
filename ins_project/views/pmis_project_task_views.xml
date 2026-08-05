@@ -1,0 +1,147 @@
+<odoo>
+    <data>
+        <record id="view_pmis_project_task_form" model="ir.ui.view">
+            <field name="name">view.pmis.project.task.form</field>
+            <field name="model">pmis.project.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_generate" type="object" string="Generate Episodes"/>
+                        <button name="button_submit" type="object" string="Submit" invisible="1"/>
+                        <button name="button_verify" type="object" string="Verify" invisible="1"/>
+                        <button name="button_approve" type="object" string="Approve" invisible="1"/>
+                        <button name="button_reject" type="object" string="Reject" invisible="1"/>
+                        <button name="button_cancel" type="object" string="Cancel" invisible="1"/>
+                        <button name="button_draft" type="object" string="Set to Draft" invisible="1"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="code" string="Code"/>
+                            <h1>
+                                <field name="code" required="1" readonly="1"/>
+                            </h1>
+                            <label for="active" string="Active"/>
+                            <field name="active" widget="boolean_toogle"/>
+                        </div>
+                        <group>
+                            <group id="left_group">
+                                <field name="program_id" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="main_project_id" readonly="1"/>
+                                <field name="phase_type_id" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="is_additional" invisible="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="task_id"
+                                    attrs="{'invisible': [('is_additional', '=', False)], 'required': [('is_additional', '=', True)]}"
+                                    domain="[('id', '!=', id), ('program_id', '=', program_id), ('is_additional', '=', False)]"/>
+                                <field name="manager_id" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="executive_producer_id" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="producer_id" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="control_id" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="budget_type" required="1"/>
+                                <label for="date_shoot_start"/>
+                                <div>
+                                    <field name="date_shoot_start" class="oe_inline" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                    <b>&#160;&#160;&#160;&#160;Until&#160;&#160;</b>
+                                    <field name="date_shoot_end" class="oe_inline" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                </div>
+                                <field name="name" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="reference" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="create_date" readonly="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <label for="date_start"/>
+                                <div>
+                                    <field name="date_start" class="oe_inline" readonly="1"/>
+                                    <b>&#160;&#160;&#160;&#160;End Date&#160;&#160;</b>
+                                    <field name="date_end" class="oe_inline" readonly="1"/>
+                                </div>
+                            </group>
+                            <group id="right_group">
+                                <field name="group_type_id" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="episode_count" invisible="1"/>
+                                <label for="range_start"/>
+                                <div>
+                                    <field name="range_start" class="oe_inline" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                    To
+                                    <field name="range_end" class="oe_inline" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                </div>
+                                <field name="episode_sum" required="1" readonly="1"/>
+                                <field name="day_number" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="duration" required="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="live_tapping" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}"/>
+                                <field name="analytic_account_id" required="1"
+                                    domain="[('departement_code', '!=', False)]" readonly="1"/>
+                                <field name="is_batch"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="episodes" string="Details">
+                                <field name="episode_ids" nolabel="1" attrs="{'readonly': [('state', 'not in', ('draft', 'reject'))]}">
+                                    <tree editable="bottom" create="false">
+                                        <field name="no"/>
+                                        <field name="episode_line_id" required="1"/>
+                                        <field name="episode_code"/>
+                                        <field name="episode_no"/>
+                                        <field name="episode_name"/>
+                                        <field name="venue"/>
+                                        <field name="remarks"/>
+                                        <field name="budget_type" readonly="1" force_save="1"/>
+                                        <field name="status" readonly="1" force_save="1"/>
+                                        <field name="company_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pmis_project_task_tree" model="ir.ui.view">
+            <field name="name">view.pmis.project.task.tree</field>
+            <field name="model">pmis.project.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="program_id"/>
+                    <field name="main_project_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pmis_project_task_search" model="ir.ui.view">
+            <field name="name">view.pmis.project.task.search</field>
+            <field name="model">pmis.project.task</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Program Name"/>
+                    <field name="main_project_id" string="Main Project ID"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_pmis_project_task" model="ir.actions.act_window">
+            <field name="name">Task (Phase)</field>
+            <field name="res_model">pmis.project.task</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis"
+            name="PMIS"
+            groups="project.group_project_manager"
+            sequence="33"/>
+
+        <menuitem id="menu_pmis_project"
+            name="Project"
+            parent="menu_pmis"
+            sequence="0"/>
+
+        <menuitem
+            id="menu_pmis_project_task"
+            name="Task (Phase)"
+            action="action_view_pmis_project_task"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_project"
+            sequence="4"/>
+    </data>
+</odoo>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="aging_pdc_detail_report_pdf">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="mnc_and_reporting.aging_pdc_detail_report_pdf_document"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="aging_pdc_detail_report_pdf_document">
+            <t t-call="web.basic_layout">
+                <div class="page" style="font-size: 13px;">
+                    <div class="header" style="margin-bottom: 16px;">
+                        <div class="title">
+                            <h3 class="text-center">
+                                <t t-esc="o.company_id.name.upper()"/>
+                                <br></br>
+                                PDC DETAIL REPORT
+                            </h3>
+                        </div>
+                        <div class="row" name="header_info">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-5">
+                                        Customer Name
+                                    </div>
+                                    <div class="col-7">
+                                        :
+                                        <span t-esc="o.get_customer()"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        Period
+                                    </div>
+                                    <div class="col-7">
+                                        :
+                                        <span t-esc="o.get_period()"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        GL Account
+                                    </div>
+                                    <div class="col-7">
+                                        :
+                                        <span t-esc="o.get_accounts()"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        Currency Code
+                                    </div>
+                                    <div class="col-7">
+                                        :
+                                        <span t-esc="o.get_currency(o.company_id.id).display_name"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-5">
+                                        Print Date
+                                    </div>
+                                    <div class="col-7">
+                                        :
+                                        <span t-esc="o.get_print_date()"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        User
+                                    </div>
+                                    <div class="col-7">
+                                        :
+                                        <span t-esc="o.env.user.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        Page
+                                    </div>
+                                    <div class="col-7">
+                                        :
+                                        <span class="page"/>
+                                        of
+                                        <span class="topage"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br></br>
+                    <t t-set="total_all_amount" t-value="0"/>
+                    <t t-set="total_all_applied_amount" t-value="0"/>
+                    <t t-set="total_all_unapplied_amount" t-value="0"/>
+                    <div>
+                        <t t-foreach="o.get_receipt_per_customer(o.company_id.id)" t-as="receipt_data">
+                            <div class="row" style="margin-top: 16px; margin-left: 0px; margin-bottom: 5px;">
+                                <u t-esc="receipt_data.get('customer_name', '')"/>
+                            </div>
+                            <table class="mt8 mb8" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid black">
+                                            RECEIPT NO
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            RECEIPT DATE
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            RECEIPT STATUS
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            BATCH NO
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            RECEIPT AMOUNT
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            INVOICE NO
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            BULAN TAYANG
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            APPLIED AMOUNT
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            UNAPPLIED AMOUNT
+                                        </th>
+                                        <th style="border: 1px solid black">
+                                            COA
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="receipt_data.get('receipt_ids', False)" t-as="receipt_id">
+                                        <t t-set="receipt"
+                                           t-value="o.env['miscellaneous.miscellaneous'].browse(receipt_id)"/>
+                                        <tr t-foreach="receipt.invoice_ids" t-as="invoice">
+                                            <td style="border: 1px solid black" width="10%">
+                                                <t t-esc="receipt.receipt_number"/>
+                                            </td>
+                                            <td style="border: 1px solid black" width="10%">
+                                                <t t-esc="receipt.date"/>
+                                            </td>
+                                            <td style="border: 1px solid black" width="10%">
+                                                <t t-esc="receipt.state"/>
+                                            </td>
+                                            <td style="border: 1px solid black" width="10%">
+                                            </td>
+                                            <td class="text-right" style="border: 1px solid black" width="10%">
+                                                <t t-esc="'{0:,.0f}'.format(receipt.amount)"/>
+                                            </td>
+                                            <td style="border: 1px solid black" width="15%">
+                                                <t t-esc="invoice.invoice_id.name"/>
+                                            </td>
+                                            <td style="border: 1px solid black" width="10%">
+                                                <t t-esc="invoice.date.strftime('%b-%y').upper()"/>
+                                            </td>
+                                            <td class="text-right" style="border: 1px solid black" width="10%">
+                                                <t t-esc="'{0:,.0f}'.format(receipt.applied_amount)"/>
+                                            </td>
+                                            <td class="text-right" style="border: 1px solid black" width="5%">
+                                                0
+                                            </td>
+                                            <td style="border: 1px solid black" width="10%">
+                                                <t t-esc="o.get_invoice_account(invoice)"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <table width="100%" style="margin-top: 15px;">
+                                <tr style="height: 50px;">
+                                    <td width="30%"
+                                        style="vertical-align: center; border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black;">
+                                        <strong>TOTAL</strong>
+                                        <strong t-esc="receipt_data.get('customer_name', '')"/>
+                                    </td>
+                                    <td width="30%" class="text-right"
+                                        style="vertical-align: center; border-top: 1px solid black; border-bottom: 1px solid black; padding-right: 109px; padding-top: 12px;">
+                                        <strong t-esc="'{0:,.0f}'.format(receipt_data.get('total_amount', 0))"/>
+                                    </td>
+                                    <td width="25%" class="text-right"
+                                        style="vertical-align: center; border-top: 1px solid black; border-bottom: 1px solid black; padding-right: 28px; padding-top: 12px;">
+                                        <strong t-esc="'{0:,.0f}'.format(receipt_data.get('total_applied_amount', 0))"/>
+                                    </td>
+                                    <td width="15%" class="text-right"
+                                        style="vertical-align: center; border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; padding-right: 80px; padding-top: 12px;">
+                                        <strong t-esc="'{0:,.0f}'.format(receipt_data.get('total_unapplied_amount', 0))"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <t t-set="total_all_amount"
+                               t-value="total_all_amount + receipt_data.get('total_amount', 0)"/>
+                            <t t-set="total_all_applied_amount"
+                               t-value="total_all_applied_amount + receipt_data.get('total_applied_amount', 0)"/>
+                            <t t-set="total_all_unapplied_amount"
+                               t-value="total_all_unapplied_amount + receipt_data.get('total_unapplied_amount', 0)"/>
+                        </t>
+                    </div>
+                    <div t-if="o.get_receipt_per_customer(o.company_id.id)">
+                        <table width="100%" style="margin-top: 15px;">
+                            <tr style="height: 50px;">
+                                <td width="30%"
+                                    style="vertical-align: center; border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black;">
+                                    <strong>TOTAL :</strong>
+                                </td>
+                                <td width="30%" class="text-right"
+                                    style="vertical-align: center; border-top: 1px solid black; border-bottom: 1px solid black; padding-right: 110px; padding-top: 12px;">
+                                    <strong t-esc="'{0:,.0f}'.format(total_all_amount)"/>
+                                </td>
+                                <td width="25%" class="text-right"
+                                    style="vertical-align: center; border-top: 1px solid black; border-bottom: 1px solid black; padding-right: 28px; padding-top: 12px;">
+                                    <strong t-esc="'{0:,.0f}'.format(total_all_applied_amount)"/>
+                                </td>
+                                <td width="15%" class="text-right"
+                                    style="vertical-align: center; border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; padding-right: 80px; padding-top: 12px;">
+                                    <strong t-esc="'{0:,.0f}'.format(total_all_unapplied_amount)"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

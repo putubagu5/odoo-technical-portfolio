@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="budget_summary_grouped_tree_view" model="ir.ui.view">
+            <field name="name">budget.summary.group.tree.view</field>
+            <field name="model">budget.summary.group</field>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0" delete="0">
+                    <field name="currency_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="analytic_group_id"/>
+                    <field name="planned_amount" sum="Total"/>
+                    <field name="pr_reserve_amount" sum="Total"/>
+                    <field name="po_reserve_amount" sum="Total"/>
+                    <field name="practical_amount" sum="Total"/>
+                    <field name="remaining_amount" sum="Total"/>
+                    <field name="month1"/>
+                    <field name="month2"/>
+                    <field name="month3"/>
+                    <field name="month4"/>
+                    <field name="month5"/>
+                    <field name="month6"/>
+                    <field name="month7"/>
+                    <field name="month8"/>
+                    <field name="month9"/>
+                    <field name="month10"/>
+                    <field name="month11"/>
+                    <field name="month12"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="budget_summary_grouped_search_view" model="ir.ui.view">
+            <field name="name">budget.summary.group.search.view</field>
+            <field name="model">budget.summary.group</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="analytic_group_id"/>
+                    <field name="company_id"/>
+                    <separator/>
+                    <group string="Group by" expand="0">
+                        <filter name="group_company_id" string="Company" domain="[]" context="{'group_by':'company_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

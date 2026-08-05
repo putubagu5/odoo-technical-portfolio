@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record id="view_approval_delegation_form" model="ir.ui.view">
+            <field name="name">view.approval.delegation.form</field>
+            <field name="model">approval.delegation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="module" required="1"/>
+                                <field name="delegator_id" required="1"/>
+                                <field name="delegatee_id" required="1"/>
+                                <label for="date_from" string="Delegation Period"/>
+                                <div>
+                                    <field name="date_from" class="oe_inline" required="1"/> - <field name="date_to" class="oe_inline" required="1"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="company_id" required="1"/>
+                                <field name="note"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_approval_delegation_tree" model="ir.ui.view">
+            <field name="name">view.approval.delegation.tree</field>
+            <field name="model">approval.delegation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="module"/>
+                    <field name="delegator_id"/>
+                    <field name="delegatee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_approval_delegation" model="ir.actions.act_window">
+            <field name="name">Approval Delegation</field>
+            <field name="res_model">approval.delegation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_approval_delegation"
+            name="Approval Delegation"
+            action="action_view_approval_delegation"
+            parent="ins_purchase_approval.menu_root_approval"
+            sequence="2"/>
+    </data>
+</odoo>

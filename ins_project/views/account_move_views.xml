@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="inherit_account_move_pmis_form" model="ir.ui.view">
+            <field name="name">inherit.account.move.pmis.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']//form//sheet//group[2]" position="after">
+                    <notebook>
+                        <page name="project_details" string="Project Details">
+                            <field name="project_ids" string="Project Details" readonly="1">
+                                <tree editable="bottom">
+                                    <field name="program_id"/>
+                                    <field name="task_id"/>
+                                    <field name="subtask_id"/>
+                                    <field name="expenditure_type_id"/>
+                                    <field name="percentage"/>
+                                    <field name="qty"/>
+                                    <field name="amount"/>
+                                    <field name="account_line_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

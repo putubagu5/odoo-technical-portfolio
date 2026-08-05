@@ -1,0 +1,355 @@
+<odoo>
+    <template id="report_budget_revision_program_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_project.report_budget_revision_program_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_budget_revision_program_document">
+        <t t-call="web.basic_layout">
+            <!-- logo -->
+            <div class="header">
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td width="20%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+                                    <img t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style="max-height: 150px; max-width: 170px;"/>
+                                </td>
+                                <td width="60%" align="center" style="border: 1px solid black; padding: 7px; vertical-align: middle; font-size: 20px;">
+                                    <strong>
+                                        <span t-field="o.company_id.name"/><br/>
+                                        BUDGET PROGRAM - <span t-field="o.group_id.name"/><br/>
+                                        <span t-field="o.program_id.name"/>
+                                    </strong>
+                                </td>
+                                <td width="20%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black; font-size: 20px;">
+                                    <strong><span t-field="o.group_id.name"/></strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <!-- Summary Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <pre><b>Program Code : <span t-field="o.program_id.code"/> : <span t-field="o.program_id.name"/> EPS <span t-field="o.range_start"/> - <span t-field="o.range_end"/></b></pre>
+                    </div>
+                </div>
+                <table width="100%" style="border: 1px solid black; height: 725px; border-collapse: collapse; page-break-after: always; font-size: 12px; padding: 3px;">
+                    <thead>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Item Code</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Description</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Budget</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Barter</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Total Budget</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Budget / EPS</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Allocation<br/>(%)</th>
+                    </thead>
+                    <tbody>
+                        <t t-set="total_budget" t-value="0"/>
+                        <t t-set="total_barter" t-value="0"/>
+                        <t t-set="total_budget_all" t-value="0"/>
+                        <t t-set="total_per_eps" t-value="0"/>
+                        <t t-set="total_allocation" t-value="0"/>
+                        <t t-foreach="sorted(list(set(o.budget_ids.mapped('category_id'))), key=lambda x: x.code)" t-as="line">
+                            <tr style="font-weight: bold; line-height: 25px; height: 25px; background-color: #C0C0C0;">
+                                <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="line.code"/></td>
+                                <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="line.name"/></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="'{:,.0f}'.format(sum(x.budget for x in o.budget_ids if x.category_id.id == line.id))"/></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="'{:,.0f}'.format(sum(x.amount_budget_line for x in o.budget_ids if x.category_id.id == line.id))"/></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="'{:,.0f}'.format(sum(x.average_by_eps for x in o.budget_ids if x.category_id.id == line.id))"/></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="round((sum(x.amount_budget_line for x in o.budget_ids if x.category_id.id == line.id) / o.total_budget) * 100, 2)"/></td>
+
+                                <t t-set="total_budget" t-value="total_budget + sum(x.budget for x in o.budget_ids if x.category_id.id == line.id)"/>
+                                <t t-set="total_barter" t-value="0"/>
+                                <t t-set="total_budget_all" t-value="total_budget_all + sum(x.amount_budget_line for x in o.budget_ids if x.category_id.id == line.id)"/>
+                                <t t-set="total_per_eps" t-value="total_per_eps + sum(x.average_by_eps for x in o.budget_ids if x.category_id.id == line.id)"/>
+                                <t t-set="total_allocation" t-value="0"/>
+                            </tr>
+                            <tr style="font-weight: bold; line-height: 25px; height: 25px;">
+                                <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <th colspan="2" style="text-align: right; border: 1px solid black;">Total Project Cost</th>
+                        <th style="text-align: right; border: 1px solid black;"><t t-esc="'{:,.0f}'.format(total_budget)"/></th>
+                        <th style="text-align: right; border: 1px solid black;"><t t-esc="'{:,.0f}'.format(total_barter)"/></th>
+                        <th style="text-align: right; border: 1px solid black;"><t t-esc="'{:,.0f}'.format(total_budget_all)"/></th>
+                        <th style="text-align: right; border: 1px solid black;"><t t-esc="'{:,.0f}'.format(total_per_eps)"/></th>
+                        <th style="text-align: right; border: 1px solid black;">100%</th>
+                    </tr>
+                </table>
+
+                <!-- Expenditure Table/Page -->
+                <table width="100%" style="font-weight: bold;">
+                    <tr>
+                        <td width="14%">Chairman Person</td>
+                        <td width="1%">:</td>
+                        <td width="35%"><span t-field="o.task_id.manager_id.name"/></td>
+                        <td width="14%">Category</td>
+                        <td width="1%">:</td>
+                        <td width="35%"><span t-field="o.program_id.category_id.name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Section Head</td>
+                        <td>:</td>
+                        <td><span t-field="o.task_id.executive_producer_id.name"/></td>
+                        <td>Type</td>
+                        <td>:</td>
+                        <td><span t-field="o.task_id.live_tapping.name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Program Title</td>
+                        <td>:</td>
+                        <td><span t-field="o.program_id.name"/></td>
+                        <td>Phase / Packet</td>
+                        <td>:</td>
+                        <td><span t-field="o.task_id.code"/></td>
+                    </tr>
+                    <tr>
+                        <td>Shooting Date</td>
+                        <td>:</td>
+                        <td><span t-field="o.task_id.date_shoot_start"/> until <span t-field="o.task_id.date_shoot_end"/></td>
+                        <td>Phase / Packet Desc.</td>
+                        <td>:</td>
+                        <td><span t-field="o.task_id.name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Duration (Minutes)</td>
+                        <td>:</td>
+                        <td><span t-field="o.duration"/></td>
+                        <td>Total Episode(s)</td>
+                        <td>:</td>
+                        <td><span t-field="o.episode_number"/> (<span t-field="o.range_start"/> until <span t-field="o.range_end"/>)</td>
+                    </tr>
+                    <tr>
+                        <td>Requestor / PIC</td>
+                        <td>:</td>
+                        <td><span t-field="o.create_uid.name"/></td>
+                        <td>Total Day(s)</td>
+                        <td>:</td>
+                        <td><span t-field="o.day_number"/></td>
+                    </tr>
+                    <tr>
+                        <td>Location / Venue</td>
+                        <td>:</td>
+                        <td>
+                            <span t-field="o.venue_names"/>
+                        </td>
+                        <td>Update</td>
+                        <td>:</td>
+                        <td><span t-field="o.write_date"/></td>
+                    </tr>
+                </table>
+                <table width="100%" style="border: 1px solid black; font-size: 12px; padding: 3px;">
+                    <thead>
+                        <tr>
+                            <th colspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Item</th>
+                            <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Qty</th>
+                            <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Eps</th>
+                            <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Day</th>
+                            <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Rate</th>
+                            <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Barter</th>
+                            <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Budget / Eps</th>
+                            <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Total Budget</th>
+                            <th rowspan="2" style="vertical-align: middle; border: 1px solid black; text-align: center;">Remark(s)</th>
+                        </tr>
+                        <tr>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Code</th>
+                            <th style="vertical-align: middle; border: 1px solid black; text-align: center;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="total_budget" t-value="0"/>
+                        <t t-set="total_barter" t-value="0"/>
+                        <t t-set="total_budget_all" t-value="0"/>
+                        <t t-set="total_per_eps" t-value="0"/>
+                        <t t-foreach="sorted(list(set(o.budget_ids.mapped('category_id'))), key=lambda x: x.code)" t-as="line">
+                            <tr style="font-weight: bold;">
+                                <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="line.code"/></td>
+                                <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="line.name"/></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            </tr>
+                            <t t-foreach="sorted(list(set(o.budget_ids.mapped('subcategory_id'))), key=lambda x: x.subcategory_code)" t-as="line_sub">
+                                <t t-if="line_sub.expenditure_category_id.id == line.id">
+                                    <tr style="font-weight: bold;">
+                                        <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;&#160;&#160;&#160;<t t-esc="line_sub.subcategory_code"/></td>
+                                        <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;&#160;&#160;&#160;<t t-esc="line_sub.name"/></td>
+                                        <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                    </tr>
+                                    <t t-foreach="set(o.budget_ids)" t-as="line_ex">
+                                        <t t-if="line_ex.subcategory_id.id == line_sub.id">
+                                            <tr>
+                                                <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;&#160;&#160;&#160;<t t-esc="line_ex.expenditure_type_id.code"/></td>
+                                                <td style="text-align: left; border-left: 1px solid black; border-right: 1px solid black;">&#160;&#160;&#160;&#160;&#160;<t t-esc="line_ex.expenditure_type_id.name"/> : <t t-esc="line_ex.description"/></td>
+                                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="line_ex.pax"/></td>
+                                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="line_ex.eps"/></td>
+                                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="line_ex.day"/></td>
+                                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="'{:,.0f}'.format(line_ex.rate)"/></td>
+                                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="'{:,.0f}'.format(line_ex.average_by_eps)"/></td>
+                                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"><t t-esc="'{:,.0f}'.format(line_ex.budget)"/></td>
+                                                <td style="text-align: right; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                    <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>&#160;SUBTOTAL <t t-esc="line_sub.name"/></b></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b><t t-esc="'{:,.0f}'.format(sum(x.average_by_eps for x in o.budget_ids if x.subcategory_id.id == line_sub.id))"/></b></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b><t t-esc="'{:,.0f}'.format(sum(x.amount_budget_line for x in o.budget_ids if x.subcategory_id.id == line_sub.id))"/></b></td>
+                                        <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                    </tr>
+                                </t>
+                            </t>
+                            <tr style="border-bottom: hidden;border-top: hidden;background-color: rgb(194, 199, 202);">
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"><b>TOTAL <t t-esc="line.name"/></b></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b><t t-esc="'{:,.0f}'.format(sum(x.average_by_eps for x in o.budget_ids if x.category_id.id == line.id))"/></b></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;text-align:right;"><b><t t-esc="'{:,.0f}'.format(sum(x.amount_budget_line for x in o.budget_ids if x.category_id.id == line.id))"/></b></td>
+                                <td style="border-bottom:hidden ;border-top:hidden; border-left: 1px solid black; border-right: 1px solid black;"></td>
+                            </tr>
+                            <t t-set="total_budget" t-value="total_budget + sum(x.budget for x in o.budget_ids if x.category_id.id == line.id)"/>
+                            <t t-set="total_barter" t-value="0"/>
+                            <t t-set="total_budget_all" t-value="total_budget_all + sum(x.amount_budget_line for x in o.budget_ids if x.category_id.id == line.id)"/>
+                            <t t-set="total_per_eps" t-value="total_per_eps + sum(x.average_by_eps for x in o.budget_ids if x.category_id.id == line.id)"/>
+                        </t>
+                    </tbody>
+                    <tr>
+                        <td style="border: 1px solid black;"></td>
+                        <td style="text-align: right; border: 1px solid black;" colspan="5"><b>Total Project Cost</b></td>
+                        <td style="text-align: right; border: 1px solid black;"><b>0.00</b></td>
+                        <td style="text-align: right; border: 1px solid black;"><b><t t-esc="'{:,.0f}'.format(total_per_eps)"/></b></td>
+                        <td style="text-align: right; border: 1px solid black;"><b><t t-esc="'{:,.0f}'.format(total_budget_all)"/></b></td>
+                        <td style="border: 1px solid black;"></td>
+                    </tr>
+                </table>
+                <table border="1" cellspacing="0" cellpadding="5" width="100%">
+                    <tr>
+                        <td style="vertical-align: middle; border: 1px solid black; text-align: left; font-size: 11px;" colspan="9">Jakarta, <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/></td>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center; font-size: 11px;">Proposed by,</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center; font-size: 11px;" colspan="2">Verified by,</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center; font-size: 11px;">Controlled by,</th>
+                        <th style="vertical-align: middle; border: 1px solid black; text-align: center; font-size: 11px;" colspan="5">Approved by,</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align: center; font-size: 11px;" width="11.1%">
+                            <br/><br/><br/><br/><br/>
+                            <span t-field="o.unit_pm_id.name"/>
+                        </td>
+                        <td style="border: 1px solid black; text-align: center; font-size: 11px;" width="11.1%">
+                            <br/><br/><br/><br/><br/>
+                            <span t-field="o.task_id.manager_id.name"/>
+                        </td>
+                        <t t-set="limit" t-value="0"/>
+                        <t t-foreach="o.company_id.signature_id.sign_ids.filtered(lambda line: line.analytic_account_id.id == o.analytic_account_id.id and line.department_type_id.id == o.department_type_id.id).sorted(key=lambda x: x.seq, reverse=False)" t-as="assignee">
+                            <t t-if="limit &lt; 7">
+                                <td style="border: 1px solid black; text-align: center; font-size: 11px;" width="11.1%">
+                                    <br/><br/><br/><br/><br/>
+                                    <t t-esc="assignee.emp_name"/>
+                                </td>
+                                <t t-set="limit" t-value="limit + 1"/>
+                            </t>
+                        </t>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align: center; font-size: 10px;" width="11.1%">
+                            <br/>
+                            <span t-field="o.unit_pm_id.job_title"/>
+                        </td>
+                        <td style="border: 1px solid black; text-align: center; font-size: 10px;" width="11.1%">
+                            <br/>
+                            <span t-field="o.task_id.manager_id.job_title"/>
+                        </td>
+                        <t t-set="limit1" t-value="0"/>
+                        <t t-foreach="o.company_id.signature_id.sign_ids.filtered(lambda line: line.analytic_account_id.id == o.analytic_account_id.id and line.department_type_id.id == o.department_type_id.id).sorted(key=lambda x: x.seq, reverse=False)" t-as="assignee">
+                            <t t-if="limit1 &lt; 7">
+                                <td style="border: 1px solid black; text-align: center; font-size: 10px;" width="11.1%">
+                                    <br/>
+                                    <t t-esc="assignee.emp_position"/>
+                                </td>
+                                <t t-set="limit1" t-value="limit1 + 1"/>
+                            </t>
+                        </t>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; font-size: 10px;" width="11.1%">Date :</td>
+                        <td style="border: 1px solid black; font-size: 10px;" width="11.1%">Date :</td>
+                        <t t-set="limit2" t-value="0"/>
+                        <t t-foreach="o.company_id.signature_id.sign_ids.filtered(lambda line: line.analytic_account_id.id == o.analytic_account_id.id and line.department_type_id.id == o.department_type_id.id).sorted(key=lambda x: x.seq, reverse=False)" t-as="assignee">
+                            <t t-if="limit2 &lt; 7">
+                                <td style="border: 1px solid black; font-size: 10px;" width="11.1%">Date :</td>
+                                <t t-set="limit2" t-value="limit2 + 1"/>
+                            </t>
+                        </t>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="footer">
+                <table border="0" cellspacing="0" cellpadding="5" width="100%">
+                    <tr>
+                        <td style="font-size: 10px;" width="50%">Printed Date : <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y @ %H:%M:%S')"/> , by : <span t-esc="user.name"/></td>
+                        <td style="font-size: 10px;" width="50%" align="right">
+                            <small>
+                                <span>Page</span>
+                                <span class="page" />
+                                of
+                                <span class="topage" />
+                            </small>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

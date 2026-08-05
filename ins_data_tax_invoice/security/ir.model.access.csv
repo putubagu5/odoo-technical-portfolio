@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ins_tax_invoice_res_city_all,ins_tax_invoice.res_city_all,model_res_city,,1,0,0,0
+access_ins_tax_invoice_res_kecamatan_all,ins_tax_invoice.res_kecamatan_all,model_res_kecamatan,,1,0,0,0
+access_ins_tax_invoice_res_kelurahan_all,ins_tax_invoice.res_kelurahan_all,model_res_kelurahan,,1,0,0,0
+access_ins_tax_invoice_res_city_account_manager,ins_tax_invoice.res_city_account_manager,model_res_city,account.group_account_manager,1,1,1,1
+access_ins_tax_invoice_res_kecamatan_account_manager,ins_tax_invoice.res_kecamatan_account_manager,model_res_kecamatan,account.group_account_manager,1,1,1,1
+access_ins_tax_invoice_res_kelurahan_account_manager,ins_tax_invoice.res_kelurahan_account_manager,model_res_kelurahan,account.group_account_manager,1,1,1,1

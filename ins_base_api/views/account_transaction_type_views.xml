@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="base_api_view_account_transaction_type_form" model="ir.ui.view">
+            <field name="name">base.api.view.account.transaction.type.form</field>
+            <field name="model">account.transaction.type</field>
+            <field name="inherit_id" ref="ins_accounting.view_account_transaction_type_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="code_gen21"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

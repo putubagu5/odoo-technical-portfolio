@@ -1,0 +1,111 @@
+<odoo>
+    <template id="ins_base_mnc_report_invoice_manual_airtime_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_report_invoice_manual_airtime_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc_report_invoice_manual_airtime_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <div class="row">
+                    <div class="col-4"><img src='/web/binary/company_logo' alt="Logo" style="max-height: 100px; max-width: 120px;"/></div>
+                </div>
+                <div class="row">
+                    <div class="col-12" style="border: 1px solid black"><h2>INVOICE</h2></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12" style="border: 1px solid black">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4">Bill To</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Address</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Advertiser</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Product</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">TX / Channel</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Description</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4">Invoice No</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Date</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Contract No</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Job No</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Sales Office</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">Sales Person</div>
+                                    <div class="col-1">:</div>
+                                    <div class="col-7"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8" style="border: 1px solid black"><strong>Description</strong></div>
+                    <div class="col-4" style="border: 1px solid black"><strong>Amount</strong></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8" style="border: 1px solid black">
+                        <div class="row">
+                            <div class="col-6">
+                            </div>
+                            <div class="col-6">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4" style="border: 1px solid black">
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

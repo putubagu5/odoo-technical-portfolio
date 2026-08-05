@@ -1,0 +1,261 @@
+<odoo>
+    <template id="ins_base_mnc_land_report_purchase_order_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_land_report_purchase_order_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc_land_report_purchase_order_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <div class="row">
+                    <div class="col-3">
+                        <img src='/web/binary/company_logo' alt="Logo" style="max-height: 100px; max-width: 120px; display: block;margin: 40px 0px 0px 20px;"/>
+                    </div>
+                    <div class="col-6" style="text-align:center;">
+                        <h5 style="margin-bottom:10px;"><strong>PT. MNC LAND TBK</strong></h5>
+                        <br/>
+                        MNC Tower Lantai 16
+                        <br/>
+                        Jl. Kebon Sirih Kav. 17-19 Menteng, Jakarta Pusat 10340 - Indonesia
+                        <br/>
+                        Phone : 021-3929828 |0856-9377-7430 , Fax :
+                    </div>
+                </div>
+            </div>
+            <div style="font-size:12px;">
+                <br/>
+                <br/>
+                
+                <div class="row">
+                        <div class="col-12" style="text-align:center;">
+                            <h5><strong>PURCHASE ORDER</strong></h5>
+                        </div>
+                </div>
+                
+                <br/>
+
+                <table width="100%">
+                    <tr>
+                        <th style="color:white;background-color:blue;text-align:center;width:25%;border:1px groove;">
+                            VENDOR TO
+                        </th>
+                        <th style="color:white;background-color:blue;text-align:center;width:25%;border:1px groove;">
+                            PO NUMBER<br/>
+                            NOMOR PO
+                        </th>
+                        <th style="color:white;background-color:blue;text-align:center;width:25%;border:1px groove;">
+                            00001/PO/MDT/0419                           
+                        </th>
+                        <th style="color:white;background-color:blue;text-align:center;width:25%;border:1px groove;">
+                            SHIP TO
+                        </th>
+                    </tr>
+                    <tr>
+                        <td style="border:1px groove;" rowspan="3">
+                            <center>MNCL-S/2724
+                            SUPARMA, TBK PT</center>
+                            <br/>
+                            JL. RAYA TELUK GONG NO. 14
+                            <br/>
+                            JAKARTA UTARA 14450,
+                            <br/>
+                            INDONESIA
+                            <br/>
+                            <br/>
+                            STEVANUS
+                            <br/>
+                            021-6604016
+                            <br/>
+                        </td>
+                        <td style="border:1px groove;">
+                            Date 
+                        <br/>
+                            Tanggal Order 
+                        </td>
+                        <td style="border:1px groove;">
+                            08 April 2019
+                        </td>
+                        <td style="border:1px groove;" rowspan="3">
+                            <center>
+                                MNC Media Tower
+                            </center>
+                            Jl. Kebon Sirih Kav. 17-19
+                            Menteng
+                        </td>
+                </tr>
+                <tr>
+                        <td style="border:1px groove;">
+                            Baik dikirim sebelum :
+                        <br/>
+                            DELIVERY DATE
+                        <br/>
+                            Tanggal Kirim
+                        </td>
+                        <td style="border:1px groove;">
+                            08 April 2019
+                        </td>
+                </tr>
+                <tr>
+                        <td style="border:1px groove;">
+                            PR Number
+                        <br/>
+                            Nomor PR
+                        </td>
+                        <td style="border:1px groove;">
+                            00030/PR/MDT/0319
+                        </td>
+                </tr>
+                </table>
+                <br/>
+                <br/>
+
+            <table width="100%">
+                <tr>
+                    <th style="color:white;background-color:blue;text-align:center;width:5%;border:1px groove;">
+                        NO
+                    </th>
+                    <th style="color:white;background-color:blue;text-align:center;width:25%;border:1px groove;">
+                        DESCRIPTION
+                    </th>
+                    <th style="color:white;background-color:blue;text-align:center;width:20%;border:1px groove;">
+                        QUANTITY                           
+                    </th>
+                    <th style="color:white;background-color:blue;text-align:center;width:25%;border:1px groove;">
+                        UNIT PRICE
+                    </th>
+                    <th style="color:white;background-color:blue;text-align:center;width:25%;border:1px groove;">
+                        AMOUNT
+                    </th>
+                </tr>
+                <tr>
+                    <td style="text-align:center;border:1px groove;">
+                        1
+                    </td>
+                    <td style="text-align:left;border:1px groove;">
+                        Tissue Roll 250 
+                    </td>
+                    <td style="text-align:center;border:1px groove;">
+                        6,000.00 Roll 
+                    </td>
+                    <td style="border:1px groove;">
+                    Rp
+                        <div style="text-align:right;">1,278.41</div> 
+                    </td>
+                    <td style="text-align:right;border:1px groove;">
+                     Rp
+                        <div style="text-align:right;">7,670,460.00</div>
+                    </td>
+                </tr>
+                <tr>
+                        <td style="text-align:center;border:1px groove;">
+                            2
+                        </td>
+                        <td style="text-align:left;border:1px groove;">
+                            Facial Tissue 500
+                        </td>
+                        <td style="text-align:center;border:1px groove;">
+                            360.00 Pcs
+                        </td>
+                        <td style="text-align:right;border:1px groove;">
+                            Rp
+                            <div style="text-align:right;">1,964.00</div>
+                        </td>
+                        <td style="text-align:right;border:1px groove;">
+                            Rp
+                            <div style="text-align:right;">707,040.00</div>
+                        </td>
+                </tr>
+                <tr style="border-style:none;">
+                        <td style="border-style:none;" colspan="3" rowspan="3">
+                            <u>NOTES :</u>
+                        </td>
+                        <td style="border:1px groove;">
+                            SUBTOTAL
+                        </td>
+                        <td style="text-align:right;border:1px groove;">
+                            Rp
+                            <div style="text-align:right;">8,377,500.00</div>
+                        </td>
+                </tr>
+                    <tr>
+                        <td style="border:1px groove;">
+                            DISCOUNT
+                        </td>
+                        <td style="text-align:right;border:1px groove;">
+                            Rp
+                            <div style="text-align:right;">0.00</div>
+                        </td>
+                </tr>
+                <tr>
+                        <td style="border:1px groove;">
+                            TOTAL
+                        </td>
+                        <td style="text-align:right;border:1px groove;">
+                            Rp
+                            <div style="text-align:right;">8,377,500.00</div>
+                        </td>
+                </tr>
+            </table>   
+            <br/>
+            <table width="50%">
+                <tr>
+                    <th style="color:white;background-color:blue;text-align:center;width:30%;border:1px groove;">
+                        RECEIVING SCHEDULE
+                    </th>
+                    <th style="color:white;background-color:blue;text-align:center;width:20%;border:1px groove;">
+                        TERM OF PAYMENT
+                    </th>
+                </tr>
+                <tr>
+                    <td style="border:1px groove;">
+                        Senin - Jumat : 09.30-12.00 and 13.30-16.00
+                        <br/>
+                        Sabtu - Minggu : Libur
+                    </td>
+                    <td style="border:1px groove;">
+                        Days 30
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <div class="row">
+                <div class="col-2">
+                    Created by:
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    Ghertdzy Gejifsa Ernawan
+                </div>
+                <div class="col-2">
+                    Approved by:
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    Renvillia 
+                </div>
+                <div class="col-2">
+                    Final Approved by :
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    Erwin Richard Andersen
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-12">
+                    <strong>*All prices are exclusive of PPn</strong>
+                </div>
+            </div>
+        </div>
+        </t>
+    </template>
+</odoo>

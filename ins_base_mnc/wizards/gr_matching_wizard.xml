@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="gr_matching_wizard_form_view" model="ir.ui.view">
+            <field name="name">gr.matching.wizard.form.view</field>
+            <field name="model">gr.matching.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="bill_id" readonly="1" force_save="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="partner_id" required="1" invisible="1"/>
+                                <field name="company_id" invisible="1"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="purchase_order_ids"
+                                   widget="many2many_tags"
+                                   domain="[('company_id', '=', company_id), ('partner_id','child_of', [partner_id]), ('is_fully_matched', '=', False), ('currency_id', '=', currency_id)]"
+                                   placeholder="Select a purchase order"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="picking_ids"
+                                   widget="many2many_tags"
+                                   domain="[('company_id', '=', company_id), ('partner_id','child_of', [partner_id]), ('purchase_id', '=', purchase_order_ids), ('state', '=', 'done'),('picking_type_code','=','incoming')]"
+                                   placeholder="Select a delivery order"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="total"/>
+                            <field name="select_all"/>
+                        </group>
+                        <label for="stock_move_line_ids"/>
+                        <field name="stock_move_line_ids" nolabel="1">
+                            <tree create="0" delete="0" editable="bottom">
+                                <field name="stock_move_id" invisible="1"/>
+                                <field name="purchase_order_line_id" invisible="1"/>
+                                <field name="select" widget="boolean_toggle"/>
+                                <field name="product_id" readonly="1" force_save="1"/>
+                                <field name="description_picking" readonly="1" force_save="1"/>
+                                <field name="price_unit" readonly="1" force_save="1"/>
+                                <field name="price_subtotal"/>
+                                <field name="amount_billed" invisible="1" force_save="1"/>
+                                <field name="amount_remaining" readonly="1" force_save="1"/>
+                                <field name="product_uom_qty" readonly="1" force_save="1"/>
+                                <field name="quantity_done" readonly="1" force_save="1"/>
+                                <field name="quantity_billed" readonly="1" force_save="1"/>
+                                <field name="quantity_to_billed"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                    <footer>
+                        <button string="Submit" type="object" name="submit" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

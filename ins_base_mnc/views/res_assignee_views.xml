@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="view_res_assignee_tree" model="ir.ui.view">
+            <field name="name">view.res.assignee.tree</field>
+            <field name="model">res.assignee</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="doc_position" required="1"/>
+                    <field name="name" required="1"/>
+                    <field name="job_position" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_assignee" model="ir.actions.act_window">
+            <field name="name">Assignee</field>
+            <field name="res_model">res.assignee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_assignee"
+            name="Assignee"
+            action="action_res_assignee"
+            parent="base.menu_users"
+            sequence="58"/>
+    </data>
+</odoo>

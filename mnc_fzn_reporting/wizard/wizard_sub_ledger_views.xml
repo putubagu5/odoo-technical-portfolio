@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+        <record id="sub_ledger_detail_form" model="ir.ui.view">
+            <field name="name">sub.ledger.detail.form</field>
+            <field name="model">wizard.sub.ledger.detail</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Sub Ledger Detail">
+                    <sheet>
+                        <group>
+                            <field name="date_start" placeholder="Period start"/>
+                            <field name="date_end" placeholder="Period end"/>
+                            <field name="company_id" readonly="0" widget="many2many_tags"/>
+<!--                            <field name="current_user_companies" invisible="0" widget="many2many_tags"/>-->
+<!--                            <field name="company_ids" widget="many2many_tags"-->
+<!--                                   domain="[('id', 'in', current_user_companies)]"/>-->
+                            <field name="get_all_account"/>
+                            <field name="account_id" widget="many2many_tags"/>
+                        </group>
+                        <footer>
+                            <button name="generate" string="Generate XLSX Report" type="object" class="oe_highlight"/>
+                            <button special="cancel" string="Cancel" class="oe_link"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="wizard_sub_ledger_action" model="ir.actions.act_window">
+            <field name="name">Sub Ledger Detail</field>
+            <field name="res_model">wizard.sub.ledger.detail</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+                id="wizard_sub_ledger_menu"
+                name="Sub Ledger Detail"
+                action="wizard_sub_ledger_action"
+                parent="mnc_menu_report.report_xlsx"/>
+
+    </data>
+</odoo>

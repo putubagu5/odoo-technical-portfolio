@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="crossovered_budget_period_form_view" model="ir.ui.view">
+            <field name="name">crossovered.budget.period.form.view</field>
+            <field name="model">crossovered.budget.period</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="set_to_open" type="object" string="Open" class="oe_highlight" states="close"
+                                groups="account.group_account_manager"/>
+                        <button name="set_to_close" type="object" string="Close" class="oe_highlight" states="open"
+                                groups="account.group_account_manager"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="crossovered_budget_period_tree_view" model="ir.ui.view">
+            <field name="name">crossovered.budget.period.tree.view</field>
+            <field name="model">crossovered.budget.period</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="crossovered_budget_period_action" model="ir.actions.act_window">
+            <field name="name">Budget Periods</field>
+            <field name="res_model">crossovered.budget.period</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="crossovered_budget_period_menu"
+                  name="Budget Periods"
+                  action="crossovered_budget_period_action"
+                  parent="account.menu_finance_entries_management"
+                  groups="account.group_account_manager"
+                  sequence="62"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_menu_budget_project_status_report_wizard" model="ir.actions.act_window">
+            <field name="name">Budget Project Status Report</field>
+            <field name="res_model">budget.project.status.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_report_type': 'budget_project_status_report', 'form_view_ref':
+                'mnc_and_reporting.and_report_wizard_form_view'}
+            </field>
+        </record>
+
+        <record id="menu_budget_project_status_report_wizard" model="ir.ui.menu">
+            <field name="name">Budget Project Status Report</field>
+            <field name="action" ref='action_menu_budget_project_status_report_wizard'/>
+            <field name="parent_id" ref='mnc_menu_report.report_pc'/>
+        </record>
+    </data>
+</odoo>

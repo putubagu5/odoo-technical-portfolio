@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="purchase_request_approval_email_template" model="mail.template">
+            <field name="name">Purchase Request: Request Approval</field>
+            <field name="model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="subject">${object.company_id.name} Purchase Request (Ref ${object.name or 'n/a' })</field>
+            <field name="partner_to">${object.assigned_to.partner_id.id}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear ${object.assigned_to.partner_id.name}
+                        <br/><br/>
+                        There is a Purchase Request with the number <strong>${object.name}</strong> that requires your approval.
+                        The total estimated cost is <strong>${format_amount(object.estimated_cost, object.currency_id)}</strong>.
+                        <br/><br/>
+                        <a href="${ctx['url']}">Click here to Approve this Purchase Request</a>
+                    </p>
+                </div>
+            </field>
+            <field name="lang">${object.assigned_to.partner_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

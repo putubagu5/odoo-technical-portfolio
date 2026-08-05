@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="edit_project" model="ir.ui.view">
+            <field name="name">edit.project</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <!-- add code after h1 -->
+                <xpath expr="//h1" position="after">
+                    <h3>
+                        <label for="code" string="Code"/>
+                        <field name="code" placeholder="Project Code" required="1"/>
+                    </h3>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_project_project_filter" model="ir.ui.view">
+            <field name="name">view.project.project.filter</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_project_filter"/>
+            <field name="arch" type="xml">
+                <!-- add code after name -->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="code" string="Project Code"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

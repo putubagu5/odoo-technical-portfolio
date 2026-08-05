@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <record id="view_vendor_blacklist_form" model="ir.ui.view">
+            <field name="name">view.vendor.blacklist.form</field>
+            <field name="model">vendor.blacklist</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_approve" type="object" string="Approve" class="oe_highlight" attrs="{'invisible': [('state', '=', 'approve')]}"/>
+                        <button name="button_cancel" type="object" string="Cancel" class="oe_highlight" attrs="{'invisible': ['|', ('state', '=', 'cancel'), ('state', '=', False)]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="partner_id" required="1"/>
+                                <field name="npwp"/>
+                                <field name="reason" required="1"/>
+                                <field name="date_approved" readonly="1"/>
+                                <field name="date_cancelled" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_vendor_blacklist_tree" model="ir.ui.view">
+            <field name="name">view.vendor.blacklist.tree</field>
+            <field name="model">vendor.blacklist</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partner_id"/>
+                    <field name="npwp"/>
+                    <field name="reason"/>
+                    <field name="date_approved"/>
+                    <field name="date_cancelled"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_vendor_blacklist" model="ir.actions.act_window">
+            <field name="name">Vendor Blacklist</field>
+            <field name="res_model">vendor.blacklist</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_vendor_blacklist"
+            name="Vendor Blacklist"
+            action="action_vendor_blacklist"
+            parent="account.menu_finance_payables"
+            sequence="400"/>
+    </data>
+</odoo>

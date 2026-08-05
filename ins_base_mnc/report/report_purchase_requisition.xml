@@ -1,0 +1,263 @@
+<odoo>
+    <template id="ins_base_mnc_report_purchase_requisition_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_purchase_requisition_container_document"/>
+				<t t-if="o._get_custom_report_attachment()">
+                    <t t-call="o._get_custom_report_attachment()"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_purchase_requisition_container_document">
+    	<t t-call="web.basic_layout">
+    		<!-- <div class="page" style="font-size: 12px !important;"> -->
+	    		<div class="header" style="font-size:12px;">
+	    			<div class="row" >
+	                    <div class="col-12">
+	                        <table width="100%">
+	                            <tr>
+	                                <td width="33%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+	                                    <img src='/web/binary/company_logo' alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+	                                </td>
+	                                <td width="34%" align="center" style="border: 1px solid black; padding: 7px; vertical-align: middle;">
+	                                    <h5><strong>PURCHASE REQUISITION</strong></h5>
+	                                </td>
+	                                <td width="33%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+	                                    <span>Page</span>
+			                            <span class="page" />
+			                            of
+			                            <span class="topage" />
+	                                </td>
+	                            </tr>
+	                        </table>
+	                    </div>
+	                </div>
+	                <div class="row">
+                    	<div class="col-12">
+                    		<table width="100%" style="font-weight: bold; border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
+                    			<tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                    				<td width="10%" style="padding: 2px;">
+                                    Description
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px;">
+	                                    <span t-field="o.po_description"/>
+	                                </td>
+	                                <td width="10%" style="padding: 2px;">
+                                    Req. No
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px; border-right: 1px solid black;">
+	                                    <span t-field="o.pr_numbers"/>
+	                                </td>
+                    			</tr>
+                    			<tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                    				<td width="10%" style="padding: 2px;">
+                                    Project Name
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px;">
+
+	                                </td>
+	                                <td width="10%" style="padding: 2px;">
+                                    Date
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px; border-right: 1px solid black;">
+	                                    <t t-esc="o.date_order.strftime('%d-%b-%y')"/>
+	                                </td>
+                    			</tr>
+                    			<tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                    				<td width="10%" style="padding: 2px;">
+                                    Classification
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px;">
+
+	                                </td>
+	                                <td width="10%" style="padding: 2px;">
+                                    Prepared by
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px; border-right: 1px solid black;">
+	                                    <span t-field="o.requestor_comp"/>
+	                                </td>
+                    			</tr>
+                    			<tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                    				<td width="10%" style="padding: 2px;">
+                                    Date Required
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px;">
+	                                    <t t-esc="o.date_order.strftime('%d-%b-%y')"/>
+	                                </td>
+	                                <td width="10%" style="padding: 2px;">
+                                    Department
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px; border-right: 1px solid black;">
+
+	                                </td>
+                    			</tr>
+                    			<tr style="border-top: 1px solid black !important; border-bottom: 1px solid black !important;">
+                    				<td width="10%" style="padding: 2px;">
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+
+	                                </td>
+	                                <td width="39%" style="padding: 2px;">
+	                                </td>
+	                                <td width="10%" style="padding: 2px;">
+                                    Type
+	                                </td>
+	                                <td width="1%" style="padding: 2px;">
+	                                    :
+	                                </td>
+	                                <td width="39%" style="padding: 2px; border-right: 1px solid black;">
+
+	                                </td>
+                    			</tr>
+                    		</table>
+                    	</div>
+                   	</div>
+	    		</div>
+
+	    		<div class="page" style="font-size:12px">
+	    			<div class="row">
+	    				<div class="col-12">
+	    					<table width="100%">
+	    						<t t-set="num" t-value="1"/>
+	    						 <tr>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>NO</strong>
+	                                </td>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>DESCRIPTION</strong>
+	                                </td>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>NOMOR ACCOUNT</strong>
+	                                </td>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>JUMLAH</strong>
+	                                </td>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>VALAS</strong>
+	                                </td>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>TOTAL VALAS</strong>
+	                                </td>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>HARGA</strong>
+	                                </td>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>TOTAL</strong>
+	                                </td>
+	                                <td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <strong>TANGGAL  DIBUTUHKAN</strong>
+	                                </td>
+	                            </tr>
+	                            <tr t-foreach="o.order_line" t-as="line">
+	                            	<td align="center" style="border: 1px solid black; padding: 5px;">
+	                                    <span t-esc="num"/>
+	                                    <t t-set="num" t-value="num+1"/>
+	                                </td>
+	                                <td style="border: 1px solid black; padding: 5px;">
+	                                    <span t-field="line.name"/>
+	                                </td>
+	                                <td style="border: 1px solid black; padding: 5px;">
+	                                    <span t-field="line.account_id.code"/>
+	                                </td>
+	                                <td style="border: 1px solid black; padding: 5px;">
+	                                    <span t-field="line.product_qty"/>
+	                                </td>
+	                                <td style="border: 1px solid black; padding: 5px;">
+	                                </td>
+	                                <td style="border: 1px solid black; padding: 5px;">
+	                                </td>
+	                                <td align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                    <td align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.price_subtotal" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                    <td style="border: 1px solid black; padding: 5px;">
+
+	                                </td>
+
+	                            </tr>
+	                            <tr style="border: 1px solid black; padding: 5px;">
+	                            	<td align="left" style="border-right: none !important; padding: 5px;" colspan="5">
+	                                    <strong>TERBILANG: </strong><t t-esc="o.amount_in_words"/>
+	                                </td>
+	                                <td align="left" style="border-left: none !important; padding: 5px;" colspan="4">
+	                                    <strong>TOTAL </strong><t t-esc="o.amount_total"/>
+	                                </td>
+	                            </tr>
+	                            <tr style="border: 1px solid black; padding: 5px;">
+	                            	<td align="left" style="padding: 5px;" colspan="9">
+	                                    <strong>KETERANGAN: </strong>
+	                                </td>
+	                            </tr>
+	                            <tr style="border: 1px solid black; padding: 5px;">
+	                            	<td align="left" style="border-right: 1px solid black; padding: 5px;" colspan="5">
+	                                    <strong><u>Approval History:</u></strong>
+	                                </td>
+	                                <td align="left" style="padding: 5px;" colspan="4">
+	                                    <strong>Disetujui</strong>
+	                                </td>
+	                            </tr>
+	                            <tr style="border: 1px solid black; padding: 5px;">
+	                            	<td align="left" style="border-right: 1px solid black; padding: 5px;" colspan="5">
+	                                    1
+	                                </td>
+	                                <td align="left" style="padding: 5px;" colspan="4">
+	                                </td>
+	                            </tr>
+	                            <tr style="border: 1px solid black; padding: 5px;">
+	                            	<td align="left" style="border-right: 1px solid black; padding: 5px;" colspan="5">
+	                                    2
+	                                </td>
+	                                <td align="left" style="padding: 5px;" colspan="4">
+	                                </td>
+	                            </tr>
+	                            <tr style="border: 1px solid black; padding: 5px;">
+	                            	<td align="left" style="border-right: 1px solid black; padding: 5px;" colspan="5">
+	                                    3
+	                                </td>
+	                                <td align="left" style="padding: 5px;" colspan="4">
+	                                </td>
+	                            </tr>
+	                            <tr style="border: 1px solid black; padding: 5px;">
+	                            	<td align="left" style="border-right: 1px solid black; padding: 5px;" colspan="5">
+	                                    4
+	                                </td>
+	                                <td align="left" style="padding: 5px;" colspan="4">
+	                                </td>
+	                            </tr>
+	    					</table>
+	    				</div>
+	    			</div>
+	    		</div>
+    		<!-- </div> -->
+    	</t>
+    </template>
+
+</odoo>

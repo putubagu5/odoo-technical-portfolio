@@ -1,0 +1,369 @@
+<odoo>
+    <data>
+        <record id="inherit_account_move_form" model="ir.ui.view">
+            <field name="name">inherit.account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//button[@name='%(account.action_view_account_move_reversal)d']" position="attributes">
+            		<attribute name="invisible">['|', '|', ('move_type', '!=', 'entry'),('journal_reverse_id', '!=', False), '|', ('state', '!=', 'posted'), ('payment_state', '=', 'reversed')]</attribute>
+            	</xpath>
+                <!-- show payment_state field -->
+                <!-- <xpath expr="//field[@name='payment_state']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath> -->
+
+                <!-- <xpath expr="//field[@name='purchase_vendor_bill_id']" position="replace">
+                <field name="purchase_vendor_bill_id" nolabel="1"
+                attrs="{'invisible': ['|', ('state','!=','draft'), ('move_type', '!=', 'in_invoice')]}"
+                class="oe_edit_only"
+                domain="partner_id and [('company_id', '=', company_id), ('partner_id','child_of', [partner_id])] or [('company_id', '=', company_id)]"
+                placeholder="Select a purchase order or an old bill"
+                context="{'show_total_amount': True}"
+                options="{'no_create': True, 'no_open': True}"/>
+                </xpath> -->
+
+                <xpath expr="//field[@name='narration']" position="after">
+                    <br/><span class="o_form_label">Amount In Words: </span>
+                    <field name="amount_in_words" class="oe_inline" readonly="1"/>
+                    <field name="amount_in_words_2" invisible="1"/>
+                    <br/><span class="o_form_label">Amount Due In Words: </span>
+                    <field name="amount_due_in_words" class="oe_inline" readonly="1"/>
+                    <field name="amount_due_in_words_2" invisible="1"/>
+                    <field name="reversal_move_id" attrs="{'invisible': [('reversal_move_id', '=', False)]}"/>
+                </xpath>
+
+                <button name="action_post" position="after">
+                    <button name="gr_matching" string="GR Matching" class="oe_highlight" type="object"
+                        groups="account.group_account_invoice"
+                        attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('move_type', '!=', 'in_invoice')]}"/>
+                </button>
+                <button name="button_draft" position="after">
+                    <button name="action_applied_prepayment_to_bill" string="Applied Prepayment" class="oe_highlight" type="object"
+                        groups="account.group_account_invoice" context="{'default_invoice_id': active_id}"
+                        attrs="{'invisible': ['|','|',('state', '=', 'draft'),('bill_type', '=', 'prepayment'),('move_type', '=', 'entry')]}"/>
+                </button>
+<!--                <button name="action_reverse" position="replace">-->
+<!--                    <field name="payment_state" invisible="1"/>-->
+<!--                    <button name="action_reverse" string='Add Credit Note'-->
+<!--                        type='object' groups="account.group_account_invoice"-->
+<!--                        attrs="{'invisible': ['|', '&amp;',('move_type', 'not in', ('out_invoice', 'in_invoice')), ('state', '!=', 'posted'),('payment_state', '!=', ('not_paid')), ]}"/>-->
+<!--                </button>-->
+                <!-- hide remove the first label -->
+                <xpath expr="//label[@for='ref']" position="replace">
+                </xpath>
+
+                <xpath expr="//group[@id='header_left_group']/div[@class='o_td_label']" position="before">
+                    <field name="bill_type" widget="radio" options="{'horizontal': true}"
+                        attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('move_type', '!=', 'in_invoice')]}"/>
+                </xpath>
+
+                <xpath expr="//page[@id='other_tab_entry']//group[@id='other_tab_entry_group']//group[2]" position="after">
+                    <group string="AR Reference">
+                        <field name="ref_receipt" attrs="{'invisible': [('move_type', '!=', 'entry')]}"/>
+                        <field name="ref_misc_receipt" attrs="{'invisible': [('move_type', '!=', 'entry')]}"/>
+                    </group>
+                    <group string="AP Reference">
+                        <field name="ref_payment" attrs="{'invisible': [('move_type', '!=', 'entry')]}"/>
+                        <field name="ref_misc_payment" attrs="{'invisible': [('move_type', '!=', 'entry')]}"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//field[@name='ref']" position="before">
+                    <field name="payment_reference" position="move"/>
+                </xpath>
+
+                <xpath expr="//field[@name='account_ap_id']" position="after">
+                    <field name="other_reference" attrs="{'invisible': [('bill_type', '!=', 'standard')], 'readonly': [('state', '=', 'posted')]}"/>
+                    <field name="other_reference_manual" invisible="1"/>
+                    <field name="reversed_entry_id" attrs="{'invisible': [('move_type', '!=', 'out_refund')]}"/>
+                    <field name="settlement_invoice" attrs="{'invisible': [('bill_type', '!=', 'prepayment')]}"/>
+                    <field name="prepayment_refs" attrs="{'invisible': ['|', ('state', '!=', 'draft'), '|', ('move_type', '!=', 'in_invoice'), ('bill_type', '!=', 'settlement')]}"/>
+                    <field name="account_move_prepayment_match_ids" invisible="1"/>
+                    <field name="amount_compare" decoration-danger="amount_compare != amount_total"
+                        attrs="{'readonly': [('state', '=', 'posted')]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="sites_id" domain="[('partner_id', '=', partner_id)]" attrs="{'invisible': [('move_type', '==', 'entry')]}"/>
+                </xpath>
+
+                <!-- <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt'))], 'required': [('move_type', '==', 'in_invoice')]}</attribute>
+                </xpath> -->
+
+                <xpath expr="//field[@name='partner_bank_id']" position="after">
+                    <field name="amount_prepayment_applied_for_settlement" attrs="{'invisible': [('bill_type', '!=', 'prepayment')]}"/>
+                    <field name="amount_total_signed" invisible="1"/>
+                    <field name="is_full_applied_prepayment" invisible="1"/>
+                    <field name="prepayment_po_ref_id"
+                        attrs="{'invisible': [('bill_type', '!=', 'prepayment')]}"
+                        domain="[('company_id', '=', company_id), ('show_prepayment', '=', True), ('state', '=', 'purchase'), ('amount_total', '!=', 0)]" options="{'no_create': True}" force_save="1"/>
+                    <field name="amount_outstanding_purchase"
+                        attrs="{'invisible': [('bill_type', '!=', 'prepayment')]}"/>
+                    <field name="apply_prepayment_id" class="oe_edit_only"
+                        attrs="{'invisible': ['|', ('state', '!=', 'draft'), '|', ('move_type', '!=', 'in_invoice'), ('bill_type', '!=', 'settlement')]}"
+                        domain="[('id', 'not in', account_move_prepayment_match_ids), ('company_id', '=', company_id), ('bill_type', '=', 'prepayment'), ('partner_id','child_of', [partner_id]), ('payment_state','=','paid')]" options="{'no_create': True}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='operating_unit_id']" position="after">
+                    <field name="assignee_id_invoice"
+                        attrs="{'invisible': [('move_type', '==', 'in_invoice')], 'readonly': [('state', '=', 'posted')]}"
+                        domain="[('company_id','=',company_id)]"/>
+                    <field name="assignee_id_bill"
+                        attrs="{'invisible': [('move_type', '==', 'out_invoice')], 'readonly': [('state', '=', 'posted')]}"/>
+                    <field name="po_numbers" attrs="{'invisible': [('move_type', '==', 'out_invoice')]}"/>
+                    <field name="rr_numbers" attrs="{'invisible': [('move_type', '==', 'out_invoice')]}"/>
+                    <!-- <field name="po_numbers_store"/> -->
+                </xpath>
+
+                <xpath expr="//field[@name='partner_bank_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+
+                <!-- add text above label for journal_id -->
+                <xpath expr="//div[@name='journal_div']" position="after">
+                    <div>
+                        <span class="o_form_label" style="color: red;">
+                            Changing Currency will reset the invoice lines!
+                        </span>
+                    </div>
+                </xpath>
+
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                    <field name="reconciliation_date" attrs="{'invisible': [('reconciliation_date', '=', False)]}"/>
+                </xpath>
+
+                <!-- hide action_reverse button, override attrs, remove attrs for in_invoice -->
+                <xpath expr="//button[@name='action_reverse']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', '|',('move_type', 'not in', ('out_invoice')), ('state', '!=', 'posted'),('mnc_payment_state', 'in', ('in_payment', 'partial', 'paid'))]}</attribute>
+                </xpath>
+
+                <!-- add purchase_line_number and picking_line_number before quantity in tree -->
+                <xpath expr="//page[@id='invoice_tab']//field[@name='invoice_line_ids']//tree//field[@name='quantity']" position="before">
+                    <field name="purchase_line_number" readonly="1" force_save="1"/>
+                    <field name="picking_line_number" readonly="1" force_save="1"/>
+                    <field name="purchase_info_id" optional="hide" force_save="1"/>
+                    <field name="account_move_prepayment_match_id" optional="hide" readonly="1" force_save="1"/>
+                    <field name="account_move_line_prepayment_match_id" optional="hide" readonly="1" force_save="1"/>
+                    <field name="amount_line_prepayment_applied_for_settlement" invisible="1" force_save="1"/>
+                </xpath>
+
+                <xpath expr="//page[@id='aml_tab']//field[@name='line_ids']//tree//field[@name='tax_tag_ids']" position="after">
+                    <field name="account_move_prepayment_match_id" invisible="1" force_save="1"/>
+                    <field name="account_move_line_prepayment_match_id" invisible="1" force_save="1"/>
+                    <field name="amount_line_prepayment_applied_for_settlement" invisible="1" force_save="1"/>
+                    <field name="budget_remaining_corporate" optional="show" force_save="1"/>
+                </xpath>
+
+                <!-- make these field invisible for digits display to work -->
+                <xpath expr="//page[@id='invoice_tab']//field[@name='invoice_line_ids']//tree//field[@name='quantity']" position="replace">
+                    <field name="quantity" id="quantity_default" invisible="1"/>
+                    <field name="quantity" id="quantity_cust" digits="[12, 2]" optional="show"/>
+                </xpath>
+                <xpath expr="//page[@id='invoice_tab']//field[@name='invoice_line_ids']//tree//field[@name='price_unit']" position="replace">
+                    <field name="price_unit" id="price_unit_default" invisible="1"/>
+                    <field name="price_unit" id="price_unit_cust" digits="[12, 2]" optional="show"/>
+                </xpath>
+
+                <xpath expr="//page[@id='invoice_tab']//field[@name='invoice_line_ids']//tree//field[@name='name']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//page[@id='invoice_tab']//field[@name='invoice_line_ids']//tree//field[@name='account_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//page[@id='invoice_tab']//field[@name='invoice_line_ids']//tree//field[@name='purchase_line_number']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//page[@id='invoice_tab']//field[@name='invoice_line_ids']//tree//field[@name='picking_line_number']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//page[@id='invoice_tab']//field[@name='invoice_line_ids']//tree//field[@name='price_subtotal']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+                <xpath expr="//page[@id='invoice_tab']" position="after">
+                    <page id="applied_prepayment_tab"
+                          string="Applied Prepayment to Bill"
+                          attrs="{'invisible': [('move_type', '=', 'entry')]}">
+                        <field name="apply_prepayment_to_bill_ids"
+                               widget="one2many_list" attrs="{'invisible': [('move_type', '=', 'entry')]}">
+                            <tree edit="true" create="false" string="Applied Invoice" >
+                                <field name="company_id"/>
+                                <field name="id" optional="show"/>
+                                <field name="bill_type"/>
+                                <field name="prepayment_id"/>
+                                <field name="invoice_amount"/>
+                                <field name="amount_prepayment_applied_for_settlement"/>
+                                <field name="transaction_type"/>
+                                <field name="transaction_date"/>
+                                <field name="applied_amount"/>
+                                <field name="move_id"/>
+                                <button string="Unapplied Prepayment"
+                                name="action_unapplied_bill"
+                                attrs="{'invisible': [('transaction_type', '=', 'unapply')]}"
+                                type="object" class="oe_highlight"/>
+                                <button string="Applied Prepayment"
+                                name="action_applied_bill"
+                                attrs="{'invisible': [('transaction_type', '=', 'apply')]}"
+                                type="object" class="oe_highlight"/>
+<!--                                <button string="Action Reconcile"-->
+<!--                                name="action_reconcile"-->
+<!--                                type="object" class="oe_highlight"/>-->
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+                <!-- replace ref with nolabel, and ref attrs to required -->
+                <xpath expr="//field[@name='ref'][@nolabel='1']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('move_type', 'not in', ('in_invoice', 'in_receipt', 'in_refund', 'out_invoice', 'out_receipt', 'out_refund'))], 'required': [('move_type', '!=', 'entry')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='payment_reference']" position="attributes">
+                    <attribute name="attrs">{'required': [('move_type', 'in', ('in_invoice', 'out_invoice'))], 'readonly': [('state', '=', 'posted')]}</attribute>
+                </xpath>
+
+                <!-- add employee in vendor bill if bill type in prepayment or settlement-->
+                <xpath expr="//field[@name='payment_reference']" position="after">
+                	<field name="mnc_payment_state" invisible="1"/>
+                    <field name="employee" widget="selection"  invisible="1"/>
+                    <field name="employee_text" attrs="{'invisible': ['|', ('bill_type', '==', 'standard'), ('move_type', '==', 'out_invoice')], 'readonly': [('state', '==', 'posted')] }"/>
+                    <field name="journal_reverse_id" attrs="{'invisible': [('journal_reverse_id', '=', False)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='reversed_entry_id']" position="replace">
+                    <field name="reversed_entry_id" attrs="{'invisible': [('reversed_entry_id', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//button[@name='button_draft']" position="replace">
+                    <button name="button_draft" string="Set to Draft" type="object" groups="ins_base_mnc.group_super_admin"/>
+                </xpath>
+<!--                <xpath expr="//button[@name='button_draft']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible': 1}</attribute>-->
+<!--                </xpath>-->
+
+                <!-- replace widget with title Paid, In Payment, Partial and add ribbon for draft and open (mnc_payment_state) -->
+                <xpath expr="//widget[1]" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('mnc_payment_state', '!=', 'paid'), ('move_type', 'not in', ('out_invoice', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt'))]}</attribute>
+                </xpath>
+                <xpath expr="//widget[2]" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('mnc_payment_state', '!=', 'in_payment'), ('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt'))]}</attribute>
+                </xpath>
+                <xpath expr="//widget[3]" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('mnc_payment_state', '!=', 'partial'), ('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt'))]}</attribute>
+                </xpath>
+                <xpath expr="//widget[@name='web_ribbon']" position="before">
+                    <widget name="web_ribbon" title="Draft"
+                        attrs="{'invisible': ['|', ('payment_state', '!=', 'draft'), ('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt'))]}"/>
+                    <widget name="web_ribbon" title="Open"
+                        attrs="{'invisible': ['|', ('payment_state', '!=', 'open'), ('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt'))]}"/>
+                </xpath>
+
+                <!-- then add to last widget to show the ribbon only for out_refund -->
+                <xpath expr="//widget[@name='web_ribbon']" position="after">
+                    <widget name="web_ribbon" title="Credit Note"
+                        attrs="{'invisible': ['|', ('mnc_payment_state', '!=', 'paid'), ('move_type', '!=', 'out_refund')]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='date']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('move_type', 'in', ('out_refund', 'out_receipt'))],'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+        <!-- bypass domain in purchase_vendor_bill_id to include currency filter -->
+        <record id="view_move_form_inherit_purchase" model="ir.ui.view">
+            <field name="name">view.move.form.inherit.purchase</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="purchase.view_move_form_inherit_purchase"/>
+            <field name="arch" type="xml">
+                <!-- replace domain and hide field -->
+                <xpath expr="//field[@name='purchase_vendor_bill_id']" position="attributes">
+                    <attribute name="domain">partner_id and [('company_id', '=', company_id), ('partner_id.commercial_partner_id', '=', commercial_partner_id), ('currency_id', '=', currency_id)] or [('company_id', '=', company_id), ('currency_id', '=', currency_id)]</attribute>
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+
+                <!-- hide label-->
+                <xpath expr="//label[@for='purchase_vendor_bill_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account.account_invoices" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+        <record id="account.action_account_original_vendor_bill" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+        <record id="view_invoice_tree" model="ir.ui.view">
+            <field name="name">view.invoice.tree</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="arch" type="xml">
+                <!-- rename amount_untaxed_signed -->
+                <xpath expr="//field[@name='amount_untaxed_signed']" position="attributes">
+                    <attribute name="string">DPP</attribute>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="attributes">
+                     <attribute name="string">Ref</attribute>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="after">
+                     <field name="ref_desc" optional="show"/>
+                     <field name="employee" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                     <field name="bills_date" optional="show"/>
+                     <field name="invoices_date" optional="show"/>
+                     <field name="reconciliation_date" optional="show"/>
+                </xpath>
+
+                <!-- hide amount_residual_signed -->
+                <xpath expr="//field[@name='amount_residual_signed']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- add before currency_id amount_residual -->
+                <xpath expr="//field[@name='currency_id']" position="before">
+                    <field name="amount_residual" string="Amount Due" sum="Amount Due" optional="hide"/>
+                </xpath>
+
+                <!-- add payment_reference after name -->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="payment_reference"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_move_tree" model="ir.ui.view">
+            <field name="name">view.move.tree</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='ref']" position="after">
+                     <field name="ref_receipt" optional="hide"/>
+                     <field name="ref_misc_receipt" optional="hide"/>
+                     <field name="ref_payment" optional="hide"/>
+                     <field name="ref_misc_payment" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="misc_view_move_form" model="ir.ui.view">
+            <field name="name">misc.view.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="ins_miscellaneous.inherit_account_move_form"/>
+            <field name="arch" type="xml">
+                <!-- add receipt_number after misc_id -->
+                <xpath expr="//tree//field[@name='misc_id']" position="after">
+                    <field name="receipt_number"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

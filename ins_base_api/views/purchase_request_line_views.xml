@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record id="inherit_form_view_purchase_request_line" model="ir.ui.view">
+            <field name="name">inherit.form.view.purchase.request.line</field>
+            <field name="model">purchase.request.line</field>
+            <field name="inherit_id" ref="purchase_request.purchase_request_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="before">
+                    <field name="is_post_line_gen21" invisible="1"/>
+                </xpath>
+                <xpath expr="//button[@name='return_pr_line']" position="before">
+                    <button name="button_canceled_gen21" attrs="{'invisible': ['|', ('is_post_line_gen21', '=', False), ('request_state', '!=', 'draft')]}" string="Cancel" type="object"/>
+                 </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

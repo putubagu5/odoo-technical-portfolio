@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="wizard_mnc_ar_aging_report_form" model="ir.ui.view">
+        <field name="name">wizard.mnc.ar.aging.report.form</field>
+        <field name="model">wizard.mnc.ar.aging.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="company_id" options="{'no_create': True, 'no_open': True}" required="1"/>
+                        <field name="as_of_date" required="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="button_print_excel" string="Download Excel" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_wizard_mnc_ar_aging_report">
+        <field name="name">AR Aging Detail Report</field>
+        <field name="res_model">wizard.mnc.ar.aging.report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_mnc_ar_aging_report_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_mnc_ar_aging_report" parent="mnc_menu_report.report_ar" name="AR Aging Detail Report"
+              action="action_wizard_mnc_ar_aging_report" sequence="21"/>
+
+</odoo>

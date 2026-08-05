@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_bank_statement_generate_form_inherit" model="ir.ui.view">
+		<field name="name">account.bank.statement.generate.form</field>
+		<field name="model">account.bank.statement.generate</field>
+        <field name="inherit_id" ref="oi_bank_reconciliation.view_account_bank_statement_generate_form"/>
+		<field name="priority">100</field>
+		<field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_ids']" position="replace">
+                 <field name="payment_ids" context="{'tree_view_ref' : 'oi_bank_reconciliation.view_account_payment_tree_statement_generate'}" nolabel="1" domain="[('journal_id','=', journal_id), ('is_matched','=', False), ('state','=', 'posted'), ('draft_bank_statement','=', False)]" />
+            </xpath>
+        </field>
+        </record>
+
+        <record id="misc_misc_account_bank_statement_generate_form_inherit" model="ir.ui.view">
+		<field name="name">account.bank.statement.generate.form</field>
+		<field name="model">account.bank.statement.generate</field>
+        <field name="inherit_id" ref="ins_miscellaneous.misc_misc_account_bank_statement_generate_form"/>
+		<field name="priority">100</field>
+		<field name="arch" type="xml">
+            <xpath expr="//field[@name='misc_payment_ids']" position="replace">
+                 <field name="misc_payment_ids" context="{'tree_view_ref' : 'ins_miscellaneous.misc_receipts_tree_view'}" nolabel="1" domain="[('journal_id','=', journal_id), ('is_matched','=', False), ('state','=', 'posted'), ('draft_bank_statement','=', False)]" />
+            </xpath>
+        </field>
+        </record>
+
+    </data>
+</odoo>

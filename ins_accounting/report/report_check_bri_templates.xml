@@ -1,0 +1,61 @@
+<odoo>
+    <template id="report_payment_check_bri_mnch_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_accounting.report_payment_check_bri_mnch_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_accounting.report_payment_check_bri_mnch_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <!-- cheque contents -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr style="text-left">
+                                <td width="65%"/>
+                                <td width="35%" height="40" style="vertical-align: bottom">
+                                    <span>Jakarta,</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%"/>
+                                <td width="70%" height="25">
+                                    <span t-field="o.acc_name"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="28%"/>
+                                <td width="72%">
+                                    <span t-field="o.words1"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="5%"/>
+                                <td width="54%" style="vertical-align: middle">
+                                    <span t-field="o.words2"/>
+                                </td>
+                                <td width="41%" height="30" style="vertical-align: middle">
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

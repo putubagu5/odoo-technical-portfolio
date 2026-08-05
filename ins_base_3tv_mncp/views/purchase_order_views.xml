@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_purchase_order_form" model="ir.ui.view">
+            <field name="name">view.purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="ins_base_mnc.inherit_purchase_order_form"/>
+            <field name="arch" type="xml">
+                <!-- add required to assignee_id -->
+                <xpath expr="//field[@name='assignee_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

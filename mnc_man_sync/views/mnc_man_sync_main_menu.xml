@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+
+        <menuitem id="mnc_sync_logger_root"
+            name="MNC Sync Logger"
+            sequence="9"/>
+
+    </data>
+</odoo>

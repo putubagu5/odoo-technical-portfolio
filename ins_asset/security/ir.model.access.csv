@@ -1,0 +1,23 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_area_all,res_area all,ins_asset.model_res_area,,1,1,1,1
+access_res_building_all,res_building all,ins_asset.model_res_building,,1,1,1,1
+access_res_floor_all,res_floor all,ins_asset.model_res_floor,,1,1,1,1
+access_asset_condition_all,asset_condition all,ins_asset.model_asset_condition,,1,1,1,1
+access_asset_segment_all,asset_segment all,ins_asset.model_asset_segment,,1,1,1,1
+access_asset_location_all,asset_location all,ins_asset.model_asset_location,,1,1,1,1
+access_asset_cost_progress_all,asset_cost_progress all,ins_asset.model_asset_cost_progress,,1,1,1,1
+access_asset_progress_all,asset_progress all,ins_asset.model_asset_progress,,1,1,1,1
+access_asset_progress_line_all,asset_progress_line all,ins_asset.model_asset_progress_line,,1,1,1,1
+access_asset_assignment_all,asset_assignment all,ins_asset.model_asset_assignment,,1,1,1,1
+access_wizard_mass_asset_generate_all,wizard_mass_asset_generate all,ins_asset.model_wizard_mass_asset_generate,,1,1,1,1
+access_wizard_mass_asset_detail_all,wizard_mass_asset_detail all,ins_asset.model_wizard_mass_asset_detail,,1,1,1,1
+access_asset_outstanding_report_all,asset_outstanding_report all,ins_asset.model_asset_outstanding_report,,1,1,1,1
+access_wizard_asset_addition_all,asset_addition all,ins_asset.model_wizard_asset_addition,,1,1,1,1
+access_wizard_asset_retire_all,asset_retire all,ins_asset.model_wizard_asset_retire,,1,1,1,1
+access_account_asset_account_move_all,account_asset_account_move all,ins_asset.model_account_asset_account_move,,1,1,1,1
+access_asset_depreciation_line,ins.account.asset.depreciation.line,model_account_asset_depreciation_line,account.group_account_user,1,0,0,0
+access_asset_depreciation_line_manager,ins.account.asset.depreciation.line,model_account_asset_depreciation_line,account.group_account_manager,1,1,1,1
+access_asset_source_line_all,access_asset_source_line_all,model_asset_source_line,,1,1,1,1
+access_wizard_sell_asset_all,wizard_sell_asset all,ins_asset.model_wizard_sell_asset,,1,1,1,1
+access_asset_period_all,asset_period all,ins_asset.model_asset_period,,1,1,1,1
+access_asset_period_line_all,asset_period_line all,ins_asset.model_asset_period_line,,1,1,1,1

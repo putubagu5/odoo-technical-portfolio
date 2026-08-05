@@ -1,0 +1,280 @@
+<odoo>
+    <data>
+        <record id="mail_purchase_request_approval" model="mail.template">
+            <field name="name">Purchase Request: Request Approval</field>
+            <field name="model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="email_from">${ctx['mail_from'] | safe}</field>
+            <field name="reply_to">${ctx['mail_from'] | safe}</field>
+            <field name="subject">${object.company_id.name} Purchase Request (Ref ${object.name or 'n/a' })</field>
+            <field name="email_to">${ctx['approver'] | safe}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    % if ctx['forwarder']:
+                    <p style="margin: 5px 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        Forwarded from ${ctx['forwarder']}
+                    </div>
+                    </p>
+                    % endif
+
+                    <p style="margin: 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        Purchase Request Approval:<br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td>User</td>
+                                <td>: ${object.requested_by.name}</td>
+                            </tr>
+                            <tr>
+                                <td>Number</td>
+                                <td>: ${object.name}</td>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td>: ${ctx['date']}</td>
+                            </tr>
+                            <tr>
+                                <td>Total Amount</td>
+                                <td>: ${'{:,.0f}'.format(object.estimated_cost)}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    </p>
+                    <p style="margin: 5px 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        <table width="100%">
+                            <tr>
+                                <td>Product</td>
+                                <td>Qty</td>
+                                <td>Price</td>
+                                <td>Subtotal</td>
+                            </tr>
+                            % for line in object.line_ids:
+                            <tr>
+                                <td>${line.product_id.name}</td>
+                                <td>${line.product_qty}</td>
+                                <td>${'{:,.0f}'.format(line.estimated_cost)}</td>
+                                <td>${'{:,.0f}'.format(line.estimated_cost * line.product_qty)}</td>
+                            </tr>
+                            % endfor
+                        </table>
+                    </div>
+                    </p>
+
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        ${object.description}
+                    </div>
+
+                    % if ctx['is_answer']:
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        ${object.requested_by.name} answered:<br/>
+                        ${ctx['note']}
+                    </div>
+                    % endif
+
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        <a href="${ctx['approve_link']}"
+                            style="padding: 5px 10px; border: 1px solid #00D000; background-color: #00D000; color: black; font-weight: bold; border-radius: 3px;">Approve</a>
+                        <a href="${ctx['reject_link']}"
+                            style="padding: 5px 10px; border: 1px solid #FF0000; background-color: #FF0000; color: black; font-weight: bold; border-radius: 3px;">Reject</a>
+                        <a href="${ctx['ask_link']}"
+                            style="padding: 5px 10px; border: 1px solid #01A1F1; background-color: #01A1F1; color: black; font-weight: bold; border-radius: 3px;">Ask</a>
+                        <a href="${ctx['aprfwd_link']}"
+                            style="padding: 5px 10px; border: 1px solid #D5DB18; background-color: #D5DB18; color: black; font-weight: bold; border-radius: 3px;">Approve And Forward</a>
+                        <a href="${ctx['fwd_link']}"
+                            style="padding: 5px 10px; border: 1px solid #8A73DE; background-color: #8A73DE; color: black; font-weight: bold; border-radius: 3px;">Forward</a>
+                    </div>
+
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        <p>
+                            Or you could click these buttons to do interactive approval
+                        </p>
+                    </div>
+
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        <a href="${ctx['approve_url']}"
+                            style="padding: 5px 10px; border: 1px solid #00D000; background-color: #00D000; color: black; font-weight: bold; border-radius: 3px;">Approve</a>
+                        <a href="${ctx['reject_url']}"
+                            style="padding: 5px 10px; border: 1px solid #FF0000; background-color: #FF0000; color: black; font-weight: bold; border-radius: 3px;">Reject</a>
+                        <a href="${ctx['ask_url']}"
+                            style="padding: 5px 10px; border: 1px solid #01A1F1; background-color: #01A1F1; color: black; font-weight: bold; border-radius: 3px;">Ask</a>
+                        <a href="${ctx['aprfwd_url']}"
+                            style="padding: 5px 10px; border: 1px solid #D5DB18; background-color: #D5DB18; color: black; font-weight: bold; border-radius: 3px;">Approve And Forward</a>
+                        <a href="${ctx['fwd_url']}"
+                            style="padding: 5px 10px; border: 1px solid #8A73DE; background-color: #8A73DE; color: black; font-weight: bold; border-radius: 3px;">Forward</a>
+                    </div>
+
+                    <div style="margin: 10px 0px; padding: 0px;">
+                        Approval Tracking<br/>
+                        ${ctx['prev_approver']} - You - ${ctx['next_approver']}
+                    </div>
+
+                    <p style="margin: 5px 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        <details>
+                            <summary>Approval Details</summary>
+                            <ul>
+                                % for msg in object.approval_message_ids:
+                                <li>${msg.employee_id.name} ${msg.state} : ${msg.note} at ${msg.date.strftime('%d-%m-%Y %H:%M:%S')}</li>
+                                % endfor
+                            </ul>
+                        </details>
+                    </div>
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="mail_purchase_request_question" model="mail.template">
+            <field name="name">Purchase Request: Question</field>
+            <field name="model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="email_from">${ctx['mail_from'] | safe}</field>
+            <field name="reply_to">${ctx['mail_from'] | safe}</field>
+            <field name="subject">${object.company_id.name} Purchase Request (Ref ${object.name or 'n/a' })</field>
+            <field name="email_to">${ctx['approver']}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        Purchase Request Approval:<br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td>User</td>
+                                <td>: ${object.requested_by.name}</td>
+                            </tr>
+                            <tr>
+                                <td>Number</td>
+                                <td>: ${object.name}</td>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td>: ${ctx['date']}</td>
+                            </tr>
+                            <tr>
+                                <td>Total Amount</td>
+                                <td>: ${'{:,.0f}'.format(object.estimated_cost)}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    </p>
+                    <p style="margin: 5px 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        <table width="100%">
+                            <tr>
+                                <td>Product</td>
+                                <td>Qty</td>
+                                <td>Price</td>
+                                <td>Subtotal</td>
+                            </tr>
+                            % for line in object.order_line:
+                            <tr>
+                                <td>${line.product_id.name}</td>
+                                <td>${line.product_qty}</td>
+                                <td>${'{:,.0f}'.format(line.estimated_cost)}</td>
+                                <td>${'{:,.0f}'.format(line.estimated_cost * line.product_qty)}</td>
+                            </tr>
+                            % endfor
+                        </table>
+                    </div>
+                    </p>
+
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        ${object.description}
+                    </div>
+
+                    <div style="margin: 10px 0px; padding: 0px;">
+                        ${ctx['asker'].employee_id.name} asks:<br/>
+                        ${ctx['note']}
+                    </div>
+
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        <a href="${ctx['answer_link']}"
+                            style="padding: 5px 10px; border: 1px solid #01A1F1; background-color: #01A1F1; color: black; font-weight: bold; border-radius: 3px;">Answer</a>
+                    </div>
+
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        <p>
+                            Or you could click this button to do interactive approval
+                        </p>
+                    </div>
+                    <div style="margin: 5px 0px; padding: 0px;">
+                        <a href="${ctx['ans_url']}"
+                            style="padding: 5px 10px; border: 1px solid #01A1F1; background-color: #01A1F1; color: black; font-weight: bold; border-radius: 3px;">Answer</a>
+                    </div>
+
+                    <p style="margin: 5px 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        <details>
+                            <summary>Approval Details</summary>
+                            <ul>
+                                % for msg in object.approval_message_ids:
+                                <li>${msg.employee_id.name} ${msg.state} : ${msg.note} at ${msg.date.strftime('%d-%m-%Y %H:%M:%S')}</li>
+                                % endfor
+                            </ul>
+                        </details>
+                    </div>
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="mail_purchase_request_fail" model="mail.template">
+            <field name="name">Purchase Request: Fail</field>
+            <field name="model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="email_from">${ctx['mail_from'] | safe}</field>
+            <field name="reply_to">${ctx['mail_from'] | safe}</field>
+            <field name="subject">${object.company_id.name} Purchase Request (Ref ${object.name or 'n/a' })</field>
+            <field name="email_to">${ctx['mail_to']}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        Purchase Request Approval:<br/><br/>
+                        <table width="100%">
+                            <tr>
+                                <td>User</td>
+                                <td>: ${object.requested_by.name}</td>
+                            </tr>
+                            <tr>
+                                <td>Number</td>
+                                <td>: ${object.name}</td>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td>: ${ctx['date']}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    </p>
+
+                    <div style="margin: 10px; padding: 0px; color: red;">
+                        <h3>FAILED</h3>
+                        <h4>${ctx['note']}</h4>
+                    </div>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="mail_purchase_request_info" model="mail.template">
+            <field name="name">Purchase Request: Info</field>
+            <field name="model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="email_from">${ctx['mail_from'] | safe}</field>
+            <field name="reply_to">${ctx['mail_from'] | safe}</field>
+            <field name="subject">${object.company_id.name} Purchase Request (Ref ${object.name or 'n/a' })</field>
+            <field name="email_to">${object.requested_by.email | safe}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 12px;">
+                    <div style="margin: 0px; padding: 0px;">
+                        ${ctx['approver']} : ${ctx['message']}
+                    </div>
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

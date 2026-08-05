@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="inherit_account_move_form" model="ir.ui.view">
+        <field name="name">inherit.account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+<!--            <xpath expr="//notebook/page[@name='other_info']" position="after">-->
+            <xpath expr="//field[@name='narration']" position="after">
+<!--                <page string="Applied Misc Receipt">-->
+                    <field name="applied_misc_ids" string="Applied Misc Receipt" mode="tree,kanban"
+                           domain="[('transaction_type', '=', 'apply'),('state', '=', 'posted')]"
+                           context="{'show_transaction_type': 'apply'}" style="width:70%"
+                           attrs="{'invisible': [('applied_misc_ids', '=', False)]}">
+                        <tree string="Applied Misc Receipt" limit="3" create="false" delete="false">
+                            <field name="transaction_date"/>
+                            <field name="misc_id"/>
+                            <field name="misc_type" invisible="1"/>
+                            <field name="transaction_type"/>
+                            <field name="applied_amount"/>
+                            <field name="payment_difference"
+                                   attrs="{'invisible': [('payment_difference', '&lt;', 1)]}"/>
+                            <field name="move_id"/>
+                            <field name="state"/>
+                            <button name="action_unapplied_invoice"
+                                icon="fa-unlink"
+                                attrs="{'invisible': [('misc_type', '=', 'payment')]}"
+                                type="object"/>
+                            <button name="action_unapplied_bill"
+                                icon="fa-unlink"
+                                attrs="{'invisible': [('misc_type', '=', 'receive')]}"
+                                type="object"/>
+                        </tree>
+                    </field>
+<!--                </page>-->
+            </xpath>
+        </field>
+      </record>
+    </data>
+</odoo>

@@ -1,0 +1,121 @@
+<odoo>
+    <template id="report_invoice_receipt_container">
+        <t t-call="web.html_container">
+            <t t-foreach="invoices" t-as="inv">
+                <t t-call="ins_base_mnc.report_invoice_receipt_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_invoice_receipt_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <!-- title -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3><u><strong>TANDA TERIMA</strong></u></h3>
+                    </div>
+                </div>
+
+                <!-- date, put on right -->
+                <div class="row">
+                    <div class="col-4 offset-8">
+                        Jakarta, <t t-esc="date_print"/>
+                    </div>
+                </div>
+
+                <!-- invoice data -->
+                <div class="row" style="margin-top: 10px !important;">
+                    <div class="col-12">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th align="center" style="border: 1px solid black; padding: 5px; vertical-align: middle;">NO</th>
+                                    <th align="center" style="border: 1px solid black; padding: 5px; vertical-align: middle;">NO INVOICE</th>
+                                    <th align="center" style="border: 1px solid black; padding: 5px; vertical-align: middle;">PRODUCT/DESCRIPTION</th>
+                                    <th align="center" style="border: 1px solid black; padding: 5px; vertical-align: middle;">DPP</th>
+                                    <th align="center" style="border: 1px solid black; padding: 5px; vertical-align: middle;">PAJAK</th>
+                                    <th align="center" style="border: 1px solid black; padding: 5px; vertical-align: middle;">AMOUNT DUE</th>
+                                    <th align="center" style="border: 1px solid black; padding: 5px; vertical-align: middle;">NO SERI FAKTUR PAJAK</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="no" t-value="1"/>
+                                <t t-set="inv_no" t-value="'-1'"/>
+                                <t t-foreach="inv['invoices']" t-as="invoice">
+                                    <t t-set="dt" t-value="inv['invoices'].get(invoice)"/>
+                                    <t t-set="dt_len" t-value="len(dt)"/>
+                                    <t t-foreach="dt" t-as="line">   
+                                        <t t-set="is_same" t-value="invoice == inv_no"/>
+                                        <t t-set="inv_no" t-value="invoice"/>
+                                        <tr>
+                                            <td align="center" style="border: 1px solid black; padding: 5px;"><t t-esc="no"/></td>
+                                            <t t-if="not is_same">
+                                                <td style="border: 1px solid black; padding: 5px;" t-att-rowspan="dt_len">
+                                                    <t t-esc="invoice"/>
+                                                </td>
+                                            </t>
+                                            <td style="border: 1px solid black; padding: 5px;"><t t-esc="line['name']"/></td>
+                                            <td align="right" style="border: 1px solid black; padding: 5px;"><t t-esc="line['dpp']"/></td>
+                                            <td align="right" style="border: 1px solid black; padding: 5px;"><t t-esc="line['pajak']"/></td>
+                                            <td align="right" style="border: 1px solid black; padding: 5px;"><t t-esc="line['total']"/></td>
+                                            <!-- <td style="border: 1px solid black; padding: 5px;"><t t-esc="line['faktur']"/></td> -->
+                                            <t t-if="not is_same">
+                                                <td style="border: 1px solid black; padding: 5px;" t-att-rowspan="dt_len">
+                                                    <t t-esc="line['faktur']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                        <t t-set="no" t-value="no + 1"/>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- partner name and address -->
+                <div class="row" style="margin-top: 10px !important;">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-3">Ditujukan Kepada</div>
+                            <div class="col-9">: <t t-esc="inv['partner_name']"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Alamat</div>
+                            <div class="col-9">: <t t-esc="inv['partner_address']"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Note</div>
+                            <div class="col-9">: <t t-esc="note"/></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- signature columns -->
+                <div class="row" style="margin-top: 10px !important;">
+                    <div class="col-4">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                Yang Menerima
+                                <br/>
+                                <br/>
+                                (<span style="color: transparent;">____________________</span>)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 offset-4">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                Yang Mengirim
+                                <br/>
+                                <br/>
+                                (<span style="color: transparent;">____________________</span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

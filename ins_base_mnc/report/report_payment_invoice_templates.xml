@@ -1,0 +1,8 @@
+<odoo>
+    <template id="report_payment_invoice_document_inherit" inherit_id="ins_accounting.report_payment_invoice_document">
+        <!-- in row[4] -> row[4] -> div[2] add vendor site -->
+        <xpath expr="//div[4]//div//div[4]//div[2]" position="replace">
+            <div class="col-7">: <t t-esc="o.sites_id.site_address"/></div>
+        </xpath>
+    </template>
+</odoo>

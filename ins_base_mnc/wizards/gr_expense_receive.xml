@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="gr_expense_receive_form_view" model="ir.ui.view">
+            <field name="name">gr.expense.receive.form.view</field>
+            <field name="model">gr.expense.receive</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="purchase_order_ids" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="Receive">
+                                <field name="line_ids" nolabel="1">
+                                    <tree create="0" delete="0" editable="bottom">
+                                        <field name="po_line_id" invisible="1"/>
+                                        <field name="product_id"/>
+                                        <field name="product_qty"/>
+                                        <field name="qty_received"/>
+                                        <field name="qty_ready"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button string="Submit" type="object" name="submit" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="gr_expense_receive_action" model="ir.actions.act_window">
+            <field name="name">BAST</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">gr.expense.receive</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+<!--        Commented out because BAST feature not longer needed -->
+<!--        <menuitem-->
+<!--            id="gr_expense_receive_menu"-->
+<!--            name="BAST"-->
+<!--            parent="purchase_request.parent_menu_purchase_request"-->
+<!--            action="gr_expense_receive_action"-->
+<!--            groups="purchase_request.group_purchase_request_user,purchase_request.group_purchase_request_manager"-->
+<!--        />-->
+
+    </data>
+</odoo>

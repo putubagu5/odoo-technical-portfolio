@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record id="view_move_form" model="ir.ui.view">
+            <field name="name">view.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="ins_accounting.view_move_form"/>
+            <field name="arch" type="xml">
+                <!-- change string of account_ap_id and add attrs, show only for Bill -->
+                <xpath expr="//field[@name='account_ap_id']" position="attributes">
+                    <attribute name="string">Account Name</attribute>
+                    <!-- <attribute name="invisible">1</attribute> -->
+                    <attribute name="attrs">{'invisible': [('move_type', 'not in', ('in_invoice',))]}</attribute>
+                </xpath>
+
+                <!-- hide payment_reference and put before //group//div[hasclass('o_td_label')] -->
+                <xpath expr="//field[@name='payment_reference']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//group//div[hasclass('o_td_label')]" position="before">
+                    <field name="payment_reference" attrs="{'required': [('move_type', 'in', ('in_invoice', 'out_invoice'))]}"/>
+                </xpath>
+
+                <!-- add ou_id inside invoice_line_ids before name -->
+                <xpath expr="//field[@name='invoice_line_ids']//tree//field[@name='name']" position="before">
+                    <field name="ou_id"/>
+                    <field name="operating_unit_ids" force_save="1" widget="many2many_tags"/>
+                    <field name="asset_location_id"/>
+                </xpath>
+
+                <!-- change operating_unit_id string to Location -->
+                <xpath expr="//field[@name='operating_unit_id']" position="attributes">
+                    <attribute name="string">Location</attribute>
+                </xpath>
+
+                <label for="invoice_vendor_bill_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </label>
+
+
+                <xpath expr="//field[@name='invoice_vendor_bill_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='manual_currency_rate_active']" position="before">
+                    <field name="actual_rate" readonly="1"/>
+                    <field name="is_pph_amount_info"/>
+                    <field name="pph_amount" attrs="{'invisible': [('is_pph_amount_info', '=', False)]}"/>
+                </xpath>
+
+                <!-- <xpath expr="//button[@name='button_cancel_reversal']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>  -->
+            </field>
+        </record>
+    </data>
+</odoo>

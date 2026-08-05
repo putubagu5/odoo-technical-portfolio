@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="mnc_token_management" model="mnc.token.management">
+            <field name="name">r12-token</field>
+        </record>
+
+    </data>
+</odoo>

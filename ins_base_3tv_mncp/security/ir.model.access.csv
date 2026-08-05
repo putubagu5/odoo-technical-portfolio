@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mnc_operating_unit_all,mnc_operating_unit all,ins_base_3tv_mncp.model_mnc_operating_unit,,1,1,1,1
+access_wizard_invoice_receipt_3tv_all,wizard_invoice_receipt_3tv all,ins_base_3tv_mncp.model_wizard_invoice_receipt_3tv,,1,1,1,1

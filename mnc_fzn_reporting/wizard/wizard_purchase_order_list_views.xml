@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+
+        <record id="wizard_purchase_order_view_form" model="ir.ui.view">
+            <field name="name">wizard.purchase.order.view.form</field>
+            <field name="model">wizard.purchase.order</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="is_date_range"/>
+                                <label for="date_start" attrs="{'invisible': [('is_date_range','!=',True)]}"
+                                       string="Dates"/>
+                                <div class="o_row" attrs="{'invisible': [('is_date_range','!=',True)]}">
+                                    <field name="date_start" placeholder="Start Date"
+                                           attrs="{'required': [('is_date_range','=',True)]}"/>
+                                    <span class="oe_inline">&#160;-&#160;</span>
+                                    <field name="date_end" placeholder="End Date"
+                                           attrs="{'required': [('is_date_range','=',True)]}"/>
+                                </div>
+                                <field name="as_of" placeholder="As Of Period"
+                                       attrs="{'invisible': [('is_date_range','=',True)]}"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <label for="is_supplier" string="Supplier"/>
+                                <div>
+                                    <span class="oe_inline">All&#160;</span>
+                                    <field name="is_supplier" class="oe_inline"/>
+                                    <field name="partner_id" placeholder="Select supplier"
+                                           options="{'no_create': True, 'no_open': True}"
+                                           attrs="{'invisible': [('is_supplier','!=',False)]}" widget="many2many_tags"
+                                           domain="['|',('company_id','=', company_id),('company_id','=', False)]"/>
+                                </div>
+                                <label for="is_buyer" string="Buyer"/>
+                                <div>
+                                    <span class="oe_inline">All&#160;</span>
+                                    <field name="is_buyer" class="oe_inline"/>
+                                    <field name="buyer_id" placeholder="Select buyer"
+                                           attrs="{'invisible': [('is_buyer','!=',False)]}"
+                                           options="{'no_create': True, 'no_open': True}" widget="many2many_tags"/>
+                                </div>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Generate XLSX Report" name="generate" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="wizard_purchase_order_action" model="ir.actions.act_window">
+            <field name="name">Purchase Order List Report XLSX</field>
+            <field name="res_model">wizard.purchase.order</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+                id="wizard_purchase_order_menu"
+                name="Purchase Order List"
+                action="wizard_purchase_order_action"
+                parent="purchase.purchase_report"/>
+
+    </data>
+</odoo>

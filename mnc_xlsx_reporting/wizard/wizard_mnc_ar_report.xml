@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="wizard_mnc_ar_report_form" model="ir.ui.view">
+        <field name="name">wizard.mnc.ar.report.form</field>
+        <field name="model">wizard.mnc.ar.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="company_id" options="{'no_create': True, 'no_open': True}" required="1"/>
+                        <field name="is_date_range"/>
+                        <label for="start_date" attrs="{'invisible': [('is_date_range','!=',True)]}" string="Dates"/>
+                        <div class="o_row" attrs="{'invisible': [('is_date_range','!=',True)]}">
+                            <field name="start_date" placeholder="Start Date"
+                                   attrs="{'required': [('is_date_range','=',True)]}"/>
+                            <span class="oe_inline">&#160;-&#160;</span>
+                            <field name="end_date" placeholder="End Date"
+                                   attrs="{'required': [('is_date_range','=',True)]}"/>
+                        </div>
+                        <label for="month" string="As of Period" attrs="{'invisible': [('is_date_range','=',True)]}"/>
+                        <div class="o_row" attrs="{'invisible': [('is_date_range','=',True)]}">
+                            <field name="month" placeholder="Select Month"
+                                   attrs="{'required': [('is_date_range','!=',True)]}"/>
+                            <span class="oe_inline">&#160;-&#160;</span>
+                            <field name="year" placeholder="Select Year"
+                                   attrs="{'required': [('is_date_range','!=',True)]}"/>
+                        </div>
+                        <label for="all_partner" string="Customer"/>
+                        <div>
+                            <span class="oe_inline">All&#160;</span>
+                            <field name="all_partner" class="oe_inline"/>
+                            <field name="partner_ids" widget="many2many_tags" placeholder="Select Customer"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   domain="[('customer_rank','>', 0),'|',('company_id','=', company_id),('company_id','=', False)]"
+                                   attrs="{'invisible': [('all_partner','=',True)], 'required': [('all_partner','!=',True)]}"/>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="currency_id" placeholder="Select Currency"
+                               options="{'no_create': True, 'no_open': True}" required="1"/>
+                        <label for="all_account_transaction" string="GL Account"/>
+                        <div>
+                            <span class="oe_inline">All&#160;</span>
+                            <field name="all_account_transaction" class="oe_inline"/>
+                            <field name="account_transaction_ids" widget="many2many_tags"
+                                   placeholder="Select Gl Account" options="{'no_create': True, 'no_open': True}"
+                                   domain="['|',('company_id','=', company_id),('company_id','=', False)]"
+                                   attrs="{'invisible': [('all_account_transaction','=',True)], 'required': [('all_account_transaction','!=',True)]}"/>
+                        </div>
+                    </group>
+                </group>
+                <footer>
+                    <button name="button_print_excel" string="Download Excel" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_wizard_mnc_ar_report">
+        <field name="name">AR Aging Report</field>
+        <field name="res_model">wizard.mnc.ar.report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_mnc_ar_report_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_mnc_ar_report" parent="mnc_menu_report.report_ar" name="AR Aging Report"
+              action="action_wizard_mnc_ar_report" sequence="15"/>
+
+</odoo>

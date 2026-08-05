@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <record id="view_project_pr_line_form" model="ir.ui.view">
+            <field name="name">view.project.pr.line.form</field>
+            <field name="model">project.pr.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" invisible="1"/>
+                                <field name="program_id"/>
+                                <field name="task_id"/>
+                                <field name="pr_description"/>
+                                <field name="pr_numbers"/>
+                                <field name="po_numbers"/>
+                                <field name="rr_numbers"/>
+                                <field name="subtask_id"/>
+                                <field name="expenditure_type_id"/>
+                                <field name="percentage"/>
+                                <field name="qty"/>
+                                <field name="amount"/>
+                                <field name="line_id" invisible="1"/>
+                                <field name="po_line_id" invisible="1"/>
+                                <field name="account_line_id" invisible="1"/>
+                                <field name="move_line_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_project_pr_line_tree" model="ir.ui.view">
+            <field name="name">view.project.pr.line.tree</field>
+            <field name="model">project.pr.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" invisible="1"/>
+                    <field name="program_id"/>
+                    <field name="task_id"/>
+                    <field name="pr_description"/>
+                    <field name="pr_numbers"/>
+                    <field name="po_numbers"/>
+                    <field name="rr_numbers"/>
+                    <field name="subtask_id"/>
+                    <field name="percentage"/>
+                    <field name="qty"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_project_pr_line" model="ir.actions.act_window">
+            <field name="name">Project In PR Line</field>
+            <field name="res_model">project.pr.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis"
+            name="PMIS"
+            groups="project.group_project_manager"
+            sequence="33"/>
+
+        <menuitem id="menu_pmis_config"
+            name="Configurations"
+            parent="menu_pmis"
+            sequence="2"/>
+
+        <menuitem
+            id="menu_project_pr_line"
+            name="Project In PR"
+            action="action_view_project_pr_line"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_config"
+            sequence="7"/>
+    </data>
+</odoo>

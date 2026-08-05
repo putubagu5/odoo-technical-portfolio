@@ -1,0 +1,82 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "Base Project",
+
+    'summary': """
+        Enhance Project
+    """,
+
+    'description': """
+        Enhance Project
+    """,
+
+    'author': "Invosa Systems",
+    'website': "https://www.invosa.com",
+
+    'category': 'Project',
+    'version': '1.0',
+
+    'depends': [
+        'account',
+        'analytic',
+        'base',
+        'product',
+        'project',
+        'purchase',
+        'purchase_request',
+        'hr',
+    ],
+
+    'data': [
+        'data/ir_sequence.xml',
+        'security/ir.model.access.csv',
+        'security/pmis_security.xml',
+        'views/account_analytic_account_views.xml',
+        'views/account_move_views.xml',
+        'views/account_move_line_views.xml',
+        'views/broadcast_type_views.xml',
+        'views/main_project_views.xml',
+        'views/pmis_views.xml',
+        'views/pmis_assignee_views.xml',
+        'views/pmis_budget_views.xml',
+        'views/pmis_budget_line_views.xml',
+        'views/pmis_budget_info_views.xml',
+        'views/pmis_budget_review.xml',
+        'views/pmis_budget_relocate_views.xml',
+        # 'views/pmis_project_views.xml',
+        'views/pmis_program_views.xml',
+        'views/pmis_project_task_views.xml',
+        'views/pmis_episode_views.xml',
+        'views/pmis_copy_budget_views.xml',
+        'views/pmis_departement_type.xml',
+        'views/product_template_views.xml',
+        'views/project_classification_views.xml',
+        'views/project_period_views.xml',
+        'views/project_project_views.xml',
+        'views/project_phase_type_views.xml',
+        'views/project_pr_line_views.xml',
+        'views/project_genre_views.xml',
+        'views/project_group_type_views.xml',
+        'views/project_expenditure_category_views.xml',
+        'views/project_expenditure_subcategory_views.xml',
+        'views/project_expenditure_type_views.xml',
+        'views/purchase_request_line_views.xml',
+        'views/purchase_project_views.xml',
+        'views/res_company_views.xml',
+        'views/stock_picking_views.xml',
+        'views/hr_employee_views.xml',
+        'views/pmis_budget_detail_views.xml',
+        'wizards/pmis_budget_line_views.xml',
+        'wizards/reject_task_reason_views.xml',
+        'wizards/search_budget_line.xml',
+        'wizards/print_budget_views.xml',
+        'wizards/pmis_rate_distribution_views.xml',
+        'reports/report_budget_program_templates.xml',
+        'reports/report_budget_revision_program_templates.xml',
+        'reports/report_budget_summary_review_templates.xml',
+        'reports/report_budget_summary_templates.xml',
+        'reports/report_budget_templates.xml',
+        'reports/report_views.xml',
+        'data/mail_templates.xml',
+    ],
+}

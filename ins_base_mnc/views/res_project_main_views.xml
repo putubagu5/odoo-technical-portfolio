@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <record id="view_res_project_main_form" model="ir.ui.view">
+            <field name="name">view.res.project.main.form</field>
+            <field name="model">res.project.main</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" required="1"/>
+                            </h1>
+                            <label for="code"/>
+                            <h3>
+                                <field name="code" required="1"/>
+                            </h3>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="gen21_code" required="1"/>
+                                <field name="company_id" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_res_project_main_tree" model="ir.ui.view">
+            <field name="name">view.res.project.main.tree</field>
+            <field name="model">res.project.main</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="gen21_code"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_project_main" model="ir.actions.act_window">
+            <field name="name">Main Project</field>
+            <field name="res_model">res.project.main</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_res_project_main"
+            name="Main Project"
+            action="action_res_project_main"/>
+    </data>
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<record id="view_action_remit_receipt_wizard_form" model="ir.ui.view">
+	        <field name="name">action.remit.receipt.wizard.form</field>
+	        <field name="model">multiple.remitted</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<group>
+	            		<div>
+							<h2 style="color:red;"> Do you want to remitted this transaction ? </h2>
+	            		</div>
+						<field name="transaction_date" required="1"/>
+	            	</group>
+
+	                <footer>
+	                    <button string="Yes" class="oe_highlight"
+	                        name="action_multiple_remitted" type="object" />
+	                    or
+	                    <button string="Cancel" class="oe_highlight" special="cancel" />
+	                </footer>
+	            </form>
+	        </field>
+	    </record>
+
+		<record id="view_action_unremit_receipt_wizard_form" model="ir.ui.view">
+	        <field name="name">action.unremit.receipt.wizard.form</field>
+	        <field name="model">multiple.remitted</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<group>
+	            		<div>
+							<h2 style="color:red;"> Do you want to Unremitted this transaction ? </h2>
+	            		</div>
+						<field name="transaction_date" required="1"/>
+	            	</group>
+
+	                <footer>
+	                    <button string="Yes" class="oe_highlight"
+	                        name="action_multiple_unremitted" type="object" />
+	                    or
+	                    <button string="Cancel" class="oe_highlight" special="cancel" />
+	                </footer>
+	            </form>
+	        </field>
+	    </record>
+
+		<record id="action_view_receipt_remited" model="ir.actions.act_window">
+            <field name="name">Action Remitted</field>
+            <field name="res_model">multiple.remitted</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="ins_base_mnc.view_action_remit_receipt_wizard_form"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous" />
+            <field name="binding_view_types">list</field>
+        </record>
+
+		<record id="action_view_receipt_unremited" model="ir.actions.act_window">
+            <field name="name">Action Unremitted</field>
+            <field name="res_model">multiple.remitted</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="ins_base_mnc.view_action_unremit_receipt_wizard_form"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous" />
+            <field name="binding_view_types">list</field>
+        </record>
+    </data>
+</odoo>

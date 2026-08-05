@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+        <record id="view_pmis_copy_budget_form" model="ir.ui.view">
+            <field name="name">view.pmis.copy.budget.form</field>
+            <field name="model">pmis.copy.budget</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_show" type="object" string="Show Budget" class="oe_highlight"/>
+                        <button name="button_copy" type="object" string="Copy Budget" class="oe_highlight"/>
+                        <button name="button_select_all_lines" type="object" string="Select All Lines" class="oe_highlight" attrs="{'invisible': [('is_selected_all', '=', True)]}"/>
+                        <button name="button_unselect_all_lines" type="object" string="Unselect All Lines" class="oe_highlight" attrs="{'invisible': [('is_selected_all', '=', False)]}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Source" name="source">
+                                <field name="source_program_id" required="1"/>
+                                <field name="source_task_id" required="1" domain="[('program_id', '=', source_program_id)]"/>
+                                <field name="is_selected_all" invisible="1"/>
+                            </group>
+                            <group string="Destination" name="destination">
+                                <field name="destination_program_id" required="1"/>
+                                <field name="destination_task_id" required="1" domain="[('program_id', '=', destination_program_id)]"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Details">
+                                <field name="line_ids" nolabel="1">
+                                    <tree create="false" delete="false" editable="bottom">
+                                        <field name="no" required="1"/>
+                                        <field name="expenditure_type_id" required="1"/>
+                                        <field name="item_code" required="1"/>
+                                        <field name="item_name" required="1"/>
+                                        <field name="description" required="1"/>
+                                        <field name="pax" required="1"/>
+                                        <field name="eps" required="1"/>
+                                        <field name="day" required="1"/>
+                                        <field name="rate" required="1"/>
+                                        <field name="average_by_eps" required="1"/>
+                                        <field name="budget" required="1"/>
+                                        <field name="remarks" required="1"/>
+                                        <field name="do_copy" required="1" widget="boolean_toggle"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pmis_copy_budget_tree" model="ir.ui.view">
+            <field name="name">view.pmis.copy.budget.tree</field>
+            <field name="model">pmis.copy.budget</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="source_program_id"/>
+                    <field name="source_task_id"/>
+                    <field name="destination_program_id"/>
+                    <field name="destination_task_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pmis_copy_budget" model="ir.actions.act_window">
+            <field name="name">Copy Budget</field>
+            <field name="res_model">pmis.copy.budget</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis_copy_budget"
+            name="Copy Budget"
+            action="action_pmis_copy_budget"
+            parent="ins_project.menu_pmis_budget"
+            sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,247 @@
+<odoo>
+    <template id="report_ar_receipt_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_ar_receipt_document"/>
+            </t>
+        </t>
+    </template>
+    
+    <template id="report_ar_receipt_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <!-- logo -->
+                <div class="header" style="font-size: 12px">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="50%" align="center" valign="center">
+                                        <img src='/web/binary/company_logo' alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+                                    </td>
+                                    <td width="50%" align="center" style="vertical-align: middle;">
+                                        <h5 class="text-center">
+                                            <strong>RECEIPT VOUCHER</strong>
+                                        </h5>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- section 1 -->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">Receipt / Voucher Number</div>
+                            <div class="col-7">: <span t-field="o.misc_name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">Receipt Date</div>
+                            <div class="col-7">: <t t-esc="o.date.strftime('%d-%b-%y')"/></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">Receipt Amount</div>
+                            <div class="col-7">
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    : <span t-field="o.currency_id.symbol"/> <span t-field="o.amount" t-options='{"widget": "float", "precision": 2}'/>
+                                </t>
+                                <t t-else="">
+                                    : <span t-field="o.currency_id.symbol"/> <span t-field="o.amount" t-options='{"widget": "float", "precision": 0}'/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">Journal No</div>
+                            <div class="col-7">: <span t-field="o.move_id.name"/></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- section 2 -->
+                <div class="row" style="border-bottom: 1px solid black;">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">Receipt Method</div>
+                            <div class="col-7">: <span t-field="o.receipt_type_id.name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">Bank Name</div>
+                            <div class="col-7">: <span t-field="o.journal_id.name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">Account Number</div>
+                            <div class="col-7">: <span t-field="o.journal_id.bank_account_id.acc_number"/></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">Customer No</div>
+                            <div class="col-7">: 5009227</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">Customer Name</div>
+                            <div class="col-7">: <span t-field="o.partner_id.name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">Comments</div>
+                            <div class="col-7">: <span t-field="o.description"/></div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td colspan="4" align="left" style="border: 1px solid black; padding: 5px;">
+                                    GL Date :
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" align="left" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" width="15%" align="center" style="border: 1px solid black; vertical-align: middle; padding: 5px;">
+                                    <strong>Account Number</strong>
+                                </td>
+                                <td rowspan="2" width="55%" align="center" style="border: 1px solid black; vertical-align: middle; padding: 5px;">
+                                    <strong>Account Description</strong>
+                                </td>
+                                <td colspan="2" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Accounted (IDR)</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Dr.</strong>
+                                </td>
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Cr.</strong>
+                                </td>
+                            </tr>
+                            <tr t-foreach="o.move_id.line_ids" t-as="line">
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <span t-field="line.account_id.code"/>
+                                </td>
+                                <td width="55%" style="border: 1px solid black; padding: 5px;">
+                                    <span t-field="line.account_id.name"/>
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.debit" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.credit" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.debit" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.credit" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        Apply To :
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Invoice No.</strong>
+                                </td>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Invoice Date</strong>
+                                </td>
+                                <td width="30%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Invoice Type</strong>
+                                </td>
+                                <td width="10%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Currency</strong>
+                                </td>
+                                <td width="20%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Paid Amount</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" align="left" style="border: 1px solid black; padding: 5px;">
+                                    <span t-field="o.applied_customer_move_id.name"/>
+                                </td>
+                                <td width="20%" align="left" style="border: 1px solid black; padding: 5px;">
+                                    <t t-esc="o.applied_customer_move_id.date.strftime('%d-%b-%y') if o.applied_customer_move_id else ''"/>
+                                </td>
+                                <td width="30%" align="left" style="border: 1px solid black; padding: 5px;">
+                                    <t t-esc="o.applied_customer_move_id.move_type if o.applied_customer_move_id else ''"/>
+                                </td>
+                                <td width="10%" align="left" style="border: 1px solid black; padding: 5px;">
+                                    <span t-field="o.applied_customer_move_id.currency_id.name"/>
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <td width="20%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="o.amount" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td width="20%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <span t-field="o.amount" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        Cheque / Giro No : 
+                    </div>
+                </div>
+                <br/>
+
+                <!-- Custom signature -->
+                <!-- table -->
+                <div class="footer last-page" style="font-size: 12px">
+                    <div class="col-12">
+                        <table width="100%" style="border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
+                            <thead>
+                                <tr>
+                                    <th width="25%" class="text-center" style="padding: 2px;">Approved,</th>
+                                    <th width="25%" class="text-center" style="padding: 2px;">Checked,</th>
+                                    <th width="25%" class="text-center" style="padding: 2px;">Prepared By,</th>
+                                    <th width="25%" class="text-center" style="padding: 2px;">Received Payment,</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="25%" class="text-center" style="padding: 2px;"><br/><br/><br/><br/>(Signature)</td>
+                                    <td width="25%" class="text-center" style="padding: 2px;"><br/><br/><br/><br/>(Signature)</td>
+                                    <td width="25%" class="text-center" style="padding: 2px;"><br/><br/><br/><br/>(Signature)</td>
+                                    <td width="25%" class="text-center" style="padding: 2px;"><br/><br/><br/><br/>(Signature)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

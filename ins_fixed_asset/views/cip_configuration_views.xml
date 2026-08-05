@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cip_configuration_form_view" model="ir.ui.view">
+            <field name="name">cip.configuration.form</field>
+            <field name="model">cip.configuration</field>
+            <field name="arch" type="xml">
+                <form string="CIP Configuration">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="code" required="1"/>
+                                <field name="account_id"/>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cip_configuration_tree_view" model="ir.ui.view">
+            <field name="name">cip.configuration.tree</field>
+            <field name="model">cip.configuration</field>
+            <field name="arch" type="xml">
+                <tree string="CIP Configuration">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="account_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cip_configuration_act_window" model="ir.actions.act_window">
+            <field name="name">CIP Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cip.configuration</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new CIP Configuration.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Master Configuration CIP"
+                  id="cip_configuration_menu"
+                  parent="ins_asset.menu_asset"
+                  action="cip_configuration_act_window"/>
+
+    </data>
+</odoo>

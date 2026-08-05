@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_payment_invoice_form" model="ir.ui.view">
+            <field name="name">view.payment.invoice.form</field>
+            <field name="model">wizard.payment.invoice</field>
+            <field name="inherit_id" ref="ins_accounting.view_payment_invoice_form"/>
+            <field name="arch" type="xml">
+                <!-- add domain to move_ids -->
+                <xpath expr="//field[@name='move_ids']" position="attributes">
+                    <attribute name="domain">[('bill_type', '=', 'standard')]</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

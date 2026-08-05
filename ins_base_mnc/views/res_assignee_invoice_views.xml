@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <record id="view_res_assignee_invoice_tree" model="ir.ui.view">
+            <field name="name">view.res.assignee.invoice.tree</field>
+            <field name="model">res.assignee.invoice</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="doc_position" required="1"/>
+                    <field name="name" required="1"/>
+                    <field name="job_position" required="1"/>
+                    <field name="company_id" required="1"/>
+                    <field name="signature" widget="image" />
+                    <field name="is_default"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_res_assignee_invoice_form" model="ir.ui.view">
+            <field name="name">view.res.assignee.invoice.form</field>
+            <field name="model">res.assignee.invoice</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="doc_position" required="1"/>
+                                <field name="name" required="1"/>
+                                <field name="job_position" required="1"/>
+                                <field name="company_id" required="1"/>
+                                <field name="signature" widget="image"/>
+                                <field name="is_default"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_res_assignee_invoice" model="ir.actions.act_window">
+            <field name="name">Assignee (invoice)</field>
+            <field name="res_model">res.assignee.invoice</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_assignee_invoice"
+            name="Master Data Assignee (invoice)"
+            action="action_res_assignee_invoice"
+            parent="account.menu_finance_configuration"/>
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_currency_rate_tree" model="ir.ui.view">
+            <field name="name">view.currency.rate.tree</field>
+            <field name="model">res.currency.rate</field>
+            <field name="inherit_id" ref="base.view_currency_rate_tree"/>
+            <field name="arch" type="xml">
+                <!-- add actual_rate before rate -->
+                <xpath expr="//field[@name='rate']" position="before">
+                    <field name="actual_rate"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,314 @@
+<odoo>
+    <template id="ins_base_mnc.report_payment_po_rcti_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_payment_po_rcti_container_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc.report_payment_po_rcti_container_document">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <table border="1" cellspacing="0" cellpadding="5" width="100%">
+                    <tr>
+                        <td rowspan="3" width="35%">
+                            <t t-if="o.company_id.logo">
+                                <img t-att-src="image_data_uri(o.company_id.logo)" class="float-left" style="max-height: 250px;max-width: 200px;  display: block;margin-left: auto;margin-right: auto;" alt="Logo"/>
+                            </t>
+                        </td>
+                        <td colspan="2" rowspan="4" width="45%">
+                            <center>
+                            <h4>PERSETUJUAN PEMBAYARAN PEMBELIAN PROGRAM DENGAN PURCHASE ORDER</h4>
+                            </center>
+                        </td>
+                        <!-- <td></td> -->
+                        <td rowspan="3" width="20%">RC.412.012</td>
+                    </tr>
+                    <tr>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                    </tr>
+                    <tr>
+                        <td style="font-size:8pt;">PT RAJAWALI CITRA TELEVISI INDONESIA</td>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <td>no.:PV140092007</td>
+                    </tr>
+
+                <!-- baris 2 -->
+                    <tr style="font-size:8pt;">
+                        <td colspan="4">
+                            <table width="100%" style="margin-top:5px;">
+                            <tr>
+                                <td width="35%">Tanggal</td>
+                                <td width="5%">:</td>
+                                <td width="55%">05-NOV-21</td>
+                            </tr>
+                            <tr>
+                                <td>Dibayarkan kepada</td>
+                                <td>:</td>
+                                <td>MNC STUDIOS INTERNATIONAL ,PT (13685)</td>
+                            </tr>
+                            <tr>
+                                <td>Dibayarkan Atas Nama</td>
+                                <td>:</td>
+                                <td>MNC STUDIOS INTERNATIONAL ,PT</td>
+                            </tr>
+                            <tr>
+                                <td>Keterangan Pembayaran</td>
+                                <td>:</td>
+                                <td>PROGRAM ACARA - PUTRI UNTUK PANGERAN EPS 386-390</td>
+                            </tr>
+                            <tr>
+                                <td>Nomor PR</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor PO</td>
+                                <td>:</td>
+                                <td>131118</td>
+                            </tr>
+                            <tr>
+                                <td>Nomor RR</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor Berita Acara</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor UAT</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor Kwitansi/Invoice</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor Kontrak</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Nomor Faktur Pajak</td>
+                                <td>:</td>
+                                <td>010.006-21.95380866</td>
+                            </tr>
+                            <tr>
+                                <td>Mata Uang</td>
+                                <td>:</td>
+                                <td>IDR</td>
+                            </tr>
+                            <tr>
+                                <td>Dasar Pengenaan Pajak</td>
+                                <td>:</td>
+                                <td>1,600,000,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>PPN</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>PPh</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>TOTAL</td>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td>Tanggal Jatuh Tempo Pembayaran</td>
+                                <td>:</td>
+                                <td>3-DEC-21</td>
+                            </tr>
+                            </table>
+                       </td>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <!-- BARIS KE 3 -->
+                    <tr style="font-size:10pt;">
+                        <td> <center><b>Yang Meminta</b></center></td>
+                        <td ><center><b>DIPERIKSA</b></center></td>
+                        <td><center><b>DIPERIKSA</b></center></td>
+                        <td ><center><b>DISETUJUI</b></center></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><br/><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/><br/></td>
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+
+                    <!-- baris ke 3 -->
+                    <tr style="font-size:10pt;">
+                        <td > <center>Kabag Prog-Acq</center></td>
+                        <td ><center>Kadep Budged</center></td>
+                        <td><center>Kadep Finance</center></td>
+                        <td ><center>Directur Keuangan</center></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><br/><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/><br/></td>
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td> -->
+                    </tr>
+                    <tr style="font-size:10pt;">
+                        <td > <center>Direktur Program</center></td>
+                        <td ><center>Kadep Akutansi</center></td>
+                        <td><center>GM Fin &#38; Acc</center></td>
+                        <td ><center>Directur Utama</center></td>
+                    </tr>
+                    <!-- baris ke 4 -->
+                    <!-- <table cellspacing="0" cellpadding="5" width="100%"> -->
+                        <tr style="font-size:10pt;">
+                            <td >No. JV :</td>
+                            <td  colspan="2"><center>No Invoice :</center></td>
+                            <!-- <td></td> -->
+                            <td><center> Metode Pembayaran: Cek/Wire</center></td>
+                        </tr>
+                    <!-- </table> -->
+                    <tr>
+                        <td colspan="4"><br/></td>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                    </tr>
+                    <tr style="font-size:10pt;">
+                        <td colspan="4"><center><b>JURNAL DAN NOMOR PERKIRAAN</b></center></td>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                    </tr>
+                    <!-- baris ke 5 -->
+                    <tr style="font-size:10pt;">
+                        <td> <center><b>KETERANGAN</b></center></td>
+                        <td> <center><b>NO PERKIRAAN</b></center></td>
+                        <td> <center><b>DEBIT</b></center></td>
+                        <td> <center><b>KREDIT</b></center></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr style="font-size:10pt;">
+                        <td colspan="2"><center><b>JUMLAH</b></center></td>
+                        <!-- <td></td> -->
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!-- Baris terakhir -->
+                    <tr style="font-size:10pt;">
+                        <td ><center><b>DISIAPKAN</b></center></td>
+                        <td ><center><b>DIPERIKSA</b></center></td>
+                        <td colspan="2"><center><b>DISETUJUI</b></center></td>
+                        <!-- <td></td> -->
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/></td>
+                        <td rowspan="3"><br/><br/><br/></td> 
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td>-->
+                        <!-- <td></td>  -->
+                    </tr>
+                    <tr>
+                        <!-- <td></td>
+                        <td></td>
+                        <td></td> -->
+                        <!-- <td></td>  -->
+                    </tr>
+                
+                    
+
+                    
+
+                </table>
+            </div>         
+        </t>
+    </template>
+</odoo>

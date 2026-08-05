@@ -1,0 +1,113 @@
+<odoo>
+    <data>
+        <record id="view_move_form" model="ir.ui.view">
+            <field name="name">view.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='ar_receipt_type']" position="after">
+                    <field name="source_type_gen21" attrs="{'invisible': [('move_type', 'in', ('in_invoice', 'entry'))]}"/>
+                </xpath>
+                <notebook position="inside">
+                    <field name="is_post_gen21" invisible="1"/>
+                    <page string="Iklan BMS" attrs="{'invisible': ['|',('move_type', '=', ('in_invoice')),('ar_receipt_type', 'in', ('non_iklan', False))]}">
+                        <group>
+                            <group>
+                                <field name="mo_numbers_gen21"/>
+                                <field name="po_numbers_gen21"/>
+                                <field name="invoice_no_gen21"/>
+                                <field name="sales_person_gen21"/>
+                                <field name="customer_type_gen21"/>
+                                <field name="customer_ref_gen21"/>
+                                <field name="advertiser_gen21"/>
+                                <field name="attention_contact_gen21"/>
+                                <field name="product_gen21"/>
+                                <field name="po_type_gen21"/>
+                                <field name="pab_pbb_gen21"/>
+                                <field name="status_transfer_oracle_gen21"/>
+                                <field name="code_site_gen21"/>
+                                <field name="send_flag_gen21"/>
+                                <field name="send_date_gen21"/>
+                                <field name="ccid_gen21"/>
+                                <field name="code_region_gen21"/>
+                                <field name="name_region_gen21"/>
+                                <field name="code_region_line_gen21"/>
+                                <field name="name_region_line_gen21"/>
+                                <field name="periode_gen21"/>
+                                <field name="code_company_gen21"/>
+                                <field name="wilayah_gen21"/>
+                                <field name="channel_code_gen21"/>
+                                <field name="channel_name_gen21"/>
+                                <field name="perc_tax_gen21"/>
+                                <field name="total_tax_gen21"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Manual" attrs="{'invisible': ['|',('move_type', '=', ('in_invoice')),('ar_receipt_type', 'in', ('iklan', False))]}">
+                        <group>
+                            <group>
+                                <field name="po_numbers_gen21"/>
+                                <field name="mo_numbers_gen21"/>
+                                <field name="product_gen21"/>
+                                <field name="category_gen21"/>
+                                <field name="advertiser_gen21"/>
+                                <field name="sales_person_gen21"/>
+                                <field name="cm_gen21"/>
+                                <field name="attention_contact_gen21"/>
+                                <field name="pab_pbb_gen21"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="GL Gen21" attrs="{'invisible': ['|',('move_type', '!=', 'entry'), ('is_post_gen21', '=', False)]}">
+                            <group>
+                                <group>
+                                    <field name="actual_flag_gl_gen21"/>
+                                    <field name="attribute1_gl_gen21"/>
+                                    <field name="attribute2_gl_gen21"/>
+                                    <field name="attribute3_gl_gen21"/>
+                                    <field name="attribute4_gl_gen21"/>
+                                    <field name="attribute6_gl_gen21"/>
+                                    <field name="attribute7_gl_gen21"/>
+                                    <field name="attribute8_gl_gen21"/>
+                                    <field name="attribute9_gl_gen21"/>
+                                    <field name="created_by_gl_gen21"/>
+                                    <field name="material_id_gl_gen21"/>
+                                    <field name="group_id_gl_gen21"/>
+                                    <field name="reference4_gl_gen21"/>
+                                    <field name="segment5_gl_gen21"/>
+                                    <field name="segment6_gl_gen21"/>
+                                    <field name="send_date_gl_gen21"/>
+                                    <field name="send_flag_gl_gen21"/>
+                                    <field name="update_date_gl_gen21"/>
+                                    <field name="update_user_gl_gen21"/>
+                                    <field name="usage_number_gl_gen21"/>
+                                    <field name="usage_run_id_gl_gen21"/>
+                                </group>
+                            </group>
+                        </page>    
+                </notebook>
+                <xpath expr="//field[@name='invoice_line_ids']//tree//field[@name='account_id']" position="after">
+                        <field name="total_spots_gen21" attrs="{'column_invisible': [('parent.source_type_gen21', 'not in', ('iklan_bms', 'manual'))]}"/>
+                        <field name="total_gross_gen21" attrs="{'column_invisible': [('parent.source_type_gen21', 'not in', ('iklan_bms', 'manual'))]}"/>
+                        <field name="agency_discount_gen21" attrs="{'column_invisible': [('parent.source_type_gen21', 'not in', ('iklan_bms', 'manual'))]}"/> 
+                </xpath> 
+                 <xpath expr="//field[@name='line_ids']//tree//field[@name='account_id']" position="after">
+                        <field name="total_spots_gen21" invisible="1"/>
+                        <field name="total_gross_gen21" invisible="1"/>
+                        <field name="agency_discount_gen21" invisible="1"/> 
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_move_form_gen21" model="ir.ui.view">
+            <field name="name">view.move.form.gen21</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="ins_base_mnc.inherit_account_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='rr_numbers']" position="after">
+                    <field name="po_numbers_bill_gen21" attrs="{'invisible': [('move_type', '!=', ('in_invoice'))]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

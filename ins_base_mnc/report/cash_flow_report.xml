@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+    <record id="cash_flow_report_xls" model="ir.ui.view">
+	        <field name="name">cash.flow.report</field>
+	        <field name="model">cash.flow.report</field>
+	        <field name="arch" type="xml">
+	            <form>
+	            	<group>
+	            		<div>
+							<h2 style="color:red;"> Do you want to generate XLS Cash FLow Report ? </h2>
+	            		</div>
+	            	</group>
+					<group>
+							<field name="selected_period_id"/>
+							<field name="selected_date_start" readonly="1" force_save="1"/>
+							<field name="selected_date_stop" readonly="1" force_save="1"/>
+							<field name="state"/>
+							<field name="company_id"/>
+                            <field name="filename" invisible="1"/>
+                            <field name="xls_file" filename="filename"/>
+					</group>
+	                <footer>
+	                    <button string="Yes" class="oe_highlight"
+	                        name="create_cashflow_xlsx_report" type="object" />
+	                    or
+	                    <button string="Cancel" class="oe_highlight" special="cancel" />
+	                </footer>
+	            </form>
+	        </field>
+	    </record>
+
+        <record id="action_cash_flow_report_view" model="ir.actions.act_window">
+            <field name="name">Cash Flow Report</field>
+            <field name="res_model">cash.flow.report</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Add</p>
+            </field>
+        </record>
+
+        <menuitem
+            name="Cash Flow Report"
+            id="menu_cash_flow_report"
+            parent="account.account_reports_legal_statements_menu"
+            action="action_cash_flow_report_view"/>
+
+    </data>
+</odoo>

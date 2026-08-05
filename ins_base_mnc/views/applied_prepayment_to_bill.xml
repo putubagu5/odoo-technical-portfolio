@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_applied_prepayment_to_bill_form" model="ir.ui.view">
+            <field name="name">applied.prepayment.to.bill.form</field>
+            <field name="model">applied.prepayment.to.bill</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <form string="Apply Prepayment To Bill">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="invoice_id" required="1" readonly="1" force_save="1"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="partner_id"/>
+                            <field name="bill_type" required="1" readonly="1" force_save="1"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="transaction_type" readonly="1"
+                                   context="{'search_default_transaction_type':'apply'}"/>
+                            <field name="transaction_date"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="invoice_amount"/>
+                            <field name="currency_id"/>
+                            <field name="invoice_account_id"/>
+                            <field name="journal_id" widget="selection"
+                                   domain="[('type', '=', 'general')]"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="payment_difference" attrs="{'invisible': [('payment_difference', '=', 0.0)]}"/>
+                            <field name="payment_difference_handling" widget="radio"
+                                   nolabel="1" attrs="{'invisible': [('payment_difference', '=', 0.0)]}"/>
+                            <field name="writeoff_account_id" string="Post Difference In"
+                                    attrs="{'invisible': [('payment_difference_handling','=','open')],
+                                    'required': [('payment_difference_handling', '=', 'reconcile')]}"/>
+
+                        </group>
+                        <group>
+                            <field name="date" string="Accounting Date"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="prepayment_id" domain="[('bill_type', '=', 'prepayment'),('state', '=', 'posted'),
+                                        ('payment_state', '=', 'paid'),('partner_id', '=', partner_id),
+                                        ('is_full_applied_prepayment','=',False), ('amount_total', '>', 0 )]" string="Prepayment Invoice"/>
+                            <field name="prepayment_amount" string="Prepaid Amount"/>
+                            <field name="amount_prepayment_applied_for_settlement" string="Applied Prepayment Amount" readonly="1"/>
+                            <field name="prepayment_amount_remaining" String="Remaining Prepaid Amount" readonly="1"/>
+                            <field name="applied_amount" String="Amount Applied" required="1"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="prepayment_currency_id" String="Prepayment Currency"/>
+                            <field name="company_id"/>
+                            <field name="applied_amount_currency"
+                                   readonly="1" />
+                            <field name="move_id" required="0"
+                                   attrs="{'invisible': [('id', '=', False)]}"
+                                   groups="account.group_account_readonly"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Applied Prepayment To Bill"
+                                name="action_applied_bill"
+                                type="object" class="oe_highlight"/>
+                        <button string="Unapplied Prepayment To Bill"
+                                name="action_unapplied_bill"
+                                type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+         <record id="applied_prepayment_to_bill_tree_view" model="ir.ui.view">
+            <field name="name">applied.prepayment.to.bill.tree</field>
+            <field name="model">applied.prepayment.to.bill</field>
+            <field name="arch" type="xml">
+                <tree string="Applied Prepayment to Bill">
+                    <field name="name"/>
+                    <field name="invoice_id"/>
+                    <field name="transaction_type"/>
+                    <field name="transaction_date"/>
+                    <field name="applied_amount"/>
+                    <field name="journal_id"/>
+                    <field name="invoice_amount"/>
+                    <field name="move_id"/>
+                    <field name="operating_unit_id"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

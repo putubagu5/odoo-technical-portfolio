@@ -1,0 +1,467 @@
+<odoo>
+    <template id="ins_base_mnc_report_journal_voucher_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_report_journal_voucher_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc_report_journal_voucher_document">
+        <t t-call="web.basic_layout">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <div class="page" style="font-size: 12px !important;">
+                <!-- logo -->
+                <div class="header">
+                    <div class="row">
+                        <div class="col-4">
+                            General Ledger<br/>
+                            MNC Ledger
+                        </div>
+                        <div class="col-4 text-center">
+                            <br/>
+                            <strong>Journals - Voucher</strong>
+                        </div>
+                        <div class="col-4">
+                            <table width="100%">
+                                <tr>
+                                    <td width="35%" align="right">
+                                        Report Date
+                                    </td>
+                                    <td width="5%">
+                                        &#160;
+                                    </td>
+                                    <td width="60%">
+                                        <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%b-%y')"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="35%" align="right">
+                                        Page
+                                    </td>
+                                    <td width="5%">
+                                        &#160;
+                                    </td>
+                                    <td width="60%">
+                                        <span class="page" />
+                                        of
+                                        <span class="topage" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- header, no and recipient -->
+                <!-- <div class="row">
+               		<div class="col-12">
+               	 		<table width="100%" style="border: 1px solid black;">
+               	 			<tr width="100%" style="border: 1px solid black;">
+               	 				<td style="padding: 5px; border: 1px solid black;" align="center" colspan="6">
+                               		JOURNAL VOUCHER
+                           		</td>
+               	 			</tr>
+               	 			<tr>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					No
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					<t t-esc="o.name"/>
+               	 				</td>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					Invoice Date
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					<t t-esc="o.date"/>
+               	 				</td>
+               	 			</tr>
+               	 			<tr>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					Supplier Name
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					<t t-esc="o.partner_id.name"/>
+               	 				</td>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					Invoice Due Date
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					<t t-esc="o.invoice_date"/>
+               	 				</td>
+               	 			</tr>
+               	 			<tr>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					Supplier Site
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					GL Date
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 			</tr>
+               	 			<tr>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					Invoice Number
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					<t t-esc="o.payment_reference"/>
+               	 				</td>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					Currency Code
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 			</tr>
+               	 			<tr>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					Voucher Number
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 			</tr>
+               	 			<tr>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					Description
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					:
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 				<td width="10%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 				<td width="5%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 				<td width="35%" align="left" style="padding: 5px; border: 1px solid black;">
+               	 					
+               	 				</td>
+               	 			</tr>
+               	 			<tr width="100%" style="border: 1px solid black;">
+               	 				<td style="padding: 5px; border: 1px solid black;" align="center" colspan="6">
+                             		
+                           		</td>
+               	 			</tr>
+               	 		</table>
+               	 	</div>
+                </div> -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr>
+                                <td width="16%" align="right" style="border: 1px solid black; padding: 2px;">
+                                    <strong>Ledger/Ledger Set</strong><br/>
+                                    <strong>Posting Status</strong><br/>
+                                    <strong>Currency</strong><br/>
+                                    <strong>Start Date</strong><br/>
+                                    <strong>End Date</strong><br/>
+                                    <strong>Source</strong>
+                                </td>
+                                <td width="17%" style="border: 1px solid black; padding: 2px;">
+                                    <t t-set="date_info" t-value="o.get_period_info()"/>
+                                    &#160;<br/>
+                                    Posted Journals<br/>
+                                    <span t-field="o.currency_id.name"/><br/>
+                                    <t t-esc="date_info[0]"/><br/>
+                                    <t t-esc="date_info[1]"/><br/>
+                                    Manual
+                                </td>
+                                <td width="17%" align="right" style="border: 1px solid black; padding: 2px;">
+                                    <strong>Batch Name</strong><br/>
+                                    <strong>Category</strong><br/>
+                                    <strong>Account From</strong><br/>
+                                    <strong>Account To</strong><br/>
+                                    <strong>Document Sequence</strong><br/>
+                                    <strong>Start Document Number</strong>
+                                </td>
+                                <td width="17%" style="border: 1px solid black; padding: 2px;">
+                                    &#160;<br/>
+                                    Adjustments<br/>
+                                    &#160;<br/>
+                                    &#160;<br/>
+                                    &#160;<br/>
+                                    &#160;
+                                </td>
+                                <td width="16%" align="right" style="border: 1px solid black; padding: 2px;">
+                                    <strong>End Document Number</strong><br/>
+                                    <strong>Journals/Lines</strong><br/>
+                                    <strong>Additional Segment</strong><br/>
+                                    <strong>Debit/Credit</strong><br/>
+                                    <strong>Amount Low</strong><br/>
+                                    <strong>Amount High</strong>
+                                </td>
+                                <td width="17%" style="border: 1px solid black; padding: 2px;">
+                                    &#160;<br/>
+                                    Lines<br/>
+                                    &#160;<br/>
+                                    &#160;<br/>
+                                    &#160;<br/>
+                                    &#160;
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr>
+                                <td width="16%" align="right" style="padding: 5px;">
+                                    <strong>Batch Name</strong>
+                                </td>
+                                <td width="17%" style="padding: 5px;">
+                                    <t t-esc="o.payment_reference"/>
+                                </td>
+                                <td width="17%" align="right" style="padding: 5px;">
+                                    <strong>Period</strong>
+                                </td>
+                                <td width="17%" style="padding: 5px;">
+                                    <t t-esc="o.date.strftime('%b-%Y') if o.date else ''"/>
+                                </td>
+                                <td width="16%" align="right" style="padding: 5px;">
+                                    <strong>Source</strong>
+                                </td>
+                                <td width="17%" style="padding: 5px;">
+                                    Manual
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr>
+                                <td width="25%" align="right" style="padding: 5px;">
+                                    <strong>Journal Entry</strong><br/>
+                                    <strong>Currency</strong><br/>
+                                    <strong>Ledger</strong><br/>
+                                    <strong>Rate Type</strong>
+                                </td>
+                                <td width="25%" style="padding: 5px;">
+                                    <span t-field="o.name"/><br/>
+                                    <span t-field="o.currency_id.name"/><br/>
+                                    MNC Ledger<br/>
+                                    User
+                                </td>
+                                <td width="25%" align="right" style="padding: 5px;">
+                                    <strong>Account Date</strong><br/>
+                                    <strong>Subledger Document Name</strong><br/>
+                                    <strong>Subledger Document Number</strong><br/>
+                                    <strong>Exchange Rate</strong>
+                                </td>
+                                <td width="25%" style="padding: 5px;">
+                                    <t t-esc="o.date.strftime('%d-%b-%y') if o.date else ''"/><br/>
+                                    &#160;<br/>
+                                    &#160;<br/>
+                                    1
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <!-- table -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th width="5%" class="text-center" style="border: 1px solid black; padding: 5px;">Line</th>
+                                    <th width="10%" class="text-center" style="border: 1px solid black; padding: 5px;">Account</th>
+                                    <th width="25%" class="text-center" style="border: 1px solid black; padding: 5px;">Account Description</th>
+                                    <th width="5%" class="text-center" style="border: 1px solid black; padding: 5px;">Analytic</th>
+                                    <th width="15%" class="text-center" style="border: 1px solid black; padding: 5px;">Entered Debits</th>
+                                    <th width="15%" class="text-center" style="border: 1px solid black; padding: 5px;">Entered Credits</th>
+                                    <th width="25%" class="text-center" style="border: 1px solid black; padding: 5px;">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.line_ids.sorted(key=lambda x: x.debit, reverse=True)" t-as="line">
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-raw="line_index + 1"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="line.account_id.code"/></td>
+                                    <td class="text-left" style="border: 1px solid black; padding: 5px;"><t t-esc="line.account_id.name"/></td>
+                                    <td class="text-center" style="border: 1px solid black; padding: 5px;"><t t-esc="line.analytic_account_id.code or ''"/></td>
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <td class="text-right" style="border: 1px solid black; padding: 5px;"><t t-esc="'{0:,.2f}'.format(int(line.debit))"/></td>
+                                        <td class="text-right" style="border: 1px solid black; padding: 5px;"><t t-esc="'{0:,.2f}'.format(int(line.credit))"/></td>
+                                    </t>
+                                    <t t-else="">
+                                        <td class="text-right" style="border: 1px solid black; padding: 5px;"><t t-esc="'{0:,.0f}'.format(int(line.debit))"/></td>
+                                        <td class="text-right" style="border: 1px solid black; padding: 5px;"><t t-esc="'{0:,.0f}'.format(int(line.credit))"/></td>
+                                    </t>
+                                    <td class="text-left" style="border: 1px solid black; padding: 5px;"><t t-esc="line.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td>&#160;</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr style="border-top: 1px solid black;">
+                                    <td class="text-right" colspan="3" style="border: 1px solid black; padding: 5px;"><strong>Journal Total</strong></td>
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <td class="text-right" style="border: 1px solid black; padding: 5px;"><strong><t t-esc="'{0:,.2f}'.format(int(sum(line.debit for line in o.line_ids)))"/></strong></td>
+                                        <td class="text-right" style="border: 1px solid black; padding: 5px;"><strong><t t-esc="'{0:,.2f}'.format(int(sum(line.credit for line in o.line_ids)))"/></strong></td>
+                                    </t>
+                                    <t t-else="">
+                                        <td class="text-right" style="border: 1px solid black; padding: 5px;"><strong><t t-esc="'{0:,.0f}'.format(int(sum(line.debit for line in o.line_ids)))"/></strong></td>
+                                        <td class="text-right" style="border: 1px solid black; padding: 5px;"><strong><t t-esc="'{0:,.0f}'.format(int(sum(line.credit for line in o.line_ids)))"/></strong></td>
+                                    </t>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="footer" style="font-size: 11px !important;">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr style="border: 1px solid black;">
+                                <td align="center" width="16%" style="border: 1px solid black;">
+                                    Prepared By
+                                </td>
+                                <td align="center" width="16%" style="border: 1px solid black;">
+                                    Checked
+                                </td>
+                                <td align="center" width="17%" style="border: 1px solid black;">
+                                    Accounting
+                                </td>
+                                <td align="center" width="17%" style="border: 1px solid black;">
+                                    Finance
+                                </td>
+                                <td align="center" width="17%" style="border: 1px solid black;">
+                                    GM Acc &amp; Fin
+                                </td>
+                                <td align="center" width="17%" style="border: 1px solid black;">
+                                    Received
+                                </td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td align="center" style="border: 1px solid black;">
+                                    (Signature)
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    (Signature)
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    (Signature)
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    (Signature)
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    (Signature)
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    (Signature)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

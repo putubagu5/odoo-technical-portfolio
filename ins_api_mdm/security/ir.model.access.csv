@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wizard_mdm_sync_all,wizard_mdm_sync_all,ins_api_mdm.model_wizard_mdm_sync,,1,1,1,1

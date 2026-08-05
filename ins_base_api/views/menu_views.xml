@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <menuitem
+            id="menu_stagging_gen21_root"
+            name="Stagging Gen21"
+        />
+        <menuitem
+                id="menu_account_move_ar_gen21"
+                name="Invoice AR"
+                sequence="1"
+                parent="menu_stagging_gen21_root"
+            />
+        <menuitem
+                id="menu_account_move_trading_gen21"
+                name="Invoice Trading"
+                sequence="2"
+                parent="menu_stagging_gen21_root"
+            />
+        <menuitem
+                id="menu_inventory_costs_gen21"
+                name="Inventory Costs"
+                sequence="3"
+                parent="menu_stagging_gen21_root"
+            />
+        <menuitem
+                id="menu_usage_costs_gen21"
+                name="Usage Costs"
+                sequence="4"
+                parent="menu_stagging_gen21_root"
+            />
+        <menuitem
+                id="menu_program_costs_gen21"
+                name="Program Costs"
+                sequence="5"
+                parent="menu_stagging_gen21_root"
+            />
+    </data>
+</odoo>

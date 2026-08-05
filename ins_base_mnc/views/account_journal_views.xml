@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit_account_journal_form" model="ir.ui.view">
+            <field name="name">inherit.account.journal.form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="after">
+                  <field name="default_all_account_id" attrs="{'invisible': [('type','not in',('purchase','general'))]}"/>
+                </xpath>
+                <field name="company_id" position="after">
+                  <field name="purchase_type" widget="radio" options="{'horizontal': 1}"
+                         attrs="{'invisible': [('type', '!=', 'purchase')]}"/>
+                </field>
+
+                <page name="bank_account" position="replace">
+                    <page name="bank_account" string="Journal Entries">
+                        <group>
+                            <group string="Accounting information">
+                                <field name="default_account_type" invisible="1"/>
+                                <!-- Bank -->
+                                <field name="default_account_id" string="Bank Account" attrs="{'required': [('id', '!=', False), ('type', '=', 'bank')], 'invisible': [('type', '!=', 'bank')]}" groups="account.group_account_readonly"/>
+                                <!-- Cash -->
+                                <field name="default_account_id" string="Cash Account" attrs="{'required': [('id', '!=', False), ('type', '=', 'cash')], 'invisible': [('type', '!=', 'cash')]}" groups="account.group_account_readonly"/>
+
+                                <field name="suspense_account_id" string="Suspense Receipt Account" attrs="{'required': [('type', 'in', ('bank', 'cash'))], 'invisible': [('type', 'not in', ('bank', 'cash'))]}" groups="account.group_account_readonly"/>
+                                <field name="suspense_payment_account_id" string="Suspense Payment Account" attrs="{'required': [('type', 'in', ('bank', 'cash'))], 'invisible': [('type', 'not in', ('bank', 'cash'))]}" groups="account.group_account_readonly"/>
+                                <field name="profit_account_id" attrs="{'invisible': [('type', '!=', 'cash')]}"/>
+                                <field name="loss_account_id" attrs="{'invisible': [('type', '!=', 'cash')]}"/>
+                                <!-- Sales -->
+                                <field name="default_account_id" string="Default Income Account" attrs="{'required': [('type', '=', 'sale')], 'invisible': [('type', '!=', 'sale')]}" groups="account.group_account_readonly"/>
+                                <!-- Purchase -->
+                                <field name="default_account_id" string="Default Expense Account"
+                                      attrs="{'required': [('type', '=', 'purchase'), ('purchase_type', '=', 'purchase')], 'invisible': ['|', ('type', '!=', 'purchase'), ('purchase_type', '!=', 'purchase')]}" groups="account.group_account_readonly"/>
+                                <field name="default_account_id" string="Default Prepayment Account"
+                                      attrs="{'required': [('type', '=', 'purchase'), ('purchase_type', '=', 'prepayment')], 'invisible': ['|', ('type', '!=', 'purchase'), ('purchase_type', '!=', 'prepayment')]}"
+                                      groups="account.group_account_readonly"/>
+                                <field name="default_account_id" string="Default Settlement Account"
+                                      attrs="{'required': [('type', '=', 'purchase'), ('purchase_type', '=', 'settlement')], 'invisible': ['|', ('type', '!=', 'purchase'), ('purchase_type', '!=', 'settlement')]}"
+                                      groups="account.group_account_readonly"/>
+
+                                <field name="refund_sequence" attrs="{'invisible': [('type', 'not in', ['sale', 'purchase'])]}"/>
+                                <field name="code"/>
+                                <field name="remitted_account_id"/>
+                                <field name="currency_id" options="{'no_create': True}" groups="base.group_multi_currency"/>
+                                <field name="is_applied_invoice"/>
+                                <field name="is_applied_customer"/>
+                                <field name="is_applied_prepayment"/>
+                                <field name="exclude_cf_report"/>
+                            </group>
+                            <group string="Bank Account Number" attrs="{'invisible': [('type', '!=', 'bank')]}">
+                                <field name="company_partner_id" invisible="1"/>
+                                <field name="bank_account_id" string="Account Number" context="{'default_partner_id': company_partner_id, 'form_view_ref': 'account.view_company_partner_bank_form'}"/>
+                                <field name="bank_id" attrs="{'invisible': [('bank_account_id', '=', False)]}"/>
+                                <field name="bank_statements_source" widget="radio" attrs="{'required': [('type', '=', 'bank')]}" groups="account.group_account_readonly"/>
+                            </group>
+                        </group>
+                    </page>
+                </page>
+            </field>
+      </record>
+    </data>
+</odoo>

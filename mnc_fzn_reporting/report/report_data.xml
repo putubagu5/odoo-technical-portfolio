@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+
+        <record id="action_sub_ledger_report_xlsx" model="ir.actions.report">
+            <field name="name">Sub Ledger Detail Report XLSX</field>
+            <field name="model">wizard.sub.ledger.detail</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_fzn_reporting.sub_ledger_report_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_fzn_reporting.sub_ledger_report_xlsx</field>
+            <field name="print_report_name">('Sub Ledger Detail Report: %s - %s' % (object.date_start,
+                object.date_end))
+            </field>
+        </record>
+
+        <record id="action_purchase_order_report_xlsx" model="ir.actions.report">
+            <field name="name">Purchase Order List Report XLSX</field>
+            <field name="model">wizard.purchase.order</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_fzn_reporting.purchase_order_list_report_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_fzn_reporting.purchase_order_list_report_xlsx</field>
+            <field name="print_report_name">('Purchase Order List Report: %s - %s' % (object.date_start,
+                object.date_end))
+            </field>
+        </record>
+
+        <record id="action_asset_clearing_report_xlsx" model="ir.actions.report">
+            <field name="name">Outstanding Asset Clearing Report XLSX</field>
+            <field name="model">wizard.asset.clearing</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_fzn_reporting.asset_clearing_report_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_fzn_reporting.asset_clearing_report_xlsx</field>
+            <field name="print_report_name">('Outstanding Asset Clearing Report: %s - %s' % (object.date_start,
+                object.date_end))
+            </field>
+        </record>
+
+<!--        <record id="action_unapplied_receipt_report_xlsx" model="ir.actions.report">-->
+<!--            <field name="name">Unapplied Receipts Report XLSX</field>-->
+<!--            <field name="model">wizard.unapplied.receipt</field>-->
+<!--            <field name="type">ir.actions.report</field>-->
+<!--            <field name="report_name">mnc_fzn_reporting.unapplied_receipt_report_xlsx</field>-->
+<!--            <field name="report_type">xlsx</field>-->
+<!--            <field name="report_file">mnc_fzn_reporting.unapplied_receipt_report_xlsx</field>-->
+<!--            <field name="print_report_name">('Unapplied Receipts Report: %s - %s' % (object.date_start,-->
+<!--                object.date_end))-->
+<!--            </field>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

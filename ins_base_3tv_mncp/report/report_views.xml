@@ -1,0 +1,781 @@
+<odoo>
+    <data noupdate="1">
+        <!--        Paper Format Check-->
+        <record id="paperformat_payment_check" model="report.paperformat">
+            <field name="name">Payment Check</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">8</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_payment_check_muamalat" model="report.paperformat">
+            <field name="name">Payment Check Muamalat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">7</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!--        Paper Format Invoice-->
+        <record id="paperformat_payment_invoice" model="report.paperformat">
+            <field name="name">Payment Invoice A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <!--        Paper Format Giro-->
+        <record id="paperformat_payment_giro" model="report.paperformat">
+            <field name="name">Payment Giro</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">13</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!--        Paper Format Slip-->
+        <record id="paperformat_3tv_payment_slip" model="report.paperformat">
+            <field name="name">Payment Slip</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_3tv_payment_slip_mncbank" model="report.paperformat">
+            <field name="name">Payment Slip MNC Bank</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">195</field>
+            <field name="page_width">215</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">16</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!--        Check-->
+        <record id="report_payment_check_bca" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-BCA-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_bca_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_bca_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_bjb" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-BJB-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_bjb_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_bjb_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_bri" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-BRI-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_bri_3tv_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_bri_3tv_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_capital" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-Capital-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_capital_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_capital_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_mandiri_3tv" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-Mandiri-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_mandiri_3tv_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_mandiri_3tv_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_mncbank" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-MNC Bank-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_mncbank_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_mncbank_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- <record id="report_payment_check_muamalat" model="ir.actions.report">
+            <field name="name">Payment Check (-Muamalat-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_muamalat_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_muamalat_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check_muamalat"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+        <record id="report_payment_check_permata" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-Permata-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_permata_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_permata_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_sinarmas" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-Sinarmas-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_check_sinarmas_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_check_sinarmas_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Giro -->
+        <record id="report_payment_giro_bca" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-BCA-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_bca_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_bca_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_bri" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-BRI-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_bri_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_bri_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_mandiri" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-Mandiri-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_mandiri_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_mandiri_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_mandiri" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-MNC-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_mnc_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_mnc_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_bjb" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-BJB-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_bjb_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_bjb_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_btn" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-BTN-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_btn_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_btn_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_permata" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-Permata-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_permata_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_permata_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_capital" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-Capital-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_capital_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_capital_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_cimb" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-CIMB-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_cimb_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_cimb_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_giro_sinarmas" model="ir.actions.report">
+            <field name="name">3TV Payment Giro (-Sinarmas-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_giro_sinarmas_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_giro_sinarmas_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!--        Slip-->
+        <record id="report_payment_slip_bca" model="ir.actions.report">
+            <field name="name">3TV Payment Slip (-BCA-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_slip_bca_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_slip_bca_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_bjb" model="ir.actions.report">
+            <field name="name">3TV Payment Slip (-BJB-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_slip_bjb_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_slip_bjb_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_bri" model="ir.actions.report">
+            <field name="name">3TV Payment Slip (-BRI-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_slip_bri_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_slip_bri_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_kliring_mandiri" model="ir.actions.report">
+            <field name="name">3TV Payment Slip Kliring (-Mandiri-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_slip_kliring_mandiri_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_slip_kliring_mandiri_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_mncbank" model="ir.actions.report">
+            <field name="name">3TV Payment Slip (-MNC Bank-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_slip_mncbank_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_slip_mncbank_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_slip_mncbank"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_multi_mandiri" model="ir.actions.report">
+            <field name="name">3TV Payment Slip Multipayment (-Mandiri-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_slip_multi_mandiri_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_slip_multi_mandiri_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE REQUEST PAPERFORMAT -->
+        <record id="report_3tv_A4_portrait_paperformat" model="report.paperformat">
+            <field name="name">report.3tv.a4.portrait.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="margin_top">25</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- GTV PAPERFORMAT -->
+        <record id="report_GTV_A4_portrait_paperformat" model="report.paperformat">
+            <field name="name">report.GTV.a4.portrait.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="margin_top">25</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- PAPERFORMAT CHECK MNCP -->
+        <record id="paperformat_3tv_payment_check_mncp" model="report.paperformat">
+            <field name="name">Payment 3tv Check A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">178</field>
+            <field name="page_width">70</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <!-- PAPERFORMAT PAYMENT SLIP -->
+        <record id="paperformat_3tv_payment_slips" model="report.paperformat">
+            <field name="name">Payment 3tv Slip</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">194</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- PAPERFORMAT RFP -->
+        <record id="report_3tv_A4_portrait_paperformat_rfp" model="report.paperformat">
+            <field name="name">report.3tv.a4.portrait.rfp.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">50</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- PAPERFORMAT PO 3TV -->
+        <record id="report_3tv_A4_portrait_po_paperformat" model="report.paperformat">
+            <field name="name">report.3tv.a4.portrait.po.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">110</field>
+            <field name="margin_top">115</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="margin_bottom">30</field>
+            <field name="dpi">100</field>
+        </record>
+
+
+        <!-- CASH ADVANCE PIH -->
+        <record id="ins_base_3tv_mncp_report_cash_advance_pih_portrait" model="ir.actions.report">
+            <field name="name">3TV Cash Advance PIH</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_cash_advance_pih_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_cash_advance_pih_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- CASH ADVANCE NON PIH -->
+        <record id="ins_base_3tv_mncp_report_cash_advance_non_pih_portrait" model="ir.actions.report">
+            <field name="name">3TV Cash Advance Non PIH</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_cash_advance_non_pih_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_cash_advance_non_pih_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- REQUEST SPD PIH -->
+        <record id="ins_base_3tv_mncp_report_request_spd_pih_portrait" model="ir.actions.report">
+            <field name="name">3TV Permintaan Surat Perjalanan Dinas PIH</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_request_spd_pih_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_request_spd_pih_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- REQUEST SPD NON PIH -->
+        <record id="ins_base_3tv_mncp_report_request_spd_non_pih_portrait" model="ir.actions.report">
+            <field name="name">3TV Permintaan Surat Perjalanan Dinas Non PIH</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_request_spd_non_pih_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_request_spd_non_pih_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PETTY CASH REQUEST -->
+        <record id="ins_base_3tv_mncp_report_petty_cash_request_portrait" model="ir.actions.report">
+            <field name="name">3TV Petty Cash Request</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_petty_cash_request_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_petty_cash_request_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PAYMENT REQUEST PIH -->
+        <record id="ins_base_3tv_mncp_report_payment_request_pih_portrait" model="ir.actions.report">
+            <field name="name">3TV Payment Request PIH</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_payment_request_pih_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_payment_request_pih_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PAYMENT REQUEST NON PIH -->
+        <record id="ins_base_3tv_mncp_report_payment_request_non_pih_portrait" model="ir.actions.report">
+            <field name="name">3TV Payment Request Non PIH</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_payment_request_non_pih_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_payment_request_non_pih_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE REQUEST PIH -->
+        <record id="ins_base_3tv_mncp_report_purchase_request_pih_portrait" model="ir.actions.report">
+            <field name="name">3TV Purchase Request PIH</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_request_pih_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_request_pih_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE REQUEST NON PIH -->
+        <record id="ins_base_3tv_mncp_report_purchase_request_non_pih_portrait" model="ir.actions.report">
+            <field name="name">3TV Purchase Request Non PIH</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_request_non_pih_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_request_non_pih_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE REQUEST 3TV -->
+        <record id="ins_base_3tv_mncp_report_purchase_request_3tv_portrait" model="ir.actions.report">
+            <field name="name">Purchase Request (3TV)</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_request_3tv_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_request_3tv_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE REQUEST MNCP -->
+        <record id="ins_base_3tv_mncp_report_purchase_request_mncp_portrait" model="ir.actions.report">
+            <field name="name">Purchase Request (MNCP)</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_request_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_request_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- CREDIT MEMO MNCP -->
+        <record id="ins_base_3tv_mncp_report_credit_memo_mncp_portrait" model="ir.actions.report">
+            <field name="name">3TV Credit Memo</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_credit_memo_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_credit_memo_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- DEBIT MEMO MNCP -->
+        <record id="ins_base_3tv_mncp_report_debit_memo_mncp_portrait" model="ir.actions.report">
+            <field name="name">3TV Debit Memo</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_debit_memo_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_debit_memo_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- AR Tanda Terima - MNCTV -->
+        <record id="ins_base_3tv_mncp_report_invoice_ar_mmnctv_portrait" model="ir.actions.report">
+            <field name="name">AR Tanda Terima - MNCTV</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_invoice_ar_mnctv_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_invoice_ar_mnctv_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- FORM CHECK MNCP -->
+        <record id="ins_base_3tv_mncp.report_form_check_mncp_portrait" model="ir.actions.report">
+            <field name="name">Print Check MNCP</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_form_check_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_form_check_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_check_mncp"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Payment Slip MNCP -->
+        <record id="ins_base_3tv_mncp.report_payment_slip_mncp_portrait" model="ir.actions.report">
+            <field name="name">Print Payment Slip MNCP</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_slip_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_slip_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_slips"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PAYMENT VOUCHER MNCP -->
+        <record id="ins_base_3tv_mncp.report_payment_voucher_mncp" model="ir.actions.report">
+            <field name="name">Payment Voucher MNCP</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_voucher_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_voucher_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PINBUK 3TV -->
+        <record id="ins_base_3tv_mncp.report_payment_request_gtv" model="ir.actions.report">
+            <field name="name">Printout PinBuk</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_request_gtv_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_request_gtv_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_GTV_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE ORDER 3TV-->
+        <record id="ins_base_3tv_mncp_report_purchase_order_mncp_portrait" model="ir.actions.report">
+            <field name="name">Purchase Order (3TV)</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_order_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_purchase_order_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_po_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PAYMENT ORDER 3TV-->
+        <record id="ins_base_3tv_mncp_report_payment_order_3tv_portrait" model="ir.actions.report">
+            <field name="name">Payment Order (3TV)</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_payment_order_3tv_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_payment_order_3tv_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_po_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- REQUEST FOR PAYMENT MNCP-->
+        <record id="ins_base_3tv_mncp_report_request_for_payment_mncp_portrait" model="ir.actions.report">
+            <field name="name">3tv Invoice Register</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.ins_base_3tv_mncp_report_request_for_payment_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.ins_base_3tv_mncp_report_request_for_payment_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_paperformat_rfp"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+         <!-- Payment Pv RCTI -->
+        <!-- <record id="ins_base_3tv_mncp_report_payment_pv_rcti_portrait" model="ir.actions.report">
+            <field name="name">Print Payment PV RCTI</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_pv_rcti_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_pv_rcti_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_po_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+        <!-- Payment Po RCTI -->
+        <record id="ins_base_3tv_mncp_report_payment_po_rcti_portrait" model="ir.actions.report">
+            <field name="name">Print Payment Po RCTI</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_payment_po_rcti_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_payment_po_rcti_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.report_3tv_A4_portrait_po_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- FORM CHECK MNCP -->
+        <record id="ins_base_3tv_mncp.report_form_check_mncp_portrait" model="ir.actions.report">
+            <field name="name">Print Check MNCP</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_form_check_mncp_container</field>
+            <field name="report_file">ins_base_3tv_mncp.report_form_check_mncp_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_3tv_payment_check_mncp"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- TANDA TERIMA 3TV -->
+        <record id="paperformat_invoice_receipt_3tv" model="report.paperformat">
+            <field name="name">Tanda Terima A4 3TV</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">30</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="report_invoice_receipt_3tv" model="ir.actions.report">
+            <field name="name">Invoice Receipt Report 3TV</field>
+            <field name="model">report.ins_base_3tv_mncp.report_invoice_receipt_3tv_container</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_3tv_mncp.report_invoice_receipt_3tv_container</field>
+            <field name="paperformat_id" ref="ins_base_3tv_mncp.paperformat_invoice_receipt_3tv"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="mnc_ar_statement_paperformat" model="report.paperformat">
+            <field name="name">AR Statement of Account PaperFormat</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="action_mnc_ar_statement_report" model="ir.actions.report">
+            <field name="name">AR Statement of Account Report</field>
+            <field name="model">wizard.mnc.ar.statement.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mnc_xlsx_reporting.mnc_ar_statement_report</field>
+            <field name="report_file">mnc_xlsx_reporting.mnc_ar_statement_report</field>
+            <field name="paperformat_id" ref="mnc_xlsx_reporting.mnc_ar_statement_paperformat"/>
+            <!-- <field name="binding_model_id" ref="model_wizard_mnc_ar_statement_report"/>
+            <field name="binding_type">report</field> -->
+        </record>
+
+        <template id="mnc_ar_statement_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="mnc_xlsx_reporting.mnc_ar_statement_report_document"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="mnc_ar_statement_report_document">
+            <t t-call="web.basic_layout">
+
+                <div class="header">
+
+                    <div class="col-12">
+                        <table width="100%" style="font-size:12px">
+                            <tr>
+                                <td colspan="7" style="text-align:center;font-size:18px">
+                                    <strong>STATEMENT OF ACCOUNT FOR CUSTOMER REPORT</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%">Organization</td>
+                                <td width="2%">:</td>
+                                <td width="37%">
+                                    <t t-esc="data['company_name']"/>
+                                </td>
+                                <td width="2%"></td>
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td width="10%">Customer Name</td>
+                                <td width="2%">:</td>
+                                <td width="37%">
+                                    <t t-esc="data['partner_name']"/>
+                                </td>
+                                <td width="2%"></td>
+                                <td width="10%">Print Date</td>
+                                <td width="2%">:</td>
+                                <td width="37%">
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%b-%Y %H:%M:%S')"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%">Period</td>
+                                <td width="2%">:</td>
+                                <td width="37%">
+                                    <t t-esc="data['period_name']"/>
+                                </td>
+                                <td width="2%"></td>
+                                <td width="10%">User</td>
+                                <td width="2%">:</td>
+                                <td width="37%">
+                                    <t t-esc="data['user']"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%">GL Account</td>
+                                <td width="2%">:</td>
+                                <td width="37%">
+                                    <t t-esc="data['account_transaction_name']"/>
+                                </td>
+                                <td width="2%"></td>
+                                <td width="10%">Page</td>
+                                <td width="2%">:</td>
+                                <td width="37%">
+                                    <span class="page"/>&#160;of&#160;<span class="topage"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%">Currency Code</td>
+                                <td width="2%">:</td>
+                                <td width="37%">
+                                    <t t-esc="data['currency_name']"/>
+                                </td>
+                                <td width="2%"></td>
+                                <td colspan="3"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="page">
+
+                    <div class="col-12">
+                        <t t-foreach="data['datas']" t-as="d">
+                            <table width="100%" style="font-size:11px">
+                                <tr>
+                                    <td colspan="14" style="text-decoration: underline">
+                                        <t t-esc="d['partner_name']"/>
+                                        <t t-if="d['partner_no']">
+                                            &#160;(<t t-esc="d['partner_no']"/>)
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr height="5"></tr>
+                                <tr>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>INVOICE NO</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>ORIGINAL INVOICE NO</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>GL DATE</center>
+                                    </td>
+                                    <td width="5%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>REFF MUTASI</center>
+                                    </td>
+                                    <td width="13%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>DESCRIPTION</center>
+                                    </td>
+                                    <td width="5%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>STASIUN</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>ADVERTISER</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>INVOICE AMOUNT</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>RECEIPT/CN-DN NO</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>NOTE</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>RECEIPT/CN-DN DATE</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>APPLY DATE</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>APPLIED AMOUNT</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>
+                                            <strong>OUTSTANDING AMOUNT</strong>
+                                        </center>
+                                    </td>
+                                </tr>
+
+                                <t t-set="amount_total" t-value="0"/>
+                                <t t-set="amount_applied" t-value="0"/>
+                                <t t-set="amount_outstanding" t-value="0"/>
+                                <t t-foreach="d['items']" t-as="i">
+                                    <t t-set="amount_total" t-value="amount_total + i['amount_total']"/>
+                                    <t t-set="amount_outstanding" t-value="amount_outstanding + i['amount_residual']"/>
+                                    <t t-if="i['receipt_ids']">
+                                        <t t-set="receipt_index" t-value="0"/>
+                                        <tr t-foreach="i['receipt_ids']" t-as="re">
+                                            <t t-set="receipt_index" t-value="receipt_index + 1"/>
+                                            <t t-set="amount_applied" t-value="amount_applied + re['applied_amount']"/>
+                                            <t t-set="amount_outstanding"
+                                               t-value="amount_outstanding - re['applied_amount']"/>
+
+                                            <t t-if="receipt_index == 1">
+                                                <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                    <t t-esc="i['payment_reference']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                    <t t-esc="i['move_number']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:center">
+                                                    <t t-esc="i['invoice_date']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                    <t t-esc="i['ref']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                    <t t-esc="i['advertiser_gen21']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:right">
+                                                    <t t-esc="'{0:,.0f}'.format(round(i['amount_total'], 2))"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                    <t t-esc="re['receipt_number']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:center">
+                                                    <t t-esc="re['state']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:center">
+                                                    <t t-esc="re['receipt_date']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:center">
+                                                    <t t-esc="re['applied_date']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:right">
+                                                    <t t-esc="'{0:,.0f}'.format(round(re['applied_amount'], 2))"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:right">
+                                                    <t t-esc="'{0:,.0f}'.format(round(re['amount_remaining'], 2))"/>
+                                                </td>
+                                            </t>
+
+                                            <t t-else="receipt_index > 1">
+                                                <td style="padding:5px;border-left: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align:left">
+                                                </td>
+                                                <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:left">
+                                                </td>
+                                                <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:center">
+                                                </td>
+                                                <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:left">
+                                                </td>
+                                                <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:left">
+                                                </td>
+                                                <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:left">
+                                                </td>
+                                                <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:left">
+                                                </td>
+                                                <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;border-right: 1px solid black;text-align:right">
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                    <t t-esc="re['receipt_number']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:center">
+                                                    <t t-esc="re['state']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:center">
+                                                    <t t-esc="re['receipt_date']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:center">
+                                                    <t t-esc="re['applied_date']"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:right">
+                                                    <t t-esc="'{0:,.0f}'.format(round(re['applied_amount'], 2))"/>
+                                                </td>
+                                                <td style="padding:5px;border: 1px solid black;text-align:right">
+                                                    <t t-esc="'{0:,.0f}'.format(round(re['amount_remaining'], 2))"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-else="not i['receipt_ids']">
+                                        <tr>
+                                            <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                <t t-esc="i['payment_reference']"/>
+                                            </td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                <t t-esc="i['move_number']"/>
+                                            </td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:center">
+                                                <t t-esc="i['invoice_date']"/>
+                                            </td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:left">
+                                            </td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                <t t-esc="i['ref']"/>
+                                            </td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:left">
+                                            </td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:left">
+                                                <t t-esc="i['advertiser_gen21']"/>
+                                            </td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:right">
+                                                <t t-esc="'{0:,.0f}'.format(round(i['amount_total'], 2))"/>
+                                            </td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:center"></td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:center"></td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:center"></td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:center"></td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:right"></td>
+                                            <td style="padding:5px;border: 1px solid black;text-align:right">
+                                                <t t-esc="'{0:,.0f}'.format(round(i['amount_residual'], 2))"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+                                <tr>
+                                    <td colspan="7"
+                                        style="padding:5px;border-left: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align:left">
+                                        <strong>Total Outstanding&#160;<t t-esc="d['partner_name']"/>
+                                            <t t-if="d['partner_no']">
+                                                &#160;(<t t-esc="d['partner_no']"/>)
+                                            </t>
+                                        </strong>
+                                    </td>
+                                    <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:right">
+                                        <span t-esc="'{0:,.0f}'.format(round(amount_total, 2))"/>
+                                    </td>
+                                    <td colspan="4"
+                                        style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:right"></td>
+                                    <td style="padding:5px;border-top: 1px solid black;border-bottom: 1px solid black;text-align:right">
+                                        <span t-esc="'{0:,.0f}'.format(round(amount_applied, 2))"/>
+                                    </td>
+                                    <td style="padding:5px;border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align:right">
+                                        <span t-esc="'{0:,.0f}'.format(round(amount_outstanding, 2))"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                        </t>
+
+                        <t t-if="not data['datas']">
+                            <table width="100%" style="font-size:11px">
+                                <tr>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>INVOICE NO</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>ORIGINAL INVOICE NO</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>GL DATE</center>
+                                    </td>
+                                    <td width="5%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>REFF MUTASI</center>
+                                    </td>
+                                    <td width="13%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>DESCRIPTION</center>
+                                    </td>
+                                    <td width="5%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>STASIUN</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>ADVERTISER</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>INVOICE AMOUNT</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>RECEIPT/CN-DN NO</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>NOTE</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>RECEIPT/CN-DN DATE</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>APPLY DATE</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>APPLIED AMOUNT</center>
+                                    </td>
+                                    <td width="7%"
+                                        style="padding:5px;border: 1px solid black; vertical-align:middle;font-weight:bold">
+                                        <center>
+                                            <strong>OUTSTANDING AMOUNT</strong>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </t>
+
+                    </div>
+
+                </div>
+
+            </t>
+        </template>
+
+    </data>
+</odoo>

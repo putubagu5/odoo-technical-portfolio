@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="view_bank_cash_transfer_form" model="ir.ui.view">
+            <field name="name">bank.cash.transfer.form</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="arch" type="xml">
+                <form string="Bank Cash Transfer" version="7">
+                    <header>
+                        <button name="action_posted" string="Confirm" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('transfer_state', 'not in', ('draft'))]}"/>
+                        <button name="action_cancel" string="Cancel" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('transfer_state', 'not in', ('draft','posted'))]}"/>
+                        <field name="transfer_state" widget="statusbar"
+                               statusbar_visible="draft,in_progress,posted,cancel"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1" force_save="1"/>
+                                <field name="doc_ref"/>
+                                <field name="bank_from"
+                                       domain="[('type', 'in', ['bank','cash'])]"
+                                       attrs="{'readonly': ['|',('transfer_state', 'in', ('in_progress','posted','cancel')),
+                                       ('id', '&gt;',0)]}"/>
+                                <field name="bank_to"
+                                       domain="[('type', 'in', ['bank','cash'])]"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress','posted','cancel'))]}"/>
+                                <field name="partner_id" readonly="1" force_save="1"/>
+                                <field name="amount" string="Amount Sent Bank From"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress','posted','cancel'))]}"/>
+                                <!-- <field name="ref_description"/> -->
+                                <field name="manual_currency_rate_active" groups="base.group_multi_currency"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress','posted','cancel'))]}"/>
+                                <field name="manual_currency_rate" string="Rate Bank From" groups="base.group_multi_currency"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress','posted','cancel'))], 'invisible': [('manual_currency_rate_active', '=', False)],'required':[('manual_currency_rate_active', '=', True) ]}"/>
+                                <field name="manual_currency_rate2" string="Rate Bank To" groups="base.group_multi_currency"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress','posted','cancel'))], 'invisible': [('manual_currency_rate_active', '=', False)],'required':[('manual_currency_rate_active', '=', True)]}"/>
+                                <field name="receive_bank_to_amount" string="Amount Receive Bank To" readonly="1" force_save="1"/>
+                                <field name="note"
+                                       attrs="{'invisible': [('transfer_state', '!=', 'draft'), ('note', '=', False)],
+                                       'readonly': [('transfer_state', 'in', ('in_progress','posted','cancel'))]}"/>
+                            </group>
+                            <group>
+                                <field name="date"
+                                       attrs="{'readonly': ['|',('transfer_state', 'in', ('in_progress','posted','cancel')),
+                                       ('id', '&gt;',0)]}"/>
+                                <field name="clearing_account_id" readonly="1" force_save="1"/>
+                                <field name="partner_bank_from" readonly="1" force_save="1"/>
+                                <field name="currency_id"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress', 'posted', 'cancel'))]}"/>
+                                <field name="partner_bank_to" readonly="1" force_save="1"/>
+                                <field name="bank_to_currency_id"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress', 'posted', 'cancel'))]}"/>
+                                <field name="company_currency_id"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress', 'posted', 'cancel'))]}" invisible="1"/>
+                                <field name="operating_unit_id"
+                                       options="{'no_create': True}"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress', 'posted', 'cancel'))]}"/>
+                                <field name="company_id" readonly="1" force_save="1"
+                                       options="{'no_create': True}"
+                                       attrs="{'readonly': [('transfer_state', 'in', ('in_progress', 'posted', 'cancel'))]}"/>
+
+                                <!-- fields from payment -->
+                                <field name="payment_method_code" invisible="1"/>
+                                <field name="available_payment_method_ids" invisible="1"/>
+                                <field name="payment_type" widget="radio"
+                                       attrs="{'readonly': [('transfer_state', '!=', 'draft')]}" invisible="1"/>
+                                <field name="payment_method_id" widget="radio"
+                                       required="1"
+                                       attrs="{'readonly': [('transfer_state', '!=', 'draft')]}"/>
+
+                                <field name="giro_master_id" attrs="{'invisible': [('payment_method_code', '!=', 'giro')], 'required': [('payment_method_code', '=', 'giro')]}"/>
+                                <field name="giro_id" attrs="{'invisible': [('payment_method_code', '!=', 'giro')], 'required': [('payment_method_code', '=', 'giro')]}"/>
+                                <field name="payment_doc_master_id" attrs="{'invisible': [('payment_method_code', '!=', 'manual')], 'required': [('payment_method_code', '=', 'manual')], 'readonly': [('transfer_state', '!=', 'draft')]}"/>
+                                <field name="payment_doc_id" attrs="{'invisible': [('payment_method_code', '!=', 'manual')], 'required': [('payment_method_code', '=', 'manual')], 'readonly': [('transfer_state', '!=', 'draft')]}"/>
+                            </group>
+                        </group>
+                         <notebook>
+                            <page id="transfer_tab" string="Bank Cash Transfer">
+                                <field name="transfer_ids" string="Bank Cash" widget="one2many_list"
+                                       options="{'limit': 2, 'create': false, 'create_edit': false, 'delete': false}">
+                                    <tree editable="bottom" string="Transfer List" >
+                                        <field name="date" optional="show"/>
+                                        <field name="name" optional="show"/>
+                                        <field name="payment_type" optional="show"/>
+<!--                                        <field name="suitable_journal_ids" invisible="1"/>-->
+<!--                                        <field name="journal_id"/>-->
+<!--                                        <field name="partner_bank_id"/>-->
+                                        <field name="amount" optional="show" readonly="False"/>
+                                        <field name="operating_unit_id" optional="show"/>
+                                        <field name="currency_id" optional="show"/>
+                                        <field name="manual_currency_rate" optional="show"/>
+                                        <field name="company_id" optional="show"/>
+                                        <field name="move_id" optional="show"/>
+                                        <field name="state" optional="show"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_bank_cash_transfer_tree" model="ir.ui.view">
+            <field name="name">bank.cash.transfer.tree</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="arch" type="xml">
+                <tree edit="false">
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="bank_from"/>
+                    <field name="bank_to"/>
+                    <field name="amount" sum="Amount"/>
+                    <field name="transfer_state"/>
+                    <field name="operating_unit_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_bank_cash_transfer" model="ir.actions.act_window">
+            <field name="name">Bank Cash Transfer</field>
+            <field name="res_model">bank.cash.transfer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Bank or Cash Transfer.
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="bank_cash_transfer_menu"
+                  name="Bank Cash Transfer"
+                  parent="account.menu_finance_entries"
+                  sequence="15"
+                  action="action_bank_cash_transfer"/>
+    </data>
+</odoo>

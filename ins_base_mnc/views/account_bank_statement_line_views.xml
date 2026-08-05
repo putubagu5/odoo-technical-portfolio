@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_bank_statement_line_form_reconciliation_inherit" model="ir.ui.view">
+		<field name="name">account.bank.statement.line.inherit.reconciliation</field>
+		<field name="model">account.bank.statement.line</field>
+        <field name="inherit_id" ref="oi_bank_reconciliation.view_bank_statement_line_form_reconciliation"/>
+		<field name="priority">100</field>
+		<field name="arch" type="xml">
+            <xpath expr="//page[@name='matched_manual']" position="after">
+                <page name="matched_misc_payment" string="Miscellaneous Operations">
+                    <field name="matched_misc_payment_ids" nolabel="1" domain="[('is_matched','=', False), ('state','=', 'posted'), ('reverse_date','=',False)]">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="receipt_number" optional="show"/>
+                            <field name="receipt_type_id" optional="show"/>
+                            <field name="misc_type" optional="show"/>
+                            <field name="partner_id" optional="show"/>
+                            <field name="journal_id" optional="hide"/>
+                            <field name="destination_account_id" optional="show"/>
+                            <field name="partner_bank_id" optional="show"/>
+                            <field name="amount" sum="Amount"/>
+                            <field name="currency_id" optional="show"/>
+                            <field name="operating_unit_id"/>
+                            <field name="company_id" optional="show"/>
+                            <field name="state" optional="show"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='date']" position="after">
+                 <field name="multi_payment_reference"/>
+            </xpath>
+        </field>
+        </record>
+        <record id="inherit_view_bank_statement_form_reconciliation" model="ir.ui.view">
+            <field name="name">account.bank.statement.form.reconciliation</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="oi_bank_reconciliation.view_bank_statement_form"/>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_undo_reconciliation']" position="replace">
+                    <!-- Buttons -->
+                    <field name="move_id" invisible="1" />
+<!--                    <field name="cancel_reversal" attrs="{'invisible': [('cancel_reversal','=', False)]}"/>-->
+                    <field name="cancel_reversal"/>
+                    <button name="button_unreconcile_reverse" type="object" context="{'default_active_ids': 'move_id'}"
+                            attrs="{'invisible': [('is_reconciled', '=', False)], 'column_invisible': [('parent.state', '!=', 'posted')]}"
+                            string="Revert reconciliation" icon="fa-history"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

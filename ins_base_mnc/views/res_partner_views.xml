@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">view.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- add email_partner before vat -->
+                <!-- <xpath expr="//field[@name='vat']" position="before"> -->
+                <!--     <field name="email_partner"/> -->
+                <!-- </xpath> -->
+
+                <!-- add is_blacklist after vat -->
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="is_blacklist"/>
+                </xpath>
+                <!-- add alias_name, partner_no, partner_type_id after type -->
+                <xpath expr="//field[@name='type']" position="before">
+                    <field name="alias_name"/>
+                    <field name="partner_no"/>
+                    <field name="partner_type_id"/>
+                </xpath>
+                <!-- add new page inside notebook -->
+                <xpath expr="//notebook" position="inside">
+                    <page name="vendor_site" string="Vendor Sites">
+                        <field name="site_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name" required="1"/>
+                                <field name="address" required="1"/>
+                                <field name="code" required="1"/>
+                                <field name="account_name" required="1"/>
+                                <field name="bank_id" required="1"/>
+                                <field name="account_no" required="1"/>
+                                <field name="alternatif_name" required="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+				<xpath expr="//notebook" position="inside">
+                    <page name="partner_relation" string="Partner Relation">
+                        <group>
+                            <group>
+                                <field name="relation_partner_id" />
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_res_partner_filter" model="ir.ui.view">
+            <field name="name">view.res.partner.filter</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <!-- add alias_name, partner_no -->
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="alias_name"/>
+                    <field name="partner_no"/>
+                    <field name="partner_type_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_partner_tree" model="ir.ui.view">
+            <field name="name">view.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <!-- add is_blacklist after user_id -->
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="is_blacklist"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

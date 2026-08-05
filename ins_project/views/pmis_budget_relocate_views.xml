@@ -1,0 +1,125 @@
+<odoo>
+    <data>
+        <record id="view_pmis_budget_relocate_form" model="ir.ui.view">
+            <field name="name">view.pmis.budget.relocate.form</field>
+            <field name="model">pmis.budget.relocate</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_show_budget" type="object" string="Show Budget" class="oe_highlight" states="draft"/>
+                        <button name="button_draft" type="object" string="Set to Draft" class="oe_highlight" states="cancel"/>
+                        <button name="button_approve" type="object" string="Approve" class="oe_highlight" states="draft"/>
+                        <button name="button_confirm" type="object" string="Confirm" class="oe_highlight" states="approve"/>
+                        <!-- <button name="button_cancel" type="object" string="Cancel" class="oe_highlight" states="confirm"/> -->
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="main_project_id" string="Main Project"/>
+                            <h2>
+                                <field name="main_project_id" required="1"/>
+                            </h2>
+                            <br/>
+                            <label for="reference" string="Document Reference"/>
+                            <field name="reference"/>
+                        </div>
+                        <group>
+                            <group name="source" string="Source">
+                                <field name="source_program_id" required="1"
+                                    domain="[('main_project_id', '=', main_project_id)]"/>
+                                <field name="source_task_id" required="1"
+                                    domain="[('program_id', '=', source_program_id)]"/>
+                                <field name="source_analytic_acc_id" readonly="1"/>
+                            </group>
+                            <group name="destination" string="Destination">
+                                <field name="destination_program_id" required="1"
+                                    domain="[('main_project_id', '=', main_project_id)]"/>
+                                <field name="destination_task_id" required="1"
+                                    domain="[('program_id', '=', destination_program_id)]"/>
+                                <field name="destination_analytic_acc_id" readonly="1"/>
+                                <field name="valid_destination_budget_line_ids" widget="many2many_tags" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Details" name="detail">
+                                <field name="line_ids" nolabel="1">
+                                    <tree editable="bottom" sum="amount" create="false" delete="false">
+                                        <field name="no" readonly="1" force_save="1"/>
+                                        <field name="source_id" readonly="1" force_save="1"/>
+                                        <field name="source_expenditure_type_id" readonly="1" force_save="1"/>
+                                        <field name="source_item_code"/>
+                                        <field name="source_item_name"/>
+                                        <field name="description" readonly="1" force_save="1"/>
+                                        <field name="budget" readonly="1" force_save="1"/>
+                                        <field name="amount_transfer" required="1"/>
+                                        <field name="destination_id" required="1" domain="[('id', 'in', parent.valid_destination_budget_line_ids)]"/>
+                                        <field name="destination_expenditure_type_id" required="1"/>
+                                        <field name="destination_item_code"/>
+                                        <field name="destination_item_name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Additional Items" name="additional">
+                                <field name="additional_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="destination_analytic_acc_id" invisible="1"/>
+                                        <field name="no" readonly="1" force_save="1"/>
+                                        <field name="source_id" readonly="1" force_save="1"/>
+                                        <field name="source_expenditure_type_id" readonly="1" force_save="1"/>
+                                        <field name="source_item_code"/>
+                                        <field name="source_item_name"/>
+                                        <field name="description" readonly="1" force_save="1"/>
+                                        <field name="budget" readonly="1" force_save="1"/>
+                                        <field name="expenditure_type_id" required="1"/>
+                                        <field name="subcategory_id" invisible="1"/>
+                                        <field name="category_id" invisible="1"/>
+                                        <field name="item_code"/>
+                                        <field name="item_name"/>
+                                        <field name="description" required="1"/>
+                                        <field name="pax" required="1"/>
+                                        <field name="eps" required="1"/>
+                                        <field name="day" required="1"/>
+                                        <field name="rate"/>
+                                        <field name="average_by_eps"/>
+                                        <field name="total_budget"/>
+                                        <field name="amount_budget_in"/>
+                                        <field name="remarks"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pmis_budget_relocate_tree" model="ir.ui.view">
+            <field name="name">view.pmis.budget.relocate.tree</field>
+            <field name="model">pmis.budget.relocate</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="main_project_id"/>
+                    <field name="source_program_id"/>
+                    <field name="source_task_id"/>
+                    <field name="destination_program_id"/>
+                    <field name="destination_task_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pmis_budget_relocate" model="ir.actions.act_window">
+            <field name="name">Budget Relocate</field>
+            <field name="res_model">pmis.budget.relocate</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis_budget_relocate"
+            name="Budget Relocate"
+            action="action_pmis_budget_relocate"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_budget"
+            sequence="3"/>
+    </data>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="wizard_prepare_mass_addition_form" model="ir.ui.view">
+        <field name="name">wizard.prepare_mass_addition.form</field>
+        <field name="model">wizard.prepare.mass.addition.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="company_id" options="{'no_create': True, 'no_open': True}" required="1"/>
+                        <field name="is_date_range"/>
+                        <label for="start_date" attrs="{'invisible': [('is_date_range','!=',True)]}" string="Dates"/>
+                        <div class="o_row" attrs="{'invisible': [('is_date_range','!=',True)]}">
+                            <field name="start_date" placeholder="Start Date"
+                                   attrs="{'required': [('is_date_range','=',True)]}"/>
+                            <span class="oe_inline">&#160;-&#160;</span>
+                            <field name="end_date" placeholder="End Date"
+                                   attrs="{'required': [('is_date_range','=',True)]}"/>
+                        </div>
+                        <label for="month" string="As of Period" attrs="{'invisible': [('is_date_range','=',True)]}"/>
+                        <div class="o_row" attrs="{'invisible': [('is_date_range','=',True)]}">
+                            <field name="month" placeholder="Select Month"
+                                   attrs="{'required': [('is_date_range','!=',True)]}"/>
+                            <span class="oe_inline">&#160;-&#160;</span>
+                            <field name="year" placeholder="Select Year"
+                                   attrs="{'required': [('is_date_range','!=',True)]}"/>
+                        </div>
+                        <!--                        <field name="book_type" placeholder="Book Type"/>-->
+                    </group>
+                </group>
+                <footer>
+                    <button name="button_print_excel" string="Download Excel" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_wizard_prepare_mass_addition_report">
+        <field name="name">Prepare Mass Addition</field>
+        <field name="res_model">wizard.prepare.mass.addition.report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_prepare_mass_addition_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem id="menu_prepare_mass_addition_report" parent="mnc_menu_report.report_fa" name="FA Prepare Mass Addition Report"
+              action="action_wizard_prepare_mass_addition_report" sequence="30"/>
+
+</odoo>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="receipt_type_form_view" model="ir.ui.view">
+            <field name="name">receipt.type.form</field>
+            <field name="model">receipt.type</field>
+            <field name="arch" type="xml">
+                <form string="Receipt Type">
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="account_id" required="1"/>
+                            <field name="category" required="1"/>
+                        </group>
+                        <group>
+                            <field name="type" required="1"/>
+                            <field name="company_id" required="1"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+         <record id="receipt_type_tree_view" model="ir.ui.view">
+            <field name="name">receipt.type.tree</field>
+            <field name="model">receipt.type</field>
+            <field name="arch" type="xml">
+                <tree string="Receipt Type">
+                    <field name="name"/>
+                    <field name="account_id"/>
+                    <field name="category"/>
+                    <field name="type"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="receipts_type_act_window" model="ir.actions.act_window">
+            <field name="name">Receipt Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">receipt.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type', '=', 'receive')]</field>
+            <field name="context">{'default_type': 'receive'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Receipt Type.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="action_receipt_type_tree" model="ir.actions.act_window.view">
+            <field eval="13" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="receipt_type_tree_view" />
+            <field name="act_window_id" ref="receipts_type_act_window" />
+        </record>
+
+        <record id="action_receipt_type_form" model="ir.actions.act_window.view">
+            <field eval="14" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="receipt_type_form_view" />
+            <field name="act_window_id" ref="receipts_type_act_window" />
+        </record>
+
+        <menuitem name="Receipt Type"
+                  id="receipts_type_menu"
+                  action="receipts_type_act_window"
+                  parent="ins_miscellaneous.menu_misc_receivable"
+                  sequence="17"/>
+    </data>
+</odoo>

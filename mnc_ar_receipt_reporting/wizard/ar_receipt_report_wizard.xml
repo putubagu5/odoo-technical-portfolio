@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ar_receipt_report_wizard_form_view" model="ir.ui.view">
+            <field name="name">ar.receipt.report.wizard.form.view</field>
+            <field name="model">ar.receipt.report.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <label for="start_date" string="Period"/>
+                                <div class="o_row">
+                                    <field name="start_date"/>
+                                    <field name="end_date" nolabel="1"/>
+                                </div>
+                            </group>
+                            <group></group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="current_user_companies" invisible="1" widget="many2many_tags"/>
+                                <field name="company_ids" widget="many2many_tags" domain="[('id', 'in', current_user_companies)]"/>
+                            </group>
+                            <group></group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Generate Report XLSX" name="generate_ar_receipt_report_xlsx" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

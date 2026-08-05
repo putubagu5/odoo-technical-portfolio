@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="credit_note_limit_tree_view" model="ir.ui.view">
+            <field name="name">credit.note.limit.tree.view</field>
+            <field name="model">credit.note.limit</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="user_id"/>
+                    <field name="limit_usage"/>
+                    <field name="currency_id"/>
+                    <field name="amount_from"/>
+                    <field name="amount_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="credit_note_limit_search_view" model="ir.ui.view">
+            <field name="name">credit.note.limit.search.view</field>
+            <field name="model">credit.note.limit</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="user_id"/>
+                    <field name="limit_usage"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="credit_note_limit_action" model="ir.actions.act_window">
+            <field name="name">Limit Approval Credit Memo</field>
+            <field name="res_model">credit.note.limit</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="credit_note_limit_menu"
+                name="Limit Approval Credit Memo"
+                action="credit_note_limit_action"
+                parent="base.menu_users"
+                sequence="99"/>
+
+    </data>
+</odoo>

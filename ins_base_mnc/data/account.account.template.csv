@@ -1,0 +1,1082 @@
+id,code,name,user_type_id:id,reconcile,chart_template_id:id
+a_1_1110101,1110101,Kas 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110102,1110102,Kas 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110103,1110103,Kas 3,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110104,1110104,Kas 4,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110105,1110105,Kas 5,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110106,1110106,Kas 6,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110107,1110107,Kas 7,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110108,1110108,Kas 8,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110109,1110109,Kas 9,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110110,1110110,Kas 10,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110111,1110111,Kas 11,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110112,1110112,Kas 12,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110113,1110113,Kas 13,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110114,1110114,Kas 14,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110201,1110201,Kas Valas 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110202,1110202,Kas Valas 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110301,1110301,Kas SGD 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1110401,1110401,Kas GBP 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120101,1120101,Bank BCA 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120102,1120102,Bank BCA 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120103,1120103,Bank BCA 3,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120104,1120104,Bank BCA 4,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120105,1120105,Bank BCA 5,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120106,1120106,Bank BCA 6,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120107,1120107,Bank BCA 7,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120108,1120108,Bank BCA 8,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120161,1120161,Bank BCA 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120162,1120162,Bank BCA 62,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120163,1120163,Bank BCA USD 3,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120171,1120171,Bank BCA 71,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120201,1120201,Bank Mandiri 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120202,1120202,Bank Mandiri 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120203,1120203,Bank Mandiri 3,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120204,1120204,Bank Mandiri 4,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120205,1120205,Bank Mandiri 5,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120206,1120206,Bank Mandiri 6,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120261,1120261,Bank Mandiri 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120301,1120301,Bank MNC Internasional 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120302,1120302,Bank MNC Internasional 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120303,1120303,Bank MNC Internasional 3,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120304,1120304,Bank MNC Internasional 4,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120305,1120305,Bank MNC Internasional 5,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120306,1120306,Bank MNC Internasional 6,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120331,1120331,Bank MNC Internasional 31,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120361,1120361,Bank MNC Internasional 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120362,1120362,Bank MNC Internasional 62,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120371,1120371,Bank MNC Internasional 71,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120372,1120372,Bank MNC International 72,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120373,1120373,Bank MNC International 73,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120374,1120374,Bank MNC International 74,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120375,1120375,Bank MNC International 75,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120376,1120376,Bank MNC International 76,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120377,1120377,Bank MNC International 77,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120378,1120378,Bank MNC International 78,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120401,1120401,Bank BNI 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120402,1120402,Bank BNI 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120403,1120403,Bank BNI 3,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120404,1120404,Bank BNI 4,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120461,1120461,Bank BNI 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120501,1120501,Bank Standard Chartered 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120561,1120561,Bank Standard Chartered 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120562,1120562,Bank Standard Chartered 62,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120563,1120563,Bank Standard Chartered 63,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120601,1120601,Bank BJB 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120701,1120701,Bank BRI 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120702,1120702,Bank BRI 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120703,1120703,BRI 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120704,1120704,BRI 3,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120705,1120705,BRI 4,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120706,1120706,BRI 5,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120707,1120707,BRI 6,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120708,1120708,BRI 7,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120709,1120709,BRI 8,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120710,1120710,BRI 9,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120711,1120711,BRI 10,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120712,1120712,BRI 11,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120713,1120713,BRI 12,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120714,1120714,BRI 13,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120715,1120715,BRI 14,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120716,1120716,BRI 15,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120717,1120717,BRI 16,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120718,1120718,BRI 17,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120719,1120719,BRI 18,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120720,1120720,BRI 19,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120721,1120721,BRI 20,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120722,1120722,BRI 21,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120723,1120723,BRI 22,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120724,1120724,BRI 23,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120725,1120725,BRI 24,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120726,1120726,BRI 25,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120727,1120727,BRI 26,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120728,1120728,BRI 27,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120729,1120729,BRI 28,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120730,1120730,BRI 29,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120731,1120731,BRI 30,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120732,1120732,BRI 31,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120733,1120733,BRI 32,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120734,1120734,BRI 33,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120735,1120735,BRI 34,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120736,1120736,BRI 35,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120737,1120737,BRI 36,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120738,1120738,BRI 37,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120739,1120739,BRI 38,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120740,1120740,BRI 39,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120741,1120741,BRI 40,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120742,1120742,BRI 41,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120743,1120743,BRI 42,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120744,1120744,BRI 43,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120745,1120745,BRI 44,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120746,1120746,BRI 45,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120747,1120747,BRI 46,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120748,1120748,BRI 47,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120749,1120749,BRI 48,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120750,1120750,BRI 49,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120751,1120751,BRI 50,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120752,1120752,BRI 51,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120753,1120753,BRI 52,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120754,1120754,BRI 53,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120755,1120755,BRI 54,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120756,1120756,BRI 55,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120757,1120757,BRI 56,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120758,1120758,BRI 57,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120759,1120759,BRI 58,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120760,1120760,BRI 59,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120761,1120761,BRI 60,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120762,1120762,BRI 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120763,1120763,BRI 62,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120764,1120764,BRI 63,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120765,1120765,BRI 64,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120766,1120766,BRI 65,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120767,1120767,BRI 66,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120768,1120768,BRI 67,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120769,1120769,BRI 68,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120770,1120770,BRI 69,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120771,1120771,BRI 70,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120772,1120772,BRI 71,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120773,1120773,BRI 72,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120774,1120774,BRI 73,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120775,1120775,BRI 74,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120776,1120776,BRI 75,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120777,1120777,BRI 76,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120778,1120778,BRI 77,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120779,1120779,BRI 78,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120780,1120780,BRI 79,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120781,1120781,BRI 80,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120782,1120782,BRI 81,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120783,1120783,BRI 82,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120784,1120784,BRI 83,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120785,1120785,BRI 84,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120786,1120786,BRI 85,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120787,1120787,BRI 86,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120788,1120788,BRI 87,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120789,1120789,BRI 88,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120790,1120790,BRI 89,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120791,1120791,BRI 90,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120792,1120792,BRI 91,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120793,1120793,BRI 92,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120794,1120794,BRI 93,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120795,1120795,BRI 94,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120796,1120796,BRI 95,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120801,1120801,Bank CIMB Niaga 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120805,1120805,Bank Muamalat,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120901,1120901,Bank Permata 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1120961,1120961,Bank Permata USD 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121001,1121001,Bank BII 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121061,1121061,Bank BII 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121101,1121101,Bank ICBC 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121102,1121102,Bank ICBC 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121201,1121201,Bank UOB Indonesia 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121261,1121261,Bank UOB Indonesia 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121301,1121301,Bank Bukopin 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121302,1121302,Bank Bukopin 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121303,1121303,Bank Bukopin 3,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121401,1121401,Bank Commowealth 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121501,1121501,ANZ Bank 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121561,1121561,ANZ Bank 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121601,1121601,Bank BPTN 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121761,1121761,Deutche Bank 61,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121801,1121801,Bank Capital,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1121901,1121901,Bank Chinatrust Indonesia,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1122001,1122001,Bank Tabungan Negara 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1122101,1122101,Bank Jawa Timur 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1122201,1122201,Bank Victoria 1 - 01950,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1122211,1122211,Bank Victoria Syariah 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1122301,1122301,Bank BRI Syariah 1 - 95099,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1122302,1122302,Bank BRI Syariah 2 - 40418,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1122401,1122401,Bank Sinarmas 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123001,1123001,BRI 90,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123002,1123002,BRI 91,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123003,1123003,BRI 92,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123004,1123004,BRI 93,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123005,1123005,BRI 94,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123006,1123006,BRI 95,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123007,1123007,BRI 96,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123008,1123008,BRI 97,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123009,1123009,BRI 98,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123010,1123010,BRI 99,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123011,1123011,BRI 100,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123012,1123012,BRI 101,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123013,1123013,BRI 102,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123014,1123014,BRI 103,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123015,1123015,BRI 104,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123016,1123016,BRI 105,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123017,1123017,BRI 106,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123018,1123018,BRI 107,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123019,1123019,BRI 108,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123020,1123020,BRI 109,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123021,1123021,BRI 110,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123022,1123022,BRI 111,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123023,1123023,BRI 112,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123024,1123024,BRI 113,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123025,1123025,BRI 114,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123026,1123026,BRI 115,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123027,1123027,BRI 116,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123028,1123028,BRI 117,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123029,1123029,BRI 118,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123030,1123030,BRI 119,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123031,1123031,BRI 120,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123032,1123032,BRI 121,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123033,1123033,BRI 122,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123034,1123034,BRI 123,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123035,1123035,BRI 124,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123036,1123036,BRI 125,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123037,1123037,BRI 126,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123038,1123038,BRI 127,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123039,1123039,BRI 128,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123040,1123040,BRI 129,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123041,1123041,BRI 130,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123042,1123042,BRI 131,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123043,1123043,BRI 132,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123044,1123044,BRI 133,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123045,1123045,BRI 134,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123046,1123046,BRI 135,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123047,1123047,BRI 136,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123048,1123048,BRI 137,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123049,1123049,BRI 138,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123050,1123050,BRI 139,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123051,1123051,BRI 140,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123052,1123052,BRI 141,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123053,1123053,BRI 142,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123054,1123054,BRI 143,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123055,1123055,BRI 144,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123056,1123056,BRI 145,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123057,1123057,BRI 146,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123058,1123058,BRI 147,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123059,1123059,BRI 148,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123060,1123060,BRI 149,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123061,1123061,BRI 150,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123062,1123062,BRI 151,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123063,1123063,BRI 152,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123064,1123064,BRI 153,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123065,1123065,BRI 154,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123066,1123066,BRI 155,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123067,1123067,BRI 156,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123068,1123068,BRI 157,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123069,1123069,BRI 158,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123070,1123070,BRI 159,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123071,1123071,BRI 160,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123072,1123072,BRI 161,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123073,1123073,BRI 162,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123074,1123074,BRI 163,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123075,1123075,BRI 164,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123076,1123076,BRI 165,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123077,1123077,BRI 166,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123078,1123078,BRI 167,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123079,1123079,BRI 168,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123080,1123080,BRI 169,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123081,1123081,BRI 170,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123082,1123082,BRI 171,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123083,1123083,BRI 172,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123084,1123084,BRI 173,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123085,1123085,BRI 174,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123086,1123086,BRI 175,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123087,1123087,BRI 176,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123088,1123088,BRI 177,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123089,1123089,BRI 178,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123090,1123090,BRI 179,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123091,1123091,BRI 180,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123092,1123092,BRI 181,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123093,1123093,BRI 182,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123094,1123094,BRI 183,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123095,1123095,BRI 184,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123096,1123096,BRI 185,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123097,1123097,BRI 186,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123098,1123098,BRI 187,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123099,1123099,BRI 188,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123100,1123100,BRI 189,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123101,1123101,BRI 190,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123102,1123102,BRI 191,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123103,1123103,BRI 192,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123104,1123104,BRI 193,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123105,1123105,BRI 194,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123106,1123106,BRI 195,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123107,1123107,BRI 196,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123108,1123108,BRI 197,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123109,1123109,BRI 198,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123110,1123110,BRI 199,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123111,1123111,BRI 200,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123112,1123112,BRI 201,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123113,1123113,BRI 202,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123114,1123114,BRI 203,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123115,1123115,BRI 204,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123116,1123116,BRI 205,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123117,1123117,BRI 206,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123118,1123118,BRI 207,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123119,1123119,BRI 208,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123120,1123120,BRI 209,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123121,1123121,BRI 210,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123122,1123122,BRI 211,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123123,1123123,BRI 212,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123124,1123124,BRI 213,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123125,1123125,BRI 214,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123126,1123126,BRI 215,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123127,1123127,BRI 216,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123128,1123128,BRI 217,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123129,1123129,BRI 218,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123130,1123130,BRI 219,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123131,1123131,BRI 220,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123132,1123132,BRI 221,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123133,1123133,BRI 222 - 08304,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123134,1123134,BRI 223,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123135,1123135,BRI 224,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1123136,1123136,BRI 226,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1124001,1124001,Bank Mayapada,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1124002,1124002,Bank Mayapada 02,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1125001,1125001,Bank Muamalat 1,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1125002,1125002,Bank Muamalat 2,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129901,1129901,Bank Clearing - Payment - Cost Accounting,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129902,1129902,Bank Clearing - Payment - GL,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129903,1129903,Bank Clearing - Hutang Uang Muka Program,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129904,1129904,Bank Clearing - Hutang Uang Muka Lainnya,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129905,1129905,Bank Clearing - Antara Modul Cost Accounting,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129906,1129906,Bank Clearing - Antara Modul GL,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129907,1129907,Bank Clearing - Offset account,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129908,1129908,Bank Clearing - Antara Modul,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129909,1129909,Bank Clearing - Barter,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129910,1129910,Bank Clearing - Reimbursment,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129911,1129911,Bank Clearing - Offset account - USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1129912,1129912,Bank Clearing - Terima Deposit Sewa PHall,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130101,1130101,Bank BCA IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130161,1130161,Bank BCA USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130201,1130201,Bank Mandiri IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130261,1130261,Bank Mandiri USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130301,1130301,Bank MNC Internasional IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130361,1130361,Bank MNC Internasional USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130401,1130401,Bank BNI IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130461,1130461,Bank BNI USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130501,1130501,Bank Standard Chartered IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130561,1130561,Bank Standard Chartered USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130601,1130601,Bank bjb IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130661,1130661,Bank bjb USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130701,1130701,Bank BRI IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130761,1130761,Bank BRI USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130801,1130801,Bank CIMB Niaga IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130861,1130861,Bank CIMB Niaga USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130901,1130901,Bank Permata IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1130961,1130961,Bank Permata USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131001,1131001,Bank BII IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131061,1131061,Bank BII USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131101,1131101,Bank ICBC IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131161,1131161,Bank ICBC USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131201,1131201,Bank UOB Indonesia IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131261,1131261,Bank UOB Indonesia USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131301,1131301,Bank Bukopin IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131361,1131361,Bank Bukopin USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131401,1131401,Bank Commowealth IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131461,1131461,Bank Commowealth USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131501,1131501,ANZ Bank IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131561,1131561,ANZ Bank USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131601,1131601,Bank BPTN IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131661,1131661,Bank BPTN USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131701,1131701,Deutche Bank IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131761,1131761,Deutche Bank USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131801,1131801,Bank Capital IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131861,1131861,Bank Capital USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131901,1131901,Bank Chinatrust Indonesia IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1131961,1131961,Bank Chinatrust Indonesia USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1132001,1132001,Bank Sampoerna IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1132061,1132061,Bank Sampoerna USD,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1132201,1132201,Bank Pundi IDR,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140001,1140001,Aset Keuangan - Dana Kelolaan,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140002,1140002,Aset Keuangan - Reksadana,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140003,1140003,Aset Keuangan - Efek tersedia untuk dijual,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140004,1140004,Aset Keuangan - Deposito Berjangka,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140005,1140005,Aset Keuangan - Obligasi,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140006,1140006,Aset Keuangan - Obligasi Konversi,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140007,1140007,Aset Keuangan - Uang Muka Investasi,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140008,1140008,Aset Keuangan - Obligasi Wajib Tukar,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140009,1140009,Aset Keuangan - Notes receivable,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140010,1140010,Aset Keuangan - Promes,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1140999,1140999,Aset Keuangan - Lainnya,account.data_account_type_liquidity,FALSE,mnc_chart
+a_1_1151111,1151111,Piutang Usaha - Pihak Berelasi,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151121,1151121,PDC - Piutang Usaha - Pihak Berelasi,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151211,1151211,Piutang Usaha - Pihak Ketiga - Iklan,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151212,1151212,Piutang Usaha - Pihak Ketiga - Infomercial,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151213,1151213,Piutang Usaha - Pihak Ketiga - Blocking Time,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151214,1151214,Piutang Usaha - Pihak Ketiga - Pendapatan Produksi,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151215,1151215,Piutang Usaha - Pihak Ketiga - Bagi Hasil,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151216,1151216,Piutang Usaha - Reimbursement Karyawan Integrasi,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151217,1151217,Piutang Usaha - Reimbursement Operasional Integrasi,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151219,1151219,Piutang Usaha - Pihak Ketiga - Lainnya,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151220,1151220,PDC - Piutang Usaha - Pihak Ketiga,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151501,1151501,Unapplied AR,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151502,1151502,Piutang Remmitance,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1151901,1151901,Trade accounts receivable-Allowance for doubtful,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1152101,1152101,Piutang Lainnya - Pihak Berelasi,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1152201,1152201,Piutang Lainnya - Pihak Ketiga,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1152202,1152202,Piutang Lainnya - Karyawan,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1152203,1152203,Piutang Lainnya - Direksi,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1152801,1152801,Piutang Lainnya - Penyisihan Piutang Ragu-Ragu,account.data_account_type_receivable,TRUE,mnc_chart
+a_1_1161011,1161011,Persediaan Program Asing - Akuisisi,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1161012,1161012,Persediaan Program Asing - Akuisisi (dalam proses),account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1161021,1161021,Persediaan Program Lokal - Akuisisi,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1161022,1161022,Persediaan Program Lokal - Akuisisi (dalam proses),account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1161041,1161041,Persediaan Program Lokal In House,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1161042,1161042,Persediaan Program Lokal In House (dalam proses),account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1169999,1169999,Persediaan Program Lainnya,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1170001,1170001,Project Under Construction,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1181101,1181101,Uang Muka Pembelian Progam Asing,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181102,1181102,Uang Muka Pembelian Progam Lokal,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181103,1181103,Uang Muka Program In House,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181104,1181104,Uang Muka Program News,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181105,1181105,Uang Muka Program Promo,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181106,1181106,Uang Muka Program Spesial Event,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181107,1181107,Uang Muka Perjalanan Dinas Program,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181202,1181202,Uang Muka Perjalanan Dinas No  Program,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181203,1181203,Uang Muka Pembelian,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181204,1181204,Uang Muka Sewa,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181205,1181205,Uang Muka Operasional,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1181299,1181299,Uang Muka lainnya,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182101,1182101,Asuransi - Kendaraan,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182102,1182102,Asuransi - Property & Equipment,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182103,1182103,Asuransi - Kesehatan,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182199,1182199,Asuransi - Lainnya,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182201,1182201,Perijinan,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182301,1182301,License Software,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182401,1182401,Keanggotaan,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182501,1182501,Sewa - Gedung,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182502,1182502,Sewa - Tower,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182504,1182504,Sewa - Lahan,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182505,1182505,Sewa - Studio,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182599,1182599,Sewa - Lainnya,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1182999,1182999,Biaya Dibayar dimuka Lainnya,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1183001,1183001,Pajak Dibayar Dimuka - PPh 22,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1183002,1183002,Pajak Dibayar Dimuka - PPh 23,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1183003,1183003,Pajak Dibayar Dimuka - PPh 25,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1183004,1183004,Pajak Dibayar Dimuka - PPN - Dalam Negri,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1183005,1183005,Pajak Dibayar Dimuka - PPN - Luar Negri,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1183006,1183006,Pajak Dibayar Dimuka - PPN - FP Belum Diterima,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1183007,1183007,Pajak Dibayar Dimuka - PPh 24,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1190011,1190011,Setoran Jaminan,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1190099,1190099,Aset Lancar Lainnya,account.data_account_type_prepayments,FALSE,mnc_chart
+a_1_1190121,1190121,Persediaan Kebutuhan Kantor & Produksi,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1190122,1190122,Persediaan Merchandise,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1190123,1190123,Persedian Set & Properti,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1190124,1190124,Persediaan Kaset,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1190199,1190199,Persediaan Lainnya,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1210101,1210101,Piutang kepada pihak berelasi,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220101,1220101,INVESTASI - PT Rajawali Citra Televisi Indonesia,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220102,1220102,INVESTASI - PT Global Informasi Bermutu,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220103,1220103,INVESTASI - PT Cipta Televisi Pendidikan Indonesia,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220104,1220104,INVESTASI - PT MNC Networks,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220105,1220105,INVESTASI - Media Nusantara Citra B V,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220106,1220106,INVESTASI - MNC International Middle East Limited,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220107,1220107,INVESTASI - PT Media Nusantara Informasi,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220108,1220108,INVESTASI - PT MNI Global,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220109,1220109,INVESTASI - PT MNI Publishing,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220110,1220110,INVESTASI - PT Okezone Indonesia,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220111,1220111,INVESTASI - PT Cross Media Internasional,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220112,1220112,INVESTASI - PT MNC Pictures,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220113,1220113,INVESTASI - PT Star Media Nusantara,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220114,1220114,INVESTASI - PT MNC Lisensi Internasional,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220115,1220115,INVESTASI - PT SUN TELEVISI NETWORK,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220116,1220116,INVESTASI - PT MNC MEDIA INVESTASI,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220117,1220117,INVESTASI - PT INNOFORM,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220118,1220118,INVESTASI - PT MEDIATE INDONESIA,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220119,1220119,INVESTASI - PT MNC FILM INDONESIA,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220120,1220120,INVESTASI - PT MNC INFOTAINMENT INDONESIA,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220121,1220121,INVESTASI - PT ASIA MEDIA PRODUCTIONS,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220122,1220122,INVESTASI - PT LINKTONE INDONESIA,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220123,1220123,INVESTASI - PT MNC Portal Indonesia,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220124,1220124,INVESTASI - PT MNC Digital Indonesia,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220125,1220125,INVESTASI - PT Blockbuster Media Visual,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220126,1220126,INVESTASI - PT Esports Star Indonesia,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220201,1220201,INVESTASI ASOSIASI - PT Linktone Indonesia,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220401,1220401,Dana Kelolaan,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220402,1220402,Reksadana,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220403,1220403,Efek tersedia untuk dijual,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220404,1220404,Deposito Berjangka,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220405,1220405,Obligasi,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220406,1220406,Obligasi Konveersi,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220407,1220407,Uang Muka Investasi,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220408,1220408,Obligasi Wajib Tukar,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220409,1220409,Notes receivable,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220410,1220410,Bank Yang Dibatasi Penggunaannya,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1220499,1220499,Aset Keuangan Tidak Lancar Lainnya,account.data_account_type_current_assets,FALSE,mnc_chart
+a_1_1231101,1231101,Biaya Perolehan Aset Tetap-Tanah,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231102,1231102,Biaya Perolehan Aset Tetap-Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231103,1231103,Biaya Perolehan Aset Tetap-Perlengkapan Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231104,1231104,Biaya Perolehan Aset Tetap-Peralatan Kantor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231105,1231105,Biaya Perolehan Aset Tetap-Kendaraan Bermotor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231106,1231106,Biaya Perolehan Aset Tetap-Peralatan Studio,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231107,1231107,Biaya Perolehan Aset Tetap-Peralatan Broadcast,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231108,1231108,Biaya Perolehan Aset Tetap-Peralatan Teknik,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231109,1231109,Biaya Perolehan Aset Tetap-Peralatan Master Control,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231110,1231110,Biaya Perolehan Aset Tetap-Peralatan Komunikasi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231111,1231111,Biaya Perolehan Aset Tetap-Peralatan Produksi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231112,1231112,Biaya Perolehan Aset Tetap-Peralatan Transmisi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231113,1231113,Biaya Perolehan Aset Tetap-Peralatan Komputer,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231201,1231201,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Tanah,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231202,1231202,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231203,1231203,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Perlengkapan Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231204,1231204,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Kantor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231205,1231205,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Kendaraan Bermotor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231206,1231206,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Studio,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231207,1231207,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Broadcast,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231208,1231208,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Teknik,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231209,1231209,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Master Control,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231210,1231210,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Komunikasi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231211,1231211,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Produksi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231212,1231212,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Transmisi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231213,1231213,Biaya Perolehan Aset Tetap - Aset Dalam Penyelesaian-Peralatan Komputer,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231301,1231301,Akumulasi Penyusutan Aset Tetap-Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231302,1231302,Akumulasi Penyusutan Aset Tetap-Perlengkapan Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231303,1231303,Akumulasi Penyusutan Aset Tetap-Peralatan Kantor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231304,1231304,Akumulasi Penyusutan Aset Tetap-Kendaraan Bermotor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231305,1231305,Akumulasi Penyusutan Aset Tetap-Peralatan Studio,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231306,1231306,Akumulasi Penyusutan Aset Tetap-Peralatan Broadcast,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231307,1231307,Akumulasi Penyusutan Aset Tetap-Peralatan Teknik,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231308,1231308,Akumulasi Penyusutan Aset Tetap-Peralatan Master Control,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231309,1231309,Akumulasi Penyusutan Aset Tetap-Peralatan Komunikasi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231310,1231310,Akumulasi Penyusutan Aset Tetap-Peralatan Produksi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231311,1231311,Akumulasi Penyusutan Aset Tetap-Peralatan Transmisi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1231312,1231312,Akumulasi Penyusutan Aset Tetap-Peralatan Komputer,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232101,1232101,Biaya Perolehan Aset Tetap Kerjasama-Tanah,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232102,1232102,Biaya Perolehan Aset Tetap Kerjasama-Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232103,1232103,Biaya Perolehan Aset Tetap Kerjasama-Perlengkapan Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232104,1232104,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Kantor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232105,1232105,Biaya Perolehan Aset Tetap Kerjasama-Kendaraan Bermotor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232106,1232106,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Studio,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232107,1232107,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Broadcast,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232108,1232108,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Teknik,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232109,1232109,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Master Control,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232110,1232110,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Komunikasi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232111,1232111,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Produksi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232112,1232112,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Transmisi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232113,1232113,Biaya Perolehan Aset Tetap Kerjasama-Peralatan Komputer,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232201,1232201,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Tanah,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232202,1232202,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Bangungan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232203,1232203,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Perlengkapan Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232204,1232204,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Kantor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232205,1232205,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Kendaraan Bermotor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232206,1232206,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Studio,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232207,1232207,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Broadcast,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232208,1232208,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Teknik,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232209,1232209,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Master Control,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232210,1232210,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Komunikasi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232211,1232211,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Produksi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232212,1232212,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Transmisi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232213,1232213,Biaya Perolehan Aset Tetap Kerjasama - Aset Dalam Penyelesaian-Peralatan Komputer,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232301,1232301,Akumulasi Penyusutan Aset Tetap Kerjasama-Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232302,1232302,Akumulasi Penyusutan Aset Tetap Kerjasama-Perlengkapan Bangunan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232303,1232303,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Kantor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232304,1232304,Akumulasi Penyusutan Aset Tetap Kerjasama-Kendaraan Bermotor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232305,1232305,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Studio,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232306,1232306,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Broadcast,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232307,1232307,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Teknik,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232308,1232308,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Master Control,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232309,1232309,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Komunikasi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232310,1232310,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Produksi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232311,1232311,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Transmisi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1232312,1232312,Akumulasi Penyusutan Aset Tetap Kerjasama-Peralatan Komputer,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1233104,1233104,Biaya Perolehan Aset Sewa Guna Usaha-Peralatan Kantor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1233105,1233105,Biaya Perolehan Aset Sewa Guna Usaha-Kendaraan Bermotor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1233106,1233106,Biaya Perolehan Aset Sewa Guna Usaha -Peralatan Studio,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1233204,1233204,Akumulasi Penyusutan Aset Sewa Guna Usaha-Peralatan Kantor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1233205,1233205,Akumulasi Penyusutan Aset Sewa Guna Usaha-Kendaraan Bermotor,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1233206,1233206,Akumulasi Penyusutan Aset Sewa Guna Usaha-Peralatan Studio,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1239001,1239001,Aset Clearing,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1239002,1239002,CIP Clearing,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1239003,1239003,Aset Tidak Berwujud,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1240001,1240001,Goodwill - PT Cipta Televisi Indonesia,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1240002,1240002,Goodwill - PT Cross Media Internasional,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1240003,1240003,Goodwill - PT MNI Global,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1240004,1240004,Goodwill - PT Linktone Indonesia,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1250001,1250001,Aset Pajak Tangguhan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1290001,1290001,Deposit yang dijaminkan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1290002,1290002,Hak Cipta,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1290003,1290003,Pra Operasi Bisnis Lokal,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1290004,1290004,Uang Muka Investasi,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1290005,1290005,Aset yang belum digunakan,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1290006,1290006,Setoran Jaminan > 1 tahun,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_1_1290099,1290099,Aset Tidak Lancar Lainnya,account.data_account_type_fixed_assets,FALSE,mnc_chart
+a_2_2110101,2110101,Pinjaman Jangka Pendek - Bank,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2110201,2110201,PINJAMAN JANGKA PENDEK - Lainnya,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121101,2121101,Utang Usaha - Pihak Ketiga - Program Asing,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121102,2121102,Utang Usaha - Pihak Ketiga - Program Lokal,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121103,2121103,Utang Usaha - Pihak Ketiga - Produksi Inhouse,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121104,2121104,Utang Usaha - Pihak Ketiga - Aset Teknik,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121106,2121106,Utang Usaha - Pihak Ketiga - Program Bagi Hasil,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121108,2121108,Utang Usaha - Pihak Ketiga - Jasa Satelit,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121110,2121110,Utang Usaha - Pihak Ketiga - Subtitling Dubbing,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121112,2121112,Utang Usaha - Pihak Ketiga - Handling,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121113,2121113,Utang Usaha - Pihak Ketiga - Sewa,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121199,2121199,Utang Usaha - Pihak Ketiga - Lainnya,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121201,2121201,Utang Usaha - Pihak Berelasi,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121901,2121901,AP Accrual (system) - Expense AP Accrual (System),account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121902,2121902,AP Accrual (system) - Inventory AP Accrual - In House (System Gen21),account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121903,2121903,AP Accrual (system) - Inventory AP Accrual - Acquistion - Lokal (System Gen21),account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121904,2121904,AP Accrual (system) - Inventory AP Accrual - Acquistion - Asing (System Gen21),account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121905,2121905,AP Accrual (system) - Aset Clearing,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121906,2121906,AP Accrual (system) - CIP Clearing,account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121907,2121907,AP Accrual (system) - Utang Receiving (Penerimaan Inventory di System),account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121908,2121908,AP Accrual (system) - Inventory AP Accrual - Out House Local (System Gen21),account.data_account_type_payable,TRUE,mnc_chart
+a_2_2121909,2121909,AP Accrual (system) - Inventory AP Accrual - Out House Asing (System Gen21),account.data_account_type_payable,TRUE,mnc_chart
+a_2_2122001,2122001,Notes Payable,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2123099,2123099,Utang Lainnya,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2123101,2123101,Utang Supplier Aset Tetap,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2123102,2123102,Outstanding Cheque,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2123103,2123103,Outstanding Cheque Clearing,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2123104,2123104,Outstanding Cheque Kas,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2123105,2123105,Utang Lainnya - Pihak Berelasi,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2130001,2130001,Unidentified AR (system),account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2130002,2130002,Penerimaan sebelum tayang,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2130003,2130003,Deposito Pelanggan,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2130004,2130004,Pendapatan yang ditangguhkan,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2130005,2130005,Deposit Sewa Plenary Hall,account.data_account_type_current_liabilities,TRUE,mnc_chart
+a_2_2140001,2140001,Utang Pajak - PPh 4(2),account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140002,2140002,Utang Pajak - PPh 21,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140003,2140003,Utang Pajak - PPh 23,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140004,2140004,Utang Pajak - PPh 25,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140005,2140005,Utang Pajak - PPh 26,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140006,2140006,Utang Pajak - PPh 29,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140007,2140007,Utang Pajak - PPN Keluaran,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140008,2140008,Utang Pajak - PPN LN,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140009,2140009,Utang Pajak - PPh 15,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140010,2140010,Utang Pajak - PPN SSP,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2140099,2140099,Utang Pajak Lainnya,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150001,2150001,Biaya yang masih harus dibayar - Produksi In House (Gen21),account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150002,2150002,Biaya yang masih harus dibayar - Bunga Pinjaman,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150003,2150003,Biaya yang masih harus dibayar - Satelit,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150004,2150004,Biaya yang masih harus dibayar - Beban Sewa,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150005,2150005,Biaya yang masih harus dibayar - Revenue Sharing,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150006,2150006,Biaya yang masih harus dibayar - Gaji dan Tunjangan,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150007,2150007,Biaya yang masih harus dibayar - Konsultan,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150008,2150008,Biaya yang masih harus dibayar - Agency,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2150099,2150099,Biaya yang masih harus dibayar Lainnya,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151001,2151001,Bank Clearing - Payment - Cost Accounting,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151002,2151002,Bank Clearing - Payment - GL,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151003,2151003,Bank Clearing - Hutang Uang Muka Program,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151004,2151004,Bank Clearing - Hutang Uang Muka Lainnya,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151005,2151005,Bank Clearing - Antara Modul Cost Accounting,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151006,2151006,Bank Clearing - Antara Modul GL,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151007,2151007,Bank Clearing - Offset account,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151008,2151008,Bank Clearing - Offset account - USD,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151009,2151009,Bank Clearing - Antar Modul,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151010,2151010,Bank Clearing - Barter,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151011,2151011,Suspense account - Reiumbursement,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151012,2151012,Bank Clearing - Multiple Vendor Batch Payment,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151013,2151013,AP Clearing - Multiple Vendor Batch Payment,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151014,2151014,AP Clearing - Pembelian Program,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2151015,2151015,Bank Clearing - Pengembalian Deposit  Sewa PHall,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2160101,2160101,Utang Bank Jangka Panjang,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2160201,2160201,Utang Pembelian Aset Tetap,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2160301,2160301,Obligasi,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2169999,2169999,Utang Jangka Panjang Jatuh Tempo 1 Tahun Lainnya,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2210101,2210101,UTANG KEPADA PIHAK BERELASI,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2220001,2220001,Liabilitas Pajak Tangguhan,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2230001,2230001,Negative Goodwill,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240101,2240101,Utang Bank Jangka Panjang,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240201,2240201,Utang Pembelian Aset Tetap,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240202,2240202,Utang Leasing Hitachi I,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240203,2240203,Utang Leasing Hitachi II,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240204,2240204,Utang Leasing Hitachi III,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240205,2240205,Utang Leasing BOT Finance I,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240206,2240206,Utang Leasing BRI Finance,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240207,2240207,Utang Leasing Orix,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240400,2240400,UTANG ANJAK PIUTANG,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240401,2240401,Utang Anjak Piutang MNC Finance I,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2240402,2240402,Utang Anjak Piutang MNC Finance II,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2249999,2249999,Utang Jangka Panjang Lainnya,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2250001,2250001,Liabilitas Imbalan Pasca Kerja,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2250002,2250002,Utang Lainnya - Karyawan,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_2_2259999,2259999,Utang Jangka Panjang Lainnya Lainnya,account.data_account_type_current_liabilities,FALSE,mnc_chart
+a_3_3100101,3100101,PT  Global Mediacom Tbk,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100102,3100102,PT Media Nusantara Citra Tbk,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100103,3100103,PT Infokom Elektrindo,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100198,3100198,Uang Muka Setoran Modal,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100199,3100199,Saham Ditempatkan Dan Disetor Lainnya,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100201,3100201,Tambahan Modal Disetor,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100301,3100301,Modal Donasi,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100401,3100401,Modal Lainnya,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100402,3100402,Treasury Stock,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100501,3100501,Selisih Perhitungan Kembali Aset Tetap,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100601,3100601,Selisih Atas Perubahan Ekuitas Anak Perusahaan,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100701,3100701,Koreksi Ekuitas,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100801,3100801,Selisih Kurs Penjabaran Laporan Keuangan,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3100901,3100901,Kenaikan (Penurunan) Nilai Efek yang Belum di Realisasi,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3101001,3101001,Saldo Laba - Tahun Lalu,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3101002,3101002,Saldo Laba - Tahun Berjalan,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3101003,3101003,OCI - EQUITY,account.data_account_type_equity,FALSE,mnc_chart
+a_3_3200001,3200001,Kepentingan Non Pengendali,account.data_account_type_equity,FALSE,mnc_chart
+a_4_4110101,4110101,Pendapatan Iklan - Agency,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4110102,4110102,Pendapatan Iklan - Langsung,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4110103,4110103,Pendapatan - Block Time,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4110104,4110104,Pendapatan - SMS,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4119199,4119199,Pendapatan Iklan Lainnya,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900101,4900101,Pendapatan Sewa - Studio,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900102,4900102,Pendapatan Sewa - Menara,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900103,4900103,Pendapatan Sewa - Bangunan / Gedung,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900199,4900199,Pendapatan Sewa Lainnya,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900201,4900201,Materi Program  - CPS,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900202,4900202,Materi Program  - Penjualan Materi Program,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900203,4900203,Materi Program  - Penjualan Materi Digital,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900301,4900301,Pendapatan - Post Production,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900401,4900401,Pendapatan - Training,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900501,4900501,AGENCY FEE - MEDIA,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4900502,4900502,AGENCY FEE - ACTIVATION,account.data_account_type_revenue,FALSE,mnc_chart
+a_4_4909901,4909901,Pendapatan - Lainnya,account.data_account_type_revenue,FALSE,mnc_chart
+a_5_5111101,5111101,PA-AQ - Biaya Pembelian Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111103,5111103,PA-AQ - Biaya Handling & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111104,5111104,PA-AQ - Biaya Subtitling & Dubbing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111105,5111105,PA-AQ - Biaya Jasa Fastel,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111106,5111106,PA-AQ - Sensor BSF & Deppen,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111107,5111107,PA-AQ - Talent,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111108,5111108,PA-AQ - Freelance,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111109,5111109,PA-AQ - Wardrobe & Makeup,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111110,5111110,PA-AQ - Set & Properties,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111111,5111111,PA-AQ - Sewa Peralatan & Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111112,5111112,PA-AQ - Biaya Editing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111113,5111113,PA-AQ - Makanan dan Minuman,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111114,5111114,PA-AQ - Perijinan & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111115,5111115,PA-AQ - Sewa Lokasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111116,5111116,PA-AQ - Biaya Perjalanan Dinas,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111117,5111117,PA-AQ - Akomodasi & Transportasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111118,5111118,PA-AQ - Satelite & Transmission,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111119,5111119,PA-AQ - Biaya Kerjasama Produksi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111120,5111120,PA-AQ - Hadiah,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111121,5111121,PA-AQ - Kaset,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111122,5111122,PA-AQ - Publisitas Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111123,5111123,PA-AQ - Accrue Biaya Produksi - Akuisisi Asing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111199,5111199,PA-AQ - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111201,5111201,PA-BH - Biaya Pembelian Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111203,5111203,PA-BH - Biaya Handling & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111204,5111204,PA-BH - Biaya Subtitling & Dubbing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111205,5111205,PA-BH - Biaya Jasa Fastel,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111206,5111206,PA-BH - Sensor BSF & Deppen,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111207,5111207,PA-BH - Talent,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111208,5111208,PA-BH - Freelance,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111209,5111209,PA-BH - Wardrobe & Makeup,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111210,5111210,PA-BH - Set & Properties,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111211,5111211,PA-BH - Sewa Peralatan & Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111212,5111212,PA-BH - Biaya Editing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111213,5111213,PA-BH - Makanan dan Minuman,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111214,5111214,PA-BH - Perijinan & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111215,5111215,PA-BH - Sewa Lokasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111216,5111216,PA-BH - Biaya Perjalanan Dinas,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111217,5111217,PA-BH - Akomodasi & Transportasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111218,5111218,PA-BH - Satelite & Transmission,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111219,5111219,PA-BH - Biaya Kerjasama Produksi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111220,5111220,PA-BH - Hadiah,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111221,5111221,PA-BH - Kaset,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111222,5111222,PA-BH - Publisitas Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111223,5111223,PA-BH - Accrue Biaya Produksi - Bagi Hasil,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5111299,5111299,PA-BH - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112101,5112101,PL-AQ - Biaya Pembelian Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112103,5112103,PL-AQ - Biaya Handling & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112104,5112104,PL-AQ - Biaya Subtitling & Dubbing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112105,5112105,PL-AQ - Biaya Jasa Fastel,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112106,5112106,PL-AQ - Sensor BSF & Deppen,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112107,5112107,PL-AQ - Talent,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112108,5112108,PL-AQ - Freelance,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112109,5112109,PL-AQ - Wardrobe & Makeup,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112110,5112110,PL-AQ - Set & Properties,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112111,5112111,PL-AQ - Sewa Peralatan & Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112112,5112112,PL-AQ - Biaya Editing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112113,5112113,PL-AQ - Makanan dan Minuman,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112114,5112114,PL-AQ - Perijinan & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112115,5112115,PL-AQ - Sewa Lokasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112116,5112116,PL-AQ - Biaya Perjalanan Dinas,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112117,5112117,PL-AQ - Akomodasi & Transportasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112118,5112118,PL-AQ - Satelite & Transmission,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112119,5112119,PL-AQ - Biaya Kerjasama Produksi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112120,5112120,PL-AQ - Hadiah,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112121,5112121,PL-AQ - Kaset,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112122,5112122,PL-AQ - Publisitas Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112123,5112123,PL-AQ - Accrue Biaya Produksi - Akuisisi Lokal,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112124,5112124,PL-AQ - Pembelian Materi Layak Tayang,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112199,5112199,PL-AQ - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112201,5112201,PL-IH - Biaya Pembelian Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112203,5112203,PL-IH - Biaya Handling & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112204,5112204,PL-IH - Biaya Subtitling & Dubbing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112205,5112205,PL-IH - Biaya Jasa Fastel,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112206,5112206,PL-IH - Sensor BSF & Deppen,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112207,5112207,PL-IH - Talent,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112208,5112208,PL-IH - Freelance,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112209,5112209,PL-IH - Wardrobe & Makeup,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112210,5112210,PL-IH - Set & Properties,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112211,5112211,PL-IH - Sewa Peralatan & Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112212,5112212,PL-IH - Biaya Editing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112213,5112213,PL-IH - Makanan dan Minuman,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112214,5112214,PL-IH - Perijinan & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112215,5112215,PL-IH - Sewa Lokasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112216,5112216,PL-IH - Biaya Perjalanan Dinas,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112217,5112217,PL-IH - Akomodasi & Transportasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112218,5112218,PL-IH - Satelite & Transmission,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112219,5112219,PL-IH - Biaya Kerjasama Produksi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112220,5112220,PL-IH - Hadiah,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112221,5112221,PL-IH - Kaset,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112222,5112222,PL-IH - Publisitas Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112223,5112223,PL-IH - Accrue Biaya Produksi - Inhouse,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112224,5112224,PL-IH - SPD - Dalam Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112225,5112225,PL-IH - SPD - Luar Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112226,5112226,PL-IH - Transportasi - Dalam Negri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112227,5112227,PL-IH - Transportasi - Luar Negri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112228,5112228,PL-IH - Akomodasi - Dalam Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112229,5112229,PL-IH - Akomodasi - Luar Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112230,5112230,PL-IH - Visa dan Perijinan Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112231,5112231,PL-IH - Production House,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112299,5112299,PL-IH - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112301,5112301,PL-NW - Biaya Pembelian Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112302,5112302,PL-NW - Korespondensi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112303,5112303,PL-NW - Biaya Handling & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112304,5112304,PL-NW - Biaya Subtitling & Dubbing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112305,5112305,PL-NW - Biaya Jasa Fastel,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112306,5112306,PL-NW - Sensor BSF & Deppen,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112307,5112307,PL-NW - Talent,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112308,5112308,PL-NW - Freelance,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112309,5112309,PL-NW - Wardrobe & Makeup,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112310,5112310,PL-NW - Set & Properties,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112311,5112311,PL-NW - Sewa Peralatan & Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112312,5112312,PL-NW - Biaya Editing,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112313,5112313,PL-NW - Makanan dan Minuman,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112314,5112314,PL-NW - Perijinan & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112315,5112315,PL-NW - Sewa Lokasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112316,5112316,PL-NW - Biaya Perjalanan Dinas,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112317,5112317,PL-NW - Akomodasi & Transportasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112318,5112318,PL-NW - Satelite & Transmission,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112319,5112319,PL-NW - Biaya Kerjasama Produksi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112320,5112320,PL-NW - Hadiah,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112321,5112321,PL-NW - Kaset,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112322,5112322,PL-NW - Publisitas Program,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112323,5112323,PL-NW - Accrue Biaya Produksi - News,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5112399,5112399,PL-NW - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5210001,5210001,MEDIA COB - TV - ACTUAL,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5210002,5210002,MEDIA COB - OTHERS - ACTUAL,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801011,5801011,Sewa Transmisi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801012,5801012,Sewa Transponder,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801021,5801021,Sewa Gedung,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801031,5801031,Sewa Studio,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801041,5801041,Sewa Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801051,5801051,Sewa Peralatan/ Perlengkapan Lighting,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801052,5801052,Sewa Peralatan/ Perlengkapan Mesin Fotocopy,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801053,5801053,Sewa Peralatan & Perlengkapan Shooting,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801059,5801059,Sewa Peralatan/ Perlengkapan lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5801999,5801999,Sewa Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5802001,5802001,PERALATAN / PERLENGKAPAN JARINGAN,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5802101,5802101,Frekuensi / BHP,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803001,5803001,Gaji dan Tunjangan - Gaji,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803002,5803002,Gaji dan Tunjangan - Honorarium/Kontrak,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803003,5803003,Gaji dan Tunjangan - Lembur,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803004,5803004,Gaji dan Tunjangan - Tunjangan Khusus/Bonus,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803005,5803005,Gaji dan Tunjangan - Insentif Produksi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803006,5803006,Gaji dan Tunjangan - Insentif Sales,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803007,5803007,Gaji dan Tunjangan - THR / THN,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803008,5803008,Gaji dan Tunjangan - Program Umroh,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803009,5803009,Gaji dan Tunjangan - Tunjangan Transportasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803010,5803010,Gaji dan Tunjangan - Tunjangan Telekomunikasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803011,5803011,Gaji dan Tunjangan - Asuransi Kesehatan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803012,5803012,Gaji dan Tunjangan - Pengobatan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803013,5803013,Gaji dan Tunjangan - Asuransi GHS & Kecelakaan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803014,5803014,Gaji dan Tunjangan - Insentif Kehadiran,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803015,5803015,Gaji dan Tunjangan - Kompensasi Cuti,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803016,5803016,Gaji dan Tunjangan - Pensiun / Pesangon,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803017,5803017,Gaji dan Tunjangan - PMK / Uang Jasa Masa Kerja,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803018,5803018,Gaji dan Tunjangan - Tunjangan Lahir  Nikah & Mati,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803019,5803019,Gaji dan Tunjangan - JHIT,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803020,5803020,Gaji dan Tunjangan - Beban PPh 21,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803021,5803021,Gaji dan Tunjangan - Jamsostek,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803022,5803022,Gaji dan Tunjangan - Perda 7,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803023,5803023,Gaji dan Tunjangan - Pakaian Seragam,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803024,5803024,Gaji dan Tunjangan - Potongan Koperasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803025,5803025,Gaji dan Tunjangan - Iuran lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803026,5803026,Gaji dan Tunjangan - Danapera,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803027,5803027,Gaji dan Tunjangan - Kacamata,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803028,5803028,Gaji dan Tunjangan - Maternity,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803029,5803029,Gaji dan Tunjangan - BPJS,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5803099,5803099,Gaji dan Tunjangan - Lain-lain,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804101,5804101,BP-IH - Talent,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804102,5804102,BP-IH - Freelance,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804103,5804103,BP-IH - Wardrobe & Makeup,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804104,5804104,BP-IH - Set & Properties,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804105,5804105,BP-IH - Sewa Peralatan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804107,5804107,BP-IH - Makanan dan Minuman,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804108,5804108,BP-IH - Perijinan & Pengurusan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804109,5804109,BP-IH - Sewa Tempat,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804110,5804110,BP-IH - Biaya Perjalanan Dinas,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804111,5804111,BP-IH - Satelite & Transmission,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804112,5804112,BP-IH - Biaya Kerjasama Produksi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804113,5804113,BP-IH - Hadiah / Merchandise,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804114,5804114,BP-IH - Kaset,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804121,5804121,BP-IH - Accrue Biaya Produksi - Sales Division,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804199,5804199,BP-IH - Lain-lain,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804201,5804201,Publisitas - Buklet Leaflet  Brosur & Souvenir,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804202,5804202,Publisitas - Billboard,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804203,5804203,Publisitas - Iklan Media,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804204,5804204,Publisitas - Sponsorship,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804205,5804205,Publisitas - Annual Report,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804206,5804206,Publisitas - Hadiah,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804207,5804207,BIAYA PROMOSI - PUBLISITAS ACTIVITY MARCOM,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5804299,5804299,Publisitas Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5805001,5805001,Komisi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5806001,5806001,Parkir dan Tol,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5806002,5806002,Bahan Bakar Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5806003,5806003,Pajak STNK,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5806004,5806004,Taxi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5806099,5806099,Biaya Transportasi & Operasional Kendaraan Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5807001,5807001,Telekomunikasi - Telephone,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5807002,5807002,Telekomunikasi - Internet,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5807099,5807099,Telekomunikasi - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5808001,5808001,Entertainment,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5808002,5808002,Representasi dan Jamuan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5808003,5808003,Donasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5808099,5808099,Representasi & Jamuan Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5809011,5809011,Transportasi - Dalam Negri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5809012,5809012,Transportasi - Luar Negri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5809021,5809021,Akomodasi - Dalam Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5809022,5809022,Akomodasi - Luar Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5809031,5809031,SPD - Dalam Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5809032,5809032,SPD - Luar Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5809041,5809041,Visa dan Perijinan lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5809099,5809099,Perjalanan Dinas Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5810001,5810001,Kebutuhan Kantor - Alat Tulis Kantor,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5810002,5810002,Kebutuhan Kantor - Barang Cetakan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5810003,5810003,Kebutuhan Kantor - Kebutuhan Dapur,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5810004,5810004,Kebutuhan Kantor - Makanan dan Minuman,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5810005,5810005,Kebutuhan Kantor - Perlengkapan Kantor,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5810006,5810006,Kebutuhan Kantor - Computer Supplies,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5810099,5810099,Kebutuhan Kantor - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5811001,5811001,Iuran & Langganan - Koran & Majalah,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5811002,5811002,Iuran & Langganan - Keamanan & Kebersihan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5811003,5811003,Iuran & Langganan - Internet & Jaringan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5811004,5811004,Iuran & Langganan - TV langganan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5811099,5811099,Iuran & Langganan - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5812001,5812001,Beban Manfaat Pekerja,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5813001,5813001,Beban EMSOP,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5814001,5814001,Beban Outsource - Security,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5814002,5814002,Beban Outsource - Receptionist,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5814003,5814003,Beban Outsource - OB,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5814004,5814004,Beban Outsource - Driver,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5814005,5814005,Beban Outsource - Messenger,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5814006,5814006,Beban Outsource - Pengawal Alat/Logistik,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5814999,5814999,Beban Outsource Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5815001,5815001,Asuransi - Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5815002,5815002,Asuransi - Property & Equipment,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5815003,5815003,Asuransi - Business Interuption,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5815999,5815999,Asuransi Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816011,5816011,Jasa - Perbaikan Dan Perawatan Gedung,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816012,5816012,Material - Perbaikan Dan Perawatan Gedung,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816021,5816021,Jasa - Perbaikan Dan Perawatan Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816022,5816022,Material - Perbaikan Dan Perawatan Kendaraan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816031,5816031,Jasa - Perbaikan Dan Perawatan Peralatan Teknik,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816032,5816032,Material - Perbaikan Dan Perawatan Peralatan Teknik,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816041,5816041,Jasa - Perbaikan Dan Perawatan Peralatan Komputer,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816042,5816042,Material - Perbaikan Dan Perawatan Peralatan Komputer,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5816999,5816999,Perbaikan Dan Perawatan Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5817001,5817001,Biaya Penagihan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5818001,5818001,Biaya Pengiriman - Ekspedisi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5818999,5818999,Biaya Pengiriman - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5819001,5819001,Jasa Konsultan - Riset,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5819002,5819002,Jasa Konsultan - Legal,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5819003,5819003,Jasa Konsultan - Audit,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5819004,5819004,Jasa Konsultan - Pajak,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5819005,5819005,Jasa Konsultan - Keuangan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5819999,5819999,Jasa Konsultan Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5820001,5820001,Keanggotaan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5820002,5820002,Keanggotaan - Stock Exchange Annual Fee,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5820003,5820003,Keanggotaan - Beban Administrasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5820004,5820004,Keanggotaan - ATVSI,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5820999,5820999,Keanggotaan - Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5821001,5821001,Listrik,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5821002,5821002,Bahan Bakar Solar,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5821003,5821003,Air,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5821999,5821999,Listrik  Air dan Utilitas Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5822001,5822001,Pajak,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5822002,5822002,Perijinan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5822999,5822999,Pajak dan Perijinan Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823011,5823011,Seminar dan Training - Dalam Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823012,5823012,Seminar dan Training - Luar Negeri,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823021,5823021,Biaya Perekrutan Pegawai - Job Fair,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823022,5823022,Biaya Perekrutan Pegawai - Test Psikologi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823023,5823023,Biaya Perekrutan Pegawai - Test Kesehatan,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823030,5823030,Workshop,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823031,5823031,Workshop,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823040,5823040,Olahraga & Rekreasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823041,5823041,Olahraga & Rekreasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5823999,5823999,Perekrutan  Latihan dan Pengembangan SDM Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5824001,5824001,Beban Penyisihan Piutang Ragu-Ragu,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5825001,5825001,Beban Lisensi Software,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5826001,5826001,Charging Karyawan Integrasi,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5899991,5899991,Beban Overhead dan Umum Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5910101,5910101,Beban Penyusutan - Peralatan Studio,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910102,5910102,Beban Penyusutan - Peralatan Broadcast,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910103,5910103,Beban Penyusutan - Peralatan Teknik,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910104,5910104,Beban Penyusutan - Peralatan Master Control,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910105,5910105,Beban Penyusutan - Peralatan Produksi,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910106,5910106,Beban Penyusutan - Peralatan Transmisi,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910107,5910107,Beban Penyusutan - Peralatan Komunikasi,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910201,5910201,Beban Penyusutan Aset Tetap Kerjasama - Peralatan Studio,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910202,5910202,Beban Penyusutan Aset Tetap Kerjasama - Peralatan Broadcast,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910203,5910203,Beban Penyusutan Aset Tetap Kerjasama - Peralatan Teknik,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910204,5910204,Beban Penyusutan Aset Tetap Kerjasama - Peralatan Master Control,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910205,5910205,Beban Penyusutan Aset Tetap Kerjasama - Peralatan Produksi,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910206,5910206,Beban Penyusutan Aset Tetap Kerjasama - Peralatan Transmisi,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910207,5910207,Beban Penyusutan Aset Tetap Kerjasama - Peralatan Komunikasi,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910304,5910304,Beban Penyusutan Aset Guna Usaha  - Peralatan Kantor,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910305,5910305,Beban Penyusutan Aset Guna Usaha  - Kendaraan Bermotor,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5910306,5910306,Beban Penyusutan Aset Guna Usaha  - Peralatan Studio,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920101,5920101,Beban Penyusutan - Bangunan,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920102,5920102,Beban Penyusutan - Perlengkapan Bangunan,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920103,5920103,Beban Penyusutan - Peralatan Kantor,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920104,5920104,Beban Penyusutan - Kendaraan Bermotor,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920105,5920105,Beban Penyusutan - Peralatan Komputer,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920201,5920201,Beban Penyusutan  Aset Tetap Kerjasama - Bangunan,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920202,5920202,Beban Penyusutan  Aset Tetap Kerjasama - Perlengkapan Bangunan,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920203,5920203,Beban Penyusutan  Aset Tetap Kerjasama - Peralatan Kantor,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920204,5920204,Beban Penyusutan  Aset Tetap Kerjasama - Kendaraan Bermotor,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5920205,5920205,Beban Penyusutan  Aset Tetap Kerjasama - Peralatan Komputer,account.data_account_type_depreciation,FALSE,mnc_chart
+a_5_5930001,5930001,Beban Amortisasi Goodwill,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_5_5939999,5939999,Beban Amortisasi Lainnya,account.data_account_type_direct_costs,FALSE,mnc_chart
+a_6_6100101,6100101,Pendapatan Bunga - Jasa Giro,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100102,6100102,Pendapatan Bunga - Deposito,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100201,6100201,Laba Penjualan Aset Tetap,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100202,6100202,Net Book Value Retired - Gain,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100203,6100203,Keuntungan atas revaluasi Aset Tetap,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100301,6100301,Keuntungan Investasi - Reksadana,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100401,6100401,Keuntungan Selisih Kurs - Realisasi,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100402,6100402,Keuntungan Selisih Kurs - Belum Realisasi,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100501,6100501,Rounding Differences,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100601,6100601,Laba Pelepasan Investasi Anak Perusahaan,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100701,6100701,PO Rate Variance - Gain (System),account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100702,6100702,Invoice Price Variance Loss (system),account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100703,6100703,PO Price Variance - Gain (System),account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6100801,6100801,Surplus dari Penghentian Program Pensiun Imbalan Pasti,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6109999,6109999,Pendapatan Lainnya - Lain-lain,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200101,6200101,Beban Keuangan - Bank Charge,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200102,6200102,Beban Keuangan - Bunga Pinjaman,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200103,6200103,Beban Keuangan - Amortisasi Emisi Pinjaman,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200104,6200104,Beban Keuangan - Arrangement fee dan premi swap,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200199,6200199,Beban Keuangan - Lain-lain,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200201,6200201,Rugi Penjualan Aset Tetap,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200202,6200202,Net Book Value Retired - Loss,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200203,6200203,Kerugian atas Revaluasi Aset Tetap,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200204,6200204,Biaya Pelepasan Aset Tetap,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200301,6200301,Kerugian Selisih Kurs - Realisasi,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200302,6200302,Kerugian Selisih Kurs - Belum Realisasi,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200401,6200401,P O Rate Variance Loss (system),account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200402,6200402,Invoice Price Variance Loss (System),account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200403,6200403,PO Price variance - loss (System),account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6200501,6200501,Kenaikan / Penurunan atas Goodwill Impairement,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6209999,6209999,Beban Lainnya- Lainnya,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6300101,6300101,Bagian Laba/Rugi Perusahaan Asosiasi,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6300102,6300102,Bagian Laba/Rugi Perusahaan Subsidiary,account.data_account_type_expenses,FALSE,mnc_chart
+a_6_6300201,6300201,Minority Interest,account.data_account_type_expenses,FALSE,mnc_chart
+a_8_8000001,8000001,Pajak Badan,account.data_account_type_other_income,FALSE,mnc_chart
+a_8_8000002,8000002,Pajak Tangguhan,account.data_account_type_other_income,FALSE,mnc_chart
+a_8_8000003,8000003,Pajak ditanggung perusahaan,account.data_account_type_other_income,FALSE,mnc_chart
+a_8_8000004,8000004,Pajak Badan FInal,account.data_account_type_other_income,FALSE,mnc_chart
+a_8_8100001,8100001,OCI - Manfaat Pekerja,account.data_account_type_other_income,FALSE,mnc_chart
+a_9_9000001,9000001,Suspense Account - Encumbrance account,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000002,9000002,Suspense Account - Proceed of Sale Clearing,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000003,9000003,Suspense Account - Cost of Removal Clearing,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000004,9000004,Suspense Account - Earned Discount,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000005,9000005,Suspense Account - Unearned Discount,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000006,9000006,Suspense Account - Account Generator,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000007,9000007,Opbal Inventory,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000008,9000008,Opbal AP,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000009,9000009,Opbal AR,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000010,9000010,Opbal AP LIABILITY,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000011,9000011,Opbal Bank Dummy,account.data_account_type_expenses,FALSE,mnc_chart
+a_9_9000012,9000012,Opbal AP Prepayment,account.data_account_type_expenses,FALSE,mnc_chart

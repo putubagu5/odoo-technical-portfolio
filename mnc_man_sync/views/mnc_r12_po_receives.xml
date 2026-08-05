@@ -1,0 +1,101 @@
+<odoo>
+    <data>
+
+        <record id="mnc_r12_po_receives_tree" model="ir.ui.view">
+            <field name="name">r12.po.receives.tree</field>
+            <field name="model">r12.po.receives</field>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0" delete="1">
+                    <field name="sourcedata"/>
+                    <field name="receive_date"/>
+                    <field name="po_date"/>
+                    <field name="po_rate_date"/>
+                    <field name="pr_date"/>
+                    <field name="pr_rate_date"/>
+                    <field name="po_header_id"/>
+                    <field name="po_line_id"/>
+                    <field name="po_line"/>
+                    <field name="pr_amount_idr"/>
+                    <field name="buyer_id"/>
+                    <field name="deliver_to_person_id"/>
+                    <field name="requestor_id"/>
+                    <field name="shipment_header_id"/>
+                    <field name="vendor_id"/>
+                    <field name="vendor_site_id"/>
+                    <field name="line_num"/>
+                    <field name="primary_quantity"/>
+                    <field name="qty_receive"/>
+                    <field name="rr_qty"/>
+                    <field name="inv_org_id"/>
+                    <field name="org_id"/>
+                    <field name="receive_item_id"/>
+                    <field name="ship_to_location_id"/>
+                    <field name="employee_id_receiver"/>
+                    <field name="deliver_to_location_id"/>
+                    <field name="po_rate"/>
+                    <field name="po_item_id"/>
+                    <field name="po_qty"/>
+                    <field name="unit_price"/>
+                    <field name="po_amount_idr"/>
+                    <field name="requisition_header_id"/>
+                    <field name="requisition_line_id"/>
+                    <field name="pr_line_num"/>
+                    <field name="pr_qty"/>
+                    <field name="pr_unit_price"/>
+                    <field name="pr_rates"/>
+                    <field name="po_currency"/>
+                    <field name="pr_currency"/>
+                    <field name="po"/>
+                    <field name="pr"/>
+                    <field name="vendor_name"/>
+                    <field name="receive_item_name"/>
+                    <field name="receive_item_desc"/>
+                    <field name="ship_to_location_desc"/>
+                    <field name="receiver_name"/>
+                    <field name="deliver_to_location_desc"/>
+                    <field name="deliver_to_person"/>
+                    <field name="buyer_name"/>
+                    <field name="po_description"/>
+                    <field name="po_item_description"/>
+                    <field name="pr_description"/>
+                    <field name="requestor_name"/>
+                    <field name="destination_type_code"/>
+                    <field name="po_status"/>
+                    <field name="pr_status"/>
+                    <field name="po_uom"/>
+                    <field name="rr_uom"/>
+                    <field name="pr_uom"/>
+                    <field name="receipt_num"/>
+                    <field name="receive_item_code"/>
+                    <field name="rr_uom_desc"/>
+                    <field name="po_uom_desc"/>
+                    <field name="pr_uom_desc"/>
+                    <field name="ship_to_location"/>
+                    <field name="deliver_to_location"/>
+                    <field name="sync_log_id"/>
+                    <field name="curr_steps"/>
+                    <field name="total_steps"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="mnc_r12_po_receives_action" model="ir.actions.act_window">
+            <field name="name">R12 PO Receives</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">r12.po.receives</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Empty Data
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="mnct_r12_po_receives_menu"
+                name="R12 PO Receives"
+                parent="mnc_sync_logger_table"
+                action="mnc_r12_po_receives_action"
+                sequence="1"/>
+
+    </data>
+</odoo>

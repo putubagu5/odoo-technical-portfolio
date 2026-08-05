@@ -1,0 +1,142 @@
+<odoo>
+    <template id="portal_purchase_approval_success" name="Purchase Approval Success">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="web.assets_backend" t-js="false"/>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.assets_backend" t-css="false"/>
+            </t>
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1><span style="color: green !important">Success!</span></h1>
+                        <h3><a t-att-href="back_url">Go Back</a></h3>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_purchase_approval_failed" name="Purchase Approval Success">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="web.assets_backend" t-js="false"/>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.assets_backend" t-css="false"/>
+            </t>
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1><span style="color: red !important">Failed!</span></h1>
+                        <h3><span style="color: red !important"><t t-esc="msg"/> <t t-esc="date"/> (<t t-esc="note"/>)</span></h3>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_purchase_approval_reply" name="Purchase Approval Reply">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="web.assets_backend" t-js="false"/>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.assets_backend" t-css="false"/>
+            </t>
+
+            <div class="container py-3">
+                <form class="oe_login_form" role="form" t-attf-action="/purchase/note" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input type="hidden" name="url" t-att-value="url"/>
+                    <input type="hidden" name="is_forward" t-att-value="is_forward"/>
+
+                    <div class="row">
+                        <div class="col-8 offset-2 text-center">
+                            <h2>Purchase Order Approval</h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8 offset-2">
+                            <div class="row">
+                                <div class="col-6">User</div>
+                                <div class="col-6">: <t t-esc="purchase.request_user_id.name"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Number</div>
+                                <div class="col-6">: <t t-esc="purchase.name"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Date</div>
+                                <div class="col-6">: <t t-esc="purchase.date_order.strftime('%d/%m/%Y') if purchase.date_order else ''"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Total Amount</div>
+                                <div class="col-6">: <t t-esc="'{:,.0f}'.format(purchase.amount_total)"/></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <t t-if="forwarder">
+                        <div class="row">
+                            <div class="col-8 offset-2 text-center">
+                                Forwarded From: <t t-esc="forwarder"/>
+                            </div>
+                        </div>
+                    </t>
+
+                    <div class="row mt-3">
+                        <div class="col-8 offset-2">
+                            <table class="table table-sm table-bordered">
+                                <tr>
+                                    <td>Product</td>
+                                    <td>Qty</td>
+                                    <td>Price</td>
+                                    <td>Subtotal</td>
+                                    <td>Status</td>
+                                </tr>
+                                <tr t-foreach="purchase.order_line" t-as="line">
+                                    <td><t t-esc="line.name"/></td>
+                                    <td><t t-esc="line.product_qty"/></td>
+                                    <td><t t-esc="'{:,.0f}'.format(line.price_unit)"/></td>
+                                    <td><t t-esc="'{:,.0f}'.format(line.price_subtotal)"/></td>
+                                    <td><t t-esc="purchase._get_state(line.state)"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <t t-if="is_forward">
+                        <div class="row">
+                            <div class="col-8 offset-2">
+                                Forward to: <input type="email" name="mail_forward" id="mail_forward" required="required" t-att-value="mail_forward"/>
+                            </div>
+                        </div>
+                    </t>
+
+                    <div class="row mt-3 mb-5">
+                        <div class="col-8 offset-2">
+                            <details>
+                                <summary>Approval Details</summary>
+                                <ul>
+                                    <t t-foreach="purchase.approval_message_ids" t-as="msg">
+                                        <li><t t-esc="msg.employee_id.name"/> <t t-esc="msg.state"/> : <t t-esc="msg.note"/> at <t t-esc="msg.date.strftime('%d-%m-%Y %H:%M:%S')"/></li>
+                                    </t>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8 offset-2">
+                            <textarea placeholder="Note" name="note" t-att-value="note" id="note" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autofocus="autofocus" autocapitalize="off"/>
+                            <button type="submit" class="btn btn-primary btn-block">Post</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="view_asset_outstanding_report_tree" model="ir.ui.view">
+            <field name="name">view.asset.outstanding.report.tree</field>
+            <field name="model">asset.outstanding.report</field>
+            <field name="arch" type="xml">
+                <tree create="0" import="0">
+                    <field name="move_line_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="partner_id" optional="show"/>
+                    <field name="move_id" optional="show"/>
+                    <field name="date_invoice" optional="show"/>
+                    <field name="asset_cost_progress_id" optional="show"/>
+                    <field name="analytic_account_id" optional="show"/>
+                    <field name="description" optional="show"/>
+                    <field name="picking_id" optional="show"/>
+                    <field name="product_id" optional="show"/>
+                    <field name="qty" optional="show"/>
+                    <field name="amount" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_asset_outstanding_report_search" model="ir.ui.view">
+            <field name="name">view.asset.outstanding.report.search</field>
+            <field name="model">asset.outstanding.report</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="company_id"/>
+                    <field name="partner_id"/>
+                    <field name="move_id"/>
+                    <field name="date_invoice"/>
+                    <field name="description"/>
+                    <field name="picking_id"/>
+                    <field name="product_id"/>
+                    <field name="asset_cost_progress_id"/>
+                    <field name="analytic_account_id"/>
+                    <field name="qty"/>
+                    <field name="amount"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_asset_outstanding_report" model="ir.actions.act_window">
+            <field name="name">Asset Outstanding</field>
+            <field name="res_model">asset.outstanding.report</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_asset_outstanding_report_search"/>
+        </record>
+
+        <menuitem
+            id="menu_asset_outstanding_report"
+            name="Asset Outstanding"
+            action="action_asset_outstanding_report"
+            parent="ins_asset.menu_asset"
+            sequence="10"/>
+    </data>
+</odoo>

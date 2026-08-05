@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="misc_payment_form_view" model="ir.ui.view">
+            <field name="name">miscellaneous.payment.form</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="arch" type="xml">
+                <form string="Miscellaneous Receipt">
+                    <header>
+                        <button name="action_post" string="Confirm" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+<!--                        <button name="action_draft" string="Reset To Draft" type="object"-->
+<!--                                class="btn btn-secondary"-->
+<!--                                attrs="{'invisible': [('state', 'not in', ('posted', 'cancel'))]}"-->
+<!--                                groups="account.group_account_invoice"/>-->
+                        <button name="action_cancel" string="Cancel" type="object"
+                                attrs="{'invisible': [('state', 'not in', ('draft','posted'))]}"/>
+                         <button name="action_applied_bill" string="Applied Bill" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|', ('state', 'not in', ('posted')),
+                                ('remaining_amount', '&lt;', 1),('receipt_type_category','=', 'misc')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_misc_payment_matching_widget" type="object"
+                                    string="Misc Payment Matching" class="oe_stat_button" icon="fa-dollar"
+                                    groups="account.group_account_user"/>
+                        </div>
+                        <group>
+                            <group name="group1">
+                                <field name="name" readonly="1"/>
+                                <field name="misc_name"/>
+                                <field name="misc_type" invisible="1" readonly="0"/>
+                                <field name="receipt_type_id" required="1" string="Payment Type"
+                                       domain="[('type', '=', ('payment'))]"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"
+                                       options="{'no_create': True}"/>
+                                <field name="receipt_type_category" invisible="1"/>
+                                <field name="receivable_activities_id" required="0" string="Payment Activities"
+                                       domain="[('type', '=', ('payment'))]"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))],
+                                       'invisible': [('receipt_type_category', 'not in', ('misc'))]}"
+                                       options="{'no_create': True}"/>
+                                <field name="misc_partner_id" string="Vendor" invisible="1"
+                                       context="{'default_is_company': True, 'default_supplier_rank': True}"
+                                       widget="res_partner_many2one"/>
+                                <field name="partner_id" string="Vendor" invisible="1"
+                                       context="{'default_is_company': True, 'default_supplier_rank': True}"
+                                       widget="res_partner_many2one"/>
+                                <field name="analytic_account_id" attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"
+                                       options="{'no_create': True}"/>
+                                <field name="destination_account_id" required="1" readonly="1" force_save="1"
+                                       options="{'no_create': True}"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="amount"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="remaining_amount"/>
+                                <field name="applied_amount"/>
+<!--                                <field name="transaction_date"-->
+<!--                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>-->
+                                <field name="description" required="1"/>
+                            </group>
+                            <group name="group2">
+                                <field name="date" string="Accounting Date"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="journal_id" string="Bank Account" widget="selection"
+                                       domain="[('type', 'in', ('bank', 'cash'))]"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="partner_bank_id"
+                                       readonly="1" force_save="1"/>
+                                <field name="currency_id"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="operating_unit_id"
+                                       options="{'no_create': True}"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="move_id" required="0"
+                                       attrs="{'invisible': [('id', '=', False)]}"
+                                       groups="account.group_account_readonly"/>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="misc_payment_tree_view" model="ir.ui.view">
+            <field name="name">miscellaneous.payment.tree</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <tree string="Miscellaneous Receipt">
+                    <field name="name"/>
+                    <field name="receipt_type_id"/>
+                    <field name="misc_type" />
+                    <field name="receipt_number" string="Payment Number"/>
+                    <field name="partner_id"/>
+                    <field name="journal_id"/>
+                    <field name="destination_account_id"/>
+                    <field name="partner_bank_id"/>
+                    <field name="amount" sum="Amount"/>
+                    <field name="currency_id"/>
+                    <field name="operating_unit_id"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="misc_payment_act_window" model="ir.actions.act_window">
+            <field name="name">Miscellaneous Payment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">miscellaneous.miscellaneous</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('misc_type', '=', 'payment')]</field>
+            <field name="context">{'default_misc_type': 'payment'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Miscellaneous Payment.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_misc_payment_tree" model="ir.actions.act_window.view">
+            <field eval="7" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="misc_payment_tree_view" />
+            <field name="act_window_id" ref="misc_payment_act_window" />
+        </record>
+
+        <record id="action_misc_payment_form" model="ir.actions.act_window.view">
+            <field eval="8" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="misc_payment_form_view" />
+            <field name="act_window_id" ref="misc_payment_act_window" />
+        </record>
+
+        <menuitem name="Miscellaneous Payment"
+                  id="misc_payments_menu"
+                  parent="account.menu_finance_payables"
+                  action="misc_payment_act_window"
+                  sequence="13"/>
+
+
+    </data>
+</odoo>

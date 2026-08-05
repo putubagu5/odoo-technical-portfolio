@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="view_purchase_request_type_second_tree" model="ir.ui.view">
+            <field name="name">view.purchase.request.type.second.tree</field>
+            <field name="model">purchase.request.type.second</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" required="1"/>
+                    <field name="description" required="1"/>
+                    <field name="type1_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_purchase_request_type_second" model="ir.actions.act_window">
+            <field name="name">Purchase Request Type 2</field>
+            <field name="res_model">purchase.request.type.second</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_purchase_request_type_second"
+            name="Master Data Purchase Request Type 2"
+            action="action_purchase_request_type_second"
+            parent="purchase_request.menu_purchase_request"/>
+    </data>
+</odoo>

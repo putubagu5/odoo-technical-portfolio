@@ -1,0 +1,265 @@
+<odoo>
+    <template id="ins_base_mnc_report_general_terms_purchase_order_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_report_general_terms_purchase_order_document"/>
+            </t>
+        </t>
+    </template>
+    
+    <template id="ins_base_mnc_report_general_terms_purchase_order_document">
+    	<t t-call="web.basic_layout">
+    		<style>
+	        .column {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+	        </style>
+	        <div class="page" style="font-size: 8px !important;">
+	        	<div class="row">
+	        		<div class="col-md-6">
+		        		<p style="text-align:justify"><strong>KETENTUAN &amp; PERSYARATAN UMUM PURCHASE ORDER PT MEDIA NUSANTARA CITRA, TBK .</strong><br />
+						<strong>Pasal 1 : Ketentuan Umum</strong><br />
+						1.1.Order ini &amp; lampiran-lampirannya (bila ada) hanya berlaku untuk pengadaan barang dan/atau jasa seperti yang
+tercantum pada perincian barang &amp; pekerjaan pada halaman depan Order ini.<br />
+1.2.Isi dari Order ini harus disetujui oleh Pemasok dalam waktu 5 Hari Kerja sejak tanggal penerimaan Order.
+Dengan berakhirnya jangka waktu 5 Hari Kerja tersebut &amp; Pemasok belum memberikan persetujuannya, maka
+Pemasok dianggap setuju &amp; menerima tanpa syarat seluruh Ketentuan &amp; Persyaratan Umum Order ini.<br />
+1.3.Penambahan/perubahan Ketentuan &amp; Persyaratan Umum dari Pemasok yang bertentangan dengan Order ini akan
+dinyatakan batal &amp; tidak berlaku kecuali disetujui secara tertulis oleh MNC.<br />
+1.4.Bila Pemasok tidak dapat memenuhi sebagian atau seluruh pekerjaan yang telah ditetapkan dalam Order ini,
+maka Pemasok harus segera memberitahukan MNC secara tertulis dalam waktu 5 Hari Kerja sejak tanggal
+Order. Dalam keadaan demikian, tanpa dikenakan biaya &amp; kewajiban apapun, MNC berhak untuk membatalkan
+seluruh atau sebagian Order ini &amp; mengembalikan barang-barang yang telah diserahkan oleh Pemasok. Semua
+pembayaran yang telah dilakukan oleh MNC wajib dikembalikan sepenuhnya oleh Pemasok atau dikurangi
+sejumlah nilai harga yang tidak dibatalkan oleh MNC.<br />
+1.5.Ketentuan &amp; Persyaratan Umum ini &amp; bagian-bagiannya dapat sewaktu-waktu berubah tanpa pemberitahuan
+terlebih dahulu kepada Pemasok.<br />
+1.6.Penolakan atas seluruh atau sebagian dari Ketentuan &amp; Persyaratan Umum ini akan mengakibatkan pemutusan
+hubungan rekanan dengan MNC.<br />
+<strong>Pasal 2 : Tagihan, Pembayaran &amp; Pajak</strong><br />
+2.1 Pemasok harus mengajukan tagihan/invoice secara lengkap atas barang dan/atau jasa yang diminta dalam Order
+ini kepada MNC yang didukung oleh: Berita Acara Serah Terima, faktur pajak, salinan Purchase Order, Delivery
+Order, Packing List (bila ada), &amp; salinan Kontrak (bila ada) yang telah ditandatangani Para Pihak.<br />
+2.2 MNC tidak akan melakukan pembayaran apapun kecuali bila dokumen- dokumen pendukung yang benar &amp;
+lengkap telah diserahkan oleh Pemasok.<br />
+2.3 Jika terdapat jumlah yang masih terhutang dari Pemasok kepada MNC, maka MNC berhak memperhitungkan
+setiap perbayaran yang terhutang kepada Pemasok ke dalam Order ini.<br />
+2.4 Apabila terdapat Pajak Pertambahan Nilai (PPN) atas barang dan/atau jasa yang terkait dengan Order ini, maka
+Pemasok wajib menyediakan tagihan PPN yang terpisah bagi setiap PPN yang terhutang.<br />
+2.5 MNC tidak berkewajiban membayar kembali kepada Pemasok &amp; MNC bertanggung jawab dalam keadaan
+apapun atas setiap pajak &amp; cukai yang harus dibayar kepada pemerintah atau institusi manapun sehubungan
+dengan pelaksanaan Pekerjaan oleh Pemasok menurut Order ini, termasuk (namun tidak terbatas) Pajak
+Penghasilan Badan &amp; Pajak Penghasilan Perorangan.<br />
+2.6 Apabila MNC diharuskan oleh Undang-undang (UU) perpajakan Indonesia untuk menahan suatu jumlah sesuai
+dengan tarif yang ditentukan UU tersebut dari pembayaran yang terhutang pada Pemasok berdasarkan Order ini,
+maka pembayaran akan dipotong sebesar tarif yang ditentukan oleh UU tersebut.<br />
+2.7 Tagihan harus diajukan secara terpisah untuk setiap Order. Nomor Order harus tertulis dalam semua tagihan.
+Tagihan yang mencakup lebih dari satu Order dapat digunakan dengan persetujuan tertulis sebelumnya dari
+MNC. Potongan harga harus dinyatakan secara jelas dalam tagihan.<br />
+2.8 Bila pembayaran Order ini berdasarkan tarif harian, maka lembar waktu harian harus disahkan oleh pihak yang
+berwenang dari MNC dengan mengeluarkan BAST &amp; dilampirkan pada tagihan, kecuali bila disepakati
+sebaliknya. Lembar waktu harian tersebut harus yang asli atau salinan dengan tanda tangan asli. Bila Pemasok
+menggunakan subkontraktor, maka salinan tagihan subkontraktor harus disertakan di dalam tagihan Pemasok<br />
+2.9 Pembayaran atas suatu tagihan tidak menghapuskan hak MNC untuk mengajukan gugatan terhadap Pekerjaan
+yang terbukti dilaksanakan secara tidak benar oleh Pemasok.<br />
+<strong>Pasal 3 : Jaminan Dalam Pelaksanaan Pekerjaan</strong> - Tunduk pada kebijakan yang ditetapkan oleh MNC, Pemasok
+dipersyaratkan menyerahkan jaminan yang diatur dalam ketentuan di bawah ini :<br />
+3.1 Bid Bond atau Jaminan Penawaran adalah jaminan yang diberikan pada saat menyerahkan penawaran lelang
+yang diterbitkan oleh bank lokal maupun asing dalam bentuk bank guarantee, atau perusahaan asuransi dalam
+bentuk surety bond. Jaminan Penawaran ini bernilai 1-3% dari total nilai Order/ kontrak.<br />
+3.2 Down Payment Bond atau Jaminan Uang Muka adalah jaminan yang diterbitkan oleh bank lokal maupun asing
+pada saat Order ini diterbitkan oleh MNC, &amp; diserahkan Pemasok kepada MNC pada saat pembayaran uang
+muka dilakukan oleh MNC (Digunakan untuk nilai total DP &gt;= IDR 100,000,000 atau USD 10,000) berlaku
+sampai dengan nilai Pekerjaan sama dengan nilai yang dibayarkan dimuka. Jaminan ini bernilai sama dengan
+nilai pembayaran yang dilakukan di muka.<br />
+3.3 Performance Bond atau Jaminan Pelaksanaan adalah jaminan yang diserahkan Pemasok kepada MNC dalam 7
+hari sesudah Order ini diterima oleh Pemasok, berlaku sampai dengan Pekerjaan selesai. Jaminan ini bernilai 5-
+10% dari total nilai ORDER / Kontrak atau nilai lain yang ditentukan oleh MNC.<br />
+3.4 Retention Bond atau Jaminan Pemeliharaan adalah jaminan yang diserahkan Pemasok kepada MNC untuk masa
+pemeliharaan atau garansi, berlaku sampai dengan BALMP/BALMG (Berita Acara Lepas Masa Pemeliharaan/
+Berita Acara Lepas Masa Garansi) diterbitkan oleh MNC. Jaminan ini bernilai 5-10% dari total nilai ORDER /
+Kontrak dengan catatan:<br />
+- Bid Bond dapat diterbitkan oleh bank lokal atau bank asing yang disetujui oleh MNC dalam bentuk bank
+guarantee maupun perusahaan asuransi yang disetujui oleh MNC dalam bentuk surety bond.<br />
+- Down Payment Bond, Performance Bond, &amp;Retention Bond hanya dapat diterbitkan oleh bank sbb:<br />
+<ul>
+	<li style="text-align:justify">Rujukan bank internasional yang diakui oleh MNC adalah Deutsche Bank, DBS, Standard Chartered, Citibank</li>
+	<li style="text-align:justify">Rujukan bank lokal yang diakui oleh MNC adalah MNC Bank, Bank Mandiri, Bank Central Asia, Bank Permata, BNI, Bank CIMB Niaga</li>
+</ul>
+<strong>Pasal 4 : Hak Milik Atas Barang</strong> - Kecuali ditentukan lain dalam Kontrak, hak milik atas barang dan/atau jasa
+yang dipesan menurut Order ini adalah milik MNC setelah dibayar oleh MNC atau setelah diserahkan kepada MNC,
+yang mana terjadi terlebih dahulu.<br />
+<strong>Pasal 5 : Perubahan-perubahan</strong><br />
+5.1 Harga-harga di dalam Order ini merupakan harga tetap atau berdasarkan suatu perhitungan tertentu. Bila harga
+tetap yang dipakai, maka kenaikan harga apapun harus disetujui secara tertulis oleh MNC sebelum penyerahan
+barang dan/ atau jasa dilakukan. Apabila terdapat tarif unit/ hari, maka kenaikan akan dihitung berdasarakan
+order yang asli.<br />
+5.2 Bila Order ini menetapkan keadaan khusus yang mengijinkan penyesuaian harga, maka Pemasok wajib
+memberitahukan secara tertulis tentang perubahan yang mungkin terjadi, sebelum tagihan dengan harga yang
+disesuaikan dikeluarkan.<br />
+5.3 Ketepatan waktu penyerahan barang dan/atau jasa merupakan faktor utama bagi MNC. Perubahan apapun
+terhadap penyerahan barang dan/atau jasa harus disetujui secara tertulis oleh MNC. Bila pemasok tidak mampu
+memenuhi jadwal penyerahan atau ketentuan lain dari Order, Pemasok harus segera memberitahukannya kepada
+MNC &amp;MNC berhak untuk mengenakan sanksi sebagaimana ditentukan dalam pasal 8 Ketentuan &amp; Persyaratan
+Umum ini mengenai Denda.<br />
+<strong>Pasal 6 : Jaminan Terhadap Barang dan/atau Jasa</strong><br />
+6.1 Pemasok menyatakan &amp; menjamin bahwa barang dan/atau jasa yang diberikan menurut Order ini<br/>
+i.Baru &amp;baik kualitasnya menurut penilaian MNC; dan<br />
+ii. Sesuai dengan spesifikasi dalam Order. Semua barang yang diserahkan harus melalui proses pemeriksaan &amp;<br />
+disetujui oleh MNC. Pembayaran tagihan bukanlah merupakan bukti telah dilakukannya pemeriksaan &amp; bukan
+merupakan persetujuan oleh MNC atas barang dan/atau jasa dalam Order ini, &amp;tidak akan<br/>
+iii. membebaskan Pemasok dari tanggung jawabnya atas kualitas dari barang dan/ atau jasa tersebut; dan<br />
+iv. Seluruh barang dan/atau jasa yang dipesan dalam Order ini harus mempunyai hak kepemilikan yang sah, bebas
+dari segala bentuk hak tanggungan, pajak dan/ atau beban-beban yang lain &amp; dapat digunakan oleh MNC tanpa
+melanggar hak paten &amp; hak milik intelektual dari pihak manapun yang terkait dengan barang dan/ atau jasa
+tersebut; dan<br />
+v. Barang yang dipesan dalam Order ini haruslah bebas dari cacat apapun baik yang nyata maupun yang tidak
+terlihat (cacat tersembunyi) selama 36 bulan sejak tanggal ditandatanganinya BAST oleh MNC.<br />
+vi. Jasa-jasa yang dipesan dalam Order ini haruslah bebas dari cacat apapun baik yang nyata maupun yang tidak
+terlihat (cacat tersembunyi) selama 12 bulan sejak tanggal dikeluarkannya BAST services<br />
+vii. Apabila Barang dan/atau Jasa ditolak oleh MNC, segala akibat yang timbul akan menjadi tanggung jawab
+Pemasok sepenuhnya<br />
+viii. Apabila sampai dengan hari/tanggal yang telah ditentukan Pemasok belum menyerahkan barang dan/atau jasa
+yang dipesan dalam Order ini, yang mengakibatkan MNC terpaksa harus membeli di tempat lain, maka seluruh
+biaya &amp; pengeluaran yang timbul menjadi tanggung jawab Pemasok.<br />
+6.2 Pemasok akan diberikan kesempatan pertama untuk memperbaiki kekurangan-kekurangan yang tidak sesuai
+dengan jaminan terhadap barang dan/atau jasa. Apabila setelah diberikan pemberitahuan oleh MNC, pemasok
+tidak memperbaikinya dalam kurun waktu yang ditentukan, maka MNC atau pihak ketiga yang ditunjuk oleh
+MNC akan melakukan perbaikan &amp;atau penggantian. Pemasok wajib mengganti seluruh biaya perbaikan
+dan/atau penggantian yang dilakukan oleh MNC dan/ atau pihak ketiga yang ditunjuk oleh MNC.<br />
+6.3 Tidak ada biaya pengepakan yang akan dibebankan kepada MNC kecuali ditentukan lain dalam ORDER ini.<br />
+6.4 Pemasok bertanggung jawab penuh atas kerusakan yang disebabkan karena pengepakan.<br />
+<strong>Pasal 7 : Denda</strong> - Jika terjadi keterlambatan pengiriman barang dan/ atau jasa yang telah disepakati dalam Order ini,
+Pemasok wajib untuk mengganti segala kerugian yang mungkin timbul yang diakibatkan oleh keterlambatan
+tersebut. Ketentuan baku yang diberlakukan oleh MNC kepada semua Pemasok ialah 0,1% per hari (satu permil per
+Hari) dengan maksimum 10% (sepuluh persen) dari nilai total Order &amp; Order ini dapat dibatalkan oleh MNC,
+terhadap pembayaran yang telah dilakukan oleh MNC, Pemasok wajib mengembalikannya secara penuh.<br />
+<strong>Pasal 8 : Pengakhiran Order</strong> MNC berhak mengakhiri Order ini setiap saat &amp; dengan alasan apapun, dengan
+melakukan pemberitahuan tertulis kepada Pemasok. Setelah pemberitahuan tersebut, Pemasok tidak boleh lagi
+melakukan pemesanan atau produksi atas barang dan/atau jasa yang terkait dengan Order ini yang dapat
+mengakibatkan tambahan biaya bagi MNC.<br />
+8.1 Bila MNC melaksanakan haknya untuk mengakhiri Order ini, maka Pemasok setuju untuk tidak mengajukan
+gugatan terhadap MNC atas kerugian pendapatan dari bagian yang tersisa dari Order.<br />
+8.2 Agar pasal 8.1 berlaku penuh sesuai dengan ketentuan - ketentuannya, kedua belah pihak menyatakan
+mengesampingkan pasal 1266 &amp;1267 Kitab Undang-undang Hukum Perdata Indonesia sepanjang terhadap
+ketentuan yang mensyaratkan keputusan pengadilan untuk pengakhiran Order.<br />
+<strong>Pasal 9 : Ganti Rugi, Kelalaian &amp;Asuransi</strong><br />
+9.1 MNC tidak bertanggung jawab atas kerugian atau kehilangan keuntungan yang diharapkan oleh Pemasok.<br />
+Pemasok tidak bertanggung jawab atas kerugian atau kehilangan dari keuntungan yang diharapkan oleh MNC,
+kecuali terhadap jumlah yang dapat ditagih kembali dari suatu asuransi yang berlaku yang diadakan oleh
+Pemasok atau subkontraktornya.<br />
+9.2 MNC &amp; Pemasok akan saling mendukung, membela &amp;membebaskan satu sama lainnya dari gugatan, tuntutan &amp;
+penyebab tindakan yang dituduhkan oleh setiap pihak ketiga (termasuk para karyawan dari Pemasok &amp;MNC)
+atas cidera janji perorangan, kematian, kerugian atau kerusakan harta milik yang diakibatkan oleh Kelalaian,
+atau Kelalaian Yang Disengaja.<br />
+9.3 Bila cidera janji perorangan, kematian atau kerugian dari kerusakan atas harta milik diakibatkan oleh Kelalaian,
+atau Kelalaian Yang Disengaja secara bersama oleh MNC &amp; Pemasok, maka kewajiban dari kedua belah pihak
+harus proporsional dengan bagiannya dalam Kelalaian, atau Kelalaian Yang Disengaja.<br />
+9.4 Bila salah satu pihak secara mutlak bertanggung jawab menurut peraturan perundang-undangan yang berlaku,
+maka pihak lainnya mempunyai kewajiban &amp; tanggung jawab yang sama terhadap kerugian atau kerusakan atas
+harta benda milik orang lain. Istilah Kelalaian dalam Order ini harus mencakup kelalaian aktif maupun pasif.
+&#34;Kelalaian&#34; didefinisikan oleh hukum yang berlaku untuk Order ini, namun apabila hukum dimaksud tidak
+menjelaskannya, maka setiap tindakan atau kegagalan untuk bertindak (baik sendiri-, bersamaan ataupun
+keduanya terjadi bersama-sama) yang menyimpang secara substansial dari tindakan yang patut &amp;benar serta
+tidak disengaja terhadap konsekuensi yang membahayakan. &#34;Kelalaian Yang Disengaja&#34; didefinisikan oleh
+hukum yang berlaku untuk Order ini, namun apabila hukum dimaksud tidak menjelaskannya, maka artinya
+adalah suatu pelanggaran atau penyimpangan yang disengaja terhadap konsekuensi yang membahayakan
+dan/atau suatu standar yang patut &amp; benar dari pelaksanaan atau ketentuan maupun dari Order ini.<br />
+9.5 Pemasok wajib menyediakan, dengan biayanya sendiri, asuransi yang baik &amp; layak sesuai dengan ketentuan
+undang-undang, termasuk tapi tidak terbatas pada asuransi tenaga kerja &amp; pertanggungan majikan atau asuransi
+sosial sejenis, serta asuransi umum yang komprehensif, yang umum &amp; biasanya berlaku.<br />
+<strong>Pasal 10 : Kepatuhan Terhadap Hukum</strong> - Pemasok wajib mematuhi semua undang-undang &amp; peraturan
+pemerintah yang berlaku. Pemasok tidak diizinkan &amp; tidak diperbolehkan untuk bertindak dengan nama atau
+mengatasnamakan MNC yang dapat melanggar undang-undang &amp; peraturan pemerintah yang berlaku<br />
+<strong>Pasal 11 : Hukum Yang Berlaku &amp; Penyelesaian Sengketa</strong> - Order ini diatur oleh Hukum yang berlaku di
+Republik Indonesia &amp; para pihak sepakat untuk menunjuk jurisdiksi eksklusif dari Pengadilan Negeri Jakarta Pusat,
+Indonesia.<br />
+<strong>Pasal 12: Force Majeure</strong> - Force Majeure adalah suatu keadaan memaksa atau kejadian yang tidak dapat
+diperkirakan &amp; diluar kekuasaan Para Pihak yang bukan disebabkan secara langsung atau tidak langsung oleh
+kesalahan atau kelalaian dari pihak yang menyatakan, termasuk tidak terbatas pemogokan, embargo oleh pemerintah
+setempat, huru-hara, pertempuran, peperangan, kebakaran, peledakan, sabotase, badai, gempa bumi, gunung
+meletus, tsunami &amp;bencana alam lainnya, serta perubahan aturan hukum dan/atau kebijakan pemerintah yang
+berhubungan dengan pelaksanaan Order ini. Pemasok atau MNC tidak boleh dinyatakan melanggar atau gagal
+melaksanakan kewajibannya selama Pekerjaannya terlambat atau tertahan dikarenakan Force Majeure. Dengan
+dinyatakannya force majeure, maka Pemasok atau MNC akan :<br />
+i. Segera memberitahukan pihak lainnya paling lambat 14 Hari sejak terjadinya Force Majeure,<br />
+ii. Menempuh segala upaya yang patut &amp;wajar untuk memperbaiki atau mengantisipasi penyebab dari<br />
+ketidaksesuaian,<br />
+iii. Melaksanakan keseluruhan tanggung-jawabnya yang tertunda/terhalang setelah penyebab force majeure berlalu.<br />
+<strong>Pasal 13 : Kode Etik</strong><br />
+13.1 Pemasok dilarang keras menawarkan, memberi dan/atau setuju untuk memberi hadiah-hadiah, komisi-komisi,
+diskon atau bentuk-bentuk lainnya yang sejenis kepada pegawai-pegawai MNC dengan maksud untuk
+mendapatkan atau melaksanakan Order.<br />
+13.2 Pelanggaran terhadap ketentuan Pasal 13.1 ini oleh Pemasok, pegawainya dan/atau oleh orang yang bekerja
+untuknya dapat mengakibatkan dibatalkannya Order ini oleh MNC, &amp;seluruh biaya yang timbul akibat
+pembatalan Order ini menjadi tanggung jawab Pemasok sepenuhnya, disertai tindakan penghapusan Pemasok
+sebagai rekanan MNC.<br />
+<strong>Pasal 14 : Subkontrak</strong> - Pemasok tidak diperbolehkan mengalihkan atau men-subkontrak-kan seluruh atau bagian
+manapun dari kewajibannya menurut Order ini tanpa persetujuan tertulis sebelumnya dari MNC. Pemasok harus
+mengikat semua subkontraktor dengan Ketentuan &amp;Persyaratan Umum dari Order.<br />
+<strong>Pasal 15 : Kontraktor Mandiri</strong> - Dalam hal ini, Pemasok adalah kontraktor mandiri &amp;bukan agen atau karyawan
+MNC. Pekerjaan harus dilaksanakan dibawah pengawasan &amp;pengendalian dari Pemasok. Pemasok tidak berwenang
+untuk membuat pernyataan, mewakili dan/atau memberikan komitmen dalam bentuk apapun atau mengambil
+tindakan apapun yang mengikat MNC, kecuali bila secara spesifik ditentukan dalam Order ini.<br />
+<strong>Pasal 16 : Pengalihan</strong> - MNC dapat mengalihkan Order ini kepada setiap afiliasi atau anak perusahaan dari MNC
+dengan pemberitahuan &amp; tanpa memerlukan persetujuan apapun dari Pemasok. Pemasok tidak dapat dalam bentuk
+apapun mengalihkan Order ini tanpa persetujuan tertulis sebelumnya dari MNC, dimana persetujuan tersebut tidak
+akan membebaskan Pemasok dari kewajibannya menurut Order ini. Setiap pengalihan yang dibuat oleh Pemasok
+yang tidak sesuai dengan yang disebutkan akan dianggap tidak berlaku.<br />
+<strong>Pasal 17 : Tenaga Kerja, Keselamatan, Kesehatan &amp; Lingkungan Hidup</strong><br />
+17.1 Dalam melaksanakan Order ini, Pemasok wajib mematuhi ketentuan &amp; peraturan yang berlaku mengenai
+keselamatan kerja &amp; bertanggung jawab secara penuh atas keselamatan &amp; kesehatan para personilnya<br />
+17.2 Dalam melaksanakan Order, pemasok wajib berusaha semaksimal mungkin agar gangguan-gangguan yang
+mungkin terjadi terhadap kegiatan usaha MNC, lingkungan, masyarakat atau pihak-pihak lain diupayakan
+sekecil mungkin. Untuk mengurangi gangguan-gangguan yang mungkin terjadi, Pemasok wajib, namun tidak
+terbatas untuk melakukan kerjasama &amp; berkoordinasi dengan pihak-pihak lain yang terkait dalam hal itu.<br />
+17.3 Pemasok bertanggung jawab penuh terhadap tenaga kerja yg melaksanakan pekerjaan berdasarkan Order ini.<br />
+<strong>Pasal 18: Audit</strong> - Sejak penerimaan Order ini sampai tiga (3) tahun setelah penyelesaian Pekerjaan, Pemasok wajib
+memelihara &amp;menyimpan seluruh dokumentasi &amp;data yang terkait dengan Order &amp;harus mengijinkan MNC untuk
+memeriksa dan/atau mewawancarai personil Pemasok bila MNC perlu untuk memantau dan/atau mengadakan
+verifikasi dalam:<br />
+i. Ketetapan &amp; kelayakan harga dibawah Order, dan<br />
+ii. Kepatuhan Pemasok terhadap pelaksanaan Ketentuan &amp;Persyaratan Umum Order ini.<br />
+<strong>Pasal 19: Dokumen-dokumen</strong> - Semua gambar, rancang bangun, gagasan, spesifikasi, informasi dan/atau data
+lainnya yang melengkapi &amp;menjadi kesatuan Order ini adalah milik MNC &amp;wajib dikembalikan jika selesai
+digunakan. Isi dokumen tidak boleh dipakai, direproduksi, dipinjamkan, atau diumumkan dengan cara apapun
+kecuali terdapat persetujuan tertulis yang telah diterima dari MNC.<br />
+<strong>Pasal 20: Penggunaan Merek Dagang</strong> - Tanpa persetujuan tertulis sebelumnya dari MNC, Pemasok dilarang keras
+menggunakan nama atau setiap nama dagang yang terdaftar dari MNC dalam setiap iklan atau komunikasi kepada
+publik dalam bentuk apapun kecuali yang diperlukan untuk memasok barang-barang atau melaksanakan Pekerjaan
+menurut Order ini.<br />
+<strong>Pasal 21 : Informasi Rahasia</strong><br />
+21.1 Pemasok wajib menjaga kerahasiaan dari setiap informasi teknik, data, &amp; informasi tentang rencana usaha
+&amp;rencana riset atau aktivitas MNC, afiliasinya, atau pihak ketiga yang diberikan oleh MNC atau afiliasinya
+kepada Pemasok, atau yang timbul dari pekerjaan Pemasok dengan MNC.<br />
+21.2 Yang dimaksud dengan &#34;Informasi Rahasia&#34; di dalam &amp; untuk keperluan Order ini adalah: setiap informasi,
+data, dokumen atau material-material lain dalam bentuk &amp; sifat apapun yang diperoleh atau diterima oleh
+pihak yang menerima (&#34;Pihak Penerima&#34;) dari pihak yang mengungkapkan (&#34;Pihak Yang Mengungkapkan&#34;),
+yang ditentukan atau diidentifikasi oleh Pihak Yang Mengungkapkan sebagai rahasia atau Hak Milik Atas
+Kekayaan Intelektual Pihak Yang Mengungkapkan atau yang secara umum dianggap rahasia atau sebagai Hak
+Atas Kekayaan Intelektual milik Pihak Yang Mengungkapkan.<br />
+21.3 Ketentuan-ketentuan Pasal 22 ini tetap berlaku seterusnya walaupun Order berakhir.<br />
+<strong>Pasal 22 : Informasi Ilegal</strong><br />
+22.1 Pemasok menjamin &amp; menyatakan bahwa belum &amp; tidak akan menggunakan Informasi Rahasia dari &amp; untuk
+pihak lain atau pengaruh tidak sah seperti percaloan informasi illegal sehubungan dengan Order ini. Pemasok
+akan secepatnya memberitahukan MNC apabila seseorang mendekati Pemasok dengan tujuan percaloan
+informasi illegal yang terkait dengan Order ini.<br />
+22.2 Pelanggaran terhadap ketentuan ini dapat mengakibatkan Pemasok dikenai tuntutan pidana dan/atau perdata.<br />
+<strong>Pasal 23 : Jaminan Hukum</strong><br />
+23.1 MNC &amp; Pemasok saling menjamin bahwa Order ini &amp; Perjanjian (bila ada) akan ditandatangani sesuai dengan
+ketentuan &amp; ijin yang diperoleh masing-masing Pihak &amp; penandatangan dalam Order ini dan/atau Perjanjian
+adalah pejabat yang berwenang berdasarkan Anggaran Dasar masing-masing Pihak atau yang mendapatkan
+Kuasa Direksi untuk bertindak dengan atau atas nama mewakili perusahaan serta sesuai dengan ketentuan yang
+berlaku.<br />
+23.2 Pemasok menjamin &amp; membebaskan MNC dari segala tuntutan hukum yang timbul atau akan timbul
+sehubungan dengan pelanggaran Pasal ini.
+</p>
+					</div>
+	        	</div>
+	        </div>
+    	</t>
+    </template>
+    
+</odoo>

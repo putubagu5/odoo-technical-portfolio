@@ -1,0 +1,46 @@
+<odoo>
+
+    <record id="wizard_purchase_requisition_list_view_form" model="ir.ui.view">
+        <field name="name">wizard.purchase.requisition.view.form</field>
+        <field name="model">wizard.purchase.requisition</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <label for="date_start" string="Dates"/>
+                            <div class="o_row">
+                                <field name="date_start" placeholder="Start Date"/>
+                                <span class="oe_inline">&#160;-&#160;</span>
+                                <field name="date_end" placeholder="End Date"/>
+                            </div>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            
+                        </group>
+                        <!--                        <field name="date_start"/>-->
+                        <!--                        <field name="date_end"/>-->
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Generate XLSX Report" name="generate" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_purchase_requisition_list_action" model="ir.actions.act_window">
+        <field name="name">Purchase Requisition Report XLSX</field>
+        <field name="res_model">wizard.purchase.requisition</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="wizard_purchase_requisition_list_menu"
+            name="Purchase Requisition List"
+            action="wizard_purchase_requisition_list_action"
+            parent="mnc_menu_report.purchase_report_menu"/>
+
+</odoo>

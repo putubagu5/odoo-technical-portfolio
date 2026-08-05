@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <template id="report_ar_3tv_txt_new_template_view">
+            <t t-set="number_page" value="1"/>
+            <t t-foreach="data_dot_matrix" t-as="data">
+                <t t-translation="off">
+
+
+                                 I N V O I C E
+                             ---------------------
+
+  <t t-if="'And' in data['line1']"><t t-set="name1" t-value="data['line1'].split('And')"/><t t-esc="name1[0]"/>&#38;<t t-esc="name1[1]"/></t><t t-if="'And' not in data['line1']"><t t-esc="data['line1']"/></t>
+  <t t-if="'And' in data['line2']"><t t-set="name2" t-value="data['line2'].split('And')"/><t t-esc="name2[0]"/>&#38;<t t-esc="name2[1]"/></t><t t-if="'And' not in data['line2']"><t t-esc="data['line2']"/></t>
+  <t t-esc="data['line3']"/>
+  <t t-esc="data['line4']"/>
+  <t t-esc="data['line5']"/>
+  <t t-esc="data['line21']"/>
+  <t t-esc="data['line24']"/>
+  <t t-esc="data['line6']"/>
+  <t t-esc="data['line22']"/>
+  ----------------------------------------------------------------------------
+             Description                                Amount
+  ----------------------------------------------------------------------------
+  <t t-if="data['narration'] != '' and data['ar_receipt_type'] != 'iklan'"><t t-esc="data['narration']"/></t><t t-if="data['ar_receipt_type'] == 'iklan' and data['source_type_gen21'] != 'manual'">PENAYANGAN IKLAN</t><t t-if="data['ar_receipt_type'] == 'iklan' and data['source_type_gen21'] == 'manual'"><t t-esc="data['manual_desc']"/></t>
+  <t t-if="data['narration'] == '' and data['ar_receipt_type'] == 'iklan'"><t t-if="'And' in data['line7']"><t t-set="name3" t-value="data['line7'].split('And')"/><t t-esc="name3[0]"/>&#38;<t t-esc="name3[1]"/></t><t t-if="'And' not in data['line7']"><t t-esc="data['line7']"/></t></t>
+  
+  <t t-if="(data['ar_receipt_type'] == 'iklan' and data['source_type_gen21'] == 'iklan_bms') or (data['ar_receipt_type'] == 'iklan' and data['is_gross'] and data['source_type_gen21'] == 'manual')"><t t-esc="data['line8']"/>
+  <t t-esc="data['line9']"/>
+  <t t-esc="data['line18']"/></t>
+  <t t-esc="data['line10']"/>
+  <t t-esc="data['line11']"/>
+  <t t-esc="data['line19']"/>
+  <t t-esc="data['line12']"/>
+
+  <t t-esc="data['line13']"/>
+  ----------------------------------------------------------------------------
+  In Words  : <t t-esc="data['line14']"/>
+              <t t-esc="data['line15']"/>
+              <t t-esc="data['line23']"/>
+  ----------------------------------------------------------------------------
+  <t t-esc="data['line16']"/>
+<t t-esc="data['line17']"/>
+
+
+
+
+<t t-esc="data['signature_name_margin']"/><t t-if="data['signature_name'] != ''"><t t-if="'And' in data['signature_name']"><t t-set="signature_name" t-value="data['signature_name'].split('And')"/><t t-esc="signature_name[0]"/>&#38;<t t-esc="signature_name[1]"/></t><t t-if="'And' not in data['signature_name']"><t t-esc="data['signature_name']"/></t></t>
+                                        ---------------------------------------
+<t t-esc="data['signature_position_margin']"/>( <t t-if="data['signature_position'] != ''"><t t-if="'And' in data['signature_position']"><t t-set="signature_position" t-value="data['signature_position'].split('And')"/><t t-esc="signature_position[0]"/>&#38;<t t-esc="signature_position[1]"/></t><t t-if="'And' not in data['signature_position']"><t t-esc="data['signature_position']"/></t></t> )
+
+
+
+
+  1. Mohon mencantumkan nomor invoice pada saat melakukan pembayaran.
+  2. Pembayaran melalui check atau giro dianggap telah lunas apabila
+     dananya telah diterima.
+  3. Pengajuan Klaim atas tagihan ini hanya di terima selambat-lambatnya
+     14 hari kerja.
+                                                                        <t t-esc="data['line20']"/>
+<t t-esc="chr(12)"/>
+                </t>
+<t t-set="number_page" value="number_page + 1"/>
+            </t>
+        </template>
+    </data>
+</odoo>

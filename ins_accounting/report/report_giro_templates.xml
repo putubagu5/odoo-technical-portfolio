@@ -1,0 +1,72 @@
+<odoo>
+    <template id="report_giro_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_accounting.report_giro_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_giro_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 15px !important;">
+                <!-- giro contents -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr style="text-left">
+                                <td width="70%"></td>
+                                <td width="30%" height="42" style="vertical-align: bottom">
+                                    <span>Jakarta,</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table width="100%">
+                            <tr>
+                                <td width="40%"/>
+                                <td width="25%" height="25px"
+                                    style="font-size: 15px !important; vertical-align: middle">
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <span t-field="o.amount" t-options='{"widget": "float", "precision": 2}'/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.amount" t-options='{"widget": "float", "precision": 0}'/>
+                                    </t>
+                                </td>
+                                <td width="35%" height="28px" style="vertical-align: middle">
+                                    <span t-field="o.giro_words1"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="18%"/>
+                                <td width="82%" style="vertical-align: bottom;">
+                                    <span t-field="o.giro_words2"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="35%"/>
+                                <td width="27%"><span t-field="o.acc_number"/></td>
+                                <td width="38%">
+                                    <span t-field="o.acc_name"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="28%"/>
+                                <td width="72%">
+                                    <span t-field="o.acc_bank"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>    
+    </template>
+</odoo>

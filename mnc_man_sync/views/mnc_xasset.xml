@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+        <record id="mnc_x_asset_tree" model="ir.ui.view">
+            <field name="name">x.asset.tree</field>
+            <field name="model">x.asset</field>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0" delete="1">
+<!--                    <field name="company_id"/>-->
+                    <field name="book_type_code"/>
+                    <field name="asset_number"/>
+                    <field name="unit_qty"/>
+                    <field name="asset_description"/>
+                    <field name="major_category"/>
+                    <field name="minor_category"/>
+                    <field name="date_in_service"/>
+                    <field name="prorate_convention"/>
+                    <field name="prorate_date"/>
+                    <field name="life_in_months"/>
+                    <field name="life_year"/>
+                    <field name="remaining_life_year"/>
+                    <field name="remaining_life_months"/>
+                    <field name="fixed_asset_cost"/>
+                    <field name="accumulated_depreciation_cost"/>
+                    <field name="net_book_value"/>
+                    <field name="child_barcode"/>
+                    <field name="component_barcode"/>
+                    <field name="component_barcode_label"/>
+                    <field name="serial_number"/>
+                    <field name="tag_number"/>
+                    <field name="goods_brand"/>
+                    <field name="brand_model"/>
+                    <field name="specification"/>
+                    <field name="condition"/>
+                    <field name="remarks"/>
+
+                    <!--                    harusnya lanjut lagi tapi nanti ajh -->
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="mnc_x_asset_action" model="ir.actions.act_window">
+            <field name="name">X Asset</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">x.asset</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Empty Data
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="mnc_atis_reconcile_root"
+                  name="Reconcile Data"
+                  parent="mnc_sync_logger_root"
+                  sequence="4"/>
+
+        <menuitem id="mnc_x_asset_menu"
+                  name="X Asset"
+                  parent="mnc_atis_reconcile_root"
+                  action="mnc_x_asset_action"
+                  sequence="2"/>
+
+
+    </data>
+</odoo>

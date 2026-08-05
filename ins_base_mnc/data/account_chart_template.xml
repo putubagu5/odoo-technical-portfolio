@@ -1,0 +1,10 @@
+<odoo>
+    <record id="mnc_chart" model="account.chart.template">
+        <field name="name">MNC Local Account Chart Template</field>
+        <field name="bank_account_code_prefix">111</field>
+        <field name="cash_account_code_prefix">112</field>
+        <field name="transfer_account_code_prefix">1140999</field>
+        <field name="code_digits">7</field>
+        <field name="currency_id" ref="base.IDR"/>
+    </record>
+</odoo>

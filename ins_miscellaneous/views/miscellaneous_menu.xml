@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_miscellaneous" name="Miscellaneous Config" parent="account.menu_finance_configuration" sequence="29"/>
+        <menuitem id="menu_misc_receivable" name="Miscellaneous Receivable" parent="ins_miscellaneous.menu_miscellaneous" sequence="30"/>
+        <menuitem id="menu_misc_payable" name="Miscellaneous Payable" parent="ins_miscellaneous.menu_miscellaneous" sequence="31"/>
+    </data>
+</odoo>

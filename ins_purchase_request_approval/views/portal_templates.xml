@@ -1,0 +1,147 @@
+<odoo>
+    <template id="portal_purchase_request_approval_reply" name="Purchase Request Approval Reply">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="web.assets_backend" t-js="false"/>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.assets_backend" t-css="false"/>
+            </t>
+
+            <div class="container py-3">
+                <form class="oe_login_form" role="form" t-attf-action="/purchase_request/note" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input type="hidden" name="url" t-att-value="url"/>
+                    <input type="hidden" name="is_forward" t-att-value="is_forward"/>
+
+                    <div class="row">
+                        <div class="col-8 offset-2 text-center">
+                            <h2>Purchase Request Approval</h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8 offset-2">
+                            <div class="row">
+                                <div class="col-6">User</div>
+                                <div class="col-6">: <t t-esc="purchase.requested_by.name"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Number</div>
+                                <div class="col-6">: <t t-esc="purchase.name"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Date</div>
+                                <div class="col-6">: <t t-esc="purchase.date_start.strftime('%d/%m/%Y') if purchase.date_start else ''"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Total Amount</div>
+                                <div class="col-6">: <t t-esc="'{:,.0f}'.format(sum(x.original_price * x.product_qty for x in purchase.line_ids))"/></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <t t-if="forwarder">
+                        <div class="row">
+                            <div class="col-8 offset-2 text-center">
+                                Forwarded From: <t t-esc="forwarder"/>
+                            </div>
+                        </div>
+                    </t>
+
+                    <div class="row mt-3">
+                        <div class="col-8 offset-2">
+                            <table class="table table-sm table-bordered">
+                                <tr>
+                                    <td>Product</td>
+                                    <td>CoA</td>
+                                    <td>Analytic</td>
+                                    <td>Qty</td>
+                                    <td>Price</td>
+                                    <td>Subtotal</td>
+                                    <td>Status</td>
+                                </tr>
+                                <tr t-foreach="purchase.line_ids" t-as="line">
+                                    <t t-if="line.request_state != 'cancel'">
+                                        <td><t t-esc="line.name"/></td>
+                                        <!-- Protocol Breach -->
+                                        <td><t t-esc="line.account_id.code"/></td>
+                                        <td><t t-esc="line.analytic_account_id.code"/></td>
+                                        <td><t t-esc="line.product_qty"/></td>
+                                        <td><t t-esc="'{:,.0f}'.format(line.original_price)"/></td>
+                                        <td><t t-esc="'{:,.0f}'.format(line.original_price * line.product_qty)"/></td>
+                                        <td><t t-esc="line._get_state(line.request_state)"/></td>
+                                    </t>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-8 offset-2">
+                            <p><t t-esc="purchase.description"/></p>
+                        </div>
+                    </div>
+
+                    <t t-if="is_forward">
+                        <div class="row">
+                            <div class="col-8 offset-2">
+                                Forward to: <input type="email" name="mail_forward" id="mail_forward" list="forward_list" required="required" t-att-value="mail_forward"/>
+                                <datalist id="forward_list">
+                                    <t t-foreach="forward_users" t-as="fwd">
+                                        <option t-att-value="fwd.work_email"><t t-esc="fwd.name"/></option>
+                                    </t>
+                                </datalist>
+                                <!-- Forward: -->
+                                <!-- <select id="mail_forward" name="mail_forward" class="form-control" required="required"> -->
+                                <!--     <t t-foreach="forward_users" t-as="fwd"> -->
+                                <!--         <option t-att-value="fwd.work_email"><t t-esc="fwd.name"/> (<t t-esc="fwd.work_email"/>)</option> -->
+                                <!--     </t> -->
+                                <!-- </select> -->
+                            </div>
+                        </div>
+                    </t>
+
+                    <t t-if="type == 'ask'">
+                        <div class="row mt-4">
+                            <div class="col-8 offset-2 text-center">
+                                <!-- Ask: <input type="text" name="approver_id" id="approver_id" list="ask_list" required="required" t-att-value="approver_id"/> -->
+                                <!-- <datalist id="ask_list"> -->
+                                <!--     <t t-foreach="approvers" t-as="ask_val"> -->
+                                <!--         <option t-att-value="ask_val.id"><t t-esc="ask_val.name"/></option> -->
+                                <!--     </t> -->
+                                <!-- </datalist> -->
+                                Ask:
+                                <select id="approver_id" name="approver_id" class="form-control">
+                                    <t t-foreach="approvers" t-as="apv">
+                                        <option t-att-value="apv.id"><t t-esc="apv.name"/></option>
+                                    </t>
+                                </select>
+                            </div>
+                        </div>
+                    </t>
+
+                    <div class="row mt-3 mb-5">
+                        <div class="col-8 offset-2">
+                            <details>
+                                <summary>Approval Details</summary>
+                                <ul>
+                                    <t t-foreach="purchase.approval_message_ids" t-as="msg">
+                                        <li><t t-esc="msg.employee_id.name"/> <t t-esc="msg.state"/> : <t t-esc="msg.note"/> at <t t-esc="msg.date.strftime('%d-%m-%Y %H:%M:%S')"/></li>
+                                    </t>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8 offset-2">
+                            <textarea placeholder="Note" name="note" t-att-value="note" id="note" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autofocus="autofocus" autocapitalize="off">OK</textarea>
+                            <button type="submit" class="btn btn-primary btn-block">Post</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

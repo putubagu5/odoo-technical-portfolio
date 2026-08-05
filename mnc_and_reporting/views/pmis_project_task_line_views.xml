@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pmis_project_task_line_tree_view_and_report" model="ir.ui.view">
+            <field name="name">pmis.project.task.line.tree.view.and.report</field>
+            <field name="model">pmis.project.task.line</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="no"/>
+                    <field name="episode_line_id" required="1"/>
+                    <field name="episode_code"/>
+                    <field name="episode_no"/>
+                    <field name="episode_name"/>
+                    <field name="venue"/>
+                    <field name="remarks"/>
+                    <field name="budget_type" readonly="1" force_save="1"/>
+                    <field name="status" readonly="1" force_save="1"/>
+                    <field name="company_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cashflow_activity_category_form_view" model="ir.ui.view">
+            <field name="name">cashflow.activity.category.form</field>
+            <field name="model">cashflow.activity.category</field>
+            <field name="arch" type="xml">
+                <form string="Episode">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cashflow_activity_category_tree_view" model="ir.ui.view">
+            <field name="name">cashflow.activity.category.tree</field>
+            <field name="model">cashflow.activity.category</field>
+            <field name="arch" type="xml">
+                <tree string="Cash Flow Activity">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cf_category_act_window" model="ir.actions.act_window">
+            <field name="name">Cash Flow Activity</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cashflow.activity.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Cash Flow Category.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Cash Flow Category"
+                  id="cf_category_menu"
+                  parent="account.menu_finance_configuration"
+                  action="cf_category_act_window"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,176 @@
+<odoo>
+    <template id="ins_base_mnc_report_invoice_manual_non_airtime_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_report_invoice_manual_non_airtime_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc_report_invoice_manual_non_airtime_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <!-- logo -->
+                <div class="header">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="33%" align="center" style="border: 1px solid black">
+                                        <img src='/web/binary/company_logo' alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+                                    </td>
+                                    <td width="34%" align="center" style="border: 1px solid black; vertical-align: middle;">
+                                        <strong>INVOICE</strong>
+                                    </td>
+                                    <td width="33%" align="center" style="border: 1px solid black">
+                                        &#160;
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- header, no and recipient -->
+                <div class="row">
+                    <div class="col-6">
+                        Bill To : <span t-field="o.partner_id.name"/><br/>
+                        Address : <span t-field="o.partner_id"
+                                        t-options='{"widget": "contact", "fields": ["name", "address"], "no_marker": true}'/><br/>
+                        Advertiser : DKI JAKARTA
+                        Product : PROCTER &amp; GAMBLER
+                        TX/Channel : <br/>
+                        Description : NATIONAL
+                    </div>
+                    <div class="col-6">
+                        Invoice No : <span t-field="o.name"/><br/>
+                        Date : <t t-esc="o.invoice_date.strftime('%d-%b-%y') if o.invoice_date else ''"/><br/>
+                        Contract No : <br/>
+                        Job No : <br/>
+                        Sales Office : <br/>
+                        Sales Person : 
+                    </div>
+                </div>
+
+                <!-- table -->
+                <div class="row">
+                    <div class="col-12">
+                        <t t-set="total" t-value="0"/>
+                        <table class="table table-sm table-bordered">
+                            <tr>
+                                <td class="text-center">Description</td>
+                                <td class="text-center">Amount</td>
+                            </tr>
+                            <tr t-foreach="o.invoice_line_ids" t-as="line">
+                                <td><t t-esc="line.name"/></td>
+                                <td class="text-center"><t t-esc="'{:,.0f}'.format(line.price_subtotal)"/></td>
+                                <t t-set="total" t-value="total + line.price_subtotal"/>
+                            </tr>
+                            <tr>
+                                <td class="text-right">TOTAL GROSS</td>
+                                <td class="text-center"><t t-esc="'{:,.0f}'.format(o.amount_untaxed)"/></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">AGENCY DISC</td>
+                                <!-- <td class="text-center"><t t-esc="'{:,.0f}'.format(o.ks_amount_discount)"/></td> -->
+                                <td class="text-center">&#160;</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right"> </td>
+                                <td class="text-center">---------------------</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">NETT AMOUNT</td>
+                                <!-- <td class="text-center"><t t-esc="'{:,.0f}'.format(o.ks_amount_subtotal)"/></td> -->
+                                <td class="text-center">&#160;</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">VAT</td>
+                                <td class="text-center"><t t-esc="'{:,.0f}'.format(o.amount_tax)"/></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Due Date : <t t-esc="o.invoice_date_due.strftime('%d-%b-%y') if o.invoice_date_due else ''"/></td>
+                                <td class="text-center">---------------------</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">TOTAL DUE</td>
+                                <td class="text-center"><t t-esc="'{:,.0f}'.format(o.amount_total)"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Says : <t t-esc="o.amount_in_words_2"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ending text -->
+                <div class="row">
+                    <div class="col-12">
+                        Payment to : PT. Rajawali Citra Televisi Indonesia
+                    </div>
+                </div>
+
+                <!-- signature -->
+                <div class="row">
+                    <!-- TODO FIXME -->
+                    <div class="col-12">
+                    <p>
+                        <strong>Please Remit to: PT. Rajawali Citra Televisi Indonesia</strong><br/>
+                        BANK MNC INTERNASIONAL KCP MERUYA JAKARTA, A/C IDR 100-01-000009220-3<br/>
+                        BANK MUAMALAT INDONESIA, CAB, SATRIO JAKARTA, A/C IDR 301-0195-746<br/>
+                        BANK BJB, CAB. RAWAMANGUN JAKARTA, A/C IDR 0024773205002<br/>
+                        BANK MANDIRI, KCP KEBON JERUK JAKARTA, A/C IDR 0024773205002<br/>
+                        BANK MANDIRI, KCP KEBON JERUK JAKARTA, A/C IDR 165-0003037000
+                    </p>
+                    </div>
+                </div>
+
+
+                <!-- signature -->
+                <div class="row">
+                    <!-- TODO FIXME -->
+                    <div class="col-5">
+                        <div class="row text-center">
+                            <br/>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-4 text-center">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <t t-if="o.move_type == 'out_invoice'">
+                                    <u><span t-field="o.assignee_id_invoice.name"/></u><br/>
+                                    <span t-field="o.assignee_id_invoice.job_position"/>
+                                </t>
+                                <t t-if="o.move_type == 'in_invoice'">
+                                    <u><span t-field="o.assignee_id_bill.name"/></u><br/>
+                                    <span t-field="o.assignee_id_bill.job_position"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- signature -->
+                <div class="row">
+                    <!-- TODO FIXME -->
+                    <div class="col-6">
+                        <p>RAJAWALI CITRA TELEVISI Indonesia<br/><br/>
+                        HEAD OFFICE<br/>
+                        Jl. Raya Pejuangan Kebonjeruk, Jakarta 11530<br/>
+                        Tel 021.5303540, 5303550<br/>
+                        Fax. 021.5493846, 5493838</p>
+                    </div>
+                    <div class="col-6">
+                        <p>White : Customer<br/>
+                        Red : Accounting Dept<br/>
+                        Blue : Billing Section<br/>
+                        Green : Tax Dept<br/>
+                        Yellow : Collection Section</p>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+
+        <record id="wizard_asset_clearing_view_form" model="ir.ui.view">
+            <field name="name">wizard.asset.clearing.view.form</field>
+            <field name="model">wizard.asset.clearing</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="account_id" readonly="1"/>
+                            <!--                            <field name="receipt_num"/>-->
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Generate XLSX Report" name="generate" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="wizard_asset_clearing_action" model="ir.actions.act_window">
+            <field name="name">Outstanding Asset Clearing Report XLSX</field>
+            <field name="res_model">wizard.asset.clearing</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+                id="wizard_asset_clearing_menu"
+                name="Outstanding Asset Clearing"
+                action="wizard_asset_clearing_action"
+                parent="mnc_menu_report.report_fa"/>
+
+    </data>
+</odoo>

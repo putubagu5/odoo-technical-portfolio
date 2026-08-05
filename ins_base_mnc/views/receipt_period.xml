@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="receipt_period_form_view" model="ir.ui.view">
+            <field name="name">receipt.period.form.view</field>
+            <field name="model">receipt.period</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="generate_periods" type="object" string="Generate Periods" class="oe_highlight"
+                                attrs="{'invisible': ['|', ('period_line_ids', '=', True), ('state', '=', 'close')]}"
+                                groups="account.group_account_manager"/>
+                        <button name="close_all_lines" type="object" string="Close All" class="oe_highlight" states="open"
+                                groups="account.group_account_manager"/>
+                        <button name="reopen_all_lines" type="object" string="Re-open All" class="oe_highlight" states="close"
+                                groups="account.group_account_manager"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                                <field name="company_id" required="1" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                            </group>
+                            <group>
+                                <field name="date_start" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                                <field name="date_end" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                            </group>
+                        </group>
+                        <field name="period_line_ids" nolabel="1" attrs="{'readonly': [('state', '=', 'close')]}">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                                <field name="state" readonly="1"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="receipt_period_tree_view" model="ir.ui.view">
+            <field name="name">receipt.period.tree.view</field>
+            <field name="model">receipt.period</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="receipt_period_action" model="ir.actions.act_window">
+            <field name="name">Receipt Periods</field>
+            <field name="res_model">receipt.period</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- <menuitem
+            id="receipt_period_root_menu"
+            name="Receipt Periods"
+            parent="account.menu_finance_receivables"
+            sequence="99"
+            groups="account.group_account_manager"
+        /> -->
+
+        <menuitem id="rr_period" name="Receipt Periods" parent="fiscal_year_sync_app.next_id_23" sequence="4" groups="account.group_account_manager"/>
+        
+        <menuitem
+            id="receipt_period_menu"
+            name="Receipt Periods"
+            sequence="0"
+            action="receipt_period_action"
+            parent="ins_base_mnc.rr_period"
+            groups="account.group_account_manager"
+        />
+
+    </data>
+</odoo>

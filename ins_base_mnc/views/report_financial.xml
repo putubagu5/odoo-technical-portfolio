@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <template id="line_template_general_ledger_report_mnc" inherit_id="account_reports.line_template_general_ledger_report" primary="True">
+            <!-- add new td tag before t-foreach t-as="l" -->
+            <xpath expr="//t[@t-as='l']" position="before">
+                <t t-if="line.get('account_name')">
+                    <td class="o_account_report_line o_account_report_line_indent"><t t-esc="line.get('account_name')"/></td>
+                </t>
+            </xpath>
+        </template>
+
+        <!-- inherit the AR report, replace the template calling -->
+        <template id="line_template_aged_receivable_report_mnc" inherit_id="account_reports.line_template_aged_receivable_report">
+            <xpath expr="//span[hasclass('o_account_report_column_value')]//t" position="replace">
+                <t t-call="{{cell.get('template', 'ins_base_mnc.cell_template_mnc')}}"/>
+            </xpath>
+        </template>
+
+        <!-- inherit the AP report, replace the template calling -->
+        <template id="line_template_aged_payable_report_mnc" inherit_id="account_reports.line_template_aged_payable_report">
+            <xpath expr="//span[hasclass('o_account_report_column_value')]//t" position="replace">
+                <t t-call="{{cell.get('template', 'ins_base_mnc.cell_template_mnc')}}"/>
+            </xpath>
+        </template>
+
+        <!-- new cell template, only show name if line is not unfoldable -->
+        <template id="cell_template_mnc">
+            <t t-esc="'' if line and line.get('unfoldable', False) else cell.get('name')"/>
+        </template>
+    </data>
+</odoo>

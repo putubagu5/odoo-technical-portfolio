@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="view_picking_form" model="ir.ui.view">
+            <field name="name">view.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <!-- add ou_id after product_id -->
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="ou_id"/>
+                    <field name="wilayah_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

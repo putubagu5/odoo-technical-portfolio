@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <menuitem
+            id="menu_res_bank"
+            name="Banks"
+            action="base.action_res_bank_form"
+            parent="account.account_banks_menu"
+            sequence="2"/>
+
+        <menuitem
+            id="menu_res_partner_bank"
+            name="Bank Accounts"
+            action="base.action_res_partner_bank_account_form"
+            parent="account.account_banks_menu"
+            sequence="2"/>
+    </data>
+</odoo>

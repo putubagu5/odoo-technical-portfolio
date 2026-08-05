@@ -1,0 +1,565 @@
+<odoo>
+    <data>
+        <record id="paperformat_A4_payment_rcti" model="report.paperformat">
+            <field name="name">Payment Invoice A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">4</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <!-- INVOICE/BILL REPORT FORMATS -->
+        <record id="report_A4_per_2_portrait_paperformat" model="report.paperformat">
+            <field name="name">report.a4.per.2.portrait.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">210</field>
+            <field name="page_width">148</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">120</field>
+        </record>
+
+        <record id="report_A4_per_2_landscape_paperformat" model="report.paperformat">
+            <field name="name">report.a4.per.2.landscape.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">148</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">150</field>
+        </record>
+
+        <record id="report_A4_portrait_paperformat" model="report.paperformat">
+            <field name="name">report.a4.portrait.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="margin_top">25</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="report_A4_portrait_paperformat_credit_note" model="report.paperformat">
+            <field name="name">report.a4.portrait.paperformat.credit.note</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">60</field>
+            <field name="margin_top">70</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="report_A4_payment_agreement_portrait_paperformat" model="report.paperformat">
+            <field name="name">report.a4.payment.agreement.portrait.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="margin_top">15</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="report_A4_portrait_po_paperformat" model="report.paperformat">
+            <field name="name">report.a4.portrait.po.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">95</field>
+            <field name="margin_top">100</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="margin_bottom">30</field>
+            <field name="dpi">100</field>
+        </record>
+        
+        <record id="report_A4_portrait_po_requisition_paperformat" model="report.paperformat">
+            <field name="name">report.a4.portrait.po.requisition.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">50</field>
+            <field name="margin_top">60</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="margin_bottom">30</field>
+            <field name="dpi">100</field>
+        </record>
+
+        <record id="report_A4_portrait_po_mnc_land_paperformat" model="report.paperformat">
+            <field name="name">report.a4.portrait.po.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">86</field>
+            <field name="margin_top">15</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="margin_bottom">25</field>
+            <field name="dpi">100</field>
+        </record>
+
+        <record id="report_A4_portrait_paperformat_rfp" model="report.paperformat">
+            <field name="name">report.a4.portrait.rfp.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">50</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="report_A4_landscape_paperformat" model="report.paperformat">
+            <field name="name">report.a4.landscape.paperformat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">120</field>
+        </record>
+
+        <record id="report_A4_landscape_paperformat_rr" model="report.paperformat">
+            <field name="name">report.a4.landscape.paperformat.rr</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">120</field>
+        </record>
+
+         <record id="paperformat_payment_slip" model="report.paperformat">
+            <field name="name">Payment Slip</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">194</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- INVOICE -->
+        <!-- <report
+            id="ins_base_mnc_report_invoice_ap_portrait"
+            model="account.move"
+            string="Invoice AP"
+            report_type="qweb-pdf"
+            name="ins_base_mnc.ins_base_mnc_report_invoice_ap_document_inherit_A4_portrait"
+            file="ins_base_mnc.ins_base_mnc_report_invoice_ap_document_inherit_A4_portrait"/>
+
+        <record id="ins_base_mnc.ins_base_mnc_report_invoice_ap_portrait" model="ir.actions.report">
+            <field name="paperformat_id" ref="report_A4_portrait_paperformat"/>
+        </record> -->
+
+         <record id="paperformat_payment_check_mncp" model="report.paperformat">
+            <field name="name">Payment Check A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">178</field>
+            <field name="page_width">70</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <!-- INVOICE AR MANUAL -->
+        <record id="ins_base_mnc.report_invoice_ar_manual_portrait" model="ir.actions.report">
+            <field name="name">Invoice AR Manual</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_invoice_ar_manual_container</field>
+            <field name="report_file">ins_base_mnc.report_invoice_ar_manual_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="report_A4_portrait_paperformat"/>
+        </record>
+
+        <!-- INVOICE AR DEBIT MEMO -->
+        <record id="ins_base_mnc_report_invoice_ar_memo_portrait" model="ir.actions.report">
+            <field name="name">Debit Memo (-MNCH-)</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_invoice_ar_memo_container</field>
+            <field name="report_file">ins_base_mnc.report_invoice_ar_memo_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Form Inventory -->
+        <record id="ins_base_mnc_report_form_inventory_portrait" model="ir.actions.report">
+            <field name="name">Form Inventory</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_form_inventory_container</field>
+            <field name="report_file">ins_base_mnc.report_form_inventory_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Invoice MNC -->
+        <record id="ins_base_mnc_report_invoice_mnc_portrait" model="ir.actions.report">
+            <field name="name">MNCH Invoice</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_invoice_mnc_container</field>
+            <field name="report_file">ins_base_mnc.report_invoice_mnc_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- AR RECEIPT -->
+        <record id="ins_base_mnc_report_ar_receipt_portrait" model="ir.actions.report">
+            <field name="name">AR Receipt</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_ar_receipt_container</field>
+            <field name="report_file">ins_base_mnc.report_ar_receipt_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat_rfp"/>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- AR RECEIPT MISC -->
+        <record id="ins_base_mnc_report_ar_receipt_misc_portrait" model="ir.actions.report">
+            <field name="name">AR Receipt Miscellaneous</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_ar_receipt_misc_container</field>
+            <field name="report_file">ins_base_mnc.report_ar_receipt_misc_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat_rfp"/>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE REQUEST -->
+        <record id="ins_base_mnc_report_purchase_request_portrait" model="ir.actions.report">
+            <field name="name">Purchase Request</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_purchase_request_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_purchase_request_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE REQUEST SERVICE -->
+        <record id="ins_base_mnc_report_purchase_request_service_portrait" model="ir.actions.report">
+            <field name="name">Purchase Request Service</field>
+            <field name="model">purchase.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_purchase_request_service_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_purchase_request_service_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase_request.model_purchase_request"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE ORDER -->
+        <record id="ins_base_mnc_report_purchase_order_portrait" model="ir.actions.report">
+            <field name="name">Purchase Order (MNCH)</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_purchase_order_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_purchase_order_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_po_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE ORDER VENDOR SITE -->
+        <record id="ins_base_mnc_report_purchase_order_vendor_site_portrait" model="ir.actions.report">
+            <field name="name">Purchase Order Vendor Site</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_purchase_order_vendor_site_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_purchase_order_vendor_site_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_po_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- PURCHASE ORDER SERVICE -->
+        <record id="ins_base_mnc_report_purchase_order_service_portrait" model="ir.actions.report">
+            <field name="name">Purchase Order Service (MNC)</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_purchase_order_service_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_purchase_order_service_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_po_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+        
+        <!-- PURCHASE REQUISITION -->
+        <record id="ins_base_mnc_report_purchase_requisition_portrait" model="ir.actions.report">
+            <field name="name">Purchase Requisition (MNC)</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_purchase_requisition_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_purchase_requisition_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_po_requisition_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+        
+        <!-- GENERAL TERMS -->
+        <!-- <record id="ins_base_mnc_general_terms_report_purchase_requisition_portrait" model="ir.actions.report">
+            <field name="name">General Terms (MNC)</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_general_terms_purchase_order_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_general_terms_purchase_order_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_payment_agreement_portrait_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+        <!-- REPORT RR -->
+        <record id="ins_base_mnc_report_rr_portrait" model="ir.actions.report">
+            <field name="name">Receipt Report</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_rr_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_rr_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_landscape_paperformat_rr"/>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- REPORT RR SERVICE -->
+        <record id="ins_base_mnc_report_rr_service_portrait" model="ir.actions.report">
+            <field name="name">Receipt Report Service</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_rr_service_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_rr_service_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+        
+        <!-- BUKTI TERIMA BARANG -->
+        <record id="ins_base_mnc_bukti_terima_barang_portrait" model="ir.actions.report">
+            <field name="name">Bukti Terima Barang</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_bukti_terima_barang_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_bukti_terima_barang_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+        
+        <!-- BUKTI TERIMA BARANG -->
+        <record id="ins_base_mnc_inventory_issue_slip_portrait" model="ir.actions.report">
+            <field name="name">Inventory Issue Slip</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_inventory_issue_slip_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_inventory_issue_slip_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- CREDIT NOTE -->
+        <record id="ins_base_mnc_report_credit_note_portrait" model="ir.actions.report">
+            <field name="name">Credit Note</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_credit_note_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_credit_note_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat_credit_note"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- REQUEST FOR PAYMENT -->
+        <record id="ins_base_mnc_report_request_for_payment_portrait" model="ir.actions.report">
+            <field name="name">Request For Payment</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_request_for_payment_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_request_for_payment_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat_rfp"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- JOURNAL VOUCHER -->
+        <record id="ins_base_mnc_report_journal_voucher_portrait" model="ir.actions.report">
+            <field name="name">Journal Voucher</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_journal_voucher_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_journal_voucher_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat_rfp"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- AUTO INVOICE CETAK -->
+        <record id="ins_base_mnc_report_auto_invoice_cetak_portrait" model="ir.actions.report">
+            <field name="name">Auto Invoice Cetak</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_auto_invoice_cetak_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_auto_invoice_cetak_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- INVOICE LOGPROVE DIGITAL -->
+        <record id="ins_base_mnc_report_invoice_logprove_digital_portrait" model="ir.actions.report">
+            <field name="name">Invoice logprove Digital</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_invoice_logprove_digital_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_invoice_logprove_digital_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- INVOICE MANUAL AIRTIME -->
+        <record id="ins_base_mnc_report_invoice_manual_airtime_portrait" model="ir.actions.report">
+            <field name="name">Invoice Manual Airtime</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_invoice_manual_airtime_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_invoice_manual_airtime_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- INVOICE MANUAL NON AIRTIME -->
+        <record id="ins_base_mnc_report_invoice_manual_non_airtime_portrait" model="ir.actions.report">
+            <field name="name">Invoice Manual non Airtime</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_invoice_manual_non_airtime_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_invoice_manual_non_airtime_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- INVOICE AP VOUCHER MNC LAND-->
+        <!-- <record id="ins_base_mnc.report_invoice_ap_voucher_mnc_land_portrait" model="ir.actions.report">
+            <field name="name">AP Voucher MNC LAND</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_invoice_ap_voucher_mnc_land_container</field>
+            <field name="report_file">ins_base_mnc.report_invoice_ap_voucher_mnc_land_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+        <!-- PAYMENT RCTI -->
+        <!-- <record id="ins_base_mnc_report_payment_rcti_portrait" model="ir.actions.report">
+            <field name="name">Payment (RCTI)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_report_payment_rcti_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_report_payment_rcti_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_po_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+        <!-- INVOICE MNC LAND
+        <record id="ins_base_mnc.report_invoice_mnc_portrait" model="ir.actions.report">
+            <field name="name">Invoice MNC LAND</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_invoice_mnc_land_container</field>
+            <field name="report_file">ins_base_mnc.report_invoice_mnc_land_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+        <!-- PAYMENT VOUCHER MNC LAND
+        <record id="ins_base_mnc.report_payment_voucher_mnc_land" model="ir.actions.report">
+            <field name="name">Payment Voucher MNC LAND</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_payment_voucher_mnc_land_container</field>
+            <field name="report_file">ins_base_mnc.report_payment_voucher_mnc_land_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_paperformat"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+         <!-- PURCHASE ORDER MNC LAND
+        <record id="ins_base_mncp_report_purchase_order_portrait" model="ir.actions.report">
+            <field name="name">Purchase Order (MNC LAND)</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.ins_base_mnc_land_report_purchase_order_container</field>
+            <field name="report_file">ins_base_mnc.ins_base_mnc_land_report_purchase_order_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_portrait_po_mnc_land_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+          <!-- Payment Purchase Order -->
+        <record id="ins_base_mnc_report_payment_agreement_purchase_order_portrait" model="ir.actions.report">
+            <field name="name">Payment Agreement PO</field>
+            <field name="model">payment.purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_base_mnc.report_payment_agreement_purchase_order_container</field>
+            <field name="report_file">ins_base_mnc.report_payment_agreement_purchase_order_container</field>
+            <field name="paperformat_id" ref="ins_base_mnc.report_A4_payment_agreement_portrait_paperformat"/>
+            <field name="binding_model_id" ref="ins_base_mnc.model_payment_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

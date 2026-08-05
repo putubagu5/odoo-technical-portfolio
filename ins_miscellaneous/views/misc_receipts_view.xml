@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="misc_receipts_form_view" model="ir.ui.view">
+            <field name="name">miscellaneous.receipt.form</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="arch" type="xml">
+                <form string="Receipt">
+                    <header>
+                        <button name="action_post" string="Confirm" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+<!--                        <button name="action_draft" string="Reset To Draft" type="object"-->
+<!--                                class="btn btn-secondary"-->
+<!--                                attrs="{'invisible': [('state', 'not in', ('posted', 'cancel'))]}"-->
+<!--                                groups="account.group_account_invoice"/>-->
+                        <button name="action_cancel" string="Cancel" type="object"
+                                attrs="{'invisible': [('state', 'not in', ('draft','posted'))]}"/>
+                        <button name="action_applied_invoice" string="Applied Invoice" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|','|', ('state', 'not in', ('posted')),
+                                ('remaining_amount', '&lt;', 1),('receipt_type_category','=', 'misc'),
+                                ('applied_customer_move_id', '=', False)]}"/>
+                        <button name="action_applied_invoice_bulky" string="Applied Invoice bulky" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|','|', ('state', 'not in', ('posted')),
+                                ('remaining_amount', '&lt;', 1),('receipt_type_category','=', 'misc'),
+                                ('applied_customer_move_id', '=', False)]}"/>
+                         <button name="action_applied_to_partner" string="Applied Customer" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|',('state', 'not in', ('posted')),
+                                ('applied_customer_move_id', '&gt;', 0),('receipt_type_category','=','misc')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,posted,cancel"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_misc_receipt_matching_widget" type="object"
+                                    string="Misc Receipt Matching" class="oe_stat_button" icon="fa-dollar"
+                                    attrs="{'invisible': [('receipt_type_category','=', 'misc')]}"
+                                    groups="account.group_account_user"/>
+                        </div>
+                        <group>
+                            <group name="group1">
+                                <field name="name" readonly="1"/>
+                                <field name="misc_name"/>
+                                <field name="misc_type" invisible="1" readonly="0"/>
+                                <field name="bukti_potong" invisible="0" readonly="0"/>
+                                <field name="receipt_type_id" required="1"
+                                       domain="[('type', '=', ('receive'))]"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"
+                                       options="{'no_create': True}"/>
+                                <field name="journal_group" required="1"/>
+                                <field name="receipt_type_category" invisible="1"/>
+                                <field name="receivable_activities_id" required="0"
+                                       domain="[('type', '=', ('receive'))]"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))],
+                                       'invisible': [('receipt_type_category', 'not in', ('misc'))]}"
+                                       options="{'no_create': True}"/>
+                                <field name="partner_id" invisible="1"
+                                       context="{'default_is_company': True, 'default_customer_rank': True}"
+                                       widget="res_partner_many2one"/>
+                                <field name="misc_type" invisible="1" readonly="0"/>
+                                <field name="analytic_account_id" attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"
+                                       options="{'no_create': True}"/>
+                                <field name="destination_account_id" readonly="1" force_save="1"
+                                       options="{'no_create': True}"
+                                       attrs="{'invisible': [('journal_group','=','merge')],
+                                       'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="applied_partner_account" readonly="1" force_save="1"
+                                       options="{'no_create': True}"
+                                       attrs="{'invisible': [('journal_group','=','split')],
+                                       'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+<!--                                <field name="transaction_date"-->
+<!--                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>-->
+                                <field name="currency_id"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="amount"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="remaining_amount"/>
+                                <field name="reserve_amount"/>
+                                <field name="applied_amount"/>
+                                <field name="description" required="1" attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="operating_unit_id"
+                                       options="{'no_create': True}"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="company_id"/>
+
+                            </group>
+                            <group name="group2">
+                                <h2> <span>Bank Account </span></h2>
+                                <field name="journal_id"
+                                       domain="[('type', 'in', ('bank', 'cash'))]"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="date" string="Accounting Date"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="partner_bank_id"
+                                       readonly="1" force_save="1"/>
+                                <field name="move_id" required="0"
+                                       attrs="{'invisible': [('id', '=', False)]}"
+                                       groups="account.group_account_readonly"/>
+                                <br/><br/><h2><span attrs="{'invisible': [('receipt_type_category','=','misc')]}">Partner Applied Journal </span></h2>
+                                <field name="misc_partner_id"
+                                       context="{'default_is_company': True, 'default_customer_rank': True}"
+                                       attrs="{'readonly': [('applied_customer_move_id', '&gt;', 0),
+                                       ('state', 'in', ('posted', 'cancel'))],
+                                       'invisible': [('receipt_type_category','=','misc')]}"
+                                       widget="res_partner_many2one"/>
+                                <field name="applied_customer_journal_id"
+                                       domain="[('type', '=', 'general')]"
+                                       attrs="{'invisible': ['|',('misc_partner_id', '=', False),
+                                       ('receipt_type_category','=','misc')],
+                                       'readonly': [('applied_customer_move_id', '&gt;', 0)]}"/>
+                                <field name="applied_partner_date"
+                                       attrs="{'invisible': ['|',('misc_partner_id', '=', False),
+                                       ('receipt_type_category','=','misc')],
+                                       'readonly': [('state', 'in', ('posted', 'cancel')),
+                                       ('applied_customer_move_id', '&gt;', 0)]}"/>
+                                <field name="applied_customer_move_id" readonly="1" force_save="1"
+                                       attrs="{'invisible': ['|',('misc_partner_id', '=', False),
+                                       ('applied_customer_move_id','=', False)]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page id="applied_receipt_tab" string="Applied Misc">
+                                <field name="invoice_ids" string="Applied to Invoice"
+                                       widget="one2many_list"
+                                       options="{'create': True, 'create_edit': True}"
+                                       domain="[('transaction_type', '=', 'apply')]">
+                                    <tree editable="bottom" string="Applied Invoice" delete="false">
+<!--                                        <field name="misc_id" required="1" readonly="1" force_save="1"-->
+<!--                                               domain="[('misc_type', '=', ('receive'))]"-->
+<!--                                               attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>-->
+                                        <field name="misc_type" invisible="1"/>
+                                        <field name="misc_currency_id" optional="hide"/>
+                                        <field name="misc_remaining_amount"
+                                               readonly="1" optional="hide"/>
+                                        <field name="transaction_type" readonly="1"
+                                               context="{'search_default_transaction_type':'apply'}"/>
+                                        <field name="transaction_date"
+                                               attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                        <field name="journal_id"
+                                               domain="[('type', '=', 'general')]"
+                                               attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                        <field name="invoice_id" string="Customer Invoice"
+                                              domain="[('move_type', '=', 'out_invoice'),('state', '=', 'posted'),
+                                               ('payment_state', 'in', ('not_paid','partial')), ('amount_residual_signed', '>', 0),
+                                               ('partner_id', '=', misc_partner_id)]"/>
+                                        <field name="applied_amount" required="1" sum ="applied_amount"
+                                               attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                        <field name="date" string="Accounting Date"
+                                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                        <field name="payment_difference" attrs="{'invisible': [('payment_difference', '=', 0.0)]}"/>
+                                        <field name="payment_difference_handling" widget="selection"/>
+                                        <field name="writeoff_account_id" string="Post Difference In"
+                                                attrs="{'invisible': [('payment_difference_handling','=','open')],
+                                                'required': [('payment_difference_handling', '=', 'reconcile')]}"/>
+                                        <field name="misc_partner_id" invisible="1"/>
+                                        <field name="partner_id" optional="hide"/>
+                                        <field name="invoice_currency_id" optional="hide"/>
+                                        <field name="invoice_amount_residual" readonly="1" force_save="1"/>
+                                        <field name="amount_remaining" readonly="1" force_save="1"/>
+                                        <field name="company_id" optional="hide"/>
+                                        <field name="operating_unit_id" optional="hide"/>
+                                        <field name="applied_amount_currency"
+                                               readonly="1" optional="hide"/>
+                                        <field name="move_id" required="0"
+                                               attrs="{'invisible': [('id', '=', False)]}"
+                                               groups="account.group_account_readonly"/>
+                                        <field name="state" invisible="1"/>
+                                        <button icon="fa-link"
+                                                name="action_applied_invoice"
+                                                attrs="{'invisible': ['&amp;',('transaction_type', '=', 'apply'),('state', '=', 'posted'),'|',('misc_type','=', 'payment')]}"
+                                                type="object" class="oe_highlight"/>
+                                        <button icon="fa-chain-broken"
+                                                name="action_unapplied_invoice"
+                                                attrs="{'invisible': ['&amp;', ('misc_type', '=', 'payment'),
+                                                ('id', '=', False), '|', '|','|', ('move_id', '=', False), ('state', '=', 'cancel'),('transaction_type', '=', 'unapply')]}"
+                                                type="object" class="oe_highlight"/>
+                                          <button name="unlink" type="object" class="fa fa-trash-o" attrs="{'invisible': [('state', '=', 'posted')]}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="misc_receipts_tree_view" model="ir.ui.view">
+            <field name="name">miscellaneous.receipt.tree</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <tree string="Receipt">
+                    <field name="name"/>
+                    <field name="receipt_type_id"/>
+                    <field name="misc_type" />
+                    <field name="receipt_number" />
+                    <field name="partner_id"/>
+                    <field name="journal_id"/>
+                    <field name="destination_account_id"/>
+                    <field name="partner_bank_id"/>
+                    <field name="amount" sum="Amount"/>
+                    <field name="currency_id"/>
+                    <field name="operating_unit_id"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="misc_receipts_act_window" model="ir.actions.act_window">
+            <field name="name">Receipt</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">miscellaneous.miscellaneous</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('misc_type', '=', 'receive')]</field>
+            <field name="context">{'default_misc_type': 'receive'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Receipt.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_misc_receipts_tree" model="ir.actions.act_window.view">
+            <field eval="7" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="misc_receipts_tree_view" />
+            <field name="act_window_id" ref="misc_receipts_act_window" />
+        </record>
+
+        <record id="action_misc_receipts_form" model="ir.actions.act_window.view">
+            <field eval="8" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="misc_receipts_form_view" />
+            <field name="act_window_id" ref="misc_receipts_act_window" />
+        </record>
+
+        <menuitem name="Receipt"
+                  id="misc_receipts_menu"
+                  parent="account.menu_finance_receivables"
+                  action="misc_receipts_act_window"
+                  sequence="13"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,121 @@
+<odoo>
+    <data>
+        <record id="view_pmis_budget_info_form" model="ir.ui.view">
+            <field name="name">view.pmis.budget.info.form</field>
+            <field name="model">pmis.budget.info</field>
+            <field name="arch" type="xml">
+                <form create="false">
+                    <sheet>
+                        <group>
+                            <group name="info">
+                                <field name="program_id" invisible="1"/>
+                                <field name="main_project_id" invisible="1"/>
+                                <field name="program_ids" widget="many2many_tags"/>
+                                <field name="main_project_ids" invisible="1" widget="many2many_tags"/>
+                            </group>
+                            <group name="filter">
+                                <field name="budget_task_ids" domain="[('program_id', 'in', program_ids), ('state', '=', 'approve')]" widget="many2many_tags"/>
+                                <field name="budget_subtask_ids" widget="many2many_tags"/>
+                                <field name="valid_expenditure_type_ids" invisible="1" widget="many2many_tags"/>
+                                <field name="expenditure_type_ids" widget="many2many_tags"
+                                    domain="[('id', 'in', valid_expenditure_type_ids)]"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Program" name="program">
+                                <field name="line_ids" nolabel="1">
+                                    <tree editable="bottom" decoration-danger="amount_remaining &lt; 0">
+                                        <field name="code"/>
+                                        <field name="name"/>
+                                        <field name="budget"/>
+                                        <field name="amount_pr_reserve" sum="PR Reserve"/>
+                                        <button type="object" name="action_open_pr_entries" string="PR Entries" icon="fa-arrow-circle-o-right"/>
+                                        <field name="amount_po_reserve" sum="PO Reserve"/>
+                                        <button type="object" name="action_open_po_entries" string="PO Entries" icon="fa-arrow-circle-o-right"/>
+                                        <field name="amount_actual" sum="Actual"/>
+                                        <!-- <button type="object" name="action_open_budget_entries" string="Entries..." icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_remaining" decoration-danger="amount_remaining &lt; 0" sum="Budget Remaining"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Task (Phase)" name="phase">
+                                <field name="task_ids" nolabel="1">
+                                    <tree editable="bottom" decoration-danger="amount_remaining &lt; 0">
+                                        <field name="code"/>
+                                        <field name="name"/>
+                                        <field name="budget"/>
+                                        <field name="amount_pr_reserve" sum="PR Reserve"/>
+                                        <!-- <button type="object" name="action_open_pr_entries" string="PR Entries" icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_po_reserve" sum="PO Reserve"/>
+                                        <!-- <button type="object" name="action_open_po_entries" string="PO Entries" icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_actual" sum="Actual"/>
+                                        <!-- <button type="object" name="action_open_budget_entries" string="Entries..." icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_remaining" decoration-danger="amount_remaining &lt; 0" sum="Budget Remaining"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Sub Task" name="subtask">
+                                <field name="subtask_ids" nolabel="1">
+                                    <tree editable="bottom" decoration-danger="amount_remaining &lt; 0">
+                                        <field name="code" string="Episode Code"/>
+                                        <field name="name" string="Episode Name"/>
+                                        <field name="episode_no"/>
+                                        <field name="budget"/>
+                                        <field name="amount_pr_reserve" sum="PR Reserve"/>
+                                        <!-- <button type="object" name="action_open_pr_entries" string="PR Entries" icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_po_reserve" sum="PO Reserve"/>
+                                        <!-- <button type="object" name="action_open_po_entries" string="PO Entries" icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_actual" sum="Actual"/>
+                                        <!-- <button type="object" name="action_open_budget_entries" string="Entries..." icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_remaining" decoration-danger="amount_remaining &lt; 0" sum="Budget Remaining"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Resource" name="resource">
+                                <field name="resource_ids" nolabel="1">
+                                    <tree editable="bottom" decoration-danger="amount_remaining &lt; 0">
+                                        <field name="code"/>
+                                        <field name="name"/>
+                                        <field name="budget"/>
+                                        <field name="amount_pr_reserve" sum="PR Reserve"/>
+                                        <!-- <button type="object" name="action_open_pr_entries" string="PR Entries" icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_po_reserve" sum="PO Reserve"/>
+                                        <!-- <button type="object" name="action_open_po_entries" string="PO Entries" icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_actual" sum="Actual"/>
+                                        <!-- <button type="object" name="action_open_budget_entries" string="Entries..." icon="fa-arrow-circle-o-right"/> -->
+                                        <field name="amount_remaining" decoration-danger="amount_remaining &lt; 0" sum="Budget Remaining"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- <record id="view_pmis_budget_info_tree" model="ir.ui.view">
+            <field name="name">view.pmis.budget.info.tree</field>
+            <field name="model">pmis.budget.info</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="program_id"/>
+                    <field name="main_project_id"/>
+                </tree>
+            </field>
+        </record> -->
+
+        <record id="action_pmis_budget_info" model="ir.actions.act_window">
+            <field name="name">Budget Remaining</field>
+            <field name="res_model">pmis.budget.info</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis_budget_info"
+            name="Budget Remaining"
+            action="action_pmis_budget_info"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_budget"
+            sequence="5"/>
+    </data>
+</odoo>

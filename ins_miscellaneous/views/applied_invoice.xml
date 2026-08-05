@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_applied_invoices_form" model="ir.ui.view">
+            <field name="name">applied.invoices.form</field>
+            <field name="model">applied.invoices</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <form string="Apply Receipt To Invoice">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="misc_id" required="1" readonly="1" force_save="1"
+                                   domain="[('misc_type', '=', ('receive'))]"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="misc_type" invisible="1"/>
+                            <field name="misc_currency_id"/>
+                            <field name="misc_remaining_amount"
+                                   readonly="1"/>
+                            <field name="transaction_type" readonly="1"
+                                   context="{'search_default_transaction_type':'apply'}"/>
+                            <field name="transaction_date"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="applied_amount" required="1"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="journal_id" widget="selection"
+                                   domain="[('type', '=', 'general')]"
+                                   attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="payment_difference" attrs="{'invisible': [('payment_difference', '=', 0.0)]}"/>
+                            <field name="payment_difference_handling" widget="radio"
+                                   nolabel="1" attrs="{'invisible': [('payment_difference', '=', 0.0)]}"/>
+                            <field name="writeoff_account_id" string="Post Difference In"
+                                    attrs="{'invisible': [('payment_difference_handling','=','open')],
+                                    'required': [('payment_difference_handling', '=', 'reconcile')]}"/>
+
+                        </group>
+                        <group>
+                            <field name="date" string="Accounting Date"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                            <field name="invoice_id" string="Customer Invoice"
+                                  domain="[('move_type', '=', 'out_invoice'),('state', '=', 'posted'),
+                                   ('payment_state', 'in', ('not_paid','partial')), ('amount_residual_signed', '>', 0),
+                                   ('partner_id', '=', misc_partner_id)]"/>
+                            <field name="misc_partner_id" invisible="1"/>
+                            <field name="partner_id"/>
+                            <field name="invoice_currency_id"/>
+                            <field name="invoice_amount"/>
+                            <field name="company_id"/>
+                            <field name="operating_unit_id"/>
+                            <field name="applied_amount_currency"
+                                   readonly="1"/>
+                            <field name="move_id" required="0"
+                                   attrs="{'invisible': [('id', '=', False)]}"
+                                   groups="account.group_account_readonly"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Applied Receipt"
+                                name="action_applied_invoice"
+                                attrs="{'invisible': ['|',('move_id', '&gt;', 1),('misc_type','=', 'payment')]}"
+                                type="object" class="oe_highlight"/>
+                        <button string="Unapplied Receipt"
+                                name="action_unapplied_invoice"
+                                attrs="{'invisible': ['&amp;', '|', '|', ('misc_type', '=', 'payment'),
+                                ('id', '=', False), ('move_id', '=', False), ('state', '=', 'cancel')]}"
+                                type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+         <record id="applied_invoices_tree_view" model="ir.ui.view">
+            <field name="name">applied.invoices.tree</field>
+            <field name="model">applied.invoices</field>
+            <field name="arch" type="xml">
+                <tree string="Applied Invoices">
+                    <field name="name"/>
+                    <field name="misc_id"/>
+                    <field name="transaction_type"/>
+                    <field name="transaction_date"/>
+                    <field name="applied_amount"/>
+                    <field name="journal_id"/>
+                    <field name="invoice_id"/>
+                    <field name="invoice_amount"/>
+                    <field name="move_id"/>
+                    <field name="operating_unit_id"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,259 @@
+<odoo>
+    <template id="report_ar_3tv_afidafit_nologo_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_api.report_ar_3tv_afidafit_nologo_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_ar_3tv_afidafit_nologo_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 14px !important;font-family: 'Courier New' !important;">
+                 <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4" style="border-bottom: 1px dashed;"><center>I N V O I C E</center></div>
+                    <div class="col-4"></div>
+                 </div>
+                 <br/>
+                 <br/>
+                 <div class="row">
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-4">Bill To</div>
+                            <div class="col-1" style="margin-left:0px !important;margin-right:0px !important;">:</div>
+                            <div class="col-7"><span t-esc="o.partner_id.alias_name"/></div>
+                        </div>
+                         <div class="row">
+                            <div class="col-4">Address</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7">
+                            <t t-if="o.sites_id">
+                                <t t-if="o.sites_id.site_address">
+                                    <span t-esc="o.sites_id.site_address"/> 
+                                </t>
+                                <t t-if="not o.sites_id.site_address">
+                                    Please Input Site Address
+                                </t>
+                            </t>
+                            <t t-if="not o.sites_id">                       
+                                <span t-field="o.partner_id"
+                                        t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                            </t>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-4">Advertiser</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.advertiser_gen21"/></div>
+                        </div>
+                         <div class="row">
+                            <div class="col-4">Order No</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.po_numbers_gen21"/></div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-4">Invoice No</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.payment_reference"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Date</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.invoice_date.strftime('%d-%b-%Y')"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Register No</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.mo_numbers_gen21"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">AE</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.sales_person_gen21"/></div>
+                        </div>
+                    </div>
+                   
+                 </div>
+                 <br/>
+                 <div class="row mt-2" style="border-top: 1px dashed;border-bottom: 1px dashed;">
+                    <div class="col-6"><center>Description</center></div>
+                    <div class="col-6"><center>Amount</center></div>
+                 </div>
+                 <br/>
+                 <div class="row">
+                    <div class="col-12">
+                        <t t-if="o.ar_receipt_type == 'iklan' and o.source_type_gen21 == 'manual'">
+                            <div class="row">
+                                <div class="col-12"><t t-esc="o.ref"></t></div>
+                            </div>
+                        </t>
+                        <t t-if="o.ar_receipt_type == 'iklan' and o.source_type_gen21 == 'iklan_bms'">
+                            <div class="row">
+                                <div class="col-12">PENAYANGAN IKLAN</div>
+                            </div>
+                        </t>
+                        <t t-if="o.ar_receipt_type != 'iklan' and o.source_type_gen21 != 'iklan_bms'">
+                            <div class="row">
+                                <div class="col-12"><t t-esc="o.narration"/></div>
+                            </div>
+                        </t>
+                        <div class="row">
+                            <div class="col-12"><t t-if="o.ar_receipt_type == 'iklan'">BRAND : <t t-esc="o.product_gen21"/></t></div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-5">
+                    </div>
+                    <div class="col-7">
+                        <t t-if="o.invoice_line_ids[0].total_gross_gen21">
+                        <div class="row">
+                            <div class="col-5">Total Gross</div>
+                            <div class="col-2">: <t t-esc="o.currency_id.symbol"/></div>
+                            <div class="col-5 text-right">
+                                <t t-esc="'{:,.2f}'.format(sum(l.total_gross_gen21 for l in o.invoice_line_ids))" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">Agency Disc</div>
+                            <div class="col-2">: <t t-esc="o.currency_id.symbol"/></div>
+                            <div class="col-5 text-right">
+                                <t t-esc="'{:,.2f}'.format(sum(l.total_gross_gen21 * l.agency_discount_gen21/100 for l in o.invoice_line_ids))" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-7"></div>
+                            <div class="col-5 text-right" style="border-bottom: 1px dashed;"></div>
+                        </div>
+                        </t>
+                        <div class="row">
+                            <div class="col-5">NET Amount</div>
+                            <div class="col-2">: <t t-esc="o.currency_id.symbol"/></div>
+                            <div class="col-5 text-right"><t t-esc="'{:,.2f}'.format(o.amount_untaxed)"/></div>
+                        </div>
+                        <t t-set="taxes" t-value="o.get_tax_info()"/>
+                            <div class="row">
+                                <div class="col-5">
+                                    VAT
+                                </div>
+                                <div class="col-2">
+                                    : <t t-esc="o.currency_id.symbol"/> 
+                                </div>
+                                <div class="col-5 text-right">
+                                    <t t-esc="'{:,.2f}'.format(sum(-tax[1] for tax in taxes))"/>
+                                </div>
+                            </div>
+                    </div>
+                 </div>
+                <div class="row">
+                  <div class="col-5"/>
+                  <div class="col-7">
+                    <div class="row">
+                     <div class="col-7"></div>
+                     <div class="col-5 text-right" style="border-bottom: 1px dashed;"></div>
+                    </div>
+                  </div>
+                </div>
+                 <div class="row">
+                     <div class="col-5">
+                        <div class="row">
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-5">Total Amount Due</div>
+                            <div class="col-2">: <t t-esc="o.currency_id.symbol"/></div>
+                            <div class="col-5 text-right"><t t-esc="'{:,.2f}'.format(o.amount_total)"/></div>
+                        </div>
+                    </div>
+                 </div>
+                 <br/>
+                  <div class="row">                
+                        <div class="col-2">Due Date</div>
+                        <div class="col-1">:</div>
+                        <div class="col-9">
+                        <t t-if="o.invoice_payment_term_id">
+                            <t t-set="due_date" t-value="o._get_due_payment_term()"/>
+                            <t t-esc="due_date"/>
+                        </t>
+                        <t t-if="not o.invoice_payment_term_id">
+                            <t t-esc="o.invoice_date_due.strftime('%d-%b-%Y')"/>
+                        </t>
+                        </div>
+                 </div>
+                 <br/>
+                 <div class="row">
+                    <div class="col-12" style="border-top: 1px dashed;">
+                    </div>
+                 </div>
+                 <br/>
+                 <div class="row mt-2">
+                    <div class="col-2">Terbilang</div>
+                    <div class="col-1">:</div>
+                    <div class="col-9">## <t t-esc="o.amount_in_words_gen21"/> ##</div>
+                 </div>
+                 <br/>
+                 <div class="row">
+                    <div class="col-12" style="border-bottom: 1px dashed;">
+                    </div>
+                 </div>
+                 <br/>
+                    <div class="row">
+                        <div class="col-12">
+    Please remit to : <t t-esc="o.company_id.name"/><br/>
+<t t-set="partner_remit" t-value="o.get_partner_remit()"/>
+<t t-foreach="partner_remit" t-as="remit">
+    <div class="row">
+        <div class="col-12">
+        <span t-esc="remit"/><br/>
+        </div>
+    </div>
+</t>
+                        </div>
+                    </div>
+                 <br/>
+                 <br/>
+                 <br/>
+                 <div class="row">
+                    <div class="col-6">
+                    </div>
+                    <div class="col-4">
+                        <center>
+                        <t t-if="o.assignee_id_invoice">
+                        <t t-if="o.assignee_id_invoice.signature">
+                            <img t-att-src="image_data_uri(o.assignee_id_invoice.signature)" style="height: 100px; width: 150px;"/>
+                        </t>
+                        <br/>
+                        <t t-esc="o.assignee_id_invoice.name"/><br/>
+                        <div style="border: 1px dashed;"/><br/><t t-if="o.assignee_id_invoice.job_position"><t t-set="job_position" t-value="o._get_job_position(o.assignee_id_invoice.job_position)"/>
+                        ( <t t-if="'And' in job_position"><t t-set="position" t-value="job_position.split('And')"/><t t-esc="position[0]"/>&#38;<t t-esc="position[1]"/></t><t t-if="'And' not in job_position"><t t-esc="job_position"/></t> )</t>
+                        </t>
+                        </center>
+                    </div>
+                 </div>
+                 <br/>
+                 <br/>
+                 <div class="row">
+                    <div class="col-12">
+1. Mohon mencantumkan nomor invoice pada saat melakukan pembayaran.
+</div>
+</div>
+<div class="row">
+    <div class="col-12">
+2. Pembayaran melalui check atau giro dianggap telah lunas apabila
+   dananya telah diterima.
+</div>
+</div>
+<div class="row">
+    <div class="col-12">
+3. Pengajuan Klaim atas tagihan ini hanya di terima selambat-lambatnya
+   14 hari kerja.
+                    </div>
+                 </div>
+            </div>
+        </t>
+    </template>
+</odoo>

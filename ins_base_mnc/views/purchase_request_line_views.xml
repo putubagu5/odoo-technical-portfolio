@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="purchase_request_line_tree" model="ir.ui.view">
+            <field name="name">purchase.request.line.tree</field>
+            <field name="model">purchase.request.line</field>
+            <field name="inherit_id" ref="purchase_request.purchase_request_line_tree"/>
+            <field name="arch" type="xml">
+                <!-- add account before analytic_account_id (from budget_control) -->
+                <xpath expr="//field[@name='analytic_account_id']" position="before">
+                    <field name="account_id" optional="show"/>
+                </xpath>
+
+                <!-- <xpath expr="//field[@name='analytic_account_id']" position="after">
+                    <field name="wilayah_id" force_save="1" optional="show"/>
+                </xpath> -->
+
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="attachment_line_ids" widget="many2many_binary" optional="show"/>
+                </xpath>
+
+                <!-- add line_number, buyer_id, asset_cost_progress_id before date_required -->
+                <xpath expr="//field[@name='date_required']" position="before">
+                    <field name="line_number" optional="show"/>
+                    <field name="buyer_id" optional="show"/>
+                    <field name="asset_cost_progress_id" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_request_line_form" model="ir.ui.view">
+            <field name="name">purchase.request.line.form</field>
+            <field name="model">purchase.request.line</field>
+            <field name="inherit_id" ref="purchase_request.purchase_request_line_form"/>
+            <field name="arch" type="xml">
+                <!-- add account before analytic_account_id (from budget_control) -->
+                <xpath expr="//field[@name='analytic_account_id']" position="before">
+                    <field name="account_id"/>
+                </xpath>
+
+                <!-- <xpath expr="//field[@name='analytic_account_id']" position="after">
+                    <field name="wilayah_id" force_save="1"/>
+                </xpath> -->
+
+                <!-- add manual exchange info after currency_id -->
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="manual_currency_rate_active" groups="base.group_multi_currency"/>
+					<field name="manual_currency_rate"
+                           attrs="{'invisible': [('manual_currency_rate_active', '=', False)],'required':[('manual_currency_rate_active', '=', True)]}"
+                           groups="base.group_multi_currency"/>
+                </xpath>
+
+                <!-- add buyer_id after assigned_to -->
+                <xpath expr="//field[@name='assigned_to']" position="after">
+                    <field name="buyer_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

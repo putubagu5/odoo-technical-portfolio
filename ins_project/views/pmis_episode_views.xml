@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <record id="view_pmis_episode_form" model="ir.ui.view">
+            <field name="name">view.pmis.episode.form</field>
+            <field name="model">pmis.episode</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="program_id" required="1"/>
+                                <field name="main_project_id"/>
+                                <field name="company_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Details">
+                                <field name="line_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="sequence" required="1"/>
+                                        <field name="code" required="1"/>
+                                        <field name="episode_no" required="1" force_save="1"/>
+                                        <field name="name" required="1"/>
+                                        <field name="date_start" required="1"/>
+                                        <field name="date_end"/>
+                                        <field name="company_id" required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pmis_episode_tree" model="ir.ui.view">
+            <field name="name">view.pmis.episode.tree</field>
+            <field name="model">pmis.episode</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="program_id"/>
+                    <field name="main_project_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pmis_episode" model="ir.actions.act_window">
+            <field name="name">Episode</field>
+            <field name="res_model">pmis.episode</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis_episode"
+            name="Episode"
+            action="action_pmis_episode"
+            parent="ins_project.menu_pmis_project"
+            sequence="5"/>
+    </data>
+</odoo>

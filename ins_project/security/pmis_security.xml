@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.rule" id="project_classification_comp_rule">
+            <field name="name">Project Classification multi-company</field>
+            <field name="model_id" ref="model_project_classification"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="project_group_type_comp_rule">
+            <field name="name">Project Group Type multi-company</field>
+            <field name="model_id" ref="model_project_group_type"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="main_project_comp_rule">
+            <field name="name">Main Project multi-company</field>
+            <field name="model_id" ref="model_pmis_main_project"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="project_expenditure_type_comp_rule">
+            <field name="name">Project Expenditure Type multi-company</field>
+            <field name="model_id" ref="model_project_expenditure_type"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="project_expenditure_type_account_rule">
+            <field name="name">Project Expenditure Type per cost center</field>
+            <field name="model_id" ref="model_project_expenditure_type"/>
+            <field name="domain_force">['|',('analytic_account_id','=',False),('analytic_account_id', 'in', user.account_analytic_ids.ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="project_expenditure_category_comp_rule">
+            <field name="name">Project Expenditure Category multi-company</field>
+            <field name="model_id" ref="model_project_expenditure_category"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="project_expenditure_subcategory_comp_rule">
+            <field name="name">Project Expenditure Subcategory multi-company</field>
+            <field name="model_id" ref="model_project_expenditure_subcategory"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="project_genre_comp_rule">
+            <field name="name">Project genre multi-company</field>
+            <field name="model_id" ref="model_project_genre"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="project_task_comp_rule">
+            <field name="name">Project task multi-company</field>
+            <field name="model_id" ref="model_pmis_project_task"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="project_task_line_comp_rule">
+            <field name="name">Project task line multi-company</field>
+            <field name="model_id" ref="model_pmis_project_task_line"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="pmis_episode_comp_rule">
+            <field name="name">PMIS Episode multi-company</field>
+            <field name="model_id" ref="model_pmis_episode"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="pmis_episode_line_comp_rule">
+            <field name="name">PMIS Episode line multi-company</field>
+            <field name="model_id" ref="model_pmis_episode_line"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="pmis_budget_comp_rule">
+            <field name="name">PMIS budget multi-company</field>
+            <field name="model_id" ref="model_pmis_budget"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="pmis_budget_line_comp_rule">
+            <field name="name">PMIS budget line multi-company</field>
+            <field name="model_id" ref="model_pmis_budget_line"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="pmis_departement_type_comp_rule">
+            <field name="name">PMIS Department Type multi-company</field>
+            <field name="model_id" ref="model_pmis_departement_type"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+
+    <data>
+        <record id="pmis_program_own_company_rule" model="ir.rule">
+            <field name="name">PMIS Program Company Rule</field>
+            <field name="model_id" ref="ins_project.model_pmis_program"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="pmis_budget_relocate" model="ir.rule">
+            <field name="name">PMIS Budget Relocate</field>
+            <field name="model_id" ref="ins_project.model_pmis_budget_relocate"/>
+            <field name="domain_force">['|', ('main_project_id.company_id', '=', False), ('main_project_id.company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

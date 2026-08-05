@@ -1,0 +1,15 @@
+<odoo>
+    <record id="mnc_chart" model="account.chart.template">
+        <field name="property_account_receivable_id" ref="a_1_1151111"/>
+        <field name="property_account_payable_id" ref="a_2_2121201"/>
+        <field name="property_account_expense_categ_id" ref="a_5_5111101"/>
+        <field name="property_account_income_categ_id" ref="a_4_4110101"/>
+        <field name="property_stock_account_input_categ_id" ref="a_2_2121901"/>
+        <field name="property_stock_account_output_categ_id" ref="a_2_2121901"/>
+        <field name="property_stock_valuation_account_id" ref="a_1_1190121"/>
+        <field name="income_currency_exchange_account_id" ref="a_6_6200301"/>
+        <field name="expense_currency_exchange_account_id" ref="a_6_6200301"/>
+        <field name="default_pos_receivable_account_id" ref="a_1_1151111"/>
+        <field name="use_anglo_saxon" eval="1"/>
+    </record>
+</odoo>

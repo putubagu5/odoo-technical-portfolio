@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+
+        <record id="mnc_sync_logger_tree" model="ir.ui.view">
+            <field name="name">mnc.sync.logger.tree</field>
+            <field name="model">mnc.sync.logger</field>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0">
+                    <field name="name"/>
+                    <field name="model_name"/>
+                    <field name="ip_address"/>
+
+                    <field name="step01_activity"/>
+                    <field name="step01_desc"/>
+                    <field name="step01_source"/>
+                    <field name="step01_target"/>
+                    <field name="step01_start_time"/>
+                    <field name="step01_end_time"/>
+                    <field name="step01_caller"/>
+                    <field name="step01_count"/>
+
+                    <field name="step02_activity"/>
+                    <field name="step02_desc"/>
+                    <field name="step02_source"/>
+                    <field name="step02_target"/>
+                    <field name="step02_start_time"/>
+                    <field name="step02_end_time"/>
+                    <field name="step02_caller"/>
+                    <field name="step02_count"/>
+
+                    <field name="step03_activity"/>
+                    <field name="step03_desc"/>
+                    <field name="step03_source"/>
+                    <field name="step03_target"/>
+                    <field name="step03_start_time"/>
+                    <field name="step03_end_time"/>
+                    <field name="step03_caller"/>
+                    <field name="step03_count"/>
+
+                    <field name="step04_activity"/>
+                    <field name="step04_desc"/>
+                    <field name="step04_source"/>
+                    <field name="step04_target"/>
+                    <field name="step04_start_time"/>
+                    <field name="step04_end_time"/>
+                    <field name="step04_caller"/>
+                    <field name="step04_count"/>
+
+                    <field name="curr_steps"/>
+                    <field name="total_steps"/>
+                    <field name="diff_count"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="mnc_sync_logger_action" model="ir.actions.act_window">
+            <field name="name">Sync Logger</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mnc.sync.logger</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Empty Data, Get Data Logger!
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="mnc_sync_logger_menu"
+                name="Sync Logger"
+                parent="mnc_sync_logger_root"
+                action="mnc_sync_logger_action"
+                sequence="1"/>
+
+        <menuitem
+                id="mnc_sync_logger_table"
+                name="Table"
+                parent="mnc_sync_logger_root"
+                sequence="2"/>
+
+    </data>
+</odoo>

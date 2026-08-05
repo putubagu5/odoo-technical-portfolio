@@ -1,0 +1,35 @@
+<odoo>
+    <data noupdate="1">
+        <record id="seq_project_classification" model="ir.sequence">
+            <field name="name">Project Classification Sequence</field>
+            <field name="code">project.classification</field>
+        </record>
+
+        <record id="seq_project_project" model="ir.sequence">
+            <field name="name">Project Sequence</field>
+            <field name="code">project.project</field>
+        </record>
+
+        <record id="seq_main_project" model="ir.sequence">
+            <field name="name">Main Project Sequence</field>
+            <field name="code">main.project</field>
+            <field name="prefix">{company_code}</field>
+            <field name="padding">3</field>
+        </record>
+
+        <record id="seq_pmis_program" model="ir.sequence">
+            <field name="name">PMIS Program Sequence</field>
+            <field name="code">pmis.program</field>
+            <field name="prefix">{company_code}-{dept_code}-</field>
+            <field name="padding">3</field>
+        </record>
+
+        <record id="seq_pmis_project_task" model="ir.sequence">
+            <field name="name">PMIS Project Task Sequence</field>
+            <field name="code">pmis.project.task</field>
+            <field name="prefix">{task_number}-</field>
+            <field name="suffix">.{task_name}</field>
+            <field name="padding">1</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <menuitem id="menu_mnc_ar_report" parent="mnc_menu_report.report_ar" name="AR Aging Report"
+              action="action_wizard_mnc_ar_report" sequence="15"/>
+    <menuitem id="menu_mnc_ap_report" parent="mnc_menu_report.report_ap" name="AP Detail Report"
+              action="action_wizard_mnc_ap_report" sequence="16"/>
+    <menuitem id="menu_mnc_ar_customer_report" parent="mnc_menu_report.report_ar" name="AR Customer List"
+              action="action_wizard_mnc_ar_customer_report" sequence="17"/>
+    <menuitem id="menu_mnc_ap_standard_report" parent="mnc_menu_report.report_ap" name="AP Invoice Standard"
+              action="action_wizard_mnc_ap_standard_report" sequence="18"/>
+    <menuitem id="menu_mnc_ar_receipt_invoice_report" parent="mnc_menu_report.report_ar" name="AR Receipt to Invoice"
+              action="action_wizard_mnc_ar_receipt_invoice_report" sequence="19"/>
+    <menuitem id="menu_mnc_ar_statement_report" parent="mnc_menu_report.print_out_menu" name="AR Statement of Account"
+              action="action_wizard_mnc_ar_statement_report" sequence="20"/>
+    <menuitem id="menu_mnc_ar_aging_report" parent="mnc_menu_report.report_ar" name="AR Aging Detail Report"
+              action="action_wizard_mnc_ar_aging_report" sequence="21"/>
+    <menuitem id="menu_mnc_ar_pph23_report" parent="mnc_menu_report.report_ar" name="AR Bukti Potong PPh 23"
+              action="action_wizard_mnc_ar_pph23_report" sequence="22"/>
+
+</odoo>

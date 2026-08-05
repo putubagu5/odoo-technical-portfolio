@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_menu_purchase_requisition_list_report_wizard" model="ir.actions.act_window">
+            <field name="name">Purchase Requisition List Report</field>
+            <field name="res_model">purchase.requisition.list.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_report_type': 'purchase_requisition_list_report'}
+            </field>
+        </record>
+
+        <record id="menu_purchase_requisition_list_report_wizard" model="ir.ui.menu">
+            <field name="name">Purchase Requisition List Report</field>
+            <field name="action" ref='action_menu_purchase_requisition_list_report_wizard'/>
+            <field name="parent_id" ref='mnc_menu_report.report_pr_po'/>
+        </record>
+    </data>
+</odoo>

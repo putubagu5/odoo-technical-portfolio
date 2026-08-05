@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="action_wizard_product_template" model="ir.actions.act_window">
+            <field name="name">Export Faktur Pajak Masukan</field>
+            <field name="res_model">wizard.product.template</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="view_wizard_product_template_form" model="ir.ui.view">
+            <field name="name">view.wizard.product.template.form</field>
+            <field name="model">wizard.product.template</field>
+            <field name="arch" type="xml">
+                <form string="Export Product">
+                    <footer>
+                        <button string="Export" name="button_print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_product_template_export"
+            name="Export Product"
+            action="action_wizard_product_template"
+            parent="ins_tax_invoice.menu_tax_invoice_export"
+            sequence="62"/>
+    </data>
+</odoo>

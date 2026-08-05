@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit2_misc_receipts_form" model="ir.ui.view">
+            <field name="name">inherit2.miscellaneous.receipt.form</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="inherit_id" ref="ins_miscellaneous.misc_receipts_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='receipt_type_id']" position="after">
+                    <field name="journal_group"/>
+                </xpath>
+                <xpath expr="//field[@name='misc_partner_id']" position="replace">
+                       <field name="misc_partner_id"
+                           context="{'default_is_company': True, 'default_customer_rank': True}"
+                           attrs="{'readonly': [('applied_customer_move_id', '&gt;', 0),('state', 'in', ('posted', 'cancel'))],
+                           'invisible': ['&amp;',('journal_group','=','split'),('state','=','draft'),'|',('receipt_type_category','=','misc')],
+                           'required':['&amp;',('journal_group','=','merge'),('receipt_type_category','!=','misc')]}"
+                           widget="res_partner_many2one"/>
+                </xpath>
+                <xpath expr="//field[@name='applied_customer_journal_id']" position="replace">
+                       <field name="applied_customer_journal_id"
+                                       domain="[('type', '=', 'general')]"
+                                       attrs="{'invisible': ['|',('state','=','draft'),
+                                       ('journal_group','=','merge')],
+                                       'readonly': [('applied_customer_move_id', '&gt;', 0)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='applied_partner_date']" position="replace">
+                       <field name="applied_partner_date"
+                                       attrs="{'invisible': ['|',('state','=','draft'),
+                                       ('journal_group','=','merge')],
+                                       'readonly': [('state', 'in', ('posted', 'cancel')),
+                                       ('applied_customer_move_id', '&gt;', 0)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='destination_account_id']" position="replace">
+                    <field name="destination_account_id" readonly="1" force_save="1"
+                                       options="{'no_create': True}"
+                                       attrs="{'invisible': [('journal_group','=','merge')],
+                                       'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                    <field name="applied_partner_account" readonly="1" force_save="1"
+                                       options="{'no_create': True}"
+                                       attrs="{'invisible': [('journal_group','=','split')],
+                                       'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                </xpath>
+                <xpath expr="//button[@name='action_applied_to_partner']" position="replace">
+                    <button name="action_applied_to_partner" string="Applied Customer" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|','|','|',('state', 'not in', ('posted')),
+                                ('applied_customer_move_id', '&gt;', 0),('receipt_type_category','=','misc'),
+                                ('reverse_date', '!=', False),('journal_group','=','merge')]}"/>
+                </xpath>
+                <xpath expr="//button[@name='action_applied_invoice']" position="replace">
+                    <button name="action_applied_invoice" string="Applied Invoice" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|','|', ('state', 'not in', ('posted')),
+                                ('remaining_amount', '&lt;', 1),('receipt_type_category','=', 'misc'),
+                                ('reverse_date', '!=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

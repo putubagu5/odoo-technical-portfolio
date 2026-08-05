@@ -1,0 +1,249 @@
+<odoo>
+    <template id="report_invoice_mnc_land_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_invoice_mnc_land_document"/>
+            </t>
+        </t>
+    </template>
+    
+    <template id="report_invoice_mnc_land_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <h5 class="text-center">
+                    <!-- <span t-if="o.name != '/'" t-field="o.name"/><br/> -->
+                    <span><strong>INVOICE</strong></span><br/>
+                </h5>
+                <br/>
+                <div class="row">
+                    <div class="col-4">
+                        <strong>To:</strong>
+                        <br/>
+                        <strong>Kantin Ni Putu Arganti</strong>
+                        <br/>
+                        Wisma Indovision Bali
+                        <br/>
+                        Jl. Diponegoro 109
+                        <br/>
+                        Denpasar, Bali 80114
+                        <br/>
+                        <strong>Attn: Ibu Ni Putu Arganti</strong>
+                    </div>
+                    <div class="col-4"/>
+                    <div class="col-4">
+                        No Invoice : 0001/UTL/WIB/0
+                        <br/>
+                        Tanggal Invoice : 919
+                        <br/>
+                        Tanggal Jatuh Tempo : 01/12/2018
+                        <br/>
+                        01/12/2018
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12">
+                        We here by request you to make the following payment for :
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12">
+                        Dengan ini kami mohon untuk melakukan pembayaran :
+                    </div>
+                </div>
+                <table width="100%" border="1">
+                    <tr>
+                        <th style="width:5%;text-align:center;">No.</th>
+                        <th style="width:80%;text-align:center;">Description</th>
+                        <th style="width:15%;text-align:center;">Amount(Rp)</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center;">No.</th>
+                        <th style="text-align:center;">Keterangan</th>
+                        <th style="text-align:center;">Jumlah(Rp)</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">1</td>
+                        <td>
+                            Being Charge of Electricity Consumption Billing Period of 12 Months
+                            <br/>
+                            <strong>Electricity Details</strong>
+                            <table width="100%">
+                                <tr>
+                                    <td style="width:10%;border: 1px groove;"></td>
+                                    <td style="width:50%;border: 1px groove;" colspan="4">Meter Reading(KWH)</td>
+                                    <td rowspan="3" style="width:10%;border: 1px groove;">Meter Factor Faktor</td>
+                                    <td rowspan="5" style="width:10%;border: 1px groove;">Usage Pemakaian KWH</td>
+                                    <td rowspan="5" style="width:10%;border: 1px groove;">Electricity Periodic Tarif(1) TTLB</td>
+                                    <td rowspan="5" style="width:10%;border: 1px groove;">Public Lightning Tax(2) PPJU</td>
+                                </tr>
+                                <tr>   
+                                    <td style="border: 1px groove;">Capacity</td>
+                                    <td colspan="4" style="border: 1px groove;">Pembacaan Meter (KWH)</td>
+                                </tr>
+                                <tr>   
+                                    <td style="border: 1px groove;">Daya KWA</td>
+                                    <td colspan="2" style="border: 1px groove;">After Peak Hours</td>
+                                    <td colspan="2" style="border: 1px groove;">Peak Hours</td>
+                                </tr>
+                                <tr>   
+                                    <td style="border: 1px groove;"></td>
+                                    <td colspan="2" style="border: 1px groove;">LWBP</td>
+                                    <td colspan="2" style="border: 1px groove;">WBP</td>
+                                    <td rowspan="2" style="border: 1px groove;">Meter</td>
+                                </tr>
+                                <tr>   
+                                    <td style="border: 1px groove;"></td>
+                                    <td style="border: 1px groove;">Current</td>
+                                    <td style="border: 1px groove;">Last</td>
+                                    <td style="border: 1px groove;">Current</td>
+                                    <td style="border: 1px groove;">Last</td>
+                                </tr>
+                                <tr>   
+                                    <td style="border: 1px groove;">KVA</td>
+                                    <td style="border: 1px groove;">KWH</td>
+                                    <td style="border: 1px groove;">KWH</td>
+                                    <td style="border: 1px groove;">KWH</td>
+                                    <td style="border: 1px groove;">KWH</td>
+                                    <td style="border: 1px groove;"></td>
+                                    <td style="border: 1px groove;">KWH</td>
+                                    <td style="border: 1px groove;"></td>
+                                    <td style="border: 1px groove;">%</td>
+                                </tr>
+                                <tr>   
+                                    <td style="border: 1px groove;">1.00</td>
+                                    <td style="border: 1px groove;">0.00</td>
+                                    <td style="border: 1px groove;">0.00</td>
+                                    <td style="border: 1px groove;">16,955.60</td>
+                                    <td style="border: 1px groove;">17,020.90</td>
+                                    <td style="border: 1px groove;">1.00</td>
+                                    <td style="border: 1px groove;">65.30</td>
+                                    <td style="border: 1px groove;">0.00</td>
+                                    <td style="border: 1px groove;">3.00</td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <table width="100%">
+                                <tr>
+                                    <td colspan="2" style="border: 1px groove;width:20%;">Load Fee</td>
+                                    <td colspan="2" style="border: 1px groove;width:20%;">Usage</td>
+                                    <td rowspan="2" style="border: 1px groove;width:15%;">Sub-total</td>
+                                    <td rowspan="4" style="border: 1px groove;width:20%;">EPT(1) TTLB</td>
+                                    <td rowspan="4" style="border: 1px groove;width:15%;">PLT(2) PPJU</td>
+                                    <td rowspan="4" style="border: 1px groove;width:15%;">Stamp Duty <br/>Materai</td>
+                                    <td rowspan="4" style="border: 1px groove;width:15%;">Grand Total <br/>Jumlah</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border: 1px groove;">Biaya Beban</td>
+                                    <td colspan="2" style="border: 1px groove;">Pemakaian</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px groove;">Rate/KVA</td>
+                                    <td style="border: 1px groove;">Amount</td>
+                                    <td style="border: 1px groove;">rate/KWH</td>
+                                    <td style="border: 1px groove;">Amount</td>
+                                    <td rowspan="2" style="border: 1px groove;">Sub - Jumlah</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px groove;">Rate/KVA</td>
+                                    <td style="border: 1px groove;">Jumlah</td>
+                                    <td style="border: 1px groove;">rate/KWH</td>
+                                    <td style="border: 1px groove;">Jumlah</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px groove;">Rp</td>
+                                    <td style="border: 1px groove;">Rp</td>
+                                    <td style="border: 1px groove;">Rp</td>
+                                    <td style="border: 1px groove;">Rp</td>
+                                    <td style="border: 1px groove;">Rp</td>
+                                    <td style="border: 1px groove;">Rp</td>
+                                    <td style="border: 1px groove;">Rp</td>
+                                    <td style="border: 1px groove;">Rp</td>
+                                    <td style="border: 1px groove;">Rp</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px groove;">0.00</td>
+                                    <td style="border: 1px groove;">0.00</td>
+                                    <td style="border: 1px groove;">1,559.00</td>
+                                    <td style="border: 1px groove;">101,802.70</td>
+                                    <td style="border: 1px groove;">101,802.70</td>
+                                    <td style="border: 1px groove;">0.00</td>
+                                    <td style="border: 1px groove;">3,054.08</td>
+                                    <td style="border: 1px groove;"></td>
+                                    <td style="border: 1px groove;">104,856.78</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td><strong>104,857</strong></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align:right;">Sub Total</td>
+                        <td style="text-align:right;"><strong>104,857</strong></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align:right;">PPN 10%</td>
+                        <td style="text-align:right;"><strong>10,486</strong></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align:right;"><strong>Total</strong></td>
+                        <td style="text-align:right;">115,343</td>
+                    </tr>
+                </table>
+                <br/>
+                <div class="row">
+                    <div class="col-10">
+                        <div style="border: 2px solid;">
+                            <i>Terbilang # Seratus Lima Belas Ribu Tiga Ratus Empat Puluh Tiga Rupiah #</i>
+                            <br/>
+                            <br/>
+                            Remarks (Catatan) 
+                            
+                            <br/>
+                            1. Under the provision of article 2.01 of the lease agreement a penalty
+                            at rate 3% per month will be applied on all monies owing for more
+                            than 14 days computed from and including the due date
+                            <br/>
+                            2. Please make by transfer to our account at :
+                            <br/>
+                            <div class="row">
+                                <div class="col-2">Bank</div>
+                                <div class="col-1">:</div>
+                                <div class="col-9">MNC Bank International</div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-2">Address</div>
+                                <div class="col-1">:</div>
+                                <div class="col-9">Jl.Gajah Mada No. 3-5 Blok A13-485</div>
+                            </div>
+                            <br/> 
+                            <div class="row">
+                                <div class="col-2">A/C Name</div>
+                                <div class="col-1">:</div>
+                                <div class="col-9">Erwin R. Andersen</div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-2">A/C No</div>
+                                <div class="col-1">:</div>
+                                <div class="col-9">100010000098689</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div style="margin-bottom:50%;">
+                            <center>Hormat Kami,</center>
+                        </div>
+                        <strong><center>Rita Triana</center></strong>
+                        <div style="border-bottom:2px solid;width:100%;"/>
+                        <strong><center>Finance Manager</center></strong>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

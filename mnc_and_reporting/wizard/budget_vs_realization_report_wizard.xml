@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="budget_vs_realization_report_form_view" model="ir.ui.view">
+            <field name="name">budget.vs.realization.report.wizard.form.view</field>
+            <field name="model">budget.vs.realization.report.wizard</field>
+            <field name="inherit_id" ref="mnc_and_reporting.and_report_wizard_form_view"/>
+            <field name="mode">primary</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet[1]" position="inside">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="program_code_type" required="1"/>
+                        <field name="program_code_ids" widget="many2many_tags"
+                               attrs="{'required': [('program_code_type', '=', 'specific')], 'invisible': [('program_code_type', '!=', 'specific')]}"
+                               domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]"
+                               options="{'no_create': True, 'no_create_edit': True, 'no_edit': True}"
+                               context="{'show_episode_code': True, 'tree_view_ref': 'mnc_and_reporing.pmis_project_task_line_tree_view_and_report'}"/>
+                    </group>
+                    <group>
+                        <field name="item_code_type" required="1"/>
+                        <field name="item_code_ids" widget="many2many_tags"
+                               attrs="{'required': [('item_code_type', '=', 'specific')], 'invisible': [('item_code_type', '!=', 'specific')]}"
+                               domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]"
+                               options="{'no_create': True, 'no_create_edit': True, 'no_edit': True}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

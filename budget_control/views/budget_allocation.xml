@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="budget_allocation_form_view" model="ir.ui.view">
+            <field name="name">budget.allocation.form.view</field>
+            <field name="model">budget.allocation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="confirm" string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                        <button name="submit_request" string="Submit Request" type="object" class="oe_highlight" states="request"/>
+                        <button name="approve" string="Approve" type="object" class="oe_highlight" states="to_approve"/>
+                        <button name="cancel" string="Cancel" type="object" states="draft,request,to_approve,approved"/>
+                        <button name="set_to_draft" string="Set to Draft" type="object" states="cancel"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="crossovered_budget_id"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                       options="{'no_create_edit': True}"/>
+                            </group>
+                            <group>
+                                <field name="date_allocation" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="company_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="budget_line" string="Budget Lines">
+                                <field name="line_ids" nolabel="1" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                    <tree>
+                                        <field name="general_budget_id"/>
+                                        <field name="analytic_account_id"/>
+                                        <field name="month1"/>
+                                        <field name="month2"/>
+                                        <field name="month3"/>
+                                        <field name="month4"/>
+                                        <field name="month5"/>
+                                        <field name="month6"/>
+                                        <field name="month7"/>
+                                        <field name="month8"/>
+                                        <field name="month9"/>
+                                        <field name="month10"/>
+                                        <field name="month11"/>
+                                        <field name="month12"/>
+                                        <field name="amount_total_budget"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="budget_allocation_tree_view" model="ir.ui.view">
+            <field name="name">budget.allocation.tree.view</field>
+            <field name="model">budget.allocation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="crossovered_budget_id"/>
+                    <field name="date_allocation"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="budget_allocation_action" model="ir.actions.act_window">
+            <field name="name">Budget Revision</field>
+            <field name="res_model">budget.allocation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="budget_allocation_menu"
+                  name="Budget Revision"
+                  action="budget_allocation_action"
+                  parent="account.menu_finance_entries_management"
+                  groups="account.group_account_manager"
+                  sequence="61"/>
+
+        <record id="budget_allocation_line_form_view" model="ir.ui.view">
+            <field name="name">budget.allocation.line.form.view</field>
+            <field name="model">budget.allocation.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="general_budget_id"/>
+                                <field name="analytic_account_id"/>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                                <field name="amount_total_budget"/>
+                                <field name="amount_rem_budget" invisible="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="month1"/>
+                                <field name="month2"/>
+                                <field name="month3"/>
+                                <field name="month4"/>
+                                <field name="month5"/>
+                                <field name="month6"/>
+                            </group>
+                            <group>
+                                <field name="month7"/>
+                                <field name="month8"/>
+                                <field name="month9"/>
+                                <field name="month10"/>
+                                <field name="month11"/>
+                                <field name="month12"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="action_ar_receipt_report_xlsx" model="ir.actions.report">
+            <field name="name">AR Receipt Report XLSX</field>
+            <field name="model">ar.receipt.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_xlsx_reporting.ar_receipt_report_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_xlsx_reporting.ar_receipt_report_xlsx</field>
+            <field name="print_report_name">
+                ('AR Receipt Report: %s - %s' % (object.start_date, object.end_date))
+            </field>
+        </record>
+
+        <record id="action_ar_unapplied_receipt_report_xlsx" model="ir.actions.report">
+            <field name="name">AR Unapplied Receipt Report XLSX</field>
+            <field name="model">ar.unapplied.receipt.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_xlsx_reporting.ar_unapplied_receipt_report_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_xlsx_reporting.ar_unapplied_receipt_report_xlsx</field>
+            <field name="print_report_name">
+                ('AR Unapplied Receipt Report: %s - %s' % (object.start_date, object.end_date))
+            </field>
+        </record>
+
+        <record id="action_unapplied_receipt_register_xlsx" model="ir.actions.report">
+            <field name="name">Unapplied Receipt Register Details Report XLSX</field>
+            <field name="model">unapplied.receipt.register.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_xlsx_reporting.unapplied_receipt_register_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_xlsx_reporting.unapplied_receipt_register_xlsx</field>
+            <field name="print_report_name">
+                ('Unapplied Receipt Register Details Report: %s - %s' % (object.start_date, object.end_date))
+            </field>
+        </record>
+
+        <record id="action_inv_prepayment_paid_supplier_xlsx" model="ir.actions.report">
+            <field name="name">Invoice Prepayment Paid Supplier XLSX</field>
+            <field name="model">invoice.prepayment.paid.supplier.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_name">mnc_xlsx_reporting.inv_prepayment_paid_supplier_xlsx</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_file">mnc_xlsx_reporting.inv_prepayment_paid_supplier_xlsx</field>
+            <field name="print_report_name">
+                ('Invoice Prepayment Paid Supplier Report: %s - %s' % (object.start_date, object.end_date))
+            </field>
+        </record>
+
+        <record id="action_report_voucher_pdf" model="ir.actions.report">
+            <field name="name">Report Voucher</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mnc_xlsx_reporting.report_voucher_pdf</field>
+            <field name="report_file">mnc_xlsx_reporting.report_voucher_pdf</field>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">
+                ('Report Voucher')
+            </field>
+        </record>
+
+        <record id="action_aging_pdc_detail_pdf" model="ir.actions.report">
+            <field name="name">Aging PDC Detail</field>
+            <field name="model">aging.pdc.detail.report.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mnc_xlsx_reporting.aging_pdc_detail_report_pdf</field>
+            <field name="report_file">mnc_xlsx_reporting.aging_pdc_detail_report_pdf</field>
+            <field name="paperformat_id" ref="mnc_and_reporting.and_paperformat_custom"/>
+            <field name="print_report_name">
+                ('Aging PDC Detail Report: %s - %s' % (object.start_date, object.end_date))
+            </field>
+        </record>
+
+        <record id="action_aging_report_summary_xlsx" model="ir.actions.report">
+            <field name="name">Aging Report Summary</field>
+            <field name="model">aging.report.summary.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_xlsx_reporting.aging_report_summary_xlsx</field>
+            <field name="report_file">mnc_xlsx_reporting.aging_report_summary_xlsx</field>
+            <field name="print_report_name">
+                ('Aging Report Summary: %s - %s' % (object.start_date, object.end_date))
+            </field>
+        </record>
+
+        <record id="action_aging_report_detail_xlsx" model="ir.actions.report">
+            <field name="name">Aging Report Detail</field>
+            <field name="model">aging.report.detail.wizard</field>
+            <field name="type">ir.actions.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">mnc_xlsx_reporting.aging_report_detail_xlsx</field>
+            <field name="report_file">mnc_xlsx_reporting.aging_report_detail_xlsx</field>
+            <field name="print_report_name">
+                ('Aging Report Detail: %s - %s' % (object.start_date, object.end_date))
+            </field>
+        </record>
+    </data>
+</odoo>

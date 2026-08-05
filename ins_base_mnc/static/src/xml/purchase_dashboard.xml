@@ -1,0 +1,11 @@
+<templates>
+    <t t-extend="purchase.PurchaseDashboard">
+        <!-- find td with class o_text and replace the div -->
+        <t t-jquery="thead tr td.o_text div" t-operation="replace">
+            <div>All Draft POs</div>
+        </t>
+        <t t-jquery="tbody tr td.o_text div" t-operation="replace">
+            <div>My Draft POs</div>
+        </t>
+    </t>
+</templates>

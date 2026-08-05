@@ -1,0 +1,231 @@
+<odoo>
+    <template id="report_invoice_ar_3tv_bms_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_api.report_invoice_ar_3tv_bms_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_invoice_ar_3tv_bms_document">
+        <t t-call="web.basic_layout">
+                        <div class="page" style="font-size: 12px !important;">
+                <t t-if="o.company_id.logo">
+                    <img t-att-src="image_data_uri(o.company_id.logo)" class="float-left" style="max-height: 250px;max-width: 200px;  display: block;margin-left: auto;margin-right: auto;" alt="Logo"/>
+                </t>
+                 <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4" style="border-bottom: 1px dashed;"><center>I N V O I C E</center></div>
+                    <div class="col-4"></div>
+                 </div>
+                 <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"><center><span t-esc="o.name"/></center></div>
+                    <div class="col-4"></div>
+                 </div>
+                 <br/>
+                 <br/>
+                 <br/>
+                 <br/>
+                 <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">Bill To</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><span t-esc="o.partner_id.name"/></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">Date</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.invoice_date.strftime('%d-%b-%Y')"/></div>
+                        </div>
+                    </div>
+                   
+                 </div>
+
+                 <div class="row">
+                     <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">Address</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><span t-field="o.partner_id"
+                                    t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">Register No</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><span t-esc="o.po_numbers_gen21"/></div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">Advertiser</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.advertiser_gen21"/></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">Payment By</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.pab_pbb_gen21"/></div>
+                        </div>
+                    </div>
+                 </div>
+                 
+                 <div class="row">
+                     <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">TX/Channel</div>
+                            <div class="col-1">:</div>
+                            <div class="col-7"><t t-esc="o.channel_name_gen21"/></div>
+                        </div>
+                    </div>
+                 </div>
+                 <br/>
+                 <br/>
+                 <div class="row mt-2" style="border-top: 1px dashed;border-bottom: 1px dashed;">
+                    <div class="col-6"><center>Description</center></div>
+                    <div class="col-6">Amount</div>
+                 </div>
+                 <br/>
+                 <div class="row">
+                    <t t-foreach="o.invoice_line_ids" t-as="line">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-4">PENAYANGAN PRODUK</div>
+                                <div class="col-1">:</div>
+                                <div class="col-7"><t t-esc="o.ref"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Periode</div>
+                                <div class="col-1">:</div>
+                                <div class="col-7"><t t-esc="o.period_id.name"/></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-5">Total Gross</div>
+                                <div class="col-1">:</div>
+                                <div class="col-6 text-right"><t t-esc="o.currency_id.symbol"/><t t-esc="'{:,.2f}'.format(line.total_gross_gen21)"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">Agency Disc <t t-esc="line.agency_discount_gen21"/>%</div>
+                                <div class="col-1">:</div>
+                                <div class="col-6 text-right" style="border-bottom: 1px dashed;"><t t-esc="o.currency_id.symbol"/><t t-esc="'{:,.2f}'.format(line.total_gross_gen21 * (line.agency_discount_gen21/100))"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">NET Amount</div>
+                                <div class="col-1">:</div>
+                                <div class="col-6 text-right"><t t-esc="o.currency_id.symbol"/> <t t-esc="'{:,.2f}'.format(o.amount_untaxed)"/></div>
+                            </div>
+                            <t t-set="taxes" t-value="o.get_tax_info()"/>
+                            <t t-foreach="taxes" t-as="tax">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <t t-esc="tax[0]"/>
+                                    </div>
+                                    <div class="col-1">
+                                        :
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <t t-esc="o.currency_id.symbol"/><t t-esc="'{:,.2f}'.format(tax[1])"/>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                 </div>
+                 <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">Due Date</div>
+                            <div class="col-1">:</div>
+                            <div class="col-6"><t t-esc="o.invoice_date_due.strftime('%d-%b-%Y')"/></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">Total Amount Due</div>
+                            <div class="col-1">:</div>
+                            <div class="col-6 text-right"><t t-esc="o.currency_id.symbol"/><t t-esc="'{:,.2f}'.format(o.amount_total)"/></div>
+                        </div>
+                    </div>
+                 </div>
+                 <br/>
+                 <div class="row">
+                    <div class="col-12" style="border-top: 1px dashed;">
+                    </div>
+                 </div>
+
+                 <div class="row mt-2">
+                    <div class="col-4">Terbilang</div>
+                    <div class="col-1">:</div>
+                    <div class="col-7">## <t t-esc="o.amount_due_in_words"/> ##</div>
+                 </div>
+
+                 <div class="row">
+                    <div class="col-12" style="border-bottom: 1px dashed;">
+                    </div>
+                 </div>
+                 <br/>
+                 <br/>
+                 <div class="row">
+                    <div class="col-4">
+                        Payment TO
+                    </div>
+                    <div class="col-8">
+PT. MNC TELEVISI INDONESIA<br/>
+Account at PT. MNC BANK INTERNASIONAL, TBK<br/>
+Account No. 100.01.000009067.8<br/>
+Account at PT. Bank Muamalat Indonesia Tbk<br/>
+Account No. 301 020 1449 (IDR)
+                    </div>
+                 </div>
+                 <br/>
+                 <br/>
+                 <br/>
+                 <br/>
+                 <br/>
+                 <div class="row">
+                    <div class="col-6">
+                    </div>
+                    <div class="col-4">
+                        <center>
+                        Jakarta, <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%b-%Y')"/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        Veronika Lawy<br/>
+                        <div style="border: 1px dashed;"/><br/>
+                        (VP Accounting AND Billing 3TV)
+                        </center>
+                    </div>
+                 </div>
+                 <br/>
+                 <br/>
+                 <div class="row">
+                    <div class="col-12">
+                        <pre>
+1. Mohon mencantumkan nama Perusahaan Anda dan Nomor Invoice saat transfer pembayaran.
+2. Buku Pembayaran (bukti transfer) harap di-fax ke nomor (021)5300034.
+3. Pembayaran melalui check atau giro dianggap telah lunas apabila dananya telah diterima.
+4. Apabila terdapat kesalahan dalam invoice atau faktur pajak, mohon diberitahukan kepada keuangan PT.
+   MNC Televisi Indonesia selambat-lambatnya 14 hari kerja setelah tangal dalam invoice ini, bukan
+   tanggung jawab kami apabila permohonan perbaikan invoice atau faktur pajak tidak dapat kami penuhi
+   apabila telah melewati masa 14 hari kerja setelah tanggal invoice
+                        </pre>
+                    </div>
+                 </div>
+            </div>
+        </t>
+    </template>
+</odoo>

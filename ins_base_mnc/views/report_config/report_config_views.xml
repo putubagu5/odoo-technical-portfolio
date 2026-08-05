@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record id="view_report_config_form" model="ir.ui.view">
+            <field name="name">view.report.config.form</field>
+            <field name="model">report.config</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="model" invisible="1"/>
+                                <field name="is_idr"/>
+                                <field name="report_id" required="1" domain="[('model', '=', model)]"/>
+                                <field name="attachment_report_id" domain="[('model', '=', 'purchase.order')]"
+                                    attrs="{'invisible': [('model', '!=', 'purchase.order')]}"/>
+                                <field name="company_ids" widget="many2many_tags" required="1"/>
+                            </group>
+                            <group attrs="{'invisible': [('model', '!=', 'account.payment')]}">
+                                <field name="journal_id" attrs="{'required': [('model', '=', 'account.payment')]}"/>
+                                <field name="report_type" attrs="{'required': [('model', '=', 'account.payment')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_report_config_tree" model="ir.ui.view">
+            <field name="name">view.report.config.tree</field>
+            <field name="model">report.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="model" invisible="1"/>
+                    <field name="is_idr"/>
+                    <field name="report_id"/>
+                    <field name="company_ids"/>
+                    <field name="journal_id" attrs="{'invisible': [('model', '!=', 'account.payment')]}"/>
+                    <field name="report_type" attrs="{'invisible': [('model', '!=', 'account.payment')]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- action and menu for model account.payment -->
+        <record id="action_report_config_payment" model="ir.actions.act_window">
+            <field name="name">Report Configuration</field>
+            <field name="res_model">report.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('model', '=', 'account.payment')]</field>
+            <field name="context">{'default_model': 'account.payment'}</field>
+        </record>
+
+        <menuitem
+            id="menu_report_config_payment"
+            name="Report Configuration"
+            action="action_report_config_payment"
+            parent="account.menu_finance_configuration"
+            sequence="99"/>
+
+            <!-- action and menu for model purchase.order -->
+        <record id="action_report_config_purchase" model="ir.actions.act_window">
+            <field name="name">Report Configuration</field>
+            <field name="res_model">report.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('model', '=', 'purchase.order')]</field>
+            <field name="context">{'default_model': 'purchase.order'}</field>
+        </record>
+
+        <menuitem
+            id="menu_report_config_purchase"
+            name="Report Configuration"
+            action="action_report_config_purchase"
+            parent="purchase.menu_purchase_config"
+            sequence="99"/>
+    </data>
+</odoo>

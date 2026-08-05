@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record id="view_approval_hierarchy_line_tree" model="ir.ui.view">
+            <field name="name">view.approval.hierarchy.line.tree</field>
+            <field name="model">approval.hierarchy.line</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" delete="false">
+                    <field name="department_id" required="1"/>
+                    <field name="job_id" domain="[('department_id', '=', department_id)]" required="1"/>
+                    <field name="parent_job_id" domain="[('id', '!=', job_id)]"/>
+                    <field name="employee_ids" required="0" widget="many2many_tags"/>
+                    <field name="level" required="1"/>
+                    <field name="approval_group_id"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_approval_hierarchy_line_tree_system" model="ir.ui.view">
+            <field name="name">view.approval.hierarchy.line.tree.system</field>
+            <field name="model">approval.hierarchy.line</field>
+            <field name="inherit_id" ref="view_approval_hierarchy_line_tree"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="delete">true</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

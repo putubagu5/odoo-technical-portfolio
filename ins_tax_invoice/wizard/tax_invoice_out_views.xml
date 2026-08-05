@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record id="action_wizard_tax_invoice_out" model="ir.actions.act_window">
+            <field name="name">Export Faktur Pajak Keluaran</field>
+            <field name="res_model">wizard.tax.invoice.out</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="view_wizard_tax_invoice_out_form" model="ir.ui.view">
+            <field name="name">view.wizard.tax.invoice.out.form</field>
+            <field name="model">wizard.tax.invoice.out</field>
+            <field name="arch" type="xml">
+                <form string="Export Pajak Keluaran">
+                    <p>
+                        Klik tombol Export di bawah untuk mulai export Faktur Pajak Keluaran.
+                        Data yang diexport adalah Customer Invoice yang berstatus Open dan Paid dan belum diexport ke E-Faktur.
+                    </p>
+                    <p>
+                        Setelah proses export Faktur Pajak Keluaran selesai dilakukan, file akan terunduh secara otomatis
+                    </p>
+                    <p>
+                        Lalu import ke program E-Faktur DJP melalui menu <b>Referensi - Pajak Keluaran - Import</b>
+                    </p>
+                    <group>
+                        <group>
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Export" name="button_print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_tax_invoice_out_export"
+            name="Export FP. Keluaran"
+            action="action_wizard_tax_invoice_out"
+            parent="ins_tax_invoice.menu_tax_invoice_export"
+            sequence="60"/>
+    </data>
+</odoo>

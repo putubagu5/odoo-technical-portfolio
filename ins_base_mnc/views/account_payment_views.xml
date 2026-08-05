@@ -1,0 +1,237 @@
+<odoo>
+    <data>
+        <record id="view_account_payment_tree" model="ir.ui.view">
+            <field name="name">view.account.payment.tree</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_tree"/>
+            <field name="arch" type="xml">
+                <!-- add check_no (from account_check_printing) after partner_id -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="check_no"/>
+                    <field name="draft_bank_statement" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_search" model="ir.ui.view">
+            <field name="name">view.account.payment.search</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_search"/>
+            <field name="arch" type="xml">
+                <!-- add check_no after journal_id -->
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="check_no"/>
+                </xpath>
+
+                <!-- add multi_payment_reference before name -->
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="multi_payment_reference"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_form" model="ir.ui.view">
+            <field name="name">view.account.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <!-- make name readonly -->
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{'readonly': 1}</attribute>
+                </xpath>
+
+                <!-- add date_bank_statement after ref -->
+                <xpath expr="//field[@name='ref']" position="after">
+                    <field name="date_bank_statement"/>
+                    <field name="bank_statement_name"/>
+                    <field name="remittance_flag" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="remittance_date" invisible="0" readonly="1"/>
+                    <field name="un_remittance_date" invisible="0" readonly="1"/>
+                    <field name="bank_address" invisible="0"/>
+                    <field name="swift_code" invisible="0"/>
+                    <field name="notes" invisible="0"/>
+                </xpath>
+
+                <!-- <xpath expr="//field[@name='ref']" position="attributes"> -->
+                <!--     <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute> -->
+                <!-- </xpath> -->
+				<xpath expr="//field[@name='journal_id']" position="attributes">
+                    <attribute name="widget">False</attribute>
+                </xpath>
+                <xpath expr="//field[@name='operating_unit_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+
+                <!-- add voucher_no before partner_id -->
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="voucher_no" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                </xpath>
+
+                <!-- add sites_id after partner_id -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="valid_partner_ids" invisible="1"/>
+                    <field name="sites_id" domain="[('partner_id', '=', partner_id)]" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="assignee_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='manual_currency_rate_active']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='destination_account_id']" position="replace">
+                    <field name="destination_account_id" widget="selection" groups="ins_base_mnc.group_super_admin" invisible="1"/>
+                </xpath>
+<!--                code ini dicoba ditutup, karena berakibat bank statement jadi tidak bisa update amount-->
+                <xpath expr="//field[@name='amount']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                    <attribute name="force_save">True</attribute>
+                </xpath>
+
+                <!-- change label for amount -->
+                <xpath expr="//label[@for='amount']" position="attributes">
+                    <attribute name="string">Amount Original</attribute>
+                </xpath>
+
+                <!-- add amount_move_idr before date -->
+                <xpath expr="//field[@name='date']" position="before">
+                    <label for="amount_move_idr"/>
+                    <div name="amount_move_idr_div" class="o_row">
+                        <field name="amount_move_idr"
+                            attrs="{'readonly': 1}" force_save="1"/>
+                        <field name="company_currency_id" invisible="1"/>
+                    </div>
+                </xpath>
+
+                <xpath expr="//group[@name='group3']" position="after">
+                    <group name="group4">
+                        <field name="acc_name"/>
+                        <field name="acc_number"/>
+                        <field name="acc_bank"/>
+                        <field name="date_paid"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//div[@class='oe_title']" position="replace">
+                    <div class="oe_title">
+                        <h1><field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/></h1>
+                    </div>
+                </xpath>
+
+                <xpath expr="//field[@name='date']" position="after">
+                    <!-- <field name="reconciliation_date" attrs="{'invisible': [('reconciliation_date', '=', False)]}"/> -->
+                    <field name="reconciliation_date" invisible="1"/>
+                </xpath>
+
+                <!-- add cf_activity_id, is_batch, check_no after move_id -->
+                <xpath expr="//field[@name='move_id']" position="after">
+                    <field name="cf_activity_id" required="1" domain="[('cf_type', '=', 'payment')]" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="is_check" invisible="1"/>
+                    <field name="is_batch" attrs="{'invisible': [('is_check', '=', False)]}"/>
+                    <field name="check_master_id" attrs="{'invisible': [('is_check', '=', False)], 'required': [('is_check', '=', True)]}"/>
+                    <field name="check_id" attrs="{'invisible': [('is_check', '=', False)], 'required': [('is_check', '=', True)]}"/>
+                    <field name="check_no" readonly="1" force_save="1" invisible="1"/>
+                    <!-- <label for="check_no" string="Check Number" attrs="{'invisible': [('is_check', '=', False)]}"/> -->
+                    <!-- <div class="d-flex" attrs="{'invisible': [('is_check', '=', False)]}"> -->
+                    <!--     <field name="check_no" readonly="1" force_save="1"/> -->
+                    <!--     <span class="oe_inline o_form_label mx-8 oe_read_only"> </span> -->
+                    <!--     <button name="button_check" type="object" string="Check" class="oe_highlight" -->
+                    <!--         attrs="{'invisible': ['|', ('is_batch', '=', True), ('state', 'not in', ('draft', 'confirm'))]}"/> -->
+                    <!-- </div> -->
+                </xpath>
+
+                <xpath expr="//button[@name='action_draft']" position="replace">
+                    <button name="action_draft" string="Set to Draft" type="object" groups="ins_base_mnc.group_super_admin"/>
+                </xpath>
+                <!-- <xpath expr="//button[@name='cancel_reversal_x']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|','|', ('state', '!=', 'posted'), ('is_cancel_reversal', '=', False), '|', ('reverse_date', '!=', False), ('date_bank_statement', '!=', False)]}</attribute>
+                </xpath> -->
+<!--                <xpath expr="//button[@name='action_draft']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible': [('state', '!=', 'posted')]}</attribute>-->
+<!--                </xpath>-->
+
+                <!-- hide payment_type if the value is outbound -->
+                <xpath expr="//field[@name='payment_type']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')], 'invisible': [('payment_type', '=', 'outbound')]}</attribute>
+                </xpath>
+
+                 <xpath expr="//field[@name='payment_type']" position="after">
+                    <field name="type_payment" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                </xpath>
+
+                <!-- add button_print_report_from_config before state -->
+                <xpath expr="//field[@name='state']" position="before">
+                    <button name="button_print_report_from_config" type="object" string="Print Kurs Original" context="{'type': 'idr'}" class="oe_highlight"/>
+                    <button name="button_print_report_from_config" type="object" string="Print Kurs Konversi" context="{'type': 'valas'}" class="oe_highlight"/>
+                </xpath>
+
+                <xpath expr="//button[@name='print_checks']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- add series_code after move_id -->
+                <xpath expr="//field[@name='move_id']" position="after">
+                    <field name="series_code"/>
+                </xpath>
+
+                <xpath expr="//notebook//page[@name='payment_invoice']" position="after">
+                    <page name="assigne_payment" string="Assignee" attrs="{'invisible': [('payment_type', '=', 'inbound')]}">
+                        <group string="Slip Setoran">
+                            <group>
+                                <field name="assignee1_id_slip" force_save="1"/>
+                                <field name="assignee2_id_slip" force_save="1"/>
+                            </group>
+                        </group>
+                        <group string="Check">
+                            <group>
+                                <field name="assignee1_id_check" force_save="1"/>
+                                <field name="assignee2_id_check" force_save="1"/>
+                            </group>
+                        </group>
+                        <group string="Payment Voucher">
+                            <group>
+                                <field name="check_by_id_approve" force_save="1"/>
+                                <field name="assignee1_id_approve" force_save="1"/>
+                                <field name="assignee2_id_approve" force_save="1"/>
+                                <field name="assignee3_id_approve" force_save="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_form_ins_accounting" model="ir.ui.view">
+            <field name="name">view.account.payment.form.ins.accounting</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="ins_accounting.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='amount_in_words']" position="after">
+                    <field name="document_ref" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="multi_payment_reference"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_document_reversal_view_account_payment_form" model="ir.ui.view">
+            <field name="name">account.document.reversal.view.account.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account_document_reversal.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <!-- change attrs of button cancel_reversal_x -->
+                <xpath expr="//button[@name='cancel_reversal_x']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', '|', '|', ('state', '!=', 'posted'), ('is_cancel_reversal', '=', False), ('reverse_date', '!=', False), ('date_bank_statement', '!=', False)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+<!--        <act_window name="Action Remittedd"-->
+<!--            id="action_view_remit"-->
+<!--            res_model="multiple.remitted"-->
+<!--            binding_model="account.payment"-->
+<!--            binding_views="list"-->
+<!--            view_mode="form"-->
+<!--            target="new"-->
+<!--        />-->
+
+    </data>
+</odoo>

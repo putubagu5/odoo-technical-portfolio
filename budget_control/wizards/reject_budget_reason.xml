@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="reject_budget_reason_form_view" model="ir.ui.view">
+            <field name="name">reject.budget.reason.form.view</field>
+            <field name="model">reject.budget.reason</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_id" readonly="1" force_save="1"/>
+                                <field name="budget_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="date_reject" readonly="1" force_save="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="reason"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="submit" string="Submit" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

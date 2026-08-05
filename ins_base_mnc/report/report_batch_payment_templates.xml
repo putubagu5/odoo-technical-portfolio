@@ -1,0 +1,115 @@
+<odoo>
+    <data>
+        <template id="report_batch_payment_container">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="ins_base_mnc.report_batch_payment_document"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_batch_payment_document">
+            <t t-call="web.basic_layout">
+                <div class="page" style="font-size: 12px !important;">
+                    <t t-set="company" t-value="o.journal_id.company_id"/>
+                    <!-- logo -->
+                    <div class="row">
+                        <div class="col-12">
+                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" class="float-left" alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+                        </div>
+                    </div>
+
+                    <!-- header, no and recipient -->
+                    <div class="row">
+                        <div class="col-9">
+                            <br/>
+                            No Ref : <t t-esc="o.name"/><br/>
+                            Kepada Yth,<br/>
+                            Pemimpin PT MNC Bank Internasional, Tbk<br/>
+                            Kantor Cabang Meruya Indah Jakarta Barat<br/>
+                            UP: <strong>Ibu Sadiah A. Sussy</strong><br/>
+                        </div>
+                        <div class="col-3">
+                            Jakarta, <t t-esc="o.date.strftime('%d %b %y')"/>
+                        </div>
+                    </div>
+
+                    <!-- text -->
+                    <div class="row">
+                        <div class="col-12">
+                            Dengan hormat,<br/>
+                            Mohon didebet rekening kami nomor <strong><t t-esc="company.partner_id.bank_ids[:1].acc_number"/></strong> atas nama <strong><t t-esc="company.name"/></strong> sejumlah <strong>Rp. <t t-esc="'{:,.0f}'.format(abs(o.amount))"/></strong><br/>
+                            <strong>#<t t-esc="o.amount_text"/>#</strong><br/>
+                            Untuk dikreditkan ke rekening nasabah kami dan untuk biaya mohon didebet dari rekening tersebut di atas.<br/>
+                            <t t-if="o.check_no">
+                                <strong>No Cheque / No Giro : <t t-esc="o.check_no"/></strong>
+                            </t>
+                        </div>
+                    </div>
+
+                    <!-- table -->
+                    <div class="row">
+                        <div class="col-12">
+                            <t t-set="total" t-value="0"/>
+                            <table class="table table-sm table-bordered">
+                                <tr>
+                                    <td class="text-center">No</td>
+                                    <td class="text-center">Nama Pemilik Rekening</td>
+                                    <td class="text-center">Bank</td>
+                                    <td class="text-center">No Rekening</td>
+                                    <td class="text-right">Jumlah</td>
+                                </tr>
+                                <tr t-foreach="o.payment_ids" t-as="line">
+                                    <td class="text-center"><t t-raw="line_index + 1"/></td>
+                                    <td><t t-esc="line.partner_id.name"/></td>
+                                    <td><t t-esc="line.site_id.bank_id.name if line.site_id else ''"/></td>
+                                    <td><t t-esc="line.site_id.account_no if line.site_id else ''"/></td>
+                                    <td class="text-right"><t t-esc="'{:,.0f}'.format(line.amount)"/></td>
+                                    <t t-set="total" t-value="total + line.amount"/>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><strong>Total</strong></td>
+                                    <td class="text-right"><t t-esc="'{:,.0f}'.format(total)"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ending text -->
+                    <div class="row">
+                        <div class="col-12">
+                            Demikian kami sampaikan, atas perhatian dan kerjasamanya kami ucapkan terima kasih.
+                        </div>
+                    </div>
+
+                    <!-- signature -->
+                    <div class="row">
+                        <!-- TODO FIXME -->
+                        <div class="col-5 offset-7">
+                            <div class="row text-center">
+                                Hormat Kami,<br/>
+                                <t t-esc="company.name"/>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-4 text-center">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <strong>Finance</strong>
+                                </div>
+                                <div class="col-8 text-center">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <strong>GM. Finance &amp; Accounting</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

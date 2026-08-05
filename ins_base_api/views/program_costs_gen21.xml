@@ -1,0 +1,215 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="program_costs_gen21_form_view">
+            <field name="name">program.costs.gen21.form.view</field>
+            <field name="model">program.costs.gen21</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false">
+                     <header>
+                        <field name="is_change" invisible="1"/>
+                        <button string="Post" class="oe_highlight"
+                                name="button_post" type="object" attrs="{'invisible': ['|', ('is_change', '=', True), ('state', '!=', 'wait')]}"/>
+                        <button string="Post Change" class="oe_highlight"
+                                name="button_change_post" type="object" attrs="{'invisible': ['|', ('is_change', '=', False), ('state', '!=', 'wait')]}"/>
+                        <button string="Cancel" states="wait" class="oe_highlight"
+                                name="button_cancel" type="object"/>
+                        <button string="Cancel Change Cost" states="posted" class="oe_highlight"
+                                name="button_change_cancel" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,wait,posted"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name" style="font-weight:bold;"/>
+                            <h1><field name="name"/></h1>
+                            <label for="company_id" string="Company" style="font-weight:bold;"/>
+                            <h4><field name="company_id"/></h4>
+                            <label for="total_amount" string="Total Amount" style="font-weight:bold;"/>
+                            <h4><field name="total_amount"/></h4>
+                            <label for="total_line" string="Total Line" style="font-weight:bold;"/>
+                            <h4><field name="total_line"/></h4>
+                            <label for="header_attribute1" string="PO/Contract Numbe" style="font-weight:bold;"/>
+                            <h4><field name="header_attribute1"/></h4>
+                            <label for="header_attribute2" string="Approval Hierarchy" style="font-weight:bold;"/>
+                            <h4><field name="header_attribute2"/></h4>
+                            <label for="header_attribute3" string="Name Program" style="font-weight:bold;"/>
+                            <h4><field name="header_attribute3"/></h4>
+                            <label for="header_attribute4" string="Episode No" style="font-weight:bold;"/>
+                            <h4><field name="header_attribute4"/></h4>
+                            <label for="header_attribute5" string="Name Title Episode" style="font-weight:bold;"/>
+                            <h4><field name="header_attribute5"/></h4>
+                        </div>
+                        <notebook>
+                            <page string="Program Costs Lines">
+                                <field name="line_ids">
+                                    <tree string="Program Costs Lines">
+                                        <field name="header_attribute1"/>
+                                        <field name="gl_date"/>
+                                        <field name="header_attribute3"/>
+                                        <field name="header_attribute4"/>
+                                        <field name="header_attribute5"/>
+                                        <field name="unit_price_decimal" widget="monetary"/>
+                                    </tree>
+                                    <form string="Program Costs Lines">
+                                        <div class="oe_title">
+                                            <label for="item_description" string="Item description" style="font-weight:bold;"/>
+                                            <h1><field name="item_description"/></h1>
+                                            <label for="item_segment1" string="Item Segment1" style="font-weight:bold;"/>
+                                            <h1><field name="item_segment1"/></h1>
+                                            <label for="gl_date" string="Tanggal Kirim Dari Interface" style="font-weight:bold;"/>
+                                            <h4><field name="gl_date"/></h4>
+                                        </div>
+                                        <group>
+                                            <group>
+                                                <field name="transaction_id"/>
+                                                <field name="uniqkey"/>
+                                                <field name="interface_source_code"/>
+                                                <field name="source_type_code"/>
+                                                <field name="requisition_type"/>
+                                                <field name="destination_type_code"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <group>
+                                                <field name="quantity"/>
+                                                <field name="uom_code"/>
+                                                <field name="unit_price"/>
+                                                <field name="currency_unit_price"/>
+                                                <field name="authorization_status"/>
+                                                <field name="group_code"/>
+                                            </group>
+                                        </group>
+
+                                        <grouo>
+                                            <group>
+                                                <field name="header_attribute_category"/>
+                                                <field name="header_attribute1"/>
+                                                <field name="header_attribute2"/>
+                                                <field name="header_attribute3"/>
+                                                <field name="header_attribute4"/>
+                                                <field name="header_attribute5"/>
+                                                <field name="header_attribute6"/>
+                                            </group>
+                                        </grouo>
+
+                                        <group>
+                                            <group>
+                                                <field name="deliver_to_location_id"/>
+                                                <field name="destination_organization_code"/>
+                                                <field name="destination_subinventory"/>
+                                                <field name="need_by_date"/>
+                                            </group>
+                                        </group>
+
+
+                                        <group>
+                                            <group>
+                                                <field name="org_id"/>
+                                                <field name="deliver_to_requestor_id"/>
+                                                <field name="preparer_id"/>
+                                                <field name="suggested_buyer_id"/>
+                                                <field name="suggested_vendor_id"/>
+                                                <field name="suggested_vendor_name"/>
+                                            </group>
+                                        </group>
+
+                                        <group>
+                                            <group>
+                                                <field name="charge_account_id"/>
+                                                <field name="variance_account_id"/>
+                                                <field name="budget_account_id"/>
+                                                <field name="currency_code"/>
+                                                <field name="rate"/>
+                                                <field name="rate_type"/>
+                                                <field name="currency_rate_price"/>
+                                            </group>
+                                        </group>
+
+                                        <group>
+                                            <group>
+                                                <field name="charge_account_segment1"/>
+                                                <field name="charge_account_segment2"/>
+                                                <field name="charge_account_segment3"/>
+                                                <field name="charge_account_segment4"/>
+                                                <field name="charge_account_segment5"/>
+                                                <field name="charge_account_segment6"/>
+                                            </group>
+                                        </group>
+
+                                        <group>
+                                            <group>
+                                                <field name="last_update_date"/>
+                                                <field name="last_updated_by"/>
+                                                <field name="rate_date"/>
+                                                <field name="line_attribute15"/>
+                                                <field name="line_attribute_category"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="requests" string="Related Purchase Requests">
+                                <field name="purchase_request_ids" nolabel="1">
+                                    <tree edit="false" create="false" delete="false">
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="program_costs_gen21_tree_view">
+            <field name="name">program.costs.gen21.tree.view</field>
+            <field name="model">program.costs.gen21</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="name"/>
+                    <field name="header_attribute1"/>
+                    <field name="header_attribute2"/>
+                    <field name="header_attribute3"/>
+                    <field name="header_attribute4"/>
+                    <field name="header_attribute5"/>
+                    <field name="purchase_request_numbers"/>
+                    <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'wait'" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.server" id="action_bundle_post_gen21">
+            <field name="name">Post Bundle</field>
+            <field name="model_id" ref="ins_base_api.model_program_costs_gen21"/>
+            <field name="binding_model_id" ref="ins_base_api.model_program_costs_gen21"/>
+            <field name="state">code</field>
+            <field name="code">
+            action = records.button_bundle_post()
+            </field>
+        </record>
+
+        <record id="action_add_to_pr" model="ir.actions.server">
+            <field name="name">Add to PR</field>
+            <field name="model_id" ref="ins_base_api.model_program_costs_gen21"/>
+            <field name="binding_model_id" ref="ins_base_api.model_program_costs_gen21"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = records.action_add_to_pr_show()
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="program_costs_gen21_action">
+            <field name="name">Program Costs</field>
+            <field name="res_model">program.costs.gen21</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem
+            id="menu_program_costs_gen21_act"
+            sequence="1"
+            parent="menu_program_costs_gen21"
+            action="program_costs_gen21_action"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <record id="view_res_city_form" model="ir.ui.view">
+            <field name="name">view.res.city.form</field>
+            <field name="model">res.city</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                            <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" context="{'default_country_id': country_id}"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_res_city_tree" model="ir.ui.view">
+            <field name="name">view.res.city.tree</field>
+            <field name="model">res.city</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="state_id"/>
+                    <field name="country_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_city_form" model="ir.actions.act_window">
+            <field name="name">Kota/Kab</field>
+            <field name="res_model">res.city</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_tax_invoice_data"
+            name="Data E-Faktur"
+            parent="account_accountant.menu_accounting"/>
+
+        <menuitem
+            id="menu_tax_invoice_setup"
+            name="Setup"
+            parent="menu_tax_invoice_data"/>
+
+        <menuitem
+            id="menu_city"
+            action="action_res_city_form"
+            parent="menu_tax_invoice_setup"
+            sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="search_cb_line_wizard_form_view" model="ir.ui.view">
+            <field name="name">search.cb.line.wizard.form.view</field>
+            <field name="model">search.crossovered.budget.lines</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="analytic_account_ids" required="1" widget="many2many_tags"/>
+                                <field name="crossovered_budget_id" invisible="True"/>
+                            </group>
+                            <group>
+                                <field name="general_budget_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Result">
+                                <field name="crossovered_budget_line_ids" readonly="1" nolabel="1">
+                                    <tree string="Budget Lines" decoration-success="is_above_budget and planned_amount &gt; 0" decoration-danger="is_above_budget and planned_amount &lt; 0" edit="0" create="0" delete="0">
+                                        <field name="general_budget_id"/>
+                                        <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                                        <field name="date_from"/>
+                                        <field name="date_to"/>
+                                        <field name="paid_date" groups="base.group_no_one"/>
+                                        <field name="planned_amount" sum="Budget"/>
+                                        <field name="pr_reserve_amount" sum="PR Reserve"/>
+<!--                                        <button type="object" name="action_open_pr_res_entries" string="PR Entries"-->
+<!--                                                icon="fa-arrow-circle-o-right"/>-->
+                                        <field name="po_reserve_amount" sum="PO Reserve"/>
+<!--                                        <button type="object" name="action_open_po_res_entries" string="PO Entries"-->
+<!--                                                icon="fa-arrow-circle-o-right"/>-->
+                                        <field name="practical_amount" sum="Actual"/>
+                                        <field name="remaining_amount" sum="Remaining Amount"/>
+<!--                                        <button type="object" name="action_open_budget_entries" string="Entries..."-->
+<!--                                                icon="fa-arrow-circle-o-right"/>-->
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="is_above_budget" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+<!--                        <button name="submit" string="Submit" type="object" class="oe_highlight"/>-->
+                        <button special="cancel" string="Close" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

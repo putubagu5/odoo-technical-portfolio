@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_approval_group_all,approval_group all,ins_purchase_approval.model_approval_group,,1,1,1,1
+access_approval_delegation_all,approval_delegation all,ins_purchase_approval.model_approval_delegation,,1,0,0,0
+access_approval_delegation_purchase_order_manager,approval_delegation purchase_order_manager,ins_purchase_approval.model_approval_delegation,purchase.group_purchase_manager,1,1,1,0
+access_approval_delegation_purchase_order_admin,approval_delegation admin,ins_purchase_approval.model_approval_delegation,base.group_no_one,1,1,1,1
+access_approval_hierarchy_all,approval_hierarchy all,ins_purchase_approval.model_approval_hierarchy,,1,1,1,1
+access_approval_hierarchy_line_all,approval_hierarchy_line all,ins_purchase_approval.model_approval_hierarchy_line,,1,1,1,1
+access_purchase_order_approval_all,purchase_order_approval all,ins_purchase_approval.model_purchase_order_approval,,1,1,1,1
+access_purchase_order_message_all,purchase_order_message all,ins_purchase_approval.model_purchase_order_message,,1,1,1,1
+access_hr_position_all,hr_position all,ins_purchase_approval.model_hr_position,,1,1,1,1
+access_purchase_order_cache_all,purchase_order_cache all,ins_purchase_approval.model_purchase_order_cache,,1,1,1,1

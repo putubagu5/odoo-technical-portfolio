@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="view_account_analytic_account_form" model="ir.ui.view">
+            <field name="name">view.account.analytic.account.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <!-- add is_default after code -->
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="is_default"/>
+                    <field name="is_none_budget"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

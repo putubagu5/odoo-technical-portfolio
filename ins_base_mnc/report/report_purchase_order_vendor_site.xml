@@ -1,0 +1,501 @@
+<odoo>
+    <template id="ins_base_mnc_report_purchase_order_vendor_site_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_report_purchase_order_vendor_site_document"/>
+                <t t-if="o._get_custom_report_attachment()">
+                    <t t-call="o._get_custom_report_attachment()"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc_report_purchase_order_vendor_site_document">
+        <t t-call="web.basic_layout">
+            <!-- <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/> -->
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <!-- <t t-set="address">
+                <div t-field="o.partner_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/></p>
+            </t>
+            <t t-if="o.dest_address_id">
+                <t t-set="information_block">
+                    <strong>Shipping address:</strong>
+                    <div t-if="o.dest_address_id">
+                        <div t-field="o.dest_address_id"
+                            t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}' name="purchase_shipping_address"/>
+                    </div>
+
+                </t>
+            </t> -->
+                <!-- logo -->
+            <div class="header" style="font-size:12px;">
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <span t-esc="company.name"/>
+                    </div>
+                    <div class="col-6 text-right">
+                        <small>
+                            <span>Page</span>
+                            <span class="page" />
+                            of
+                            <span class="topage" />
+                        </small>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td width="33%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+                                    <img src='/web/binary/company_logo' alt="Logo" style="max-height: 100px; max-width: 120px;"/>
+                                </td>
+                                <td width="34%" align="center" style="border: 1px solid black; padding: 7px; vertical-align: middle;">
+                                    <h5><strong>PURCHASE ORDER</strong></h5>
+                                </td>
+                                <td width="33%" align="center" style="padding: 7px; vertical-align: middle; border: 1px solid black">
+                                    <img src='/ins_base_mnc/static/src/img/mnc01.jpg' style="max-height: 100px; max-width: 120px;"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="font-weight: bold; border: 1px solid black;">
+                            <tr>
+                                <td width="100%">
+                                    &#160;&#160;<span t-esc="company.name"/><br/>
+                                    &#160;&#160;<span t-esc="company.street"/>,&#160;<span t-esc="company.city"/><br/>
+                                    &#160;&#160;<span t-esc="company.state_id.name"/>&#160;<span t-esc="company.zip"/>,&#160;<span t-esc="company.country_id.name"/><br/>
+                                    &#160;&#160;Tax number: <span t-esc="company.vat"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="font-weight: bold; border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
+                            <tr>
+                                <td width="10%" style="padding: 2px;">
+                                    Vendor Name
+                                </td>
+                                <td width="1%" style="padding: 2px;">
+                                    :
+                                </td>
+                                <td width="39%" style="padding: 2px; border-right: 1px solid black;">
+                                    <span t-field="o.sudo().partner_id.alias_name"/>
+                                </td>
+                                <td width="10%" style="padding: 2px;">
+                                    PO Date
+                                </td>
+                                <td width="1%" style="padding: 2px;">
+                                    :
+                                </td>
+                                <td width="14%" style="padding: 2px;">
+                                    <t t-esc="o.date_order.strftime('%d-%b-%y') if o.date_order else ''"/>
+                                </td>
+                                <td width="25%" style="padding: 2px;">
+                                    Delivery Address:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 2px;">
+                                    Address
+                                </td>
+                                <td style="padding: 2px;">
+                                    :
+                                </td>
+                                <td style="padding: 2px; border-right: 1px solid black;">
+                                    <span t-field="o.site_id.address"/>
+                                </td>
+                                <td style="padding: 2px;">
+                                    PO No<br/>
+                                    Revision<br/>
+                                    Currency
+                                </td>
+                                <td style="padding: 2px;">
+                                    :<br/>
+                                    :<br/>
+                                    :
+                                </td>
+                                <td style="padding: 2px;">
+                                    <span t-field="o.name"/><br/>
+                                    <span t-field="o.revision"/><br/>
+                                    <span t-field="o.currency_id.name"/>
+                                </td>
+                                <td style="padding: 2px;">
+                                    <span t-esc="company.name"/><br/>
+                                    <span t-field="o.delivery_address_1"/><br/>
+                                    <span t-field="o.delivery_address_2"/><br/>
+                                    <span t-field="o.delivery_address_3"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 2px;">
+                                    NPWP No.
+                                </td>
+                                <td style="padding: 2px;">
+                                    :
+                                </td>
+                                <td style="padding: 2px; border-right: 1px solid black;">
+                                    <span t-field="o.sudo().partner_id.npwp"/>
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 2px;">
+                                    Telephone
+                                </td>
+                                <td style="padding: 2px;">
+                                    :
+                                </td>
+                                <td style="padding: 2px; border-right: 1px solid black;">
+                                    <span t-field="o.sudo().partner_id.phone"/>
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 2px;">
+                                    Fax
+                                </td>
+                                <td style="padding: 2px;">
+                                    :
+                                </td>
+                                <td style="padding: 2px; border-right: 1px solid black;">
+                                    <span t-field="o.sudo().partner_id.phone"/>
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="padding: 2px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 2px;">
+                                    Email
+                                </td>
+                                <td style="padding: 2px;">
+                                    :
+                                </td>
+                                <td style="padding: 2px; border-right: 1px solid black;">
+                                    <span t-field="o.sudo().partner_id.email"/>
+                                </td>
+                                <td colspan="3" style="border: 1px solid black; padding: 2px;">
+                                    &#160;
+                                </td>
+                                <td style="border: 1px solid black; padding: 2px;">
+                                    Requestor : <span t-field="o.requestor_comp"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row first-page">
+                    <div class="col-12">
+                        <table width="100%" style="border-top: 1px solid black;">
+                            <tr>
+                                <td width="100%">
+                                    <strong>Purchase Order Description:</strong> <span t-field="o.po_description"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <t t-if="o.state in ('draft', 'sent', 'to approve')">
+                <div style="position:absolute; opacity:0.25; z-index:1000; width:100%; top: 250px; vertical-align:middle; text-align: center; -webkit-transform: rotate(-45deg);">
+                    <p style="font-size:100px">DRAFT/PREVIEW</p>
+                </div>
+            </t>
+
+            <div class="page" style="font-size:12px">
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                        <t t-set="num" t-value="1"/>
+                            <tr style="background-color: #d0c8c8;">
+                                <td width="5%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>No</strong>
+                                </td>
+                                <td width="55%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Item Description</strong>
+                                </td>
+                                <td width="5%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Qty</strong>
+                                </td>
+                                <td width="5%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>UOM</strong>
+                                </td>
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Unit Price</strong>
+                                </td>
+                                <td width="15%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Total Price</strong>
+                                </td>
+                            </tr>
+                            <tr t-foreach="o.order_line" t-as="line">
+                                <td width="5%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <span t-esc="num"/>
+                                    <t t-set="num" t-value="num+1"/>
+                                </td>
+                                <td width="55%" style="border: 1px solid black; padding: 5px;">
+                                    <!-- <t t-set="desc" t-value="line.name.split(']') if line.name else ''"/>
+                                    <t t-esc="desc[1] if desc[1] else line.name"/> -->
+                                    <span t-field="line.name"/>
+                                </td>
+                                <td width="5%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <span t-esc="'{:,.0f}'.format(int(line.product_qty))"/>
+                                </td>
+                                <td width="5%" align="center" style="border: 1px solid black; padding: 5px;">
+                                    <span t-field="line.product_uom.name"/>
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.price_subtotal" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.price_unit" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="line.price_subtotal" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    &#160;
+                                </td>
+                                <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Subtotal</strong>
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="o.amount_untaxed" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="o.amount_untaxed" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    &#160;
+                                </td>
+                                <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Discount</strong>
+                                </td>
+                                <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    &#160;
+                                </td>
+                                <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                    <strong>VAT</strong>
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="o.amount_tax" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="o.amount_tax" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    &#160;
+                                </td>
+                                <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                    <strong>Grand Total</strong>
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="o.amount_total" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td width="15%" align="right" style="border: 1px solid black; padding: 5px;">
+                                        <t t-esc="o.amount_total" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <!-- Custom signature -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
+                            <tr style="border-bottom: 1px solid black;">
+                                <td width="13%" style="border-right: 1px solid black;">
+                                    <strong>&#160;&#160;Amount :</strong>
+                                </td>
+                                <td width="87%">
+                                    <strong>&#160;&#160;{<span t-field="o.amount_in_words_2"/>}</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%">
+                                    <strong>&#160;&#160;Notes :</strong>
+                                </td>
+                                <td width="87%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="14%">
+                                                <strong>&#160;&#8226;&#160;Terms of payment</strong>
+                                            </td>
+                                            <td width="1%">
+                                                <strong>:</strong>
+                                            </td>
+                                            <td width="85%">
+                                                <strong><span t-field="o.payment_term_id.name"/><br/>
+                                                <p t-field="o.term_of_payment"/></strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="14%">
+                                                <strong>&#160;&#8226;&#160;Supplier note</strong>
+                                            </td>
+                                            <td width="1%">
+                                                <strong>:</strong>
+                                            </td>
+                                            <td width="85%">
+                                                <strong><p t-field="o.notes"/></strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="14%">
+                                                <strong>&#160;&#8226;&#160;Delivery term</strong>
+                                            </td>
+                                            <td width="1%">
+                                                <strong>:</strong>
+                                            </td>
+                                            <td width="85%">
+                                                <strong><span t-field="o.delivery_term"/></strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="14%">
+                                                <strong>&#160;&#8226;&#160;PR number</strong>
+                                            </td>
+                                            <td width="1%">
+                                                <strong>:</strong>
+                                            </td>
+                                            <td width="85%">
+                                                <strong><span t-field="o.origin"/></strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr>
+                                <td width="13%" style="border-right: 1px solid black; padding: 5px;">
+                                    Invoice Address:
+                                </td>
+                                <td width="87%" style="padding: 5px;">
+                                    <span t-esc="company.street"/>,&#160;<span t-esc="company.city"/>,&#160;
+                                    <span t-esc="company.state_id.name"/>,&#160;<span t-esc="company.zip"/>,&#160;<span t-esc="company.country_id.name"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <!-- Custom signature -->
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <span t-field="o.sudo().partner_id.alias_name"/>
+                        <br/><br/><br/><br/><br/>
+                        (------------------------)<br/>
+                    </div>
+                    <div class="col-6 text-center">
+                        <t t-if="o.buyer_id.name == 'Purchasing'">
+                            <span t-field="res_company.name"/>
+                            <br/><br/><br/><br/><br/>
+                            (<span t-field="o.assignee_id.name"/>)<br/>
+                        </t>
+                    </div>
+                </div>
+                <br/>
+            </div>
+
+            <div class="footer">
+                <p style="font-size: 7pt !important;">
+                    Notes:<br/>
+                    1. Pajak-pajak yang timbul menjadi tanggung jawab masing-masing pihak sesuai dengan ketentuan perpajakan yang berlaku di Indonesia.<br/>
+                    2. PO ini mengacu kepada ketentuan dan persyaratan umum PO sebagaimana tercantum secara rinci di halaman belakang PO ini<br/>
+                    3. Dengan menandatangani PO ini, vendor dianggap telah menerima dan menyetujui sepenuhnya ketentuan dalam PO termasuk Ketentuan dan Persyaratan umum<br/>
+                    4. Jika dalam waktu maksimal 5 hari kerja vendor tidak menandatangani PO ini, maka dianggap telah menerima dan menyetujui sepenuhnya ketentuan dalam PO termasuk ketentuan dan persyaratan umum<br/>
+                    5. Setelah semua dokumen penagihan (tagihan, e-faktur, salinan PO, Berita Acara Serah Terima, Kontrak bila ada) diterima dengan lengkap dan benar oleh MNC media Group.
+                </p>
+            </div>
+        </t>
+    </template>
+</odoo>

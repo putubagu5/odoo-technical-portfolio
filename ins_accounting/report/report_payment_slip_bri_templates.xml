@@ -1,0 +1,57 @@
+<odoo>
+    <template id="report_payment_slip_bri_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_accounting.report_payment_slip_bri_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_accounting.report_payment_slip_bri_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px; font-family: Arial;">
+                <!-- section 1 -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td width="13%" height="218px"/>
+                                <td width="87%" style="vertical-align: bottom">
+                                    <span t-field="o.partner_bank_to"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%" height="22px"/>
+                                <td width="87%" style="vertical-align: bottom">
+                                    <span t-field="o.acc_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%" height="21px"/>
+                                <td width="87%" style="vertical-align: bottom">
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <span t-field="o.amount"
+                                              t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.amount"
+                                              t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="13%" height="20px"/>
+                                <td width="87%" style="vertical-align: bottom">
+                                    <span t-field="o.partner_id.phone"/>
+<!--                                    <br/>-->
+<!--                                    <span t-field="o.assignee1_id_slip.name"/>-->
+<!--                                    <span t-field="o.assignee2_id_slip.name"/>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

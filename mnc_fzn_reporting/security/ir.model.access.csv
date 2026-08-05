@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wizard_purchase_order_list,Purchase Order List Wizard Access,model_wizard_purchase_order,,1,1,1,1
+access_wizard_asset_clearing,Outstanding Asset Clearing Wizard Access,model_wizard_asset_clearing,,1,1,1,1
+access_wizard_mnc_subledger_report,wizard.mnc.sub.ledger.report,mnc_fzn_reporting.model_wizard_mnc_subledger_report,,1,1,1,1
+access_wizard_trial_balance_report,wizard.trial.balance.report,mnc_fzn_reporting.model_wizard_trial_balance_report,,1,1,1,1

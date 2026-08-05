@@ -1,0 +1,61 @@
+<odoo>
+
+    <record id="wizard_purchase_requisition_list_view_form" model="ir.ui.view">
+        <field name="name">wizard.purchase.requisition.view.form</field>
+        <field name="model">wizard.purchase.requisition</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                            <label for="date_start" string="Dates"/>
+                            <div class="o_row">
+                                <field name="date_start" placeholder="Start Date"/>
+                                <span class="oe_inline">&#160;-&#160;</span>
+                                <field name="date_end" placeholder="End Date"/>
+                            </div>
+                            <label for="get_all_requestor" string="Requestor"/>
+                                <div>
+                                    <span class="oe_inline">All&#160;</span>
+                                    <field name="get_all_requestor" class="oe_inline"/>
+                                    <field name="users_ids" placeholder="Select Requestor"
+                                           attrs="{'invisible': [('get_all_requestor','!=', False)]}"
+                                           options="{'no_create': True, 'no_open': True}" widget="many2many_tags"
+                                           domain="['|',('company_id','=', company_id),('company_id','=', False)]"/>
+                                </div>
+                            <label for="get_all_account" string="Cost Center"/>
+                                <div>
+                                    <span class="oe_inline">All&#160;</span>
+                                    <field name="get_all_account" class="oe_inline"/>
+                                    <field name="analytic_account_ids" placeholder="Select Cost Center"
+                                           attrs="{'invisible': [('get_all_account','!=', False)]}"
+                                           options="{'no_create': True, 'no_open': True}" widget="many2many_tags"
+                                           domain="['|',('company_id','=', company_id),('company_id','=', False)]"/>
+                                </div>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Generate XLSX Report" name="generate" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_purchase_requisition_list_action" model="ir.actions.act_window">
+        <field name="name">Purchase Requisition Report XLSX</field>
+        <field name="res_model">wizard.purchase.requisition</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="wizard_purchase_requisition_list_menu"
+            name="Purchase Requisition List"
+            action="wizard_purchase_requisition_list_action"
+            parent="mnc_menu_report.report_pr_po"/>
+
+</odoo>

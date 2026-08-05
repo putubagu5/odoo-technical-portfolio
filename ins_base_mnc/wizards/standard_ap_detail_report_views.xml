@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="view_standard_ap_detail_report_form" model="ir.ui.view">
+            <field name="name">view.standard.ap.detail.report.form</field>
+            <field name="model">wizard.standard.ap.detail.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_standard_ap_detail_report" model="ir.actions.act_window">
+            <field name="name">Standard AP Detail Report</field>
+            <field name="res_model">wizard.standard.ap.detail.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            id="menu_wizard_standard_ap_detail_report"
+            name="Standard AP Detail Report"
+            action="action_wizard_standard_ap_detail_report"
+            parent="account.menu_finance_payables"
+            sequence="201"/>
+    </data>
+</odoo>

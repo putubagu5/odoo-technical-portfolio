@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <!-- SECTION 01 -->
+        <!-- Asset Cost Progress (CIP) -->
+        <record id="asset_cost_progress_company_rule" model="ir.rule">
+            <field name="name">Asset Cost Progress Company Rule</field>
+            <field name="model_id" ref="ins_asset.model_asset_cost_progress"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <!-- SECTION 02 -->
+        <!-- Asset Assignment -->
+        <record id="asset_assignment_company_rule" model="ir.rule">
+            <field name="name">Asset Assignment Company Rule</field>
+            <field name="model_id" ref="ins_asset.model_asset_assignment"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <!-- SECTION 03 -->
+        <!-- Asset Progress (CIP Capitalization) -->
+        <record id="asset_progress_company_rule" model="ir.rule">
+            <field name="name">Asset Progress Company Rule</field>
+            <field name="model_id" ref="ins_asset.model_asset_progress"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <!-- SECTION 04 -->
+        <!-- Asset Outstanding Report -->
+        <record id="asset_outstanding_report_company_rule" model="ir.rule">
+            <field name="name">Asset Outstanding Report Company Rule</field>
+            <field name="model_id" ref="ins_asset.model_asset_outstanding_report"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <!-- SECTION 05 -->
+        <!-- Asset Segment -->
+        <record id="asset_segment_company_rule" model="ir.rule">
+            <field name="name">Asset Segment Company Rule</field>
+            <field name="model_id" ref="ins_asset.model_asset_segment"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <!-- SECTION 06 -->
+        <!-- Asset Period -->
+        <record id="asset_period_company_rule" model="ir.rule">
+            <field name="name">Asset Period Company Rule</field>
+            <field name="model_id" ref="ins_asset.model_asset_period"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

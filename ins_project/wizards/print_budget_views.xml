@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="view_wizard_print_budget_form" model="ir.ui.view">
+            <field name="name">view.wizard.print.budget.form</field>
+            <field name="model">wizard.print.budget</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date" required="1"/>
+                                <field name="note" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="button_print" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- <record id="action_wizard_print_budget" model="ir.actions.act_window">
+            <field name="name">Print Budget</field>
+            <field name="res_model">wizard.print.budget</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="ins_project.model_pmis_budget"/>
+            <field name="binding_view_types">list</field>
+        </record> -->
+    </data>
+</odoo>

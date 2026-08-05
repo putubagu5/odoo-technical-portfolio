@@ -1,0 +1,95 @@
+<odoo>
+    <data noupdate="1">
+        <record id="paperformat_payment_invoice_misc" model="report.paperformat">
+            <field name="name">Payment Invoice A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="paperformat_payment_slip_misc" model="report.paperformat">
+            <field name="name">Payment Slip Misc</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">194</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_payment_check_misc" model="report.paperformat">
+            <field name="name">Payment Check Misc</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">178</field>
+            <field name="page_width">70</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="report_payment_invoice_misc" model="ir.actions.report">
+            <field name="name">Payment Voucher</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_miscellaneous.report_payment_invoice_misc_container</field>
+            <field name="report_file">ins_miscellaneous.report_payment_invoice_misc_container</field>
+            <field name="paperformat_id" ref="ins_miscellaneous.paperformat_payment_invoice_misc"/>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_misc" model="ir.actions.report">
+            <field name="name">Payment Slip</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_miscellaneous.report_payment_slip_misc_container</field>
+            <field name="report_file">ins_miscellaneous.report_payment_slip_misc_container</field>
+            <field name="paperformat_id" ref="ins_miscellaneous.paperformat_payment_slip_misc"/>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_misc" model="ir.actions.report">
+            <field name="name">Cheque</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_miscellaneous.report_payment_check_misc_container</field>
+            <field name="report_file">ins_miscellaneous.report_payment_check_misc_container</field>
+            <field name="paperformat_id" ref="ins_miscellaneous.paperformat_payment_check_misc"/>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_giro_misc" model="ir.actions.report">
+            <field name="name">Bilyet Giro</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_miscellaneous.report_giro_misc_container</field>
+            <field name="report_file">ins_miscellaneous.report_giro_misc_container</field>
+            <field name="paperformat_id" ref="ins_miscellaneous.paperformat_payment_check_misc"/>
+            <field name="binding_model_id" ref="ins_miscellaneous.model_miscellaneous_miscellaneous"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

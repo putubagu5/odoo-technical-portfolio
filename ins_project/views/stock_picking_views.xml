@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="inherit_stock_picking_pmis_form" model="ir.ui.view">
+            <field name="name">inherit.stock.picking.pmis.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='move_ids_without_package']//form//group" position="after">
+                    <notebook>
+                        <page name="project_details" string="Project Details">
+                            <field name="project_ids" string="Project Details" readonly="1">
+                                <tree editable="bottom">
+                                    <field name="program_id"/>
+                                    <field name="task_id"/>
+                                    <field name="subtask_id"/>
+                                    <field name="expenditure_type_id"/>
+                                    <field name="percentage"/>
+                                    <field name="qty"/>
+                                    <field name="amount"/>
+                                    <field name="move_line_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

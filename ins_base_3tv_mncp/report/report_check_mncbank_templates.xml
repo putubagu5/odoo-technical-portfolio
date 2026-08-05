@@ -1,0 +1,65 @@
+<odoo>
+    <template id="report_payment_check_mncbank_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_3tv_mncp.report_payment_check_mncbank_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_payment_check_mncbank_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 13px !important;">
+                <!-- cheque contents -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr style="text-left">
+                                <td width="63%"></td>
+                                <td width="37%" height="42" style="vertical-align: bottom">
+                                    <span>Jakarta,
+                                        <t t-esc="o.date_paid.strftime('%d %b %Y') if o.date_paid else ''"/>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="22%"></td>
+                                <td width="78%" height="28px" style="vertical-align: middle">
+                                    <span t-field="o.acc_name"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="15%"></td>
+                                <td width="85%">
+                                    <span t-field="o.words1"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="65%" style="vertical-align: middle">
+                                    <span t-field="o.words2"/>
+                                </td>
+                                <td width="35%" height="25px" style="font-size: 12px !important; vertical-align: middle">
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <span t-field="o.amount" t-options='{"widget": "float", "precision": 2}'/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.amount" t-options='{"widget": "float", "precision": 0}'/>
+                                    </t>
+                                    <br/>
+                                    <span t-field="o.assignee1_id_check.name"/>
+                                    <span t-field="o.assignee2_id_check.name"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

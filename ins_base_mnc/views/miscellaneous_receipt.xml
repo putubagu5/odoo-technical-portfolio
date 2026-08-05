@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="inherit_misc_receipts_form" model="ir.ui.view">
+            <field name="name">inherit.miscellaneous.receipt.form</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="inherit_id" ref="ins_miscellaneous.misc_receipts_form_view"/>
+            <field name="arch" type="xml">
+                <!-- add receipt_number before name and editable only in draft -->
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="receipt_number" attrs="{'readonly': [('state', '!=', 'draft')]}" required="1"/>
+                    <field name="doc_reference"/>
+                </xpath>
+                <!-- add cf_activity_id after journal_id -->
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="cf_activity_id" required="1" domain="[('cf_type', '=', 'receipt')]"/>
+                    <field name="assignee_id"/>
+                    <field name="journal_group" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="manual_currency_rate_active" groups="base.group_multi_currency"/>
+                    <field name="manual_currency_rate"
+                           attrs="{'invisible': [('manual_currency_rate_active', '=', False)],'required':[('manual_currency_rate_active', '=', True)]}"
+                           groups="base.group_multi_currency"/>
+                </xpath>
+                <xpath expr="//button[@name='action_cancel']" position="after">
+                        <button name="action_draft" string="Reset To Draft" type="object"
+                                class="btn btn-secondary"
+                                attrs="{'invisible': [('state', 'not in', ('posted', 'cancel'))]}"
+                                groups="account.group_account_invoice"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="before">
+                    <field name="is_cancel_reversal" invisible="1" />
+                </xpath>
+                <xpath expr="//field[@name='move_id']" position="after">
+                    <field name="remittance_flag" invisible="0" />
+                    <field name="remittance_date" invisible="0" readonly="1"/>
+                    <field name="un_remittance_date" invisible="0" readonly="1"/>
+                    <field name="bank_address" invisible="0"/>
+                    <field name="swift_code" invisible="0"/>
+                    <field name="notes" invisible="0"/>
+                    <field name="draft_bank_statement" invisible="1"/>
+                </xpath>
+                <xpath expr="//button[@name='action_cancel']" position="replace">
+                    <button
+                        name="cancel_reversal_x"
+                        string="Cancel Receipt (Reversal)"
+                        type="object"
+                        attrs="{'invisible': ['|', ('is_cancel_reversal', '=', False), '|', ('reverse_date', '!=', False), ('draft_bank_statement', '!=', False)]}"
+                    />
+                        <!-- attrs="{'invisible': ['|','|', '|', ('state', '!=', 'posted'), ('is_cancel_reversal', '=', False), ('is_matched', '=', True),
+                        ('reverse_date', '!=', False),('draft_bank_statement', '!=', False)]}" -->
+                </xpath>
+                <xpath expr="//field[@name='move_id']" position="after">
+                    <field
+                        name="is_reconciled"
+                        attrs="{'invisible': [('is_reconciled', '=', False)], 'readonly':[('state', '=', 'posted')]}"
+                    />
+                    <field
+                        name="is_matched"
+                        attrs="{'invisible': [('is_matched', '=', False)], 'readonly':[('state', '=', 'posted')]}"
+                    />
+                    <field
+                        name="reverse_date"
+                        attrs="{'invisible': [('reverse_date', '=', False)], 'readonly':[('state', '=', 'posted')]}"
+                    />
+                    <field
+                        name="reverse_user_by"
+                        attrs="{'invisible': [('reverse_user_by', '=', False)], 'readonly':[('state', '=', 'posted')]}"
+                    />
+                    <field
+                        name="reverse_reason"
+                        attrs="{'invisible': [('reverse_reason', '=', False)], 'readonly':[('state', '=', 'posted')]}"
+                    />
+                </xpath>
+<!--                <xpath expr="//button[@name='action_applied_invoice']" position="replace">-->
+<!--                    <button name="action_applied_invoice" string="Applied Invoice" type="object"-->
+<!--                                class="oe_highlight"-->
+<!--                                attrs="{'invisible': ['|','|','|', '|', ('state', 'not in', ('posted')),-->
+<!--                                ('remaining_amount', '&lt;', 1),('receipt_type_category','=', 'misc'),-->
+<!--                                ('applied_customer_move_id', '=', False),('reverse_date', '!=', False)]}"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='action_applied_to_partner']" position="replace">-->
+<!--                    <button name="action_applied_to_partner" string="Applied Customer" type="object"-->
+<!--                                class="oe_highlight"-->
+<!--                                attrs="{'invisible': ['|','|','|',('state', 'not in', ('posted')),-->
+<!--                                ('applied_customer_move_id', '&gt;', 0),('receipt_type_category','=','misc'),-->
+<!--                                ('reverse_date', '!=', False)]}"/>-->
+<!--                </xpath>-->
+                <xpath expr="//button[@name='action_applied_to_partner']" position="replace">
+                    <button name="action_applied_to_partner" string="Applied Customer" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|','|','|',('state', 'not in', ('posted')),
+                                ('applied_customer_move_id', '&gt;', 0),('receipt_type_category','=','misc'),
+                                ('reverse_date', '!=', False),('journal_group','=','merge')]}"/>
+                </xpath>
+                <xpath expr="//button[@name='action_applied_invoice']" position="replace">
+                    <button name="action_applied_invoice" string="Applied Invoice" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|','|', ('state', 'not in', ('posted')),
+                                ('remaining_amount', '&lt;', 1),('receipt_type_category','=', 'misc'),
+                                ('reverse_date', '!=', False)]}"/>
+                </xpath>
+                <xpath expr="//button[@name='action_applied_invoice_bulky']" position="replace">
+                    <button name="action_applied_invoice_bulky" string="Applied Invoice Bulky" type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': ['|','|','|', ('state', 'not in', ('posted')),
+                                ('remaining_amount', '&lt;', 1),('receipt_type_category','=', 'misc'),
+                                ('reverse_date', '!=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='misc_partner_id']" position="replace">
+                       <field name="misc_partner_id"
+                           context="{'default_is_company': True, 'default_customer_rank': True}"
+                           attrs="{'readonly': [('applied_customer_move_id', '&gt;', 0),('state', 'in', ('posted', 'cancel'))],
+                           'invisible': ['&amp;',('journal_group','=','split'),('state','=','draft'),'|',('receipt_type_category','=','misc')],
+                           'required':['&amp;',('journal_group','=','merge'),('receipt_type_category','!=','misc')]}"
+                           widget="res_partner_many2one"/>
+                </xpath>
+                <xpath expr="//field[@name='applied_customer_journal_id']" position="replace">
+                       <field name="applied_customer_journal_id"
+                                       domain="[('type', '=', 'general')]"
+                                       attrs="{'invisible': ['|',('state','=','draft'),
+                                       ('journal_group','=','merge')],
+                                       'readonly': [('applied_customer_move_id', '&gt;', 0)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='applied_partner_date']" position="replace">
+                       <field name="applied_partner_date"
+                                       attrs="{'invisible': ['|',('state','=','draft'),
+                                       ('journal_group','=','merge')],
+                                       'readonly': [('state', 'in', ('posted', 'cancel')),
+                                       ('applied_customer_move_id', '&gt;', 0)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='transaction_type']" position="before">
+                    <field name="is_cancel_reversal" invisible="1" />
+                    <field name="reverse_date" invisible="1" />
+                </xpath>
+                <xpath expr="//button[@name='action_unapplied_invoice']" position="replace">
+                    <button
+                        name="cancel_reversal_x"
+                        icon="fa-chain-broken"
+                        type="object"
+                        attrs="{'invisible': ['&amp;', ('misc_type', '=', 'payment'),
+                                                ('id', '=', False), '|', '|','|', '|','|',('move_id', '=', False), ('state', '!=', 'posted'),
+                                                ('transaction_type', '=', 'unapply'),('is_cancel_reversal', '=', False), ('reverse_date', '!=', False)]}"
+                    />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_misc_receipts_tree" model="ir.ui.view">
+            <field name="name">inherit.miscellaneous.receipt.tree</field>
+            <field name="model">miscellaneous.miscellaneous</field>
+            <field name="inherit_id" ref="ins_miscellaneous.misc_receipts_tree_view"/>
+            <field name="arch" type="xml">
+                <!-- add doc_reference before name and editable only in draft -->
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="doc_reference"/>
+                    <field name="misc_name"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

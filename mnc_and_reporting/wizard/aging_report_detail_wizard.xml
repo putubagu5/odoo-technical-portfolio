@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="aging_report_detail_wizard_form_view" model="ir.ui.view">
+            <field name="name">aging.report.detail.wizard.form.view</field>
+            <field name="model">aging.report.detail.wizard</field>
+            <field name="inherit_id" ref="mnc_and_reporting.and_report_wizard_form_view"/>
+            <field name="mode">primary</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet[1]/group[1]/group[2]" position="inside">
+                    <field name="company_id" invisible="1"/>
+                    <field name="customer_type" required="1"/>
+                    <field name="customer_ids" widget="many2many_tags"
+                           attrs="{'required': [('customer_type', '=', 'specific')], 'invisible': [('customer_type', '!=', 'specific')]}"
+                           domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_edit': True}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

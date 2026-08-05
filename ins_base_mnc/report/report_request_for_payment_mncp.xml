@@ -1,0 +1,500 @@
+<odoo>
+    <template id="ins_base_mnc_report_request_for_payment_mncp_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_report_request_for_payment_mncp_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc_report_request_for_payment_mncp_document">
+        <t t-call="web.basic_layout">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <div class="page" style="font-size: 12px !important;">
+                <!-- logo -->
+                <div class="header">
+                    <div class="row">
+                        <div class="col-4">
+                            <span t-field="company.name"/>
+                        </div>
+                        <div class="col-4 text-center">
+                            <br/>
+                            <strong>REQUEST FOR PAYMENT</strong>
+                        </div>
+                        <div class="col-4">
+                            <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%b-%y %H:%M:%S')"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- header, no and recipient -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border-top: 1px solid black; border-bottom: 1px solid black;">
+                            <tr>
+                                <td width="20%">
+                                    No
+                                </td>
+                                <td width="5%">
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td width="25%">
+                                    <span t-field="o.name"/>
+                                </td>
+                                <td width="20%">
+                                    Invoice Date
+                                </td>
+                                <td width="5%">
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td width="25%">
+                                    <t t-esc="o.invoice_date.strftime('%d-%b-%y') if o.invoice_date else ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Supplier Name
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id.name"/>
+                                </td>
+                                <td>
+                                    Invoice Due Date
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    <t t-esc="o.invoice_date_due.strftime('%d-%b-%y') if o.invoice_date_due else ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Supplier Site
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_id"
+                                          t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                                </td>
+                                <td>
+                                    GL Date
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    <t t-esc="o.date.strftime('%d-%b-%y') if o.date else ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Invoice Number
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    <span t-field="o.payment_reference"/>
+                                </td>
+                                <td>
+                                    Currency Code
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    <span t-field="o.currency_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Voucher Number
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    &#160;&#160;&#160;
+                                </td>
+                                <td>
+                                    &#160;&#160;&#160;
+                                </td>
+                                <td>
+                                    &#160;&#160;&#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Descriptions
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    <span t-field="o.ref"/>
+                                </td>
+                                <td>
+                                    &#160;&#160;&#160;
+                                </td>
+                                <td>
+                                    &#160;&#160;&#160;
+                                </td>
+                                <td>
+                                    &#160;&#160;&#160;
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border-top: 1px solid black; border-bottom: 1px solid black;">
+                            <tr>
+                                <td width="20%">
+                                    Amount Remaining
+                                </td>
+                                <td width="5%">
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <td width="75%">
+                                        <span t-field="o.currency_id.symbol"/> <span t-field="o.amount_residual" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td width="75%">
+                                        <span t-field="o.currency_id.symbol"/> <span t-field="o.amount_residual" t-options='{"widget": "float", "precision": 0}'/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Says
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                                <td>
+                                    <span t-field="o.amount_due_in_words"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- table -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="border-top: 1px solid black; border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;">
+                            <thead>
+                                <tr>
+                                    <th width="2%" class="text-center" style="padding: 2px;">No</th>
+                                    <th width="10%" class="text-center" style="padding: 2px;">Account</th>
+                                    <th width="10%" class="text-center" style="padding: 2px;">Analytic Account</th>
+                                    <th width="28%" class="text-center" style="padding: 2px;">Line Desc</th>
+                                    <th width="10%" class="text-center" style="padding: 2px;">PO No.</th>
+                                    <th width="10%" class="text-center" style="padding: 2px;">RCV No</th>
+                                    <th width="10%" class="text-center" style="padding: 2px;">Amount DR (<span t-field="o.currency_id.name"/>)</th>
+                                    <th width="10%" class="text-center" style="padding: 2px;">Amount CR (<span t-field="o.currency_id.name"/>)</th>
+                                    <th width="10%" class="text-center" style="padding: 2px;">Accounted (IDR)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <t t-set="current_subtotal_debit" t-value="0"/>
+                            <t t-set="current_subtotal_credit" t-value="0"/>
+                                <t t-foreach="o.line_ids" t-as="line">
+                                <t t-if="line.amount_currency &gt; 0">
+                                    <t t-set="current_subtotal_debit" t-value="current_subtotal_debit + abs(line.amount_currency)"/>
+                                </t>
+                                <t t-if="line.amount_currency &lt; 0">
+                                    <t t-set="current_subtotal_credit" t-value="current_subtotal_credit + abs(line.amount_currency)"/>
+                                </t>
+                                    <tr>
+                                        <td class="text-left" width="2%" style="padding: 2px;"><t t-raw="line_index + 1"/></td>
+                                        <td class="text-center" width="10%" style="padding: 2px;"><t t-esc="line.account_id.code"/></td>
+                                        <td class="text-left" width="10%" style="padding: 2px;"><t t-esc="line.analytic_account_id.code"/></td>
+                                        <td class="text-left" width="28%" style="padding: 2px;"><t t-esc="line.account_id.name"/></td>
+                                        <td class="text-left" width="10%" style="padding: 2px;"><t t-esc="line.purchase_order_id.name"/></td>
+                                        <td class="text-left" width="10%" style="padding: 2px;"><t t-esc="line.purchase_order_id.rr_numbers"/></td>
+                                        <t t-if="o.currency_id.name != 'IDR'">
+                                            <td class="text-right" width="10%" style="padding: 2px;">
+                                                <t t-if="line.amount_currency &gt; 0">
+                                                    <t t-esc="abs(line.amount_currency)" t-options='{"widget": "float", "precision": 2}'/>
+                                                </t>
+                                                <t t-else="">
+                                                    0
+                                                </t>
+                                            </td>
+                                            <td class="text-right" width="10%" style="padding: 2px;">
+                                                <t t-if="line.amount_currency &lt; 0">
+                                                    <t t-esc="abs(line.amount_currency)" t-options='{"widget": "float", "precision": 2}'/>
+                                                </t>
+                                                <t t-else="">
+                                                    0
+                                                </t>
+                                            </td>
+                                            <td class="text-right" width="10%" style="padding: 2px;">
+                                                <t t-esc="(line.credit - line.debit)" t-options='{"widget": "float", "precision": 0}'/>
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td class="text-right" width="10%" style="padding: 2px;">
+                                                <t t-if="line.amount_currency &gt; 0">
+                                                    <t t-esc="'{0:,.0f}'.format(int(abs(line.amount_currency)))"/>
+                                                </t>
+                                                <t t-else="">
+                                                    0
+                                                </t>
+                                            </td>
+                                            <td class="text-right" width="10%" style="padding: 2px;">
+                                                <t t-if="line.amount_currency &lt; 0">
+                                                    <t t-esc="'{0:,.0f}'.format(int(abs(line.amount_currency)))"/>
+                                                </t>
+                                                <t t-else="">
+                                                    0
+                                                </t>
+                                            </td>
+                                            <td class="text-right" width="10%" style="padding: 2px;">
+                                                <t t-esc="(line.credit - line.debit)" t-options='{"widget": "float", "precision": 0}'/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr style="border-top: 1px solid black;">
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <td class="text-right" style="padding: 2px;">
+                                            <t t-esc="current_subtotal_debit" t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                        <td class="text-right" style="padding: 2px;">
+                                            <t t-esc="current_subtotal_credit" t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                        <td class="text-right" style="padding: 2px;">
+                                            <t t-esc="sum((line.credit - line.debit) for line in o.line_ids)" t-options='{"widget": "float", "precision": 0}'/>
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td class="text-right" style="padding: 2px;">
+                                            <t t-esc="'{0:,.0f}'.format(int(current_subtotal_debit))"/>
+                                        </td>
+                                        <td class="text-right" style="padding: 2px;">
+                                            <t t-esc="'{0:,.0f}'.format(int(current_subtotal_credit))"/>
+                                        </td>
+                                        <td class="text-right" style="padding: 2px;">
+                                            <t t-esc="sum((line.credit - line.debit) for line in o.line_ids)" t-options='{"widget": "float", "precision": 0}'/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <table width="100%">
+                            <tr>
+                                <td width="20%">
+                                    Rate
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <t t-if="o.manual_currency_rate_active is True">
+                                        <td width="80%">
+                                            &#160;: <span t-field="o.manual_currency_rate" t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                    </t>
+                                    <t t-if="o.manual_currency_rate_active is False">
+                                        <td width="80%">
+                                            &#160;: <span t-field="o.currency_id.actual_rate" t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <t t-if="o.manual_currency_rate_active is True">
+                                        <td width="80%">
+                                            &#160;:
+                                        </td>
+                                    </t>
+                                    <t t-if="o.manual_currency_rate_active is False">
+                                        <td width="80%">
+                                            &#160;:
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Note
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Date
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <t t-if="o.manual_currency_rate_active is True">
+                                        <td>
+                                            &#160;: <t t-esc="o.date.strftime('%d-%b-%y') if o.date else ''"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="o.manual_currency_rate_active is False">
+                                        <td>
+                                            &#160;: <t t-esc="o.currency_id.actual_rate_date.strftime('%d-%b-%y') if o.currency_id.actual_rate_date else ''"/>
+                                        </td>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <t t-if="o.manual_currency_rate_active is True">
+                                        <td width="80%">
+                                            &#160;:
+                                        </td>
+                                    </t>
+                                    <t t-if="o.manual_currency_rate_active is False">
+                                        <td width="80%">
+                                            &#160;:
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Warkat Bank
+                                </td>
+                                <td>
+                                    &#160;:&#160;&#160;
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-6">
+                        <table width="100%">
+                            <tr>
+                                <td width="15%">
+                                    Rate Type
+                                </td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <t t-if="o.manual_currency_rate_active is True">
+                                        <td width="85%">
+                                            &#160;: Manual Rate
+                                        </td>
+                                    </t>
+                                    <t t-if="o.manual_currency_rate_active is False">
+                                        <td width="85%">
+                                            &#160;: Rate BI
+                                        </td>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <t t-if="o.manual_currency_rate_active is True">
+                                        <td width="80%">
+                                            &#160;:
+                                        </td>
+                                    </t>
+                                    <t t-if="o.manual_currency_rate_active is False">
+                                        <td width="80%">
+                                            &#160;:
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="footer last-page" style="font-size: 11px !important;">
+                    <div class="col-12">
+                        <table width="100%" style="border: 1px solid black;">
+                            <tr style="border: 1px solid black;">
+                                <td colspan="5" style="border: 1px solid black;">
+                                    &#160;&#160;Control
+                                </td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td align="center" width="20%" style="border: 1px solid black;">
+                                    Issued By
+                                </td>
+                                <td align="center" width="20%" style="border: 1px solid black;">
+                                    Checked By
+                                </td>
+                                <td align="center" width="20%" style="border: 1px solid black;">
+                                    Approved By
+                                </td>
+                                <td align="center" width="20%" style="border: 1px solid black;">
+                                    Approved By
+                                </td>
+                                <td align="center" width="20%" style="border: 1px solid black;">
+                                    Approved By
+                                </td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    Accounting Staff
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    Accounting Manager
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    &#160;
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    CFO
+                                </td>
+                                <td align="center" style="border: 1px solid black;">
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    CEO
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

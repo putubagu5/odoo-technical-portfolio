@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <record id="account_accountant.menu_accounting" model="ir.ui.menu">
+            <field name="name">Finance and Accounting</field>
+        </record>
+
+        <menuitem
+            id="menu_root_budget"
+            name="Budget Corporate"
+            groups="account.group_account_manager"/>
+
+        <menuitem
+            id="menu_budget"
+            name="Budget"
+            parent="menu_root_budget"
+            sequence="11"/>
+
+        <menuitem
+            id="menu_budget_configuration"
+            name="Configuration"
+            parent="menu_root_budget"
+            sequence="51"/>
+
+        <!-- from budget_control module -->
+        <record id="budget_control.crossovered_budget_period_menu" model="ir.ui.menu">
+            <field name="parent_id" ref="menu_budget_configuration"/>
+        </record>
+
+        <record id="budget_control.budget_allocation_menu" model="ir.ui.menu">
+            <field name="parent_id" ref="menu_budget"/>
+            <field name="sequence">21</field>
+        </record>
+
+        <record id="budget_control.budget_summary_wizard_menu" model="ir.ui.menu">
+            <field name="parent_id" ref="menu_budget"/>
+            <field name="sequence">41</field>
+        </record>
+
+        <!-- from budget -->
+        <record id="account_budget.menu_act_crossovered_budget_view" model="ir.ui.menu">
+            <field name="parent_id" ref="menu_budget"/>
+            <field name="sequence">11</field>
+        </record>
+
+        <record id="account_budget.menu_act_crossovered_budget_lines_view" model="ir.ui.menu">
+            <field name="parent_id" ref="menu_budget_configuration"/>
+        </record>
+
+        <record id="account_budget.menu_budget_post_form" model="ir.ui.menu">
+            <field name="parent_id" ref="menu_budget_configuration"/>
+        </record>
+    </data>
+</odoo>

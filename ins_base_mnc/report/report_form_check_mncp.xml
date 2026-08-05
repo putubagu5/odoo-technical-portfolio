@@ -1,0 +1,77 @@
+<odoo>
+    <template id="report_form_check_mncp_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.report_form_check_mncp_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_form_check_mncp_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 12px !important;">
+                <!-- cheque contents -->
+                <div class="row">
+                    <div class="col-12 text-right">
+                        &#160;
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-4 text-right">
+                        &#160;
+                    </div>
+                    <div class="col-4 text-right">
+                        &#160;
+                    </div>
+                    <div class="col-4 text-left">
+                        Jakarta,
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-6 text-center">
+                        &#160;
+                    </div>
+                    <div class="col-6 text-center">
+                        &#160;
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span t-field="o.amount_in_words_2"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <t t-if="o.currency_id.name != 'IDR'">
+                            <span t-field="o.currency_id.symbol"/> <span t-field="o.amount" t-options='{"widget": "float", "precision": 2}'/>
+                        </t>
+                        <t t-else="">
+                            <span t-field="o.currency_id.symbol"/> <span t-field="o.amount" t-options='{"widget": "float", "precision": 0}'/>
+                        </t>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-7 text-right">
+                        &#160;
+                    </div>
+                    <div class="col-5 text-left">
+                        &#160;
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        &#160;
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+</odoo>

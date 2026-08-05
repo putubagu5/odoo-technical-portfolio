@@ -1,0 +1,177 @@
+<odoo>
+    <template id="ins_base_mnc_report_credit_note_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_mnc.ins_base_mnc_report_credit_note_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_base_mnc_report_credit_note_document">
+        <t t-call="web.basic_layout">
+            <!-- logo -->
+            <div class="header" style="font-size: 18px !important;">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        &#160;
+                    </div>
+                    <div class="col-4 text-center">
+                        <h2><strong>NOTA KREDIT</strong></h2>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span t-field="o.payment_reference"/><br/>
+                        <t t-esc="o.invoice_date.strftime('%d-%b-%y') if o.invoice_date else ''"/>
+                    </div>
+                </div>
+                <!-- header, no and recipient -->
+                <div class="row">
+                    <div class="col-9">
+                        <t t-if="o.sites_id">
+                            <t t-if="o.sites_id.alternatif_name"><span t-esc="o.sites_id.alternatif_name"/></t>
+                            <t t-if="o.sites_id.site_address"><br/><span t-esc="o.sites_id.site_address"/></t>
+                        </t>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" style="font-size: 18px !important;">
+                <!-- text -->
+
+                <div class="row">
+                    <div class="col-9">
+                        Revisi Invoice no: <span t-esc="o.ref"/>
+                    </div>
+                    <div class="col-3 text-center" style="border-left:hidden ;border-right:hidden; border-top:hidden; border-bottom: 1px solid black;">
+                        <span t-field="o.currency_id.name"/>
+                    </div>
+                </div>
+                <br/><br/><br/>
+                <div class="row">
+                    <div class="col-9">
+                        <!-- table -->
+                        <!-- take the data. NOTE: reversed_entry_id is the origin invoice -->
+                        <t t-set="cn_dict" t-value="o.get_credit_note_data()"/>
+
+                        <table width="100%">
+                            <tr style="border-left:hidden ;border-right:hidden; border-top: 1px solid black; border-bottom: 1px solid black;">
+                                <td class="text-center">NO INVOICE</td>
+                                <td class="text-center"></td>
+                                <td class="text-center">SEMULA</td>
+                                <td class="text-center">MENJADI</td>
+                                <td class="text-center">SELISIH</td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-center"><span t-esc="o.reversed_entry_id.payment_reference"/></td>
+                                <td class="text-center">NET</td>
+                                <td class="text-right"><span t-esc="cn_dict['net_before']" t-options='{"widget": "float", "precision": 0}'/></td>
+                                <td class="text-right"><t t-esc="cn_dict['net_after']" t-options='{"widget": "float", "precision": 0}'/></td>
+                                <td class="text-right"><span t-esc="cn_dict['net_diff']" t-options='{"widget": "float", "precision": 0}'/></td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-center"></td>
+                                <td class="text-center" style="border-left:hidden ;border-right:hidden; border-top:hidden; border-bottom: 1px solid black;">PPN</td>
+                                <td class="text-right" style="border-left:hidden ;border-right:hidden; border-top:hidden; border-bottom: 1px solid black;"><span t-esc="cn_dict['ppn_before']" t-options='{"widget": "float", "precision": 0}'/></td>
+                                <td class="text-right" style="border-left:hidden ;border-right:hidden; border-top:hidden; border-bottom: 1px solid black;"><t t-esc="cn_dict['ppn_after']" t-options='{"widget": "float", "precision": 0}'/></td>
+                                <td class="text-right" style="border-left:hidden ;border-right:hidden; border-top:hidden; border-bottom: 1px solid black;"><span t-esc="cn_dict['ppn_diff']" t-options='{"widget": "float", "precision": 0}'/></td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-center"></td>
+                                <td class="text-center">TOTAL</td>
+                                <td class="text-right"><span t-esc="cn_dict['net_before'] + cn_dict['ppn_before']" t-options='{"widget": "float", "precision": 0}'/></td>
+                                <td class="text-right"><t t-esc="cn_dict['net_after'] + cn_dict['ppn_after']" t-options='{"widget": "float", "precision": 0}'/></td>
+                                <td class="text-right"><span t-esc="cn_dict['net_diff'] + cn_dict['ppn_diff']" t-options='{"widget": "float", "precision": 0}'/></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-3">
+
+                    </div>
+                </div>
+                <br/><br/><br/><br/>
+
+                <!-- ending text -->
+                <div class="row">
+                    <div class="col-9">
+                        Kami KREDIT Account Saudara Sebesar (total):
+                    </div>
+                    <div class="col-3">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    NET
+                                </td>
+                                <td align="right">
+                                    <span t-esc="o.amount_untaxed" t-options='{"widget": "float", "precision": 0}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    PPN
+                                </td>
+                                <td align="right">
+                                    <span t-esc="o.amount_tax" t-options='{"widget": "float", "precision": 0}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <!-- ending text -->
+                <div class="row">
+                    <div class="col-9 text-center">
+                    </div>
+                    <div class="col-3">
+                        <table width="100%">
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td align="right">
+                                    <span t-esc="o.amount_total" t-options='{"widget": "float", "precision": 0}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-9 text-center">
+                        ##<span t-field="o.amount_in_words_2"/>##
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/>
+
+                <!-- signature -->
+                <div class="row">
+                    <!-- TODO FIXME -->
+                    <div class="col-3">
+                    </div>
+                    <div class="col-4 text-center">
+                        <center>
+                        <t t-if="o.assignee_id_invoice">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <t t-esc="o.assignee_id_invoice.name"/><br/>
+                        <div style="border: 1px dashed;"/><br/><t t-if="o.assignee_id_invoice.job_position"><t t-set="job_position" t-value="o._get_job_position(o.assignee_id_invoice.job_position)"/>
+                        ( <t t-if="'And' in job_position"><t t-set="position" t-value="job_position.split('And')"/><t t-esc="position[0]"/>&#38;<t t-esc="position[1]"/></t><t t-if="'And' not in job_position"><t t-esc="job_position"/></t> )</t>
+                        </t>
+                        </center>
+                    </div>
+                    <div class="col-5">
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

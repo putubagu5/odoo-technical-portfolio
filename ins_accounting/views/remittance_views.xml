@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="view_remittance_form" model="ir.ui.view">
+            <field name="name">remittance.form</field>
+            <field name="model">remittance</field>
+            <field name="arch" type="xml">
+                <form string="Remittance" version="7">
+                    <header>
+                        <button name="action_calculate_remittance"
+                                icon="fa-calculator"
+                                attrs="{'invisible': [('state', 'in', ('posted','cancel'))]}"
+                                type="object"/>
+                        <button name="action_post"
+                                icon="fa-lock"
+                                attrs="{'invisible': [('state', 'in', ('posted','cancel'))]}"
+                                type="object"/>
+                        <button name="action_reverse"
+                                icon="fa-history"
+                                attrs="{'invisible': [('reverse_move_id', '&gt;', 0)]}"
+                                type="object"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,posted,cancel"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="partner_id" invisible="1"/>
+                                <field name="remittance_type"
+                                       attrs="{'readonly': [('state', 'in', ('posted','cancel'))]}"/>
+                                <field name="journal_id"
+                                       attrs="{'readonly': ['|',('state', 'in', ('posted','cancel')),
+                                       ('id', '&gt;', 0)]}"/>
+                                <field name="reverse_journal_id"
+                                       domain="[('type', '=', 'general')]"
+                                       attrs="{'readonly': [('state', 'in', ('posted','cancel'))]}"/>
+                                <field name="amount" readonly="1"/>
+                                <field name="move_id" required="0"/>
+                                <field name="reverse_move_id" required="0" readonly="1" string="Reverse Entry"
+                                       attrs="{'invisible': ['|',('move_id', '=', False),
+                                              ('reverse_move_id','=', False)]}"/>
+                            </group>
+                            <group>
+                                <field name="date"
+                                       attrs="{'readonly': [('state', 'in', ('posted','cancel'))]}"/>
+                                <field name="period"/>
+                                <field name="currency_id"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="operating_unit_id"
+                                       options="{'no_create': True}"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="company_id" readonly="1" force_save="1"
+                                       options="{'no_create': True}"
+                                       attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}"/>
+                                <field name="user_id"
+                                       attrs="{'readonly': [('state', 'in', ('posted','cancel'))]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_remittance_tree" model="ir.ui.view">
+            <field name="name">remittance.tree</field>
+            <field name="model">remittance</field>
+            <field name="arch" type="xml">
+<!--                <tree editable="top" create="1" delete="1" multi_edit="1" >-->
+                <tree>
+                    <field name="date"
+                           attrs="{'readonly': [('state', 'in', ('posted','cancel'))]}"/>
+                    <field name="period"/>
+                    <field name="user_id"
+                           attrs="{'readonly': [('state', 'in', ('posted','cancel'))]}"/>
+                    <field name="partner_id" invisible="1"/>
+                    <field name="journal_id"
+                           domain="[('type', '=', 'general')]"
+                           attrs="{'readonly': [('state', 'in', ('posted','cancel'))]}"/>
+                    <field name="reverse_journal_id"
+                           domain="[('type', '=', 'general')]"
+                           attrs="{'readonly': [('state', 'in', ('posted','cancel'))]}"/>
+                    <field name="amount" readonly="1"/>
+                    <field name="move_id" required="0"/>
+                    <field name="state" readonly="1"/>
+                    <field name="reverse_move_id" required="0" readonly="1" string="Reverse Entry"
+                           attrs="{'invisible': ['|',('move_id', '=', False),
+                                  ('reverse_move_id','=', False)]}"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="currency_id" invisible="1"/>
+<!--                    <button name="action_calculate_remittance"-->
+<!--                            icon="fa-calculator"-->
+<!--                            attrs="{'invisible': [('state', 'in', ('posted','cancel'))]}"-->
+<!--                            type="object"/>-->
+<!--                    <button name="action_post"-->
+<!--                            icon="fa-lock"-->
+<!--                            attrs="{'invisible': [('state', 'in', ('posted','cancel'))]}"-->
+<!--                            type="object"/>-->
+<!--                    <button name="action_reverse"-->
+<!--                            icon="fa-history"-->
+<!--                            attrs="{'invisible': [('reverse_move_id', '&gt;', 0)]}"-->
+<!--                            type="object"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_remittance" model="ir.actions.act_window">
+            <field name="name">Remittance</field>
+            <field name="res_model">remittance</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new remittance.
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="remittance_menu"
+                  name="Remittance"
+                  parent="account.menu_finance_payables"
+                  sequence="17"
+                  action="action_remittance"/>
+
+    </data>
+</odoo>

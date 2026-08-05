@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+
+        <record id="wizard_unapplied_receipt_view_form" model="ir.ui.view">
+            <field name="name">wizard.unapplied.receipt.view.form</field>
+            <field name="model">wizard.unapplied.receipt</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <label for="month" string="Period"/>
+                                <div class="o_row">
+                                    <field name="month" placeholder="Select Month" required="1"/>
+                                    <span class="oe_inline">&#160;-&#160;</span>
+                                    <field name="year" placeholder="Select Year" required="1"/>
+                                </div>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Generate XLSX Report" name="generate" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="wizard_unapplied_receipt_action" model="ir.actions.act_window">
+            <field name="name">Unapplied Receipts Report XLSX</field>
+            <field name="res_model">wizard.unapplied.receipt</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+                id="wizard_unapplied_receipt_menu"
+                name="Unapplied Receipts Report"
+                action="wizard_unapplied_receipt_action"
+                parent="mnc_menu_report.report_xlsx"/>
+    </data>
+</odoo>

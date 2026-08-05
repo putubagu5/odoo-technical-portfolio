@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_menu_collection_summary_report_wizard" model="ir.actions.act_window">
+            <field name="name">Collection Summary Report</field>
+            <field name="res_model">collection.summary.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_report_type': 'collection_summary_report'}
+            </field>
+        </record>
+
+        <record id="menu_collection_summary_report_wizard" model="ir.ui.menu">
+            <field name="name">AR Collection Summary Report</field>
+            <field name="action" ref='action_menu_collection_summary_report_wizard'/>
+            <field name="parent_id" ref='mnc_menu_report.report_ar'/>
+        </record>
+    </data>
+</odoo>

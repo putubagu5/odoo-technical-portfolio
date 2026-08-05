@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="view_move_form" model="ir.ui.view">
+            <field name="name">view.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <!-- add asset_cost_progress_id in tree after account_id -->
+                <xpath expr="//field[@name='invoice_line_ids']//tree//field[@name='account_id']" position="after">
+                    <field name="asset_cost_progress_id" optional="show"
+                        attrs="{'column_invisible': [('parent.move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt'))]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

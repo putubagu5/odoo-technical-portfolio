@@ -1,0 +1,134 @@
+<odoo>
+    <template id="report_tax_invoice_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_tax_invoice.report_tax_invoice_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_tax_invoice_document">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <!-- process non-draft record -->
+                <t t-if="o.state != 'draft'">
+                    <h4 class="text-center">Faktur Pajak</h4>
+                    <table class="table table-sm table-bordered">
+                        <!-- no faktur -->
+                        <tr>
+                            <td colspan="3">Kode dan Nomor Seri Faktur Pajak: <t t-esc="o.tax_invoice_id.name"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Pengusaha Kena Pajak</td>
+                        </tr>
+                        <!-- company info -->
+                        <tr>
+                            <td colspan="3">
+                                Nama:
+                                <t t-esc="o.company_id.name"/>
+                                <br/>
+                                Alamat:
+                                <t t-esc="o.company_id.partner_id.full_address"/>
+                                <br/>
+                                NPWP:
+                                <t t-esc="o.company_id.partner_id.npwp"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Pembeli Barang Kena Pajak / Penerima Jasa Kena Pajak</td>
+                        </tr>
+                        <!-- partner info -->
+                        <tr>
+                            <td colspan="3">
+                                Nama:
+                                <t t-esc="o.partner_id.name"/>
+                                <br/>
+                                Alamat:
+                                <t t-esc="o.partner_id.full_address"/>
+                                <br/>
+                                NPWP:
+                                <t t-esc="o.partner_id.npwp"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">No.</td>
+                            <td class="text-center">Nama Barang Kena Pajak / Jasa Kena Pajak</td>
+                            <td class="text-center">Harga Jual/Penggantian/Uang Muka/Termin</td>
+                        </tr>
+                        <!-- invoice lines -->
+                        <tr t-foreach="o.invoice_line_ids" t-as="line">
+                            <td>
+                                <t t-raw="line_index + 1"/>
+                            </td>
+                            <td>
+                                <t t-esc="line.product_id.name"/>
+                                <br/>
+                                <t t-esc="o.localize_amount(line.price_unit)"/> x <t t-esc="o.localize_amount(line.quantity)"/>
+                            </td>
+                            <td class="text-right">
+                                <t t-esc="o.localize_amount(line.price_subtotal)"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Harga Jual / Penggantian</td>
+                            <td class="text-right">
+                                <t t-esc="o.localize_amount(o.amount_total)"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Dikurangi Potongan Harga</td>
+                            <td class="text-right"><t t-esc="o.localize_amount(0)"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Dikurangi Uang Muka</td>
+                            <td class="text-right"><t t-esc="o.localize_amount(0)"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Dasar Pengenaan Pajak</td>
+                            <td class="text-right">
+                                <t t-esc="o.localize_amount(o.amount_untaxed)"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">PPN = 10% x Dasar Pengenaan Pajak</td>
+                            <td class="text-right">
+                                <t t-esc="o.localize_amount(o.amount_tax)"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Total PPnBM (Pajak Penjualan Barang Mewah)</td>
+                            <td class="text-right"><t t-esc="o.localize_amount(0)"/></td>
+                        </tr> 
+                    </table>
+                    <div class="row">
+                        <span>
+                            Sesuai dengan ketentuan yang berlaku, Direktorat Jenderal Pajak mengatur bahwa Faktur
+                            Pajak ini telah ditandatangani secara elektronik sehingga tidak diperlukan tanda tangan basah pada Faktur Pajak
+                            ini.
+                        </span>
+                        <br/>
+                    </div>
+                    <t t-set="qr_code" t-value="o.tax_invoice_id.name or o.name"/>
+                    <div class="row text-center">
+                        <div class="col-xs-6 text-left">
+                            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', qr_code, 150, 150)"
+                                 style="width:150px;height:150px;"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <t t-esc="o.company_id.city"/>,
+                            <t t-esc="o.invoice_date.strftime('%d %B %Y')"/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span>NO INVOICE: <t t-esc="o.name"/></span>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record id="view_res_giro_form" model="ir.ui.view">
+            <field name="name">view.res.giro.form</field>
+            <field name="model">res.giro</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_generate" type="object" string="Generate" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Serial"/>
+                            <h1>
+                                <field name="name" placeholder="Serial (e.g. GD)" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="start" required="1"/>
+                                <field name="end" required="1"/>
+                                <field name="code" required="1"/>
+                                <field name="series" required="1" readonly="1" force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="company_id" required="1"/>
+                                <field name="journal_id" domain="[('type', '=', 'bank')]" required="1"/>
+                                <field name="bank_account_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="giro_detail" string="giro Numbers">
+                                <field name="line_ids" nolabel="1">
+                                    <tree edit="0">
+                                        <field name="name"/>
+                                        <field name="series"/>
+                                        <field name="is_used"/>
+                                        <field name="cancelled"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_res_giro_tree" model="ir.ui.view">
+            <field name="name">view.res.giro.tree</field>
+            <field name="model">res.giro</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="journal_id"/>
+                    <field name="bank_account_id"/>
+                    <field name="name"/>
+                    <field name="start"/>
+                    <field name="end"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_giro" model="ir.actions.act_window">
+            <field name="name">Giro Number</field>
+            <field name="res_model">res.giro</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_res_giro"
+            name="Giro Number"
+            action="action_res_giro"
+            parent="account.account_banks_menu"
+            sequence="6"/>
+    </data>
+</odoo>

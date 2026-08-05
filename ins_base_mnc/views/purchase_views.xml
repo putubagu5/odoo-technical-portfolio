@@ -1,0 +1,344 @@
+<odoo>
+    <data>
+        <record id="inherit_purchase_order_form" model="ir.ui.view">
+            <field name="name">inherit.purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <!-- TODO temporary -->
+                <xpath expr="//button[@name='button_approve']" position="attributes">
+                    <attribute name="states">draft,to approve,sent,purchase</attribute>
+                    <attribute name="string">APPROVE ORDER</attribute>
+                    <attribute name="context">{'force': True}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_rfq_send'][1]" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_rfq_send'][2]" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_rfq_send'][3]" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager</attribute>
+                </xpath>
+                <xpath expr="//button[@name='print_quotation']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_done']" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_create_invoice']" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="string">Order Date</attribute>
+                    <attribute name="attrs">{'readonly': [('state', '=', 'cancel')]}</attribute>
+                </xpath>
+                <xpath expr="//label[@for='date_planned']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//div[@name='date_planned_div']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='effective_date']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//sheet/div[2]" position="replace">
+                    <div class="oe_title">
+                        <span class="o_form_label" attrs="{'invisible': [('state','in',('draft','sent'))]}">Purchase Order </span>
+                        <h1>
+                            <field name="priority" widget="priority" class="mr-3" attrs="{'invisible': [('state','in',('draft','sent'))]}"/>
+                            <field name="name" readonly="1" attrs="{'invisible': [('state','in',('draft','sent'))]}"/>
+                        </h1>
+                        <span class="o_form_label" attrs="{'invisible': [('state','not in',('draft','sent'))]}">Draft PO</span>
+                        <h1>
+                            <field name="priority" widget="priority" class="mr-3" attrs="{'invisible': [('state','not in',('draft','sent'))]}"/>
+                            <field name="quotation_number" readonly="1" attrs="{'invisible': [('state','not in',('draft','sent'))]}" force_save="1"/>
+                        </h1>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="is_shipped_new" invisible="1"/>
+                    <field name="is_fully_matched" invisible="1"/>
+                    <field name="is_service_po" invisible="1"/>
+                    <field name="rejected" invisible="1"/>
+                </xpath>
+                <!-- add delivery_address 1 2 3 after origin -->
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="delivery_address_1"/>
+                    <field name="delivery_address_2"/>
+                    <field name="delivery_address_3"/>
+                    <field name="invoice_address_po"/>
+                    <field name="requestor" invisible="1"/>
+                    <field name="requestor_comp"/>
+                    <field name="new_value" invisible="1"/>
+                    <field name="old_value" invisible="1"/>
+                    <field name="assignee_id"/>
+                </xpath>
+                <xpath expr="//field[@name='current_user_id']" position="after">
+
+                    <field name="revision"/>
+                    <field name="pr_numbers"/>
+                    <field name="rr_numbers"/>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="before">
+                    <field name="create_date"/>
+                </xpath>
+
+                <!-- add sites_id after partner_id -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="sites_id" domain="[('partner_id', '=', partner_id)]"/>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="quotation_number" readonly="1" attrs="{'invisible': [('state','in',('draft','sent'))]}" force_save="1"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_ref']" position="after">
+                    <field name="po_description"  attrs="{'readonly': [('state', '=', 'cancel')], 'required': 1}"/>
+                    <field name="other_name"  attrs="{'readonly': [('state', '=', 'cancel')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='notes']" position="before">
+                    <label for="term_of_payment" string="Term of Payment"/><br/>
+                    <field name="term_of_payment" class="oe_inline"/><br/>
+                    <label for="delivery_term" string="Delivery Term:"/>
+                    <field name="delivery_term" class="oe_inline"/><br/>
+                </xpath>
+                <xpath expr="//field[@name='notes']" position="after">
+                    <br/><span class="o_form_label">Amount In Words: </span>
+                    <field name="amount_in_words" class="oe_inline" readonly="1"/>
+                    <field name="amount_in_words_2" invisible="1"/>
+                </xpath>
+                <xpath expr="//button[@name='button_draft']" position="replace">
+                    <button name="button_draft" type="object" string="Set to Draft" invisible="1"/>
+                </xpath>
+                <xpath expr="//button[@id='bid_confirm']" position="replace">
+                    <button name="button_confirm" type="object" string="Confirm Order" id="to_approve" attrs="{'invisible': [('state','in',('draft','sent','done','purchase','cancel','to approve'))]}"/>
+                </xpath>
+                <xpath expr="//button[@id='draft_confirm']" position="replace">
+                    <button name="button_confirm" type="object" string="Confirm Order" id="to_approve" attrs="{'invisible': [('state','in',('draft','sent','done','purchase','cancel','to approve'))]}"/>
+                </xpath>
+                <xpath expr="//button[@name='button_confirm']" position="before">
+                    <button name="button_to_approve" type="object" states="draft,sent"  string="To Approve" id="to_approve" attrs="{'invisible': [('state','in',('done','purchase','cancel','to approve'))]}"/>
+                </xpath>
+                <xpath expr="//button[@name='button_cancel']" position="attributes">
+                    <attribute name="states">draft,to approve,sent,purchase</attribute>
+                    <attribute name="confirm">Are you sure you want to cancel?</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_cancel']" position="after">
+                    <button name="button_draft" type="object" string="Unreserve" attrs="{'invisible': [('state', 'not in', ('to approve', 'sent', 'purchase',)), ('rejected', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,to approve,purchase,cancel" readonly="1"/>
+                </xpath>
+                <field name="partner_ref" position="after">
+                    <field name="buyer_id" domain="[('company_id', '=', current_company_id)]" attrs="{'readonly': [('state', '=', 'cancel')]}"/>
+                </field>
+
+                <!-- add button_print_report_from_config before state -->
+                <xpath expr="//field[@name='state']" position="before">
+                    <button name="button_print_report_from_config" type="object" string="Print" class="oe_highlight"/>
+                </xpath>
+
+                <!-- add actual_rate before origin in form -->
+                <xpath expr="//field[@name='origin']" position="before">
+                    <field name="actual_rate" readonly="1" force_save="1"/>
+                </xpath>
+
+                <!-- add rfq_price and actual_rate in tree for order_line -->
+                <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="before">
+                    <field name="rfq_price" invisible="1"/>
+                    <field name="buyer_id" optional="show"/>
+                    <field name="actual_rate" readonly="1" force_save="1" optional="show"/>
+                    <field name="amount_from_pr_line" readonly="1" force_save="1" optional="hide"/>
+                </xpath>
+
+                <!-- add request_line_number, asset_cost_progress_id in tree for order_line -->
+                <xpath expr="//field[@name='order_line']//tree//field[@name='product_qty']" position="before">
+                    <field name="request_id" optional="show"/>
+                    <field name="asset_cost_progress_id" readonly="1" force_save="1"/>
+                    <field name="request_line_number" readonly="1" force_save="1"/>
+                    <field name="attachment_line_ids" widget="many2many_binary" optional="show"/>
+                </xpath>
+
+                <!-- optional fields -->
+                <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//tree//field[@name='name']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//tree//field[@name='asset_cost_progress_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//tree//field[@name='request_line_number']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <!-- make these field invisible for digits display to work -->
+                <xpath expr="//field[@name='order_line']//tree//field[@name='product_qty']" position="replace">
+                    <field name="product_qty" id="product_qty_default" invisible="1"/>
+                    <field name="product_qty" id="product_qty_cust" digits="[12, 2]" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="replace">
+                    <field name="price_unit" id="price_unit_default" invisible="1"/>
+                    <field name="price_unit" id="price_unit_cust" digits="[12, 2]" optional="show"/>
+                </xpath>
+
+
+                <!-- add line_number before product_id -->
+                <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="before">
+                    <field name="line_number" readonly="1" force_save="1"/>
+                </xpath>
+
+                <!-- make fields readonly if state is not draft -->
+                <!-- partner_id, partner_ref, buyer_id (above), requisition_id, currency_id, date_order, date_planned -->
+                <!-- origin, manual_currency_rate_active, manual_currency_rate, receipt_reminder_email -->
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_ref']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '=', 'cancel')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='requisition_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='currency_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+                <!-- <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')], 'invisible': [('state', 'in', ('purchase', 'done'))]}</attribute>
+                </xpath> -->
+                <xpath expr="//field[@name='date_planned']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='origin']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')], 'invisible': [('origin','=',False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='receipt_reminder_email']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_purchase_order_line_form" model="ir.ui.view">
+            <field name="name">inherit.purchase.order.line.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <!-- add episode and account_id (from budget_control) -->
+                <xpath expr="//field[@name='product_qty']" position="before">
+                    <field name="episode" widget="many2many_tags" optional="hide"/>
+                    <field name="account_id" readonly="1" optional="show"/>
+                    <field name="price_tax" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='product_qty']" position="after">
+                    <field name="qty_cancel" id="qty_cancel_default" invisible="1"/>
+                    <field name="qty_cancel" id="qty_cancel_cust" digits="[12, 2]" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='price_subtotal']" position="after">
+                    <field name="state" optional="hide"/>
+                    <button name="cancel_line" type="object" icon="fa-window-close" attrs="{'invisible': ['|', ('qty_received', '!=', 0), ('state', '=', 'cancel')]}"/>
+                    <!-- <button name="cancel_line" type="object" icon="fa-window-close" attrs="{'invisible': [('state','in',('cancel'))]}"/> -->
+                </xpath>
+
+                <!-- add account_id in line form before account_analytic_id -->
+                <xpath expr="//field[@name='order_line']//form//field[@name='account_analytic_id']" position="before">
+                    <field name="account_id" readonly="1" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- notice in tree, 2 views have to be inherited -->
+        <record id="purchase_order_tree" model="ir.ui.view">
+            <field name="name">purchase.order.tree</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <!-- add buyer_id and quotation_number after company_id -->
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="buyer_id"/>
+                    <field name="quotation_number"/>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="replace">
+                    <field name="date_order" string="Order Date" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_order_kpis_tree" model="ir.ui.view">
+            <field name="name">purchase.order.kpis.tree</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+            <field name="arch" type="xml">
+                <!-- add buyer_id and quotation_number after company_id -->
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="buyer_id"/>
+                    <field name="quotation_number"/>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="replace">
+                    <field name="date_order" string="Order Date" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- inherit from currency_manual_exchange_rate -->
+        <record id="manual_rate_purchase_form_view" model="ir.ui.view">
+            <field name="name">manual.rate.purchase.form.view</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="currency_manual_exchange_rate.manual_rate_purchase_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='manual_currency_rate_active']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='manual_currency_rate']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')], 'invisible': [('manual_currency_rate_active', '=', False)], 'required': [('manual_currency_rate_active', '=', True)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- change menu and action name from Request for Quotation to Draft PO -->
+        <record id="purchase.purchase_rfq" model="ir.actions.act_window">
+            <field name="name">Draft PO</field>
+        </record>
+
+        <record id="purchase.action_report_purchase_order" model="ir.actions.report">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+
+        <!-- inherit from ins_purchase_approval modules, make hierarchy_id required -->
+        <record id="purchase_order_form_approval" model="ir.ui.view">
+            <field name="name">purchase.order.form.approval</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="ins_purchase_approval.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='hierarchy_id']" position="attributes">
+                    <attribute name="attrs">{'required': 1, 'readonly': [('state', '!=', 'draft')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_order_form_admin" model="ir.ui.view">
+            <field name="name">purchase.order.form.admin</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="ins_purchase_approval.purchase_order_form"/>
+            <field name="groups_id" eval="[(6, 0, [ref('ins_base_mnc.group_super_admin')])]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='request_user_id']" position="attributes">
+                    <attribute name="domain">[(1, '=', 1)]</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.server" id="action_general_terms_mnc">
+            <field name="name">General Terms (MNC)</field>
+            <field name="model_id" ref="ins_base_mnc.model_purchase_order"/>
+            <field name="binding_model_id" ref="ins_base_mnc.model_purchase_order"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = records._get_general_terms_mnc()
+            </field>
+        </record>
+    </data>
+</odoo>

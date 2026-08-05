@@ -1,0 +1,96 @@
+<odoo>
+    <template id="report_payment_slip_bjb_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_3tv_mncp.report_payment_slip_bjb_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_payment_slip_bjb_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 9px; font-family: Arial !important;">
+                <!-- section 1 -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <!-- baris 1-->
+                            <tr>
+                                <td width="22%" height="121px"/>
+                                <td width="78%" style="vertical-align: bottom">
+                                    <span>128 398 0000</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <!-- baris 2-->
+                            <tr>
+                                <td width="22%"/>
+                                <td width="78%" style="vertical-align: bottom">
+                                    <span t-field="o.partner_id"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <!-- baris 3-->
+                            <tr height="50px">
+                                <td width="53%"/>
+                                <td width="32%" style="vertical-align: top">
+                                    <span>DE 255232</span>
+                                </td>
+                                <td width="11%" style="vertical-align: top; text-align: right">
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/>
+                                    </t>
+                                </td>
+                                <td width="4%"/>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <!-- baris 4-->
+                            <tr>
+                                <td width="22%" height="25px"/>
+                                <td width="78%" style="vertical-align: top">
+                                    <span t-field="o.partner_id"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <!-- baris 5-->
+                            <tr>
+                                <td width="39%"/>
+                                <td width="11%" height="30px" style="vertical-align: middle">
+                                    <span t-field="o.partner_id.phone"/>
+                                </td>
+                                <td width="46%" style="text-align: right">
+                                    <t t-if="o.currency_id.name != 'IDR'">
+                                        <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/>
+                                    </t>
+                                </td>
+                                <td width="4%"/>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <!-- baris 6-->
+                            <tr>
+                                <td width="60%" height="50px"/>
+                                <td width="40%" style="vertical-align: bottom">
+                                    <span t-field="o.amount_in_words_2"/>
+                                    <br/>
+                                    <span t-field="o.assignee1_id_slip.name"/>
+                                    <span t-field="o.assignee2_id_slip.name"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

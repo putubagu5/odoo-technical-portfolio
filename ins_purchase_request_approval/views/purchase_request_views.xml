@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <record id="view_purchase_request_form" model="ir.ui.view">
+            <field name="name">view.purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+                <!-- add button to do action -->
+                <xpath expr="//header" position="inside">
+                    <button name="button_action" type="object" string="Approve" class="btn btn-success" attrs="{'invisible': ['|', ('state', '!=', 'to_approve'), ('is_current_approver', '=', False)]}" context="{'state': 'approve'}"/>
+                    <button name="button_action" type="object" string="Reject" class="btn btn-danger" attrs="{'invisible': ['|', ('state', '!=', 'to_approve'), ('is_current_approver', '=', False)]}" context="{'state': 'reject'}"/>
+                    <button name="button_action" type="object" string="Ask" class="btn btn-info" attrs="{'invisible': ['|', ('state', '!=', 'to_approve'), ('is_current_approver', '=', False)]}" context="{'state': 'ask'}"/>
+                    <button name="button_action" type="object" string="Answer" class="btn btn-info" attrs="{'invisible': ['|', ('state', '!=', 'to_approve'), ('has_ask', '=', False)]}" context="{'state': 'answer'}"/>
+                    <button name="button_action" type="object" string="Forward" class="btn btn-primary" attrs="{'invisible': ['|', ('state', '!=', 'to_approve'), ('is_current_approver', '=', False)]}" context="{'state': 'forward'}"/>
+                    <button name="button_action" type="object" string="Approve and Forward" class="btn btn-warning" attrs="{'invisible': ['|', ('state', '!=', 'to_approve'), ('is_current_approver', '=', False)]}" context="{'state': 'approve_forward'}"/>
+                    <button name="button_send_approval_email" type="object" string="Resend Approval" class="oe_highlight" attrs="{'invisible': ['|', ('state', '!=', 'to_approve'), ('is_resend', '=', True)]}"/>
+                </xpath>
+
+                <!-- add approval_history_ids in new page inside notebook -->
+                <xpath expr="//notebook" position="inside">
+                    <!-- <page name="history" string="Approvals" attrs="{'invisible': [('state', 'in', ('draft'))]}"> -->
+                    <page name="history" string="Approvals">
+                        <field name="has_ask" invisible="1"/>
+                        <field name="is_current_approver" invisible="1"/>
+                        <field name="is_requestor" invisible="1"/>
+                        <field name="is_rejected" invisible="1"/>
+                        <field name="is_resend" invisible="1"/>
+                        <field name="selected_approver_ids" widget="many2many_tags" invisible="1"/>
+                        <field name="approval_history_ids" readonly="1"/>
+                    </page>
+                    <page name="approval_message" string="Message Details">
+                        <field name="approval_message_ids" readonly="1"/>
+                    </page>
+                </xpath>
+
+                <!-- put hierarchy_id and current_user_id after assigned_to -->
+                <xpath expr="//field[@name='assigned_to']" position="after">
+                    <field name="hierarchy_id" domain="[('module', '=', 'purchase.request')]" attrs="{'readonly': [('state', '!=', 'draft')]}" options="{'no_create': True, 'no_create_edit': True}"/>
+                    <field name="current_user_id"/>
+                    <field name="selected_approver_id" domain="[('id', 'in', selected_approver_ids)]"
+                        attrs="{'invisible': ['|', ('is_rejected', '=', False), ('hierarchy_id', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_purchase_request_search" model="ir.ui.view">
+            <field name="name">view.purchase.request.search</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_search"/>
+            <field name="arch" type="xml">
+                <!-- add my_approvals filter before message_needaction -->
+                <xpath expr="//filter[@name='message_needaction']" position="before">
+                    <separator/>
+                    <filter name="my_approvals" string="My Approvals" domain="[('current_user_id', '=', uid)]"/>
+                    <separator/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

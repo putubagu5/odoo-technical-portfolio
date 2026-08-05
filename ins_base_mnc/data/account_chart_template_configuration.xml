@@ -1,0 +1,5 @@
+<odoo noupdate="1">
+    <function model="account.chart.template" name="try_loading">
+        <value eval="[ref('mnc_chart')]"/>
+    </function>
+</odoo>

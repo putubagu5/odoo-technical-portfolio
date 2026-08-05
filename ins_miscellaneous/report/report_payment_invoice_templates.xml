@@ -1,0 +1,205 @@
+<odoo>
+    <template id="report_payment_invoice_misc_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_miscellaneous.report_payment_invoice_misc_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_payment_invoice_misc_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="size: 10pt !important;">
+                <!-- header -->
+                <div class="row">
+                    <!-- company name -->
+                    <div class="col-6">
+                        <!-- <t t-esc="o.company_id.name"/> -->
+                        <br/>
+                        <!-- <span t-field="o.company_id.partner_id" t-options="{'widget': 'contact', 'fields': ['address'], 'no_marker': true}"/> -->
+                    </div>
+                    <!-- print date -->
+                    <div class="col-6">
+                        <!-- Printed : <t t-esc="datetime.date.today()"/> -->
+                    </div>
+                </div>
+
+                <!-- title -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3><strong>Payment Voucher</strong></h3>
+                    </div>
+                </div>
+
+                <!-- section 1 -->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3">Voucher No</div>
+                            <!-- <div class="col-9">: <t t-esc="o.name"/></div> -->
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Payment Doc</div>
+                            <div class="col-9">: </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Document No</div>
+                            <!-- <t t-if="o.payment_method_id.name == 'Manual'">
+                                <div class="col-9">: <span t-field="o.document_no"/></div>
+                            </t>
+                            <t t-if="o.payment_method_id.name == 'Checks'">
+                                <div class="col-9">: <span t-field="o.check_no"/></div>
+                            </t> -->
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3">Payment Date</div>
+                            <!-- <div class="col-9">: <t t-esc="o.date.strftime('%d-%b-%Y')"/></div> -->
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Clear Date</div>
+                            <div class="col-9">: </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- section 2 -->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3">Bank Account</div>
+                            <div class="col-9">: 
+                                <!-- <span t-field="o.journal_id.name"/> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Paid To</div>
+                            <!-- <div class="col-9">: <t t-esc="o.partner_id.name"/></div> -->
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Supplier No</div>
+                            <div class="col-9">: </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Supplier Site</div>
+                            <div class="col-9">: </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Employee Name</div>
+                            <div class="col-9">: </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- section 3 -->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3">Description</div>
+                            <!-- <div class="col-9">: <t t-esc="o.ref"/></div> -->
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3">Amount IDR</div>
+                            <!-- <div class="col-9">
+                                : <span t-field="o.amount"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div> -->
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Accounted</div>
+                            <!-- <div class="col-9">: <span t-field="o.amount_in_words_2"/></div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- table -->
+                <div class="row">
+                    <div class="col-12">
+                        APPLY TO
+                        <table class="table table-sm table-bordered">
+                            <tr>
+                                <td>Invoice No</td>
+                                <td>PO No</td>
+                                <td>GL Date</td>
+                                <td>Account</td>
+                                <td>Description</td>
+                                <td>Curr</td>
+                                <td>Amount</td>
+                            </tr>
+                            <!-- <tr t-foreach="o.payment_invoice_ids" t-as="line">
+                                <td><t t-esc="line.name"/></td>
+                                <td><t t-esc="line.move_id.purchase_id.name"/> <t t-esc="line.payment_id.purchase_id.name"/></td>
+                                <td><t t-esc="line.date_accounting"/></td>
+                                <td><t t-esc="line.account_id.name"/></td>
+                                <td><t t-esc="line.description"/></td>
+                                <td><t t-esc="line.currency_id.name"/></td>
+                                <t t-if="o.currency_id.name != 'IDR'">
+                                    <td class="text-center"><t t-esc="'{0:,.2f}'.format(int(line.amount))"/></td>
+                                </t>
+                                <t t-else="">
+                                    <td class="text-center"><t t-esc="'{0:,.0f}'.format(int(line.amount))"/></td>
+                                </t>
+                            </tr> -->
+                        </table>
+                    </div>
+                </div>
+
+                <!-- section 4 -->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3">Cheque / Giro</div>
+                            <!-- <t t-if="o.check_no">
+                                <div class="col-9">: <span t-field="o.check_no"/></div>
+                            </t>
+                            <t t-else="">
+                                <div class="col-9">: <span t-field="o.document_no"/></div>
+                            </t> -->
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Cheque / Giro Date</div>
+                            <div class="col-9">: </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Cheque / Giro Due Date</div>
+                            <div class="col-9">: </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- signature tables -->
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-sm table-bordered">
+                            <tr>
+                                <td class="text-center" width="15%">Prepared By</td>
+                                <td class="text-center" width="15%">Checked by</td>
+                                <td class="text-center" colspan="3">Approved By</td>
+                                <td class="text-center" width="15%">Received By</td>
+                            </tr>
+                            <tr>
+                                <td width="15%"><br/><br/><br/></td>
+                                <td width="15%"><br/><br/><br/></td>
+                                <td width="22%"><br/><br/><br/></td>
+                                <td width="11%"><br/><br/><br/></td>
+                                <td width="22%"><br/><br/><br/></td>
+                                <td width="15%"><br/><br/><br/></td>
+                            </tr>
+                            <tr>
+                                <td>"span t-field="o.create_uid.name"</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

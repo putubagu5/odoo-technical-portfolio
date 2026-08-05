@@ -1,0 +1,143 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="program_costs_line_gen21_form_view">
+            <field name="name">program.costs.line.gen21.form.view</field>
+            <field name="model">program.costs.line.gen21</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,wait,posted"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="header_attribute1" string="PO/Contract Number" style="font-weight:bold;"/>
+                            <h1><field name="header_attribute1"/></h1>
+                            <label for="gl_date" string="Tanggal Kirim Dari Interface" style="font-weight:bold;"/>
+                            <h4><field name="gl_date"/></h4>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="transaction_id"/>
+                                <field name="uniqkey"/>
+                                <field name="interface_source_code"/>
+                                <field name="source_type_code"/>
+                                <field name="requisition_type"/>
+                                <field name="destination_type_code"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="quantity"/>
+                                <field name="uom_code"/>
+                                <field name="unit_price"/>
+                                <field name="currency_unit_price"/>
+                                <field name="currency_rate_price"/>
+                                <field name="authorization_status"/>
+                                <field name="group_code"/>
+                            </group>
+                        </group>
+
+                        <grouo>
+                            <group>
+                                <field name="header_attribute_category"/>
+                                <field name="header_attribute3"/>
+                                <field name="header_attribute2"/>
+                                <field name="header_attribute4"/>
+                                <field name="header_attribute5"/>
+                                <field name="header_attribute10"/>            
+                            </group>
+                        </grouo>
+
+                        <group>
+                            <group>
+                                <field name="deliver_to_location_id"/>
+                                <field name="item_segment1"/>
+                                <field name="item_description"/>
+                                <field name="destination_organization_code"/>
+                                <field name="destination_subinventory"/>
+                                <field name="need_by_date"/>
+                            </group>
+                        </group>
+                        
+
+                        <group>
+                            <group>
+                                <field name="org_id"/>
+                                <field name="deliver_to_requestor_id"/>
+                                <field name="preparer_id"/>
+                                <field name="suggested_buyer_id"/>
+                                <field name="suggested_vendor_id"/>
+                                <field name="suggested_vendor_name"/>    
+                            </group>
+                        </group> 
+
+                        <group>
+                            <group>
+                                <field name="charge_account_id"/>
+                                <field name="variance_account_id"/>
+                                <field name="budget_account_id"/>
+                                <field name="currency_code"/>
+                                <field name="rate"/>
+                                <field name="rate_type"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="charge_account_segment1"/>
+                                <field name="charge_account_segment2"/>
+                                <field name="charge_account_segment3"/>
+                                <field name="charge_account_segment4"/>
+                                <field name="charge_account_segment5"/>
+                                <field name="charge_account_segment6"/>    
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="last_update_date"/>
+                                <field name="last_updated_by"/>
+                                <field name="rate_date"/>
+                                <field name="currency_rate_price"/>
+                                <field name="line_attribute15"/>
+                                <field name="line_attribute_category"/>
+                            </group>
+                        </group>
+                                            
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="program_costs_line_gen21_tree_view">
+            <field name="name">program.costs.line.gen21.tree.view</field>
+            <field name="model">program.costs.line.gen21</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="header_attribute1"/>
+                    <field name="gl_date"/>
+                    <field name="header_attribute3"/>
+                    <field name="header_attribute4"/>
+                    <field name="header_attribute5"/>
+                    <field name="unit_price_decimal" widget="monetary"/>
+                    <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'draft'" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="program_costs_line_gen21_action">
+            <field name="name">Program Costs Line</field>
+            <field name="res_model">program.costs.line.gen21</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        
+        <menuitem
+            id="menu_program_costs_line_gen21_act"
+            sequence="2"
+            parent="menu_program_costs_gen21"
+            action="program_costs_line_gen21_action"
+        />
+    </data>
+</odoo>

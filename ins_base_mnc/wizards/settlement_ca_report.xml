@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+    <record id="settlement_ca_report_view_form" model="ir.ui.view">
+        <field name="name">settlement.ca.report.view.form</field>
+        <field name="model">settlement.ca.report</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="company_id"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Print" name="print_report" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="settlement_ca_report_action" model="ir.actions.act_window">
+        <field name="name">Settlement Ca Report XLSX</field>
+        <field name="res_model">settlement.ca.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_settlement_ca_report_report"
+            name="Settlement CA Report"
+            action="settlement_ca_report_action"
+            parent="account.menu_finance_payables"
+            sequence="502"/>
+    </data>
+</odoo>

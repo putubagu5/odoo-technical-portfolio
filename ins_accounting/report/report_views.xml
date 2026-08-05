@@ -1,0 +1,423 @@
+<odoo>
+    <data noupdate="1">
+        <record id="paperformat_payment_check_muamalat" model="report.paperformat">
+            <field name="name">Payment Check Muamalat</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_payment_check_mandiri" model="report.paperformat">
+            <field name="name">Payment Check Mandiri</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_payment_invoice" model="report.paperformat">
+            <field name="name">Payment Invoice A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="paperformat_payment_slip" model="report.paperformat">
+            <field name="name">Payment Slip</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">195</field>
+            <field name="page_width">215</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">16</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_payment_check" model="report.paperformat">
+            <field name="name">Payment Check</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">7</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_payment_check_mnch_mncbank" model="report.paperformat">
+            <field name="name">Payment Check MNCBANK MNCH</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">180</field>
+            <field name="page_width">70</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="paperformat_payment_giro" model="report.paperformat">
+            <field name="name">Payment Giro</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">3.5</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="report_payment_check_muamalat" model="ir.actions.report">
+            <field name="name">MNCH Payment Check (-Muamalat-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_muamalat_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_muamalat_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check_muamalat"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_mandiri" model="ir.actions.report">
+            <field name="name">MNCH Payment Check (-Mandiri-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_mandiri_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_mandiri_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check_mandiri"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_konversi_muamalat" model="ir.actions.report">
+            <field name="name">MNCH Payment Check Konversi (-Muamalat-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_muamalat_konversi_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_muamalat_konversi_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check_muamalat"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_konversi_mandiri" model="ir.actions.report">
+            <field name="name">MNCH Payment Check Konversi (-Mandiri-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_mandiri_konversi_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_mandiri_konversi_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check_mandiri"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_invoice" model="ir.actions.report">
+            <field name="name">Payment Voucher</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_invoice_container</field>
+            <field name="report_file">ins_accounting.report_payment_invoice_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_invoice"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- <record id="report_payment_invoice_valas" model="ir.actions.report">
+            <field name="name">Payment Voucher Valas</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_invoice_valas_container</field>
+            <field name="report_file">ins_accounting.report_payment_invoice_valas_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_invoice"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record> -->
+
+        <record id="report_payment_slip" model="ir.actions.report">
+            <field name="name">Payment Slip (-MNCH-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_slip_container</field>
+            <field name="report_file">ins_accounting.report_payment_slip_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_slip"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_valas" model="ir.actions.report">
+            <field name="name">Payment Slip Valas (-MNCH-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_slip_valas_container</field>
+            <field name="report_file">ins_accounting.report_payment_slip_valas_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_slip"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check" model="ir.actions.report">
+            <field name="name">Payment Check (-MNCH-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_konversi" model="ir.actions.report">
+            <field name="name">Payment Check Konversi (-MNCH-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_konversi_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_konversi_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_giro" model="ir.actions.report">
+            <field name="name">Bilyet Giro (-MNCH-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_giro_container</field>
+            <field name="report_file">ins_accounting.report_giro_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_giro"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!--Paper Format Check-->
+        <record id="paperformat_payment_check" model="report.paperformat">
+            <field name="name">Payment Check</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">8</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="report_payment_check_bca" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-BCA-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_bca_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_bca_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_bjb" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-BJB-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_bjb_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_bjb_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_bri" model="ir.actions.report">
+            <field name="name">MNCH Payment Check (-BRI-)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_bri_mnch_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_bri_mnch_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_capital" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-Capital-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_capital_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_capital_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_mandiri_bank_cash" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-Mandiri-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_mandiri_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_mandiri_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_mncbank" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-MNC Bank-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_mnc_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_mnc_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_permata" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-Permata-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_permata_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_permata_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_check_sinarmas" model="ir.actions.report">
+            <field name="name">3TV Payment Check (-Sinarmas-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_check_sinarmas_container</field>
+            <field name="report_file">ins_accounting.report_payment_check_sinarmas_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_payment_check"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!--Paper Format Slip-->
+        <record id="paperformat_3tv_payment_slip" model="report.paperformat">
+            <field name="name">Payment Slip</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+        <record id="report_payment_slip_bca" model="ir.actions.report">
+            <field name="name">3TV Payment Slip (-BCA-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_slip_bca_container</field>
+            <field name="report_file">ins_accounting.report_payment_slip_bca_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_bjb" model="ir.actions.report">
+            <field name="name">3TV Payment Slip (-BJB-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_slip_bjb_container</field>
+            <field name="report_file">ins_accounting.report_payment_slip_bjb_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_bri" model="ir.actions.report">
+            <field name="name">3TV Payment Slip (-BRI-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_slip_bri_container</field>
+            <field name="report_file">ins_accounting.report_payment_slip_bri_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_mncbank" model="ir.actions.report">
+            <field name="name">3TV Payment Slip (-MNC Bank-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_slip_mnc_container</field>
+            <field name="report_file">ins_accounting.report_payment_slip_mnc_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_kliring_mandiri" model="ir.actions.report">
+            <field name="name">3TV Payment Slip Kliring (-Mandiri-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_slip_kliring_container</field>
+            <field name="report_file">ins_accounting.report_payment_slip_kliring_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_payment_slip_multi_mandiri" model="ir.actions.report">
+            <field name="name">3TV Payment Slip Multipayment (-Mandiri-)</field>
+            <field name="model">bank.cash.transfer</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ins_accounting.report_payment_slip_multipayment_container</field>
+            <field name="report_file">ins_accounting.report_payment_slip_multipayment_container</field>
+            <field name="paperformat_id" ref="ins_accounting.paperformat_3tv_payment_slip"/>
+            <field name="binding_model_id" ref="ins_accounting.model_bank_cash_transfer"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

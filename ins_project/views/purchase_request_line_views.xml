@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <record id="inherit_purchase_request_form" model="ir.ui.view">
+            <field name="name">inherit.purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']//notebook" position="inside">
+                    <page name="project_details" string="PMIS">
+                        <field name="project_ids">
+                            <tree editable="bottom">
+                                <field name="budget_ids" invisible="1" widget="many2many_tags"/>
+                                <field name="expenditure_type_ids" invisible="1" widget="many2many_tags"/>
+                                <field name="line_number" readonly="1"/>
+                                <field name="project_id" required="1"/>
+                                <!-- <field name="program_id" required="1" domain="[('program_id', '=', project_id), ('task_status', '=', 'approve')]"/> -->
+                                <field name="budget_line_id" invisible="1"/>
+                                <field name="task_id" required="1" attrs="{'readonly': [('project_id', '=', False)]}" domain="[('program_id', '=', project_id)]"/>
+                                <field name="subtask_id" required="1" attrs="{'readonly': [('project_id', '=', False)]}" domain="[('line_id', '=', task_id)]"/>
+                                <field name="expenditure_type_id" required="1" attrs="{'readonly': [('project_id', '=', False)]}" domain="[('id', 'in', expenditure_type_ids)]"/>
+                                <field name="percentage" required="1"/>
+                                <field name="qty" force_save="1"/>
+                                <field name="amount" force_save="1"/>
+                                <field name="remaining_budget" force_save="1"/>
+                                <field name="line_id" invisible="1"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <field name="episodes"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_purchase_request_line_form" model="ir.ui.view">
+            <field name="name">inherit.purchase.request.line.form</field>
+            <field name="model">purchase.request.line</field>
+            <field name="inherit_id" ref="purchase_request.purchase_request_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="project_details" string="PMIS">
+                        <field name="project_ids">
+                            <tree editable="bottom">
+                                <field name="line_number"/>
+                                <field name="project_id" required="1"/>
+                                <field name="program_id" invisible="1"/>
+                                <field name="task_id"/>
+                                <field name="subtask_id"/>
+                                <field name="expenditure_type_id"/>
+                                <field name="percentage"/>
+                                <field name="qty"/>
+                                <field name="amount"/>
+                                <field name="remaining_budget"/>
+                                <field name="line_id" invisible="1"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <field name="episodes"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

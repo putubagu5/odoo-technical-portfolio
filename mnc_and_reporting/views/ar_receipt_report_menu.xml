@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_menu_ar_receipt_report_wizard" model="ir.actions.act_window">
+            <field name="name">AR Receipt Report</field>
+            <field name="res_model">ar.receipt.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">
+                {'default_report_type': 'ar_receipt', 'form_view_ref': 'mnc_and_reporting.and_report_wizard_form_view'}
+            </field>
+        </record>
+
+        <record id="menu_ar_receipt_report_wizard" model="ir.ui.menu">
+            <field name="name">AR Receipt Report</field>
+            <field name="action" ref='action_menu_ar_receipt_report_wizard'/>
+            <field name="parent_id" ref='mnc_menu_report.report_ar'/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <record id="view_project_period_form" model="ir.ui.view">
+            <field name="name">view.project.period.form</field>
+            <field name="model">project.period</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_generate" type="object" string="Generate" class="oe_highlight"
+                            attrs="{'invisible': [('has_lines', '=', True)]}"/>
+                        <button name="action_close" type="object" string="Close All" class="oe_highlight" states="open"/>
+                        <button name="action_reopen" type="object" string="Reopen All" class="oe_highlight" states="close"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="has_lines" invisible="1"/>
+                                <field name="name" required="1"/>
+                                <field name="date_start" required="1"/>
+                                <field name="date_end" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Details">
+                                <field name="line_ids" nolabel="1" attrs="{'readonly': [('state', '=', 'close')]}">
+                                    <tree editable="bottom">
+                                        <field name="name" required="1"/>
+                                        <field name="date_start" required="1"/>
+                                        <field name="date_end" required="1"/>
+                                        <field name="state" required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_project_period_tree" model="ir.ui.view">
+            <field name="name">view.project.period.tree</field>
+            <field name="model">project.period</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_project_period" model="ir.actions.act_window">
+            <field name="name">Project Period</field>
+            <field name="res_model">project.period</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_pmis"
+            name="PMIS"
+            groups="project.group_project_manager"
+            sequence="33"/>
+
+        <menuitem id="menu_pmis_config"
+            name="Configurations"
+            parent="menu_pmis"
+            sequence="2"/>
+
+        <menuitem
+            id="menu_project_period"
+            name="Project Period"
+            action="action_view_project_period"
+            groups="project.group_project_manager"
+            parent="ins_project.menu_pmis_config"
+            sequence="4"/>
+    </data>
+</odoo>

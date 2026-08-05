@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ap_budget_stock_picking_inherit_form_view" model="ir.ui.view">
+            <field name="name">ap.budget.stock.picking.inherit.form.view</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+                <field name="product_uom_qty" position="before">
+                    <field name="analytic_account_id"/>
+                </field>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

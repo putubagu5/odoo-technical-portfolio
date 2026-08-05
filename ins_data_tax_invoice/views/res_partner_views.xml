@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">view.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- add new page inside -->
+                <xpath expr="//notebook" position="inside">
+                    <page name="efaktur" string="E-Faktur">
+                        <group>
+                            <group>
+                                <field name="npwp" placeholder='99.999.999.9-999.999'/>
+                                <field name="blok"/>
+                                <field name="nomor"/>
+                                <field name="rt"/>
+                                <field name="rw"/>
+                                <field name="city_id"/>
+                                <field name="kecamatan_id"/>
+                                <field name="kelurahan_id"/>
+                                <field name="full_address" readonly="True"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

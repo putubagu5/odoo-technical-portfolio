@@ -1,0 +1,57 @@
+<odoo>
+    <template id="report_payment_check_mandiri_konversi_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_accounting.report_payment_check_mandiri_konversi_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="ins_accounting.report_payment_check_mandiri_konversi_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size: 15px !important;">
+                <!-- cheque contents -->
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%">
+                            <tr>
+                                <td width="61%" height="27px"/>
+                                <td width="39%" style="vertical-align: middle;">
+                                    <span>Jakarta,</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="27%"/>
+                                <td width="73%" height="30px" style="vertical-align: bottom;">
+                                    <span t-field="o.acc_name"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="25%"/>
+                                <td width="75%" height="30px" style="vertical-align: bottom;">
+                                    <span t-field="o.words3"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="5%"/>
+                                <td width="57%" style="vertical-align: bottom;">
+                                    <span t-field="o.words4"/>
+                                </td>
+                                <td width="38%" height="30px" style="vertical-align: bottom; font-size: 12px !important;">
+                                    <span t-field="o.amount_total_signed"
+                                          t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 0}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

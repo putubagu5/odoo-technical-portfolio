@@ -1,0 +1,151 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="inventory_costs_gen21_form_view">
+            <field name="name">inventory.costs.gen21.form.view</field>
+            <field name="model">inventory.costs.gen21</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false">
+                     <header>
+                        <button string="Post" states="wait" class="oe_highlight"
+                                name="button_post" type="object"/>
+                        <button string="Cancel" states="wait" class="oe_highlight"
+                                name="button_cancel" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,wait,posted"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name" style="font-weight:bold;"/>
+                            <h1><field name="name"/></h1>
+                             <label for="company_id" string="Company" style="font-weight:bold;"/>
+                            <h4><field name="company_id"/></h4>
+                            <label for="total_amount_debit" string="Total Amount Debit" style="font-weight:bold;"/>
+                            <h4><field name="total_amount_debit"/></h4>
+                            <label for="total_amount_credit" string="Total Amount Credit" style="font-weight:bold;"/>
+                            <h4><field name="total_amount_credit"/></h4>
+                            <label for="total_line" string="Total Line" style="font-weight:bold;"/>
+                            <h4><field name="total_line"/></h4>
+                        </div>
+                        <notebook>
+                            <page string="Inventory Costs Lines">
+                                <field name="line_ids">
+                                    <tree string="Inventory Costs Lines">
+                                        <field name="line_number" optional="hide"/>
+                                        <field name="reference4" optional="show"/>
+                                        <field name="reference1" optional="show"/>
+                                        <field name="attribute1" optional="show"/>
+                                        <field name="reference10" optional="show"/>
+                                        <field name="accounting_date" optional="show"/>
+                                        <field name="period_name" optional="show"/>
+                                        <field name="user_je_category_name" optional="show"/>
+                                        <field name="segment1" optional="show"/>
+                                        <field name="segment2" optional="show"/>
+                                        <field name="uniqkey" optional="hide"/>
+                                        <field name="currency_conversion_rate" optional="hide"/>
+                                        <field name="currency_code" optional="hide"/>
+                                        <field name="accounted_dr" optional="show"/>
+                                        <field name="accounted_cr" optional="show"/>
+                                        <field name="entered_dr" optional="show"/>
+                                        <field name="entered_cr" optional="show"/>
+                                        <field name="state" optional="hide" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'draft'"/>                  
+                                    </tree>
+                                    <form string="Inventory Costs Lines">
+                                        <div class="oe_title">
+                                            <label for="ledger_id" string="Ledger ID" style="font-weight:bold;"/>
+                                            <h1><field name="ledger_id"/></h1>
+                                            <label for="user_je_source_name" string="Source Name" style="font-weight:bold;"/>
+                                            <h4><field name="user_je_source_name"/></h4>
+                                            <label for="user_je_category_name" string="Category Name" style="font-weight:bold;"/>
+                                            <h4><field name="user_je_category_name"/></h4>
+                                            <label for="accounting_date" string="Accounting Date" style="font-weight:bold;"/>
+                                            <h4><field name="accounting_date"/></h4>
+                                        </div>
+                                        <group>
+                                            <group>
+                                                <field name="accounted_cr"/>
+                                                <field name="accounted_dr"/>
+                                                <field name="uniqkey"/>
+                                                <field name="actual_flag"/>
+                                                <field name="attribute1"/>
+                                                <field name="attribute2"/>
+                                                <field name="attribute3"/>
+                                                <field name="attribute4"/>
+                                                <field name="attribute5"/>
+                                                <field name="attribute6"/>
+                                                <field name="attribute7"/>
+                                                <field name="attribute8"/>
+                                                <field name="attribute9"/>
+                                                <field name="created_by"/>
+                                                <field name="date_created"/>
+                                            </group>
+                                            <group>
+                                                <field name="user_currency_conversion_type"/>
+                                                <field name="currency_conversion_date"/>
+                                                <field name="currency_conversion_rate"/>
+                                                <field name="currency_code"/>
+                                                <field name="entered_cr"/>
+                                                <field name="entered_dr"/>
+                                                <field name="material_id"/>
+                                                <field name="group_id"/>
+                                                <field name="period_name"/>
+                                                <field name="rec_number"/>
+                                                <field name="reference1"/>
+                                                <field name="reference10"/>
+                                                <field name="reference2"/>
+                                                <field name="reference4"/>
+                                                <field name="reference5"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <group>
+                                                <field name="segment1"/>
+                                                <field name="segment2"/>
+                                                <field name="segment3"/>
+                                                <field name="segment4"/>
+                                                <field name="segment5"/>
+                                                <field name="segment6"/>
+                                                <field name="send_date"/>
+                                                <field name="send_flag"/>
+                                                <field name="send_flag_od"/>
+                                                <field name="update_date"/>
+                                                <field name="update_user"/>
+                                                <field name="usage_number"/>
+                                                <field name="usage_run_id"/>
+                                                <field name="status"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="inventory_costs_gen21_tree_view">
+            <field name="name">inventory.costs.gen21.tree.view</field>
+            <field name="model">inventory.costs.gen21</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="name"/>
+                    <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'wait'" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="inventory_costs_gen21_action">
+            <field name="name">Inventory Costs</field>
+            <field name="res_model">inventory.costs.gen21</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        
+        <menuitem
+            id="menu_inventory_costs_gen21_act"
+            sequence="1"
+            parent="menu_inventory_costs_gen21"
+            action="inventory_costs_gen21_action"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="view_res_buyer_tree" model="ir.ui.view">
+            <field name="name">view.res.buyer.tree</field>
+            <field name="model">res.buyer</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" required="1"/>
+                    <field name="code" required="1"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_buyer" model="ir.actions.act_window">
+            <field name="name">Buyer Type</field>
+            <field name="res_model">res.buyer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_buyer"
+            name="Buyer Type"
+            action="action_res_buyer"
+            parent="base.menu_users"
+            sequence="50"/>
+    </data>
+</odoo>

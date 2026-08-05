@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="budget_summary_wizard_form_view" model="ir.ui.view">
+            <field name="name">budget.summary.wizard.form.view</field>
+            <field name="model">budget.summary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="period_id"/>
+                            <field name="company_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="analytic_account_group_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="submit" string="Submit" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="budget_summary_wizard_action" model="ir.actions.act_window">
+            <field name="name">Budget Summary</field>
+            <field name="res_model">budget.summary</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="budget_summary_wizard_menu"
+                  name="Budget Summary"
+                  action="budget_summary_wizard_action"
+                  parent="account.menu_finance_entries_management"
+                  groups="account.group_account_manager"
+                  sequence="62"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_stock_return_picking_form_inherit" model="ir.ui.view">
+        <field name="name">view.stock.return.picking.form.inherit</field>
+        <field name="model">stock.return.picking</field>
+        <field name="inherit_id" ref="stock.view_stock_return_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_return_moves']//tree//field[@name='quantity']" position="replace">
+                <field name="quantity" id="quantity_default" invisible="1"/>
+                <field name="quantity" id="quantity_cust" digits="[12, 2]" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

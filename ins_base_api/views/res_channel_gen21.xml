@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_res_channel_gen21_form" model="ir.ui.view">
+            <field name="name">res.channel.gen21.form</field>
+            <field name="model">res.channel.gen21</field>
+            <field name="arch" type="xml">
+                <form string="Channel Gen21">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_res_channel_gen21_tree" model="ir.ui.view">
+            <field name="name">res.channel.gen21.tree</field>
+            <field name="model">res.channel.gen21</field>
+            <field name="arch" type="xml">
+                <tree string="Channel Gen21">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_channel_gen21_form" model="ir.actions.act_window">
+            <field name="name">Channel Gen21</field>
+            <field name="res_model">res.channel.gen21</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a Channel gen21
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_action_res_channel_gen21_form"
+            action="ins_base_api.action_res_channel_gen21_form"
+            parent="menu_config_gen21"
+            sequence="2"/>
+
+    </data>
+</odoo>

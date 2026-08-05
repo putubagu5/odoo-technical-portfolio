@@ -1,0 +1,213 @@
+<odoo>
+    <template id="report_invoice_ar_3tv_bms_new_container">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="ins_base_api.report_invoice_ar_3tv_bms_new_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_invoice_ar_3tv_bms_new_document">
+        <t t-call="web.basic_layout">
+              <div class="page" style="font-size: 12px !important;">
+                    <t t-if="o.company_id.logo">
+                        <img t-att-src="image_data_uri(o.company_id.logo)" class="float-left" style="max-height: 250px;max-width: 200px;  display: block;margin-left: auto;margin-right: auto;" alt="Logo"/>
+                    </t>
+
+                    <div class="row" style="border-right: 1px solid;border-left: 1px solid;border-top: 1px solid; background-color:#86d2df;">
+                        <div class="col-12">
+                            <h3><center>INVOICE</center></h3>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border-right: 1px solid;border-left: 1px solid;border-top: 1px solid;">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-4">Bill To</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.partner_id.name"/></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Address</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><span t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'/></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Advertiser</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.advertiser_gen21"/></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Product</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.product_gen21"/></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">TX/CHANNEL</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.channel_name_gen21"/></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Description</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.ref"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-4">Invoice No</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.payment_reference"/></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Date</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.invoice_date_due.strftime('%d-%b-%Y')"/></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Contract No</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.mo_numbers_gen21"/></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Job No</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Salses Office</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">Sales Person</div>
+                                        <div class="col-1">:</div>
+                                        <div class="col-7"><t t-esc="o.sales_person_gen21"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border: 1px solid;">
+                        <div class="col-9 text-center">
+                            Description
+                        </div>
+                        <div class="col-3 text-center" style="border-left: 1px solid;">
+                            Amount
+                        </div>
+                    </div>
+                    <t t-foreach="o.invoice_line_ids" t-as="line"> 
+                    <div class="row" style="border-right: 1px solid;">
+                        <div class="col-6" style="border-left: 1px solid;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <t t-esc="o.ref"/><br/>
+                                    NO PO : <t t-esc="o.po_numbers_gen21"/>
+                                </div>
+                                <div class="col-6">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                        <div class="col-3" style="border-left: 1px solid;">
+                        </div>
+                    </div>
+
+                    <div class="row" style="border-right: 1px solid;">
+                        <div class="col-6" style="border-left: 1px solid;">
+                        </div>
+                        <div class="col-3">
+                         Total Gross
+                        </div>
+                        <div class="col-3 text-right" style="border-left: 1px solid;">
+                        <t t-esc="'{:,.2f}'.format(line.total_gross_gen21)"/>
+                        </div>
+                    </div>
+                    <div class="row" style="border-right: 1px solid;">
+                        <div class="col-6" style="border-left: 1px solid;">
+                        </div>
+                        <div class="col-3">
+                        Agency Discount
+                        </div>
+                        <div class="col-3 text-right" style="border-left: 1px solid;">
+                        <t t-esc="'{:,.2f}'.format(line.total_gross_gen21 * (line.agency_discount_gen21/100))"/>
+                        </div>
+                    </div>
+                    <div class="row" style="border-right: 1px solid;">
+                        <div class="col-6" style="border-left: 1px solid;">
+                        </div>
+                        <div class="col-3">
+                         Net Amount
+                        </div>
+                        <div class="col-3 text-right" style="border-left: 1px solid;">
+                        <t t-esc="'{:,.2f}'.format(o.amount_untaxed)"/>
+                        </div>
+                    </div>
+                    <div class="row" style="border-right: 1px solid;">
+                        <div class="col-6" style="border-left: 1px solid;">
+                        </div>
+                        <div class="col-3">
+                         VAT
+                        </div>
+                        <div class="col-3 text-right" style="border-left: 1px solid;">
+                        <t t-set="amount_vat" t-value="0"/>
+                        <t t-set="taxes" t-value="o.get_tax_info()"/>
+                        <t t-foreach="taxes" t-as="tax">
+                            <t t-set="amount_vat" t-value="amount_vat + tax[1]"/>
+                        </t>
+                        <t t-esc="amount_vat"/>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border-right: 1px solid;">
+                        <div class="col-6" style="border-left: 1px solid;">
+                        </div>
+                        <div class="col-3">
+                         Total Due
+                        </div>
+                        <div class="col-3 text-right" style="border-left: 1px solid;">
+                        <t t-esc="'{:,.2f}'.format(o.amount_total)"/>
+                        </div>
+                    </div>
+                    </t>
+                    <div class="row" style="border: 1px solid; background-color:#86d2df;">
+                        <div class="col-12"><strong>In Words: </strong><t t-esc="o.amount_due_in_words_2"/></div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-12">
+<pre>Please remit to : <t t-esc="o.company_id.name"/>
+<t t-set="partner_remit" t-value="o.get_partner_remit()"/>
+<t t-foreach="partner_remit" t-as="remit">
+    <t t-esc="remit"/>
+</t></pre>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-12">
+                            <strong>Notes:</strong>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <t t-esc="o.narration"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-6">
+                            <strong><t t-esc="o.company_id.name"/></strong>
+                            <br/>
+                            <span t-field="o.company_id.partner_id" t-options='{"widget": "contact", "fields": ["address","phone"], "no_marker": True}'/>
+                        </div>
+                    </div>
+              </div>
+        </t>
+    </template>
+</odoo>
